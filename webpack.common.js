@@ -24,6 +24,7 @@ module.exports = {
           options: {
             presets: ['env'],
             plugins: [
+              ['transform-react-jsx', { 'pragma': 'h' }],
               ['transform-class-properties']
             ]
           }
