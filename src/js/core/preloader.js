@@ -1,14 +1,14 @@
 import config from '../config'
-import emitter from './emitter'
-import { APP_READY } from '../config/constants'
 import utils from '../util'
 
 class Preloader {
-  constructor () {
+  constructor (onComplete) {
     this.el = config.preloader
   }
 
-  init () {
+  init (onComplete) {
+    this.preloaded = onComplete
+
     utils.detectPointer()
     utils.detectBrowser()
 
@@ -28,7 +28,7 @@ class Preloader {
 
     config.body.classList.remove('is-loading')
 
-    emitter.emit(APP_READY)
+    this.preloaded()
   }
 }
 

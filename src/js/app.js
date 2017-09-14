@@ -19,9 +19,9 @@ class App {
   }
 
   init () {
-    emitter.on(APP_READY, this.ready)
+    const ready = this.ready.bind(this)
 
-    preloader.init()
+    preloader.init(ready)
   }
 
   ready = () => {
@@ -31,12 +31,12 @@ class App {
     this.animateIn()
   }
 
-  addEventListeners () {
-    window.addEventListener('resize', debounce(this.broadcastResize, 200))
-  }
-
   animateIn () {
     return transition.tween.fadeIn(this.el)
+  }
+
+  addEventListeners () {
+    window.addEventListener('resize', debounce(this.broadcastResize, 200))
   }
 
   broadcastResize = () => {
