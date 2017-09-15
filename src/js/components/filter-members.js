@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import cache from '../util/cache'
+import util from '../util'
 
 class FilterMembers extends Component {
   state = {
@@ -8,26 +8,9 @@ class FilterMembers extends Component {
   }
 
   componentDidMount () {
-    this.fetch(this.props.url)
-  }
+    this.fetch = util.wpFetch(this)
 
-  fetch (url) {
-    if (cache.has(url)) {
-      this.setState({
-        [url]: cache.get(url),
-        loading: false
-      }, console.log('data loaded from cache'))
-    } else {
-      fetch(url)
-        .then(res => res.json())
-        .then(json => {
-          cache.set(url, json)
-          this.setState({
-            [url]: json,
-            loading: false
-          }, console.log('data loaded from api'))
-        })
-    }
+    this.fetch(this.props.url)
   }
 
   render ({ url }, { loading }) {
@@ -35,8 +18,7 @@ class FilterMembers extends Component {
       <ul style={{ marginTop: 20 }}>
       {!loading &&
         this.state[url].map(item =>
-          <li>{item.name}</li>)
-      }
+          <li>{item.name}</li>)}
       </ul>
     )
   }
