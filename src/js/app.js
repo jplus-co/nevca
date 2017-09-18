@@ -7,7 +7,7 @@ import transition from './transitions'
 import {
   WINDOW_RESIZE,
   APP_READY
-} from './config/constants'
+} from './constants'
 
 class App {
   constructor () {

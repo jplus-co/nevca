@@ -1,6 +1,8 @@
 import cache from './cache'
 
-const wpFetch = context => url => {
+// TODO: return a promise? 😏
+
+const fetch = context => url => {
   // Set loading flag to true
   !context.state.loading && context.setState({ loading: true })
 
@@ -12,9 +14,10 @@ const wpFetch = context => url => {
     }, console.log('data loaded from cache'))
   } else {
     // Or we'll fetch it
-    fetch(url)
+    window.fetch(url)
     .then(res => res.json())
     .then(json => {
+      console.log(json)
       cache.set(url, json)
       context.setState({
         [url]: json,
@@ -24,4 +27,4 @@ const wpFetch = context => url => {
   }
 }
 
-export default wpFetch
+export default fetch

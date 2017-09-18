@@ -3,7 +3,7 @@ import router from './router'
 import detectPointer from './detect-pointer'
 import detectBrowser from './detect-browser'
 import cache from './cache'
-import wpFetch from './wp-fetch'
+import fetch from './fetch'
 
 export default {
   scroll,
@@ -11,5 +11,5 @@ export default {
   detectPointer,
   detectBrowser,
   cache,
-  wpFetch
+  fetch
 }

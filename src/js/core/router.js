@@ -8,7 +8,7 @@ import {
   INIT_STATE_CHANGE,
   NEW_PAGE_READY,
   TRANSITION_COMPLETED
-} from '../config/constants'
+} from '../constants'
 
 class Router {
   constructor () {

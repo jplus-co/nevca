@@ -1,18 +1,19 @@
 import Barba from 'barba.js'
 import { h, render } from 'preact'
 
-import FilterMembers from '../components/filter-members.js'
+import BrowseMembers from '../components/BrowseMembers.js'
+import { PARENT_SECTORS_ENDPOINT } from '../constants'
 
 const members = Barba.BaseView.extend({
 	namespace: 'members',
 
 	onEnter () {
-    render(
-      <FilterMembers
-        url={'/wp-json/wp/v2/industries'}
-      />,
-      document.querySelector('.browse-members')
-    )
+		const rootEl = document.querySelector('#members-container')
+
+		render(
+			<BrowseMembers url={PARENT_SECTORS_ENDPOINT} />,
+			rootEl
+		)
   },
 
 	onEnterCompleted () {},
