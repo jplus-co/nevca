@@ -9,7 +9,7 @@
             "type": "image",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": null,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -24,7 +24,7 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "http:\/\/toy.com"
         },
         {
             "key": "field_59c07dbae7aea",
@@ -108,5 +108,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1505787468
+    "modified": 1505848791
 }

@@ -37,18 +37,17 @@ class BrowseMembers extends Component {
   render (props, { loading, sectorData }) {
     return (
       <ul class='filter-container' style={{ marginTop: 20 }}>
-      {!loading &&
-        sectorData.map(parent =>
-          <li class='filter-group' style={{ marginBottom: 20 }} key={parent.id}>
-            <h4 style={{ marginBottom: 10 }}>{parent.name}</h4>
-            <ul>
-              {parent.children.map(child =>
-                <li data-id={child.id} key={child.id}>{child.name}</li>)}
-            </ul>
-
-          </li>
-        )
-      }
+        {!loading &&
+          sectorData.map(parent =>
+            <li class='filter-group' style={{ marginBottom: 20 }} key={parent.id}>
+              <h4 style={{ marginBottom: 10 }}>{parent.name}</h4>
+              <ul>
+                {parent.children.map(child =>
+                  <li data-id={child.id} key={child.id}>{child.name}</li>)}
+              </ul>
+            </li>
+          )
+        }
       </ul>
     )
   }
