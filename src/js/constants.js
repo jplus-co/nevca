@@ -8,8 +8,5 @@ export const NEW_PAGE_READY = 'newPageReady'
 export const TRANSITION_COMPLETED = 'transitionCompleted'
 
 // Browse Members Preact App constants
-export const TECHNOLOGY_ID = 148
-export const LIFE_SCIENCE_ID = 149
+export const SECTORS_ENDPOINT = '/wp-json/wp/v2/sectors/?per_page=99'
 export const PARENT_SECTORS_ENDPOINT = '/wp-json/wp/v2/sectors/?parent=0'
-export const TECHNOLOGY_CHILD_SECTORS_ENDPOINT = `/wp-json/wp/v2/sectors/?parent=${TECHNOLOGY_ID}`
-export const LIFE_SCIENCE_CHILD_SECTORS_ENDPOINT = `/wp-json/wp/v2/sectors/?parent=${LIFE_SCIENCE_ID}`

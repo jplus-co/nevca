@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import util from '../util'
 
+// adds support for react devtool browser extension
 require('preact/debug')
 
 class BrowseMembers extends Component {
@@ -11,13 +12,13 @@ class BrowseMembers extends Component {
       loading: true,
       [this.props.url]: []
     }
-
-    this.fetch = util.fetch(this)
   }
 
-
   componentDidMount () {
-    this.fetch(this.props.url)
+    util.fetch(this.props.url)
+      .then(json => {
+        console.log(json)
+      })
   }
 
   render ({ url }, { loading }) {
