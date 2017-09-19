@@ -1,29 +1,19 @@
 import cache from './cache'
 
-// TODO: return a promise? 😏
-
-const fetch = context => url => {
-  // Set loading flag to true
-  !context.state.loading && context.setState({ loading: true })
-
+const fetch = url => {
   // Check cache for url. If it alrady exists, access it via the cache
   if (cache.has(url)) {
-    context.setState({
-      [url]: cache.get(url),
-      loading: false
-    }, console.log('data loaded from cache'))
+    console.log('%cData loaded from cache.', 'color: palevioletred;')
+    return Promise.resolve(cache.get(url))
   } else {
     // Or we'll fetch it
-    window.fetch(url)
-    .then(res => res.json())
-    .then(json => {
-      console.log(json)
-      cache.set(url, json)
-      context.setState({
-        [url]: json,
-        loading: false
-      }, console.log('data loaded from api'))
-    })
+    return window.fetch(url)
+      .then(res => res.json())
+      .then(json => {
+        cache.set(url, json)
+        console.log('%cData loaded from API.', 'color: papayawhip;')
+        return Promise.resolve(json)
+      })
   }
 }
 
