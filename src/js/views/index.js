@@ -1,6 +1,6 @@
-import home from './home'
-import single from './single'
-import members from './members'
+import home from './home/view'
+import single from './single/view'
+import members from './members/view'
 
 const views = [
   home,
