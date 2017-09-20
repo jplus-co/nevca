@@ -1,5 +1,9 @@
 import { h, Component } from 'preact'
+import compose from 'lodash.compose'
 import util from '../util'
+
+import FilterPanel from './FilterPanel'
+import VisibleMemberGrid from './VisibleMemberGrid'
 
 // adds support for react devtool browser extension
 require('preact/debug')
@@ -10,45 +14,60 @@ class BrowseMembers extends Component {
 
     this.state = {
       loading: true,
-      sectorData: []
+      members: [], // [array] of member {objects}
+      activeFilters: [] // [array] of sector #ID's
     }
   }
 
+  // TODO: move into redux store config
   componentDidMount () {
-    util.fetch(this.props.url)
-      .then(this.createSectorData)
-      .then(this.ready)
+    this.fetchVisibleMembers(this.state)
+      .then(this.setMemberData)
+      .then(this.setLoading(false))
   }
 
-  createSectorData = json => (
-    json
-    .filter(sector => sector.parent === 0)
-    .map(parent => Object.assign({}, parent, {
-      // Get subsectors of parent sector and assign to new object
-      children: json.filter(sector => sector.parent === parent.id)
-    }))
+  fetchVisibleMembers = compose(
+    util.fetch,
+    this.props.membersURL
   )
 
-  ready = sectorData => this.setState({
-    loading: false,
-    sectorData
+  setLoading = value => this.setState({
+    loading: value
   })
 
-  render (props, { loading, sectorData }) {
+  setMemberData = members => this.setState({
+    members
+  })
+
+  setActiveFilters = activeFilters => this.setState({
+    activeFilters
+  })
+
+  addFilter = id => setActiveFilters([
+    ...this.state.activeFilters,
+    id
+  ])
+
+  removeFilter = id => setActiveFilters(
+    this.state.activeFilters
+      .filter(stateId => id !== stateId)
+  )
+
+  render ({ sectors }, state) {
     return (
-      <ul class='filter-container' style={{ marginTop: 20 }}>
-        {!loading &&
-          sectorData.map(parent =>
-            <li class='filter-group' style={{ marginBottom: 20 }} key={parent.id}>
-              <h4 style={{ marginBottom: 10 }}>{parent.name}</h4>
-              <ul>
-                {parent.children.map(child =>
-                  <li data-id={child.id} key={child.id}>{child.name}</li>)}
-              </ul>
-            </li>
-          )
-        }
-      </ul>
+      !state.loading && (
+        <div style={{ display: 'flex' }}>
+          <FilterPanel
+            sectors={sectors}
+            addFilter={this.addFilter}
+            removeFilter={this.removeFilter}
+            setLoading={this.setLoading}
+            setMemberData={this.setMemberData}
+            fetchVisibleMembers={this.fetchVisibleMembers}
+            {...state} />
+          <VisibleMemberGrid {...state} />
+        </div>
+      )
     )
   }
 }
