@@ -1,16 +1,40 @@
 import { h, Component } from 'preact'
+import { connect } from 'preact-redux'
+
+import { fetchSectors } from '../store/sectors/actions'
+import { fetchMembers } from '../store/members/actions'
 
 import FilterPanel from './FilterPanel'
 import VisibleMemberGrid from './VisibleMemberGrid'
 
-// adds support for react devtool browser extension
-require('preact/debug')
+class BrowseMembers extends Component {
+  componentDidMount () {
+    this.props.fetchSectors()
+    this.props.fetchMembers()
+  }
 
-const BrowseMembers = (props) => (
-  <div style={{ display: 'flex' }}>
-    <FilterPanel {...props} />
-    <VisibleMemberGrid {...props} />
-  </div>
-)
+  render (props, state) {
+    return (
+      <div style={{ display: 'flex' }}>
+        <FilterPanel {...props} />
+        <VisibleMemberGrid {...props} />
+      </div>
+    )
+  }
+}
 
-export default BrowseMembers
+const mapStateToProps = state => ({
+  sectors: state.sectors,
+  members: state.members,
+  activeFilters: state.activeFilters
+})
+
+const mapDispatchToProps = {
+  fetchSectors,
+  fetchMembers
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BrowseMembers)
