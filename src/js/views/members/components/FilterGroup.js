@@ -11,7 +11,7 @@ const FilterGroup = ({
     <ul>
       {parent.children.map(child =>
         <FilterControl {...child} style={{ paddingLeft: 10 }}>
-          {child.name}
+          {`${child.name} (${child.count})`}
         </FilterControl>
       )}
     </ul>
