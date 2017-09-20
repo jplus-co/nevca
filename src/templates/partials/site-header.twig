@@ -1,0 +1,11 @@
+<header class="site-header">
+  <a href="{{ site.link }}" class="site-header__logo">
+    {{ site.title }}
+  </a>
+  {% include "primary-navigation.twig" with { "menu": menu } %}
+  <a
+    href="/members"
+    class="site-header__button">
+    CTA Button
+  </a>
+</header>

@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	{% include 'html-head.twig' %}
+	{% include "html-head.twig" %}
 </head>
 <body class="is-loading">
 
 	<noscript>
-		{% include 'noscript.twig' %}
+		{% include "noscript.twig" %}
 	</noscript>
 
-	<div id="preloader">
-		<p>Preloader</p>
-	</div>
-
-	<nav>
-		<a href="{{site.url}}" style="margin-right: 20px;" data-namespace="home">Home</a>
-		<a href="{{site.url ~ '/members/'|relative}}" data-namespace="members">Members</a>
-	</nav>
+	{% include "preloader.twig" %}
+	{% include "site-header.twig" with { "menu": menu } %}
 
 	<div id="app">
 		{% block content %}
@@ -39,10 +33,10 @@
 
 	<script>
 		window.APP = window.APP || {}
-		APP.BASE_URL = '{{site.url}}'
-		APP.BASE_URL_RELATIVE = '{{site.url|relative}}'
-		APP.THEME_URL = '{{site.theme.uri}}'
-		APP.AJAX_URL = '{{fn('admin_url', 'admin-ajax.php')}}'
+		APP.BASE_URL = "{{site.url}}"
+		APP.BASE_URL_RELATIVE = "{{site.url|relative}}"
+		APP.THEME_URL = "{{site.theme.uri}}"
+		APP.AJAX_URL = "{{fn("admin_url", "admin-ajax.php")}}"
 	</script>
 	<script src="{{site.theme.link}}/js/vendor.bundle.js" defer></script>
   <script src="{{site.theme.link}}/js/app.bundle.js" defer></script>

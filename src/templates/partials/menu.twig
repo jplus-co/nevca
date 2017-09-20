@@ -1,0 +1,15 @@
+{% if menu %}
+	<ul class="{{ block ~ '__list' }}">
+	{% for item in menu.get_items %}
+		<li class="{{ block ~ '__item' }}">
+			<a
+        class="{{ block ~ '__link' }}"
+        target="{{ item.target }}"
+        href="{{ item.link }}">
+          {{ item.title }}
+      </a>
+			{% include "menu.twig" with {"menu": item.get_children} %}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}

@@ -1,0 +1,16 @@
+.primary-navigation {
+  display: flex;
+  margin-left: auto;
+
+  &__list {
+    @include reset-list();
+    display: flex;
+    margin-left: auto;
+  }
+
+  &__item {
+    padding-left: 3rem;
+  }
+
+  &__link {}
+}
