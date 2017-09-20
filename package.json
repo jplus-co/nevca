@@ -9,11 +9,13 @@
     "start": "webpack --watch --config webpack.dev.js"
   },
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "barba.js": "^1.0.0",
     "domready": "^1.0.8",
     "fastclick": "^1.0.6",
     "gsap": "^1.20.2",
     "lodash.assign": "^4.2.0",
+    "lodash.compose": "^2.4.1",
     "lodash.debounce": "^4.0.8",
     "preact": "^8.2.5",
     "sniffer": "watsondg/sniffer"
