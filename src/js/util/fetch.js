@@ -4,7 +4,7 @@ const fetch = url => {
   // Check cache for url. If it alrady exists, access it via the cache
   if (cache.has(url)) {
     // Remove for production
-    console.log('%cData loaded from cache.', 'color: palevioletred;')
+    console.log(`%c${url}\n\nloaded from cache.\n\n`, 'color: palevioletred;')
 
     return Promise.resolve(cache.get(url))
   } else {
@@ -14,7 +14,8 @@ const fetch = url => {
       .then(json => {
         cache.set(url, json)
         // Remove for production
-        console.log('%cData loaded from API.', 'color: papayawhip;')
+        console.log(`%c${url}\n\nloaded from API.\n\n`, 'color: papayawhip;')
+
         return Promise.resolve(json)
       })
   }
