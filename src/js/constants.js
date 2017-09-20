@@ -8,5 +8,15 @@ export const NEW_PAGE_READY = 'newPageReady'
 export const TRANSITION_COMPLETED = 'transitionCompleted'
 
 // Browse Members Preact App constants
-export const SECTORS_ENDPOINT = '/wp-json/wp/v2/sectors/?per_page=99'
-export const PARENT_SECTORS_ENDPOINT = '/wp-json/wp/v2/sectors/?parent=0'
+export const API_BASE_URL = '/wp-json/wp/v2'
+export const SECTORS_URL = `${API_BASE_URL}/sectors/?per_page=99`
+export const MEMBERS_URL = `${API_BASE_URL}/firms/?per_page=16`
+
+// TODO: move this to it's own module?
+export const visibleMembersURL = ({
+  activeFilters
+}) => (
+  activeFilters.length
+    ? `${MEMBERS_URL}&sectors=${activeFilters.join(',')}`
+    : MEMBERS_URL
+)
