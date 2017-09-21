@@ -1,0 +1,52 @@
+.filter {
+  width: 100%;
+  height: 100%;
+
+  &__hit-area {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: baseline;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($black, 0.1);
+    }
+  }
+
+  &__checkbox-control {
+    position: absolute;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+
+    &:checked + .filter__checkbox {
+      background-color: $black;
+    }
+  }
+
+  &__checkbox {
+    display: inline-block;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 1px solid $black;
+    transition: all 0.2s;
+  }
+
+  &__label {
+    display: inline-block;
+    padding-left: 2rem;
+
+    .filter.filter--industry & {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .filter.filter--sector & {
+      font-size: 2rem;
+      font-weight: 400;
+    }
+  }
+}

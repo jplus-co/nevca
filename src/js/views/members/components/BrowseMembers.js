@@ -1,11 +1,8 @@
 import { h, Component } from 'preact'
-import { connect } from 'preact-redux'
 
-import { fetchSectors } from '../store/sectors/actions'
-import { fetchMembers } from '../store/members/actions'
-
+import Sidebar from './Sidebar'
 import FilterPanel from './FilterPanel'
-import VisibleMemberGrid from './VisibleMemberGrid'
+import MemberGrid from './MemberGrid'
 
 class BrowseMembers extends Component {
   componentDidMount () {
@@ -15,26 +12,19 @@ class BrowseMembers extends Component {
 
   render (props, state) {
     return (
-      <div style={{ display: 'flex' }}>
-        <FilterPanel {...props} />
-        <VisibleMemberGrid {...props} />
+      <div class={'members__inner'}>
+        <Sidebar>
+          <header class={'members__header'}>
+            <h1 class={'members__title'}>
+              Browse members
+            </h1>
+          </header>
+          <FilterPanel {...props} />
+        </Sidebar>
+        <MemberGrid {...props} />
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  sectors: state.sectors,
-  members: state.members,
-  activeFilters: state.activeFilters
-})
-
-const mapDispatchToProps = {
-  fetchSectors,
-  fetchMembers
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BrowseMembers)
+export default BrowseMembers

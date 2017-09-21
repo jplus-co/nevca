@@ -1,15 +1,17 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 
 // reducers
-import activeFilters from './activeFilters/reducer'
+import loading from './loading/reducer'
+import filters from './filters/reducer'
 import members from './members/reducer'
 import sectors from './sectors/reducer'
 
-// thunk middleware for async actions
+// thunk middleware - for async actions
 import thunk from 'redux-thunk'
 
 const rootReducer = combineReducers({
-  activeFilters,
+  loading,
+  filters,
   members,
   sectors
 })

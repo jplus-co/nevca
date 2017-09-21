@@ -4,7 +4,7 @@ import FilterGroup from './FilterGroup'
 const FilterPanel = ({
   sectors
 }) => (
-  <ul style={{ flexBasis: '25%', marginTop: 20, marginRight: 20 }}>
+  <ul class={'filter-panel'}>
     {sectors.map(parent =>
       <FilterGroup parent={parent} />
     )}

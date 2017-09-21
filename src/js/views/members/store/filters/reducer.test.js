@@ -1,7 +1,7 @@
-// Using commonjs tests can be run in the command line using node.
+// Using commonjs so tests can be run in the command line using node.
 const deepFreeze = require('deep-freeze')
 const expect = require('expect')
-const activeFilters = require('./reducer')
+const filters = require('./reducer')
 
 const testAddFilter = () => {
   const stateBefore = []
@@ -15,7 +15,7 @@ const testAddFilter = () => {
   deepFreeze(action)
 
   expect(
-    activeFilters(stateBefore, action)
+    filters(stateBefore, action)
   ).toEqual(stateAfter)
 }
 testAddFilter()
@@ -32,7 +32,7 @@ const testRemoveFilter = () => {
   deepFreeze(action)
 
   expect(
-    activeFilters(stateBefore, action)
+    filters(stateBefore, action)
   ).toEqual(stateAfter)
 }
 testRemoveFilter()

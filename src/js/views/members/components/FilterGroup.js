@@ -1,16 +1,16 @@
 import { h } from 'preact'
-import FilterControl from './FilterControl'
+import FilterControl from '../containers/FilterControl'
 
 const FilterGroup = ({
   parent
 }) => (
-  <li style={{ marginBottom: 20 }} key={parent.id}>
+  <li class={'filter-group'} key={parent.id}>
     <FilterControl {...parent} isParent>
       {parent.name}
     </FilterControl>
-    <ul>
+    <ul class='filter-group filter-group--sector'>
       {parent.children.map(child =>
-        <FilterControl {...child} style={{ paddingLeft: 10 }}>
+        <FilterControl {...child}>
           {`${child.name} (${child.count})`}
         </FilterControl>
       )}

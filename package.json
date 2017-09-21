@@ -21,6 +21,7 @@
     "lodash.debounce": "^4.0.8",
     "preact": "^8.2.5",
     "preact-redux": "^2.0.2",
+    "preact-transition-group": "^1.1.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sniffer": "watsondg/sniffer"

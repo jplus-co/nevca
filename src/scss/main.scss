@@ -24,6 +24,7 @@ Version: 1.0.0
 
 // Objects
 @import 'objects/keyframes';
+@import 'objects/sidebar';
 
 // Components
 @import 'components/noscript';
@@ -32,5 +33,9 @@ Version: 1.0.0
 @import 'components/primary-navigation';
 @import 'components/app';
 @import 'components/view';
+@import 'components/filter-panel';
+@import 'components/filter-group';
+@import 'components/filter';
+@import 'components/members';
 @import 'components/member-grid';
 @import 'components/member-card';

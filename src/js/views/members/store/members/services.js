@@ -5,11 +5,11 @@ import { MEMBERS_URL } from '../../../../constants'
 // attempted to fix in commented code below, but isn't working correctly
 //
 // export const getMembers = (
-//   activeFilters = []
+//   filters = []
 // ) => (
-//   activeFilters.length
+//   filters.length
 //     ? Promise.all(
-//         activeFilters.map(id =>
+//         filters.map(id =>
 //           util.fetch(`${MEMBERS_URL}&sectors=${id}`)
 //         )
 //       ).then(result => result.length ? result[0] : [])
@@ -17,9 +17,9 @@ import { MEMBERS_URL } from '../../../../constants'
 // )
 
 export const getMembers = (
-  activeFilters = []
+  filters = []
 ) => (
-  activeFilters.length
-    ? util.fetch(`${MEMBERS_URL}&sectors=${activeFilters.join(',')}`)
+  filters.length
+    ? util.fetch(`${MEMBERS_URL}&sectors=${filters.join(',')}`)
     : util.fetch(MEMBERS_URL)
 )

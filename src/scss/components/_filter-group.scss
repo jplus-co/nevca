@@ -1,0 +1,7 @@
+.filter-group {
+  @include reset-list();
+
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}

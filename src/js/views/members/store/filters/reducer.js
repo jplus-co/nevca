@@ -1,4 +1,4 @@
-const activeFilters = (
+const filters = (
   state = [],
   action
 ) => {
@@ -16,4 +16,4 @@ const activeFilters = (
 }
 
 // Using commonjs so tests can be run in the command line using node.
-module.exports = activeFilters
+module.exports = filters

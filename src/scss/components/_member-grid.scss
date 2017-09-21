@@ -1,6 +1,9 @@
 .member-grid {
+  @include reset-list();
+  display: inline-block;
   display: flex;
   flex-wrap: wrap;
-  flex-basis: 75%;
-  margin: -1rem;
+  flex-basis: 70%;
+  overflow: auto;
+  padding: 1.5rem;
 }

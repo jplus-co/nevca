@@ -8,7 +8,7 @@ import { h, render } from 'preact'
 import { Provider } from 'preact-redux'
 import store from './store/index'
 
-import BrowseMembers from './components/BrowseMembers.js'
+import BrowseMembers from './containers/BrowseMembersContainer'
 
 const members = Barba.BaseView.extend({
   namespace: 'members',
@@ -18,7 +18,7 @@ const members = Barba.BaseView.extend({
   },
 
   render () {
-    const rootEl = document.querySelector('#members-container')
+    const rootEl = document.querySelector('.members')
 
     render((
       <Provider store={store}>
