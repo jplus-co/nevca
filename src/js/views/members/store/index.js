@@ -1,21 +1,9 @@
-import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import rootReducer from './rootReducer'
+import thunk from 'redux-thunk' // thunk middleware - for async actions
 
-// reducers
-import loading from './loading/reducer'
-import filters from './filters/reducer'
-import members from './members/reducer'
-import sectors from './sectors/reducer'
-
-// thunk middleware - for async actions
-import thunk from 'redux-thunk'
-
-const rootReducer = combineReducers({
-  loading,
-  filters,
-  members,
-  sectors
-})
-
+// redux devtools setup
+// TODO: remove for production
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 export default createStore(
