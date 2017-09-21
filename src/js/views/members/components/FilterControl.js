@@ -25,4 +25,4 @@ class FilterControl extends Component {
   }
 }
 
-export default FilterCheckbox
+export default FilterControl

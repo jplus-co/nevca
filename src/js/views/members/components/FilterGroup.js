@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import FilterControl from '../containers/FilterControl'
+import FilterControl from '../containers/FilterControlContainer'
 
 const FilterGroup = ({
   parent

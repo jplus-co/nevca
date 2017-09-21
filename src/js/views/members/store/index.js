@@ -1,4 +1,4 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux'
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 
 // reducers
 import loading from './loading/reducer'
@@ -16,7 +16,11 @@ const rootReducer = combineReducers({
   sectors
 })
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
 export default createStore(
   rootReducer,
-  applyMiddleware(thunk)
+  composeEnhancers(
+    applyMiddleware(thunk)
+  )
 )
