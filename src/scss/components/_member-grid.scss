@@ -4,6 +4,14 @@
   display: flex;
   flex-wrap: wrap;
   flex-basis: 70%;
+  align-content: flex-start;
   overflow: auto;
   padding: 1.5rem;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    grid-gap: 3rem;
+    padding: 3rem;
+  }
 }

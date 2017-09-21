@@ -13,7 +13,7 @@ const nestSectors = json => (
   .filter(sector => sector.parent === 0)
   .map(parent => ({
     ...parent,
-    // Get sectors of parent industry and assign to new object
+    // Get child sectors of parent industry and spread into a new object
     children: json.filter(sector => sector.parent === parent.id)
   }))
 )

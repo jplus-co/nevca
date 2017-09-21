@@ -1,5 +1,6 @@
 .member-card {
   flex-basis: 25%;
+  height: 25%;
   padding: 1.5rem;
   position: relative;
 
@@ -12,5 +13,10 @@
     padding: 2rem;
     text-decoration: none;
     line-height: 1.6;
+  }
+
+  @supports (display: grid) {
+    height: auto;
+    padding: 0;
   }
 }

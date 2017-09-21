@@ -38,6 +38,7 @@
   &__label {
     display: inline-block;
     padding-left: 2rem;
+    user-select: none;
 
     .filter.filter--industry & {
       font-size: 3rem;
