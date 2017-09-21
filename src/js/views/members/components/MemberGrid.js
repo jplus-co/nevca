@@ -1,17 +1,18 @@
 import { h } from 'preact'
-import MemberCard from './MemberCard'
+import classnames from 'classnames'
+import MemberGridList from './MemberGridList'
+import MemberGridSkeleton from './MemberGridSkeleton'
 
 const MemberGrid = ({
-  members
+  members,
+  loading
 }) => (
-  <ul class='member-grid'>
-    {members.map(member =>
-      <MemberCard
-        {...member}
-        key={member.id}
-      />
-    )}
-  </ul>
+  <div class={classnames('member-grid', {
+    'member-grid--loading': loading
+  })}>
+    <MemberGridList members={members} />
+    <MemberGridSkeleton members={members} />
+  </div>
 )
 
 export default MemberGrid

@@ -6,7 +6,7 @@ const loading = (
 ) => {
   switch (action.type) {
     case TOGGLE_LOADING:
-      return !action.loading
+      return action.loading
     default:
       return state
   }

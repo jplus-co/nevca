@@ -1,12 +1,17 @@
 import { h, Component } from 'preact'
+import classnames from 'classnames'
 
 const MemberCard = ({
-  id,
+  skeleton,
   title
 }) => (
-  <li class='member-card'>
+  <li class={classnames('member-card', {
+    'member-card--skeleton': skeleton
+  })}>
     <a class='member-card__link' href='/'>
-      <strong>{title.rendered}</strong>
+      <span class='member-card__text'>
+        {title.rendered}
+      </span>
     </a>
   </li>
 )

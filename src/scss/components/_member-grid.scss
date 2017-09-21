@@ -1,17 +1,38 @@
 .member-grid {
-  @include reset-list();
-  display: inline-block;
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
   flex-basis: 70%;
-  align-content: flex-start;
-  overflow: auto;
-  padding: 1.5rem;
 
-  @supports (display: grid) {
-    display: grid;
-    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
-    grid-gap: 3rem;
-    padding: 3rem;
+  &__list,
+  &__skeleton {
+    @include reset-list();
+    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: auto;
+    padding: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    @supports (display: grid) {
+      display: grid;
+      grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+      grid-gap: 3rem;
+      padding: 3rem;
+    }
+  }
+
+  &__skeleton {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+
+    .member-grid--loading & {
+      opacity: 1;
+    }
   }
 }

@@ -8,10 +8,10 @@ export const fetchMembers = () => (
   getState
 ) => {
   const { filters, loading } = getState()
-  !loading && dispatch(toggleLoading(loading))
+  dispatch(toggleLoading(true))
   return getMembers(filters)
     .then(compose(dispatch, loadMembers))
-    .then(() => dispatch(toggleLoading(loading)))
+    .then(() => dispatch(toggleLoading(false)))
 }
 
 export const loadMembers = members => ({

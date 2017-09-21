@@ -1,5 +1,6 @@
 .filter-group {
   @include reset-list();
+  animation: o-fade-in 0.2s forwards;
 
   &:not(:last-child) {
     margin-bottom: 4rem;
