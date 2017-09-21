@@ -1,5 +1,5 @@
-import util from '../../../../util'
-import { MEMBERS_URL } from '../../../../constants'
+import util from '@util'
+import { MEMBERS_URL } from '@constants'
 
 // TODO: cache members for each sector ID to minimize api calls.
 // attempted to fix in commented code below, but isn't working correctly

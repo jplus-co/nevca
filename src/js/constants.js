@@ -7,7 +7,14 @@ export const INIT_STATE_CHANGE = 'initStateChange'
 export const NEW_PAGE_READY = 'newPageReady'
 export const TRANSITION_COMPLETED = 'transitionCompleted'
 
-// Browse Members Preact App constants
+// WP-API endpoints
 export const API_BASE_URL = '/wp-json/wp/v2'
 export const SECTORS_URL = `${API_BASE_URL}/sectors/?per_page=99`
 export const MEMBERS_URL = `${API_BASE_URL}/firms/?per_page=16`
+
+// Redux action types
+export const TOGGLE_LOADING = 'TOGGLE_LOADING'
+export const MEMBERS_LOAD = 'MEMBERS_LOAD'
+export const SECTORS_LOAD = 'SECTORS_LOAD'
+export const ADD_FILTER = 'ADD_FILTER'
+export const REMOVE_FILTER = 'REMOVE_FILTER'

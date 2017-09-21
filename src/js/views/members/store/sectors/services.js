@@ -1,5 +1,5 @@
-import util from '../../../../util'
-import { SECTORS_URL } from '../../../../constants'
+import util from '@util'
+import { SECTORS_URL } from '@constants'
 
 export const getSectors = () => (
   // Fetch sector data from WordPress API

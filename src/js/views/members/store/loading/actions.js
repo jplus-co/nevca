@@ -1,3 +1,6 @@
-export const toggleLoading = () => ({
-  type: 'TOGGLE_LOADING'
+import { TOGGLE_LOADING } from '@constants'
+
+export const toggleLoading = loading => ({
+  type: TOGGLE_LOADING,
+  loading
 })

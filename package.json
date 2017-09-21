@@ -1,19 +1,19 @@
 {
-  "name": "wp-boilerplate",
+  "name": "NEVCA",
   "version": "1.0.0",
-  "description": "a wordpress webpack boilerplate theme using timber and barba.js",
+  "description": "A WordPress theme for the New England Venture Capital Association",
   "main": "gulpfile.js",
   "scripts": {
-    "lint": "standard --verbose | snazzy",
     "build": "webpack -p --config webpack.prod.js",
     "start": "webpack --watch --config webpack.dev.js"
   },
+  "browser": {
+    "@constants": "./src/js/constants",
+    "@util": "./src/js/util"
+  },
   "dependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "barba.js": "^1.0.0",
-    "deep-freeze": "^0.0.1",
     "domready": "^1.0.8",
-    "expect": "^21.1.0",
     "fastclick": "^1.0.6",
     "gsap": "^1.20.2",
     "lodash.assign": "^4.2.0",
@@ -21,7 +21,6 @@
     "lodash.debounce": "^4.0.8",
     "preact": "^8.2.5",
     "preact-redux": "^2.0.2",
-    "preact-transition-group": "^1.1.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sniffer": "watsondg/sniffer"
@@ -31,6 +30,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "browser-sync": "^2.18.13",
@@ -43,7 +43,9 @@
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
     "webpack": "^3.5.5",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "deep-freeze": "^0.0.1",
+    "expect": "^21.1.0"
   },
   "author": "Mike Wagenheim <mike@wagz.io> (http://wagz.io)",
   "license": "ISC"

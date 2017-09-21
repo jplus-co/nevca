@@ -1,8 +1,7 @@
-import { fetchSectors } from '../store/sectors/actions'
-import { fetchMembers } from '../store/members/actions'
-
 import { connect } from 'preact-redux'
 import BrowseMembers from '../components/BrowseMembers'
+import { fetchSectors } from '../store/sectors/actions'
+import { fetchMembers } from '../store/members/actions'
 
 const mapStateToProps = state => ({
   loading: state.loading,
