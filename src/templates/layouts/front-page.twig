@@ -3,10 +3,22 @@
 {% block content %}
 
   <div class="view" data-namespace="home">
+
+    <!-- Hero -->
     {% include "hero.twig" with {
       "hero_text": post.hero_text,
       "is_home": true
     } %}
+
+    <!-- Mission -->
+    <section id="mission" class="mission">
+      <div class="mission__inner">
+        {% include "text-block.twig" with {
+          'props': post.get_field('mission_block')
+        } %}
+      </div>
+    </section>
+
   </div>
 
 {% endblock %}
