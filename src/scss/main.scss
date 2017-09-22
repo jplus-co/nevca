@@ -25,9 +25,11 @@ Version: 1.0.0
 
 // Objects
 @import 'objects/keyframes';
+@import 'objects/hero';
 @import 'objects/sidebar';
 
 // Components
+@import 'components/container';
 @import 'components/noscript';
 @import 'components/preloader';
 @import 'components/site-header';

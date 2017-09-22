@@ -1,0 +1,27 @@
+.hero {
+  background-color: $gray-3;
+  display: flex;
+  align-items: center;
+
+  &--front-page {
+    height: 68rem;
+  }
+
+  &__inner {
+    padding: 0 12%;
+    text-align: center;
+
+    .hero--front-page & {
+      text-align: left;
+    }
+  }
+
+  &__text {
+    @include type-style-heading-lg();
+    margin: 0;
+
+    .hero--front-page & {
+      @include type-style-heading-xxl();
+    }
+  }
+}

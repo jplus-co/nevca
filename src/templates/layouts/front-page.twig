@@ -1,0 +1,12 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <div class="view" data-namespace="home">
+    {% include "hero.twig" with {
+      "hero_text": post.hero_text,
+      "is_home": true
+    } %}
+  </div>
+
+{% endblock %}

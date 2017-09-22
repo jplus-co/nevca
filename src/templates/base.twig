@@ -4,31 +4,34 @@
 	{% include "html-head.twig" %}
 </head>
 <body class="is-loading">
+	<div id="container">
 
-	<noscript>
-		{% include "noscript.twig" %}
-	</noscript>
+		<noscript>
+			{% include "noscript.twig" %}
+		</noscript>
 
-	{% include "preloader.twig" %}
-	{% include "site-header.twig" with { "menu": menu } %}
+		{% include "preloader.twig" %}
+		{% include "site-header.twig" with { "menu": menu } %}
 
-	<div id="app">
-		{% block content %}
-			<div class="view" data-namespace="home">
-		    {% if posts %}
-					<h1>{{site.title}}</h1>
-		      <ul>
-		        {% for post in posts %}
-		          <li>
-		            <a href="{{post.link|relative}}" data-namespace="single">{{post.title}}</a>
-		          </li>
-		        {% endfor %}
-		      </ul>
-				{% else %}
-		      <p>No posts.</p>
-		    {% endif %}
-			</div>
-		{% endblock %}
+		<div id="app">
+			{% block content %}
+				<div class="view" data-namespace="home">
+			    {% if posts %}
+						<h1>{{site.title}}</h1>
+			      <ul>
+			        {% for post in posts %}
+			          <li>
+			            <a href="{{post.link|relative}}" data-namespace="single">{{post.title}}</a>
+			          </li>
+			        {% endfor %}
+			      </ul>
+					{% else %}
+			      <p>No posts.</p>
+			    {% endif %}
+				</div>
+			{% endblock %}
+		</div>
+
 	</div>
 
 	<script>
