@@ -8,9 +8,12 @@
     margin-left: auto;
   }
 
-  &__item {
-    padding-left: 3rem;
+  &__link {
+    @include type-style-nav();
+    display: flex;
+    align-items: center;
+    height: 6rem;
+    padding: 0 2rem;
+    color: $black;
   }
-
-  &__link {}
 }

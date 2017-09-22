@@ -3,21 +3,27 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 8rem;
+  height: 6rem;
   padding: 0 3rem;
   background-color: #fff;
   z-index: 8888;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid $black;
+  background-color: $white;
 
-  &__logo {}
+  &__logo {
+    height: 6rem;
+    display: flex;
+    align-items: center;
+  }
 
   &__button {
     @include reset-anchor();
-    margin-left: 3rem;
-    padding: 1rem 2rem;
-    border: 1px solid $black;
+    @include type-style-nav();
+    line-height: 3rem;
+    padding: 0 3rem;
+    margin-left: 2rem;
+    border: 2px solid $black;
     transition: all 0.2s;
 
     @include hover-both() {

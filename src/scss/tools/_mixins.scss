@@ -4,6 +4,7 @@
 //
 // 1. Resets
 // 2. Hover/Active States
+// 3. Type Styles
 //
 // -----------------------------------------------------------------------------
 
@@ -98,4 +99,21 @@
       @content;
     }
   }
+}
+
+
+
+// -----------------------------------------------------------------------------
+//
+// 2. Hover/Active States
+//
+// -----------------------------------------------------------------------------
+
+
+@mixin type-style-nav() {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }

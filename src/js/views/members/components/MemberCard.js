@@ -8,7 +8,7 @@ const MemberCard = ({
   <li class={classnames('member-card', {
     'member-card--skeleton': skeleton
   })}>
-    <a class='member-card__link' href='/'>
+    <a class='member-card__link' href='/' tabindex={skeleton ? -1 : 0}>
       <span class='member-card__text'>
         {title.rendered}
       </span>
