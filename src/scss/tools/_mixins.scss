@@ -105,7 +105,7 @@
 
 // -----------------------------------------------------------------------------
 //
-// 2. Hover/Active States
+// 3. Type Styles
 //
 // -----------------------------------------------------------------------------
 
@@ -116,4 +116,70 @@
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+@mixin type-style-heading-xxl() {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 9rem;
+  text-transform: uppercase;
+}
+
+@mixin type-style-heading-xl() {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 7rem;
+  text-transform: uppercase;
+}
+
+@mixin type-style-heading-lg() {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+@mixin type-style-heading-md() {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 2.6rem;
+  text-transform: uppercase;
+}
+
+@mixin type-style-heading-sm() {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+@mixin type-style-body($weight: 400) {
+  font-family: $font-body;
+  font-weight: $weight;
+  font-size: 2rem;
+}
+
+@mixin type-style-action() {
+  font-family: $font-body;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+@mixin type-style-label() {
+  font-family: $font-body;
+  font-weight: 400;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+@mixin type-style-display-md() {
+  font-family: $font-display;
+  font-weight: 900;
+  font-size: 10rem;
+}
+
+@mixin type-style-display-sm() {
+  font-family: $font-display;
+  font-weight: 900;
+  font-size: 5rem;
 }

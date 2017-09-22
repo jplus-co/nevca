@@ -3,7 +3,6 @@
 	{% for item in menu.get_items %}
 		<li class="{{ block ~ '__item' }}">
 			<a
-				data-text="{{ item.title }}"
         class="{{ block ~ '__link' }}"
         target="{{ item.target }}"
         href="{{ item.link }}">

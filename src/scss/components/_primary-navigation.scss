@@ -12,7 +12,7 @@
     @include type-style-nav();
     display: flex;
     align-items: center;
-    height: 6rem;
+    height: $header-size;
     padding: 0 2rem;
     color: $black;
   }
