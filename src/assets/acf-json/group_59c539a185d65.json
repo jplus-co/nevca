@@ -1,0 +1,62 @@
+{
+    "key": "group_59c539a185d65",
+    "title": "Settings",
+    "fields": [
+        {
+            "key": "field_59c539ba88e9f",
+            "label": "Reverse Column Order",
+            "name": "reverse",
+            "type": "true_false",
+            "instructions": "By default, text is on the left and images are on the right. Check this box to reverse the order so that Images are on the left and text is on the right.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_59c53a6c6956f",
+            "label": "Images Margin",
+            "name": "margin",
+            "type": "true_false",
+            "instructions": "By default, images will bleed off the edge of the window. Check this box if you would like to add some whitespace between the image and edge of the window.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "modified": 1506097927
+}
