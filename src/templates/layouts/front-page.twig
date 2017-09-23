@@ -1,4 +1,4 @@
-{% extends 'base.twig' %}
+{% extends "base.twig" %}
 
 {% block content %}
 
@@ -13,12 +13,23 @@
     <!-- Mission -->
     <section id="mission" class="mission">
       <div class="mission__inner">
+
+        <!-- Mission Text -->
         {% include "text-block.twig" with {
-          'props': post.get_field('mission_block')
+          "props": post.get_field("mission_block")
         } %}
+
+        <!-- Mission Images -->
+        {% include "image-cluster.twig" with {
+          "images": post.get_field("mission_block").image_cluster
+        } %}
+
       </div>
     </section>
 
+    <div style="height: 1000px;">
+
+    </div>
   </div>
 
 {% endblock %}

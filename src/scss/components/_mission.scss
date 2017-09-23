@@ -1,0 +1,11 @@
+.mission {
+  width: 100%;
+  position: relative;
+
+  &__inner {
+    display: flex;
+    justify-content: flex-end;
+    padding: $inner-padding;
+    padding-bottom: 18%;
+  }
+}

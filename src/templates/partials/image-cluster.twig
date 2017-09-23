@@ -1,0 +1,9 @@
+{% set image_count = images|length %}
+
+{% if image_count %}
+  <div class="image-cluster">
+    {% for image in images %}
+      {% include "image-cluster-item.twig" with { 'src': images[loop.index0].url } %}
+    {% endfor %}
+  </div>
+{% endif %}

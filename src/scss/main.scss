@@ -27,6 +27,8 @@ Version: 1.0.0
 @import 'objects/keyframes';
 @import 'objects/hero';
 @import 'objects/sidebar';
+@import 'objects/text-block';
+@import 'objects/image-cluster';
 
 // Components
 @import 'components/container';
@@ -36,6 +38,7 @@ Version: 1.0.0
 @import 'components/primary-navigation';
 @import 'components/app';
 @import 'components/view';
+@import 'components/mission';
 @import 'components/filter-panel';
 @import 'components/filter-group';
 @import 'components/filter';
