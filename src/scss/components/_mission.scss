@@ -5,7 +5,6 @@
   &__inner {
     display: flex;
     justify-content: flex-end;
-    padding: $inner-padding;
-    padding-bottom: 18%;
+    padding: 10% $inner-padding 10% $inner-padding;
   }
 }

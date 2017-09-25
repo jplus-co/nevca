@@ -16,7 +16,8 @@
 
         <!-- Mission Text -->
         {% include "text-block.twig" with {
-          "props": post.get_field("mission_block")
+          "props": post.get_field("mission_block"),
+          "button": true
         } %}
 
         <!-- Mission Images -->

@@ -1,0 +1,14 @@
+.button {
+  display: inline-block;
+  @include reset-anchor();
+  @include type-style-nav();
+  padding: 2rem 6rem;
+  margin-top: 2rem;
+  border: 2px solid $black;
+  transition: all 0.2s;
+
+  @include hover-both() {
+    background-color: $black;
+    color: $white;
+  }
+}
