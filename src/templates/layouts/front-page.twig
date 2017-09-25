@@ -11,8 +11,8 @@
     } %}
 
     <!-- Mission -->
-    <section id="mission" class="mission">
-      <div class="mission__inner">
+    <section id="mission" class="section">
+      <div class="section__row justify-content-end">
 
         <!-- Mission Text -->
         {% include "text-block.twig" with {
@@ -26,6 +26,39 @@
           "ampersand": true
         } %}
 
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="section section--alt">
+
+      <!-- Events Text -->
+      <div class="section__row">
+        {% include "text-block.twig" with {
+          "props": post.get_field("events_block")
+        } %}
+      </div>
+
+      <!-- Event Tease List -->
+      <div class="section__row">
+        <div class="relative w-100">
+          <ul class="event-tease-list">
+            {% for i in 1..4 %}
+              <li class="event-tease-list__item">
+                <a class="event-tease-list__link" href="#0">Event {{ i }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+
+          <!-- View more circle button -->
+          <div class="absolute pos-br translate-x-100 p-left-3">
+            {% include 'circle-button.twig' with {
+              direction: 'right',
+              url: '/events',
+              label: 'View all'
+            } %}
+          </div>
+        </div>
       </div>
     </section>
 

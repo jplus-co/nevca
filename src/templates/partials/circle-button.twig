@@ -1,0 +1,17 @@
+<a class="circle-button" href="{{ url }}">
+  <span class="circle-button__border">
+    <span class="circle-button__inner">
+      <span class="circle-button__arrows">
+        <span class="circle-button__arrow circle-button__arrow--left">
+          {% include 'arrow-' ~ direction ~ '.twig' %}
+        </span>
+        <span class="circle-button__arrow circle-button__arrow--right">
+          {% include 'arrow-' ~ direction ~ '.twig' %}
+        </span>
+      </span>
+    </span>
+  </span>
+  <span class="circle-button__label">
+    {{ label }}
+  </span>
+</a>

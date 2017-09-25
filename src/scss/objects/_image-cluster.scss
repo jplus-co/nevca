@@ -11,6 +11,7 @@
       height: 100%;
       border-left: none;
       border-top: none;
+      border-bottom: none;
     }
 
     &:nth-child(2) {
@@ -18,6 +19,7 @@
       left: 27vw;
       width: 27vw;
       height: 36%;
+      border-bottom: none;
     }
   }
 

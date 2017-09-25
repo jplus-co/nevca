@@ -1,0 +1,24 @@
+.event-tease-list {
+  @include reset-list();
+  display: flex;
+  width: 100%;
+
+  &__item {
+    display: inline-block;
+    flex: 1;
+    padding-right: 2.4rem;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  &__link {
+    @include reset-anchor();
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 4rem 0 64% 0;
+    border: 1px solid $black;
+  }
+}

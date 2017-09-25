@@ -1,0 +1,48 @@
+.w-100 {
+  width: 100%;
+}
+
+@for $i from 1 through 10 {
+
+  // padding
+  .p-#{$i} {
+    padding: #{$i}rem;
+  }
+
+  @each $s in top, right, bottom, left {
+    .p-#{$s}-#{$i} {
+      padding-#{$s}: #{$i}rem;
+    }
+  }
+
+  .p-x-#{$i} {
+    padding-right: #{$i}rem;
+    padding-left: #{$i}rem;
+  }
+
+  .p-y-#{$i} {
+    padding-top: #{$i}rem;
+    padding-bottom: #{$i}rem;
+  }
+
+  // margin
+  .m-#{$i} {
+    margin: #{$i}rem;
+  }
+
+  @each $s in top, right, bottom, left {
+    .m-#{$s}-#{$i} {
+      margin-#{$s}: #{$i}rem;
+    }
+  }
+
+  .m-x-#{$i} {
+    margin-right: #{$i}rem;
+    margin-left: #{$i}rem;
+  }
+
+  .m-y-#{$i} {
+    margin-top: #{$i}rem;
+    margin-bottom: #{$i}rem;
+  }
+}
