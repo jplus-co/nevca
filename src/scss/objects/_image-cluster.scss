@@ -27,6 +27,18 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0;
+    background-size: 0 0; // hiding dummy images for low-fidelity
+  }
+
+  &__ampersand {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    svg {
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
   }
 }

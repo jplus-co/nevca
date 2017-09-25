@@ -3,7 +3,10 @@
 {% if image_count %}
   <div class="image-cluster">
     {% for image in images %}
-      {% include "image-cluster-item.twig" with { 'src': images[loop.index0].url } %}
+      {% include "image-cluster-item.twig" with {
+        'src': images[loop.index0].url,
+        'ampersand': ampersand and loop.index0 == 1 ? true : false
+      } %}
     {% endfor %}
   </div>
 {% endif %}

@@ -21,15 +21,14 @@
 
         <!-- Mission Images -->
         {% include "image-cluster.twig" with {
-          "images": post.get_field("mission_block").image_cluster
+          "images": post.get_field("mission_block").image_cluster,
+          "ampersand": true
         } %}
 
       </div>
     </section>
 
-    <div style="height: 1000px;">
-
-    </div>
+    <div style="height: 1000px;" />
   </div>
 
 {% endblock %}
