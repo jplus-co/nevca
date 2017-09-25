@@ -7,9 +7,8 @@ export const fetchMembers = () => (
   dispatch,
   getState
 ) => {
-  const { filters, loading } = getState()
   dispatch(toggleLoading(true))
-  return getMembers(filters)
+  return getMembers(getState().filters)
     .then(compose(dispatch, loadMembers))
     .then(() => dispatch(toggleLoading(false)))
 }
