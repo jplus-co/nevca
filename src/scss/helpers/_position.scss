@@ -10,3 +10,13 @@
   bottom: 0;
   right: 0;
 }
+
+@for $i from 1 through 10 {
+  .z-index-#{$i} {
+    z-index: $i;
+  }
+}
+
+.text-align-center {
+  text-align: center;
+}

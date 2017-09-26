@@ -3,4 +3,15 @@
 $context = Timber::get_context();
 $context['post'] = Timber::get_post();
 
+$members_block = get_field('members_block');
+
+if ( $members_block->customize_featured_members ) {
+  $context['featured_members'] = $members_block->featured_posts;
+} else {
+  $context['featured_members'] = Timber::get_posts(array(
+    'post_type'    => 'member',
+    'numberposts'  => 15
+  ));
+}
+
 Timber::render( 'front-page.twig', $context );

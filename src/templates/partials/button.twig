@@ -1,1 +1,3 @@
-<a class="button" href="{{ url }}">{{ label }}</a>
+<a class="button"
+   href="{{ props.url }}"
+   {{ props.target ? 'target="{{props.target}}"' }}>{{ props.title }}</a>

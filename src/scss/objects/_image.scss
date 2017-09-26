@@ -1,0 +1,48 @@
+.image {
+  position: absolute;
+  width: 100%;
+  height: 80vh;
+
+  &--top {
+    top: 0;
+
+    &.image--padding {
+      padding-top: $inner-padding / 2;
+    }
+  }
+
+  &--bottom {
+    bottom: 0;
+
+    &.image--padding {
+      padding-bottom: $inner-padding / 2;
+    }
+  }
+
+  &--left {
+    left: 0;
+
+    &.image--padding {
+      padding-left: $inner-padding / 2;
+    }
+  }
+
+  &--right {
+    right: 0;
+
+    &.image--padding {
+      padding-right: $inner-padding / 2;
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 0 0; // hiding dummy images for low-fidelity
+    border: 1px solid $gray-2;
+    background-color: $white;
+  }
+}

@@ -1,12 +1,18 @@
-.w-100 {
-  width: 100%;
+@for $i from 1 through 20 {
+  .w-#{$i*5} {
+    width: $i*5*1%;
+  }
 }
 
-@for $i from 1 through 10 {
+@for $i from 1 through 12 {
 
   // padding
   .p-#{$i} {
     padding: #{$i}rem;
+  }
+
+  .p-#{$i}p {
+    padding: $i * 1%;
   }
 
   @each $s in top, right, bottom, left {
@@ -25,9 +31,23 @@
     padding-bottom: #{$i}rem;
   }
 
+  .p-x-#{$i}p {
+    padding-right: $i * 1%;
+    padding-left: $i * 1%;
+  }
+
+  .p-y-#{$i}p {
+    padding-top: $i * 1%;
+    padding-bottom: $i * 1%;
+  }
+
   // margin
   .m-#{$i} {
     margin: #{$i}rem;
+  }
+
+  .m-#{$i}p {
+    margin: $i * 1%;
   }
 
   @each $s in top, right, bottom, left {

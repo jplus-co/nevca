@@ -2,12 +2,12 @@ import config from '../config'
 
 export default {
   lock () {
-    config.html.style.overflow = 'hidden'
-    config.html.style.pointerEvents = 'none'
-    config.html.style.cursor = 'wait'
+    config.body.style.overflow = 'hidden'
+    config.body.style.pointerEvents = 'none'
+    config.body.style.cursor = 'wait'
   },
 
   unlock () {
-    config.html.removeAttribute('style')
+    config.body.removeAttribute('style')
   }
 }

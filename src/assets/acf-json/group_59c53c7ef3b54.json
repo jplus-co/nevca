@@ -275,7 +275,7 @@
                         "field_59c53564aff00"
                     ],
                     "display": "seamless",
-                    "layout": "",
+                    "layout": "block",
                     "prefix_label": 0,
                     "prefix_name": 0
                 },
@@ -330,6 +330,27 @@
                     "min": "",
                     "max": 15,
                     "return_format": "object"
+                },
+                {
+                    "key": "field_59c955dd7491a",
+                    "label": "Button",
+                    "name": "button",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_59c9546644fc2"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 }
             ]
         },
@@ -548,5 +569,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1506112066
+    "modified": 1506383117
 }

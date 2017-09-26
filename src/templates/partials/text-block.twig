@@ -9,10 +9,9 @@
   </{{ tag }}>
   <div class="text-block__body">
     {{ props.body }}
-    {% if button %}
+    {% if props.button %}
       {% include "button.twig" with {
-        url: '/',
-        label: 'How we do it'
+        props: props.button
       } %}
     {% endif %}
   </div>
