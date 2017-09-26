@@ -73,7 +73,7 @@
           <div class="image__inner" style="background-image: url({{ TimberImage(community_block.images[1]).src }})"></div>
         </div>
       </div>
-
+      <!-- Members Block -->
       <div class="section__row">
         <div class="w-75 z-index-1">
           <h3 class="text-block__subheading">{{ members_block.heading }}</h3>
@@ -89,7 +89,7 @@
           {% endif %}
         </div>
       </div>
-
+      <!-- Sponsors Block -->
       <div class="section__row justify-content-end translate-x-7">
         <div class="w-75 z-index-1">
           <h3 class="text-block__subheading">{{ members_block.heading }}</h3>
@@ -105,49 +105,21 @@
           {% endif %}
         </div>
       </div>
-
+      <!-- Press Block -->
       <div class="p-6p">
         <div class="w-100 p-6p align-items-center bg-alt">
           <h2 class="text-block__heading text-align-center">{{ press_block.heading }}</h2>
-          {% include 'tease-list.twig' with {
+          {% include "tease-list.twig" with {
             "props": press_block.logos
           } %}
         </div>
       </div>
-
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="section bg-alt">
-      <div class="section__row flex-column">
-        <div class="text-block__heading">
-          <span class="text-block__rule"></span>
-          {{ faq_block.heading }}
-        </div>
-        <div>
-          <ul class="post-title-list">
-            {% for faq in faq_block.featured_posts %}
-              <li class="post-title-list__item">
-                <a href="{{ faq.link|relative }}" class="post-title-list__link">
-                  <span class="post-title-list__title-text">
-                    {{ faq.title }}
-                  </span>
-                  <span class="post-title-list__arrow">
-                    {% include 'arrow-right.twig' %}
-                  </span>
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-          <a href="{{ site.link ~ '/faq' | relative }}" class="text-button">View all</a>
-        </div>
-      </div>
-    </section>
+    {% include "faq-tease-block.twig" with {
+      "props": faq_block
+    } %}
 
-    <footer class="site-footer flex justify-content-center align-items-end"
-      style="background-color: #B5B9C2; height: 320px">
-
-      <span class="text-button p-y-3p" style="color: white; font-weight: 700;">Copyright NEVCA 2017</span>
-    </footer>
+    {% include "site-footer.twig" %}
   </div>
 {% endblock %}

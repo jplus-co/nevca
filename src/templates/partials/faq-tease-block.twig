@@ -1,0 +1,26 @@
+<!-- FAQ Section -->
+<section id="faq" class="section bg-alt">
+  <div class="section__row flex-column">
+    <div class="text-block__heading">
+      <span class="text-block__rule"></span>
+      {{ props.heading }}
+    </div>
+    <div>
+      <ul class="post-title-list">
+        {% for item in props.featured_posts %}
+          <li class="post-title-list__item">
+            <a href="{{ item.link|relative }}" class="post-title-list__link">
+              <span class="post-title-list__title-text">
+                {{ item.title }}
+              </span>
+              <span class="post-title-list__arrow">
+                {% include 'arrow-right.twig' %}
+              </span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <a href="{{ site.link ~ '/faq' | relative }}" class="text-button">View all</a>
+    </div>
+  </div>
+</section>
