@@ -37,7 +37,7 @@ body {
 }
 
 ::selection {
-  background-color: $gray;
+  background-color: rgba($black, 1);
   color: $white;
 }
 

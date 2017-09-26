@@ -2,12 +2,14 @@
   background-color: $gray-3;
   display: flex;
   align-items: center;
+  height: 32rem;
 
   &--front-page {
     height: 68rem;
   }
 
   &__inner {
+    width: 100%;
     padding: 0 $inner-padding;
     text-align: center;
 
