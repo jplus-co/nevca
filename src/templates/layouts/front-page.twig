@@ -128,7 +128,7 @@
           <ul class="post-title-list">
             {% for faq in faq_block.featured_posts %}
               <li class="post-title-list__item">
-                <a href="{{ faq.link }}" class="post-title-list__link">
+                <a href="{{ faq.link|relative }}" class="post-title-list__link">
                   <span class="post-title-list__title-text">
                     {{ faq.title }}
                   </span>
