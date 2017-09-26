@@ -16,20 +16,26 @@
 		<div id="app">
 			{% block content %}
 				<div class="view" data-namespace="home">
-			    {% if posts %}
-						<h1>{{site.title}}</h1>
-			      <ul>
-			        {% for post in posts %}
-			          <li>
-			            <a href="{{post.link|relative}}" data-namespace="single">{{post.title}}</a>
-			          </li>
-			        {% endfor %}
-			      </ul>
-					{% else %}
-			      <p>No posts.</p>
-			    {% endif %}
+					<section class="section">
+						{% if posts %}
+							<div class="section__row flex-column">
+						      {% include 'post-title-list.twig' with {
+										"props": posts
+									} %}
+							</div>
+						{% else %}
+							<div class="section__row flex-column">
+			      		<p>Nothing to show.</p>
+							</div>
+			    	{% endif %}
+					</section>
 				</div>
 			{% endblock %}
+		</div>
+
+		<div class="transition-overlay js-overlay">
+			<div class="transition-overlay__layer transition-overlay__layer--top js-layer-top"></div>
+			<div class="transition-overlay__layer transition-overlay__layer--bottom js-layer-bottom"></div>
 		</div>
 
 	</div>

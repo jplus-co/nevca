@@ -108,9 +108,9 @@
       <!-- Press Block -->
       <div class="p-6p">
         <div class="w-100 p-6p align-items-center bg-alt">
-          <h2 class="text-block__heading text-align-center">{{ press_block.heading }}</h2>
+          <h2 class="text-block__heading text-align-center">Featured In</h2>
           {% include "tease-list.twig" with {
-            "props": press_block.logos
+            "props": 1..5
           } %}
         </div>
       </div>

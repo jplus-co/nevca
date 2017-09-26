@@ -1,0 +1,21 @@
+.faq-archive-list {
+  @include reset-list();
+  padding: $inner-padding 0;
+
+  &__item {
+
+  }
+
+  &__entry {
+    margin-bottom: 5rem;
+  }
+
+  &__question {
+    @include type-style-heading-sm();
+    margin-bottom: 2rem;
+  }
+
+  &__answer   {
+
+  }
+}

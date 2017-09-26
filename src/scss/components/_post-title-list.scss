@@ -29,9 +29,10 @@
       mix-blend-mode: difference;
       transform-origin: bottom;
       transform: scaleY(0);
-      transition: transform 1s $ease-out-expo;
+      transition: transform 1s $ease-in-out-expo;
 
       .post-title-list__link:hover & {
+        transition: transform 1s $ease-out-expo;
         transform: scaleY(1);
         transform-origin: top;
       }

@@ -40,6 +40,7 @@ Version: 1.0.0
 
 // Components
 @import 'components/noscript';
+@import 'components/transition-overlay';
 @import 'components/preloader';
 @import 'components/site-header';
 @import 'components/primary-navigation';
@@ -51,6 +52,7 @@ Version: 1.0.0
 @import 'components/member-card';
 @import 'components/tease-list';
 @import 'components/post-title-list';
+@import 'components/faq-archive-list';
 
 // Helpers
 @import 'helpers/position';

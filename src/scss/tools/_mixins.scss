@@ -149,6 +149,13 @@
 @mixin type-style-heading-sm() {
   font-family: $font-heading;
   font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+@mixin type-style-heading-xs() {
+  font-family: $font-heading;
+  font-weight: 700;
   font-size: 1.6rem;
   text-transform: uppercase;
 }

@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <div class="view" data-namespace="faq">
+    {% include "hero.twig" with {
+      "hero_text": 'FAQ'
+    } %}
+
+    <section class="section">
+      <div class="section__container section__container--70">
+        {% if posts %}
+          {% include "faq-archive-list.twig" with {
+            props: posts
+          } %}
+        {% endif %}
+      </div>
+    </section>
+
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+
+{% set mission_block = post.get_field("mission_block") %}
+
+
+{% set faq_block = post.get_field("faq_block") %}
+
+{% block content %}
+
+  <div class="view" data-namespace="about">
+    {% include "hero.twig" with {
+      "hero_text": post.hero_text
+    } %}
+
+    <div style="height: 1000px;"></div>
+
+    {% include "faq-tease-block.twig" with {
+      "props": faq_block
+    } %}
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}

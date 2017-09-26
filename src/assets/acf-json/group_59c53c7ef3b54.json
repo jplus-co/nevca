@@ -39,7 +39,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_59c53d89222ac",
+                    "key": "field_59cac0774d31b",
                     "label": "Mission Block",
                     "name": "mission_block",
                     "type": "clone",
@@ -52,11 +52,11 @@
                         "id": ""
                     },
                     "clone": [
-                        "field_59c537077d517",
-                        "group_59c5355e9657b"
+                        "group_59c5355e9657b",
+                        "group_59c5370387d52"
                     ],
                     "display": "seamless",
-                    "layout": "row",
+                    "layout": "block",
                     "prefix_label": 0,
                     "prefix_name": 0
                 }
@@ -78,7 +78,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_59c53f9a222ae",
+                    "key": "field_59cac0bc122af",
                     "label": "Text Block",
                     "name": "text_block",
                     "type": "clone",
@@ -99,7 +99,7 @@
                     "prefix_name": 0
                 },
                 {
-                    "key": "field_59c5632fad4cb",
+                    "key": "field_59cac102122b0",
                     "label": "Customize Featured Events?",
                     "name": "customize_featured_events",
                     "type": "true_false",
@@ -118,16 +118,16 @@
                     "ui_off_text": ""
                 },
                 {
-                    "key": "field_59c53fec222af",
+                    "key": "field_59cac140122b1",
                     "label": "Featured Events",
                     "name": "featured_posts",
                     "type": "relationship",
-                    "instructions": "Select 4 events to feature on the home page.",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": [
                         [
                             {
-                                "field": "field_59c5632fad4cb",
+                                "field": "field_59cac102122b0",
                                 "operator": "==",
                                 "value": "1"
                             }
@@ -138,13 +138,9 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "post"
-                    ],
+                    "post_type": [],
                     "taxonomy": [],
-                    "filters": [
-                        "search"
-                    ],
+                    "filters": "",
                     "elements": "",
                     "min": "",
                     "max": 4,
@@ -189,32 +185,7 @@
                     "prefix_name": 0
                 },
                 {
-                    "key": "field_59c5414c7a577",
-                    "label": "Images",
-                    "name": "images",
-                    "type": "gallery",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "min": "",
-                    "max": 2,
-                    "insert": "append",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "jpg, png"
-                },
-                {
-                    "key": "field_59c5417b7a578",
+                    "key": "field_59cac4d7bf7d2",
                     "label": "Featured Community Content",
                     "name": "featured_posts",
                     "type": "relationship",
@@ -228,8 +199,8 @@
                     },
                     "post_type": [
                         "member",
-                        "press",
-                        "sponsor"
+                        "sponsor",
+                        "press"
                     ],
                     "taxonomy": [],
                     "filters": [
@@ -238,7 +209,7 @@
                     ],
                     "elements": "",
                     "min": "",
-                    "max": 3,
+                    "max": -11,
                     "return_format": "object"
                 }
             ]
@@ -259,7 +230,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_59c5473a9aa37",
+                    "key": "field_59cac1e1efa8d",
                     "label": "Heading",
                     "name": "heading",
                     "type": "clone",
@@ -280,7 +251,7 @@
                     "prefix_name": 0
                 },
                 {
-                    "key": "field_59c547549aa38",
+                    "key": "field_59cac20defa8e",
                     "label": "Customize Featured Members?",
                     "name": "customize_featured_members",
                     "type": "true_false",
@@ -299,21 +270,13 @@
                     "ui_off_text": ""
                 },
                 {
-                    "key": "field_59c548c59aa39",
+                    "key": "field_59cac22fefa8f",
                     "label": "Featured Members",
                     "name": "featured_posts",
                     "type": "relationship",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_59c547549aa38",
-                                "operator": "==",
-                                "value": "1"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -332,7 +295,7 @@
                     "return_format": "object"
                 },
                 {
-                    "key": "field_59c955dd7491a",
+                    "key": "field_59cac24befa90",
                     "label": "Button",
                     "name": "button",
                     "type": "clone",
@@ -355,7 +318,7 @@
             ]
         },
         {
-            "key": "field_59c5499b9aa3f",
+            "key": "button",
             "label": "Press Block",
             "name": "press_block",
             "type": "group",
@@ -370,7 +333,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_59c5499b9aa40",
+                    "key": "field_59cad63020ba7",
                     "label": "Heading",
                     "name": "heading",
                     "type": "clone",
@@ -391,9 +354,9 @@
                     "prefix_name": 0
                 },
                 {
-                    "key": "field_59c565b0c1b42",
-                    "label": "Logos",
-                    "name": "logos",
+                    "key": "field_59cac266efa91",
+                    "label": "Publication",
+                    "name": "publications",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
@@ -403,14 +366,38 @@
                         "class": "",
                         "id": ""
                     },
-                    "collapsed": "field_59c56609c1b43",
+                    "collapsed": "field_59cac2a1efa93",
                     "min": 0,
                     "max": 5,
-                    "layout": "row",
-                    "button_label": "Add Logo",
+                    "layout": "table",
+                    "button_label": "Add logo",
                     "sub_fields": [
                         {
-                            "key": "field_59c56609c1b43",
+                            "key": "field_59cac28befa92",
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_59cac2a1efa93",
                             "label": "Title",
                             "name": "title",
                             "type": "text",
@@ -429,31 +416,7 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_59c5662cc1b44",
-                            "label": "Logo",
-                            "name": "logo",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "jpg, png"
-                        },
-                        {
-                            "key": "field_59c5664fc1b45",
+                            "key": "field_59cac2aeefa94",
                             "label": "Link",
                             "name": "link",
                             "type": "url",
@@ -473,7 +436,7 @@
             ]
         },
         {
-            "key": "field_59c54bf90ba5d",
+            "key": "field_59cac42694b9d",
             "label": "FAQ Block",
             "name": "faq_block",
             "type": "group",
@@ -488,7 +451,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_59c54c130ba5e",
+                    "key": "field_59cac43994b9e",
                     "label": "Heading",
                     "name": "heading",
                     "type": "clone",
@@ -509,7 +472,7 @@
                     "prefix_name": 0
                 },
                 {
-                    "key": "field_59c54c540ba5f",
+                    "key": "field_59cac47094b9f",
                     "label": "Featured FAQs",
                     "name": "featured_posts",
                     "type": "relationship",
@@ -530,7 +493,7 @@
                     ],
                     "elements": "",
                     "min": "",
-                    "max": 3,
+                    "max": "",
                     "return_format": "object"
                 }
             ]
@@ -551,11 +514,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
-        "permalink",
         "the_content",
         "excerpt",
         "custom_fields",
-        "discussion",
         "comments",
         "revisions",
         "slug",
@@ -569,5 +530,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1506383117
+    "modified": 1506465402
 }
