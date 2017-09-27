@@ -43,7 +43,7 @@
             "props": 1..4
           } %}
           <!-- View more circle button -->
-          <div class="absolute pos-br translate-x-100 p-left-3">
+          <div class="absolute pos-br translate-x-100 p-left-1">
             {% include 'circle-button.twig' with {
               direction: 'right',
               url: '/events',
@@ -107,10 +107,10 @@
       </div>
       <!-- Press Block -->
       <div class="p-6p">
-        <div class="w-100 p-6p align-items-center bg-alt">
-          <h2 class="text-block__heading text-align-center">Featured In</h2>
+        <div class="w-100 p-6p align-items-center">
+          <h2 class="text-block__subheading text-align-center">Featured In</h2>
           {% include "tease-list.twig" with {
-            "props": 1..5
+            "props": 1..4
           } %}
         </div>
       </div>
