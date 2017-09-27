@@ -38,6 +38,7 @@ class NEVCASite extends TimberSite {
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_filter( 'acf/settings/save_json', array( $this, 'my_acf_json_save_point' ) );
+		add_filter( 'enter_title_here', array( $this, 'change_title_text' ) );
 
 		add_action( 'init', array( $this, 'add_custom_options_page' ) );
 		add_action( 'wp_footer', array( $this, 'deregister_scripts' ) );
@@ -72,12 +73,25 @@ class NEVCASite extends TimberSite {
 
 	function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig_Extension_StringLoader() );
-		$twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
 		return $twig;
 	}
 
 	function deregister_scripts() {
  		wp_deregister_script( 'wp-embed' );
+	}
+
+	function change_title_text( $title ){
+		$screen = get_current_screen();
+
+		if  ( 'testimonial' == $screen->post_type ) {
+			$title = 'Enter testimonial attribution here';
+		}
+
+		if  ( 'team_member' == $screen->post_type ) {
+			$title = 'Enter name here';
+		}
+
+		return $title;
 	}
 }
 new NEVCASite();
