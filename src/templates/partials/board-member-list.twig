@@ -1,0 +1,13 @@
+<ul class="board-member-list">
+  {% for item in props %}
+    <li class="board-member-list__item">
+      <div class="board-member-list__image-mask">
+        {% if item.image %}
+          <img src="{{ TimberImage(item.image).src }}" alt="{{ item.title }}">
+        {% endif %}
+      </div>
+      <h4 class="board-member-list__name">{{ item.title }}</h4>
+      <h5 class="board-member-list__meta">{{ item.company }}</h5>
+    </li>
+  {% endfor %}
+</ul>

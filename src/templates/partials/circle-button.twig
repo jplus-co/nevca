@@ -1,4 +1,11 @@
-<a class="circle-button" href="{{ url }}">
+{% if url %}
+  {% set tag = 'a' %}
+{% else %}
+  {% set tag = 'button' %}
+{% endif %}
+
+<{{ tag }} class="circle-button circle-button--{{ direction }}{% if class %} {{ class }}{% endif %}"
+  {% if url %}href="{{ url }}"{% endif %}>
   <span class="circle-button__circle">
     <span class="circle-button__arrow">
       {% include 'arrow-' ~ direction ~ '.twig' %}
@@ -10,4 +17,4 @@
   <span class="circle-button__label">
     {{ label }}
   </span>
-</a>
+</{{ tag }}>

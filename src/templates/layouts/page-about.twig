@@ -1,8 +1,8 @@
 {% extends 'base.twig' %}
 
 {% set mission_block = post.get_field("mission_block") %}
-
-
+{% set board_block = post.get_field("board_block") %}
+{% set team_block = post.get_field("team_block") %}
 {% set faq_block = post.get_field("faq_block") %}
 
 {% block content %}
@@ -12,7 +12,52 @@
       "hero_text": post.hero_text
     } %}
 
-    <div style="height: 1000px;"></div>
+    <!-- Mission -->
+    <section id="mission" class="section">
+      <div class="section__row justify-content-between">
+        <!-- Mission Images -->
+        {% include "image-cluster.twig" with {
+          "images": mission_block.image_cluster
+        } %}
+        <!-- Mission Text -->
+        {% include "text-block.twig" with {
+          "props": mission_block
+        } %}
+      </div>
+    </section>
+
+    <!-- Board -->
+    <section id="board" class="section bg-alt">
+      <div class="section__row flex-column">
+        <h2 class="text-block__heading m-bottom-6">
+          <span class="text-block__rule"></span>
+          Board
+        </h2>
+        {% include "board-member-list.twig" with {
+          "props": board_block.board_members
+        } %}
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="section">
+      <div class="section__row justify-content-between">
+        <!-- Team Images -->
+        {% include "image-cluster.twig" with {
+          "images": team_block.image_cluster
+        } %}
+        <!-- Team Text -->
+        {% include "text-block.twig" with {
+          "props": team_block
+        } %}
+      </div>
+      <div class="section__row">
+        <!-- Team Slider -->
+        {% include "team-slider.twig" with {
+          "props": team_block.team_members
+        } %}
+      </div>
+    </section>
 
     {% include "faq-tease-block.twig" with {
       "props": faq_block
