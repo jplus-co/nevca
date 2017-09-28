@@ -1,0 +1,114 @@
+.testimonial-slider {
+  width: 100%;
+  height: 100vh;
+  max-width: 80rem;
+  margin: 0 auto;
+  position: relative;
+
+  &__quote-list {
+    @include reset-list();
+  }
+
+  &__quote-item {
+    position: absolute;
+    top: 25%;
+
+    .line {
+      display: block;
+      overflow: hidden;
+
+      .line__inner {
+        display: block;
+        transform: translateY(100%);
+      }
+
+      @for $i from 0 through 3 {
+        &:nth-of-type(#{$i + 1}) .line__inner {
+          transition: transform 0.7s $ease-out-quint 0.05 * 3 - $i * 0.05s;
+        }
+      }
+    }
+
+    &--active .line {
+      .line__inner {
+        transform: translateY(0) !important;
+      }
+
+      @for $i from 0 through 3 {
+        &:nth-of-type(#{$i + 1}) .line__inner {
+          transition: transform 1s $ease-in-out-quint 0.25s + $i * 0.05s;
+        }
+      }
+    }
+  }
+
+  &__quote {
+    @include type-style-display-sm();
+    line-height: 1.4;
+    margin-bottom: 2.6rem;
+  }
+
+  &__attribution {
+    display: inline-block;
+    @include type-style-heading-xs();
+    overflow: hidden;
+  }
+
+  &__pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: $inner-padding;
+    display: flex;
+    align-items: center;
+  }
+
+  &__pagination-list {
+    @include reset-list();
+    display: flex;
+    align-items: center;
+    margin-right: 3rem;
+  }
+
+  &__pagination-item {
+    position: relative;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:first-child {
+      margin-left: -1rem;
+    }
+  }
+
+  &__pagination-button {
+    @include reset-button();
+    padding: 1rem;
+    opacity: 0.5;
+    transition: opacity 0.8s $ease-out-expo;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: $black;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.8s $ease-out-expo;
+    }
+
+    &--active {
+      opacity: 1;
+
+      &::after {
+        transform-origin: left;
+        transform: scaleX(1);
+      }
+    }
+  }
+}

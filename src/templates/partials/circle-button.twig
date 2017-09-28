@@ -14,7 +14,9 @@
       {% include 'arrow-' ~ direction ~ '.twig' %}
     </span>
   </span>
-  <span class="circle-button__label">
-    {{ label }}
-  </span>
+  {% if label %}
+    <span class="circle-button__label">
+      {{ label }}
+    </span>
+  {% endif %}
 </{{ tag }}>

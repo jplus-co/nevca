@@ -1,0 +1,29 @@
+<div class="testimonial-slider">
+  <ul class="testimonial-slider__quote-list">
+    {% for item in props %}
+      <li class="js-slide testimonial-slider__quote-item">
+        <blockquote class="js-text testimonial-slider__quote">
+          {{ item.quote }}
+        </blockquote>
+        <span class="js-text testimonial-slider__attribution">
+          {{ item.title }}, {{ item.description }}
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="testimonial-slider__pagination">
+    <ul class="testimonial-slider__pagination-list">
+      {% for item in props %}
+        <li class="testimonial-slider__pagination-item">
+          <button class="js-button testimonial-slider__pagination-button{{ loop.index == 1 ? ' testimonial-slider__pagination-button--active'}}">
+            0{{ loop.index }}
+          </button>
+        </li>
+      {% endfor %}
+    </ul>
+    {% include "circle-button.twig" with {
+      "direction": "right",
+      "class": "js-next"
+    } %}
+  </div>
+</div>
