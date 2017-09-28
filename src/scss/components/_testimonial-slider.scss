@@ -73,10 +73,6 @@
   &__pagination-item {
     position: relative;
 
-    &:hover {
-      opacity: 1;
-    }
-
     &:first-child {
       margin-left: -1rem;
     }
@@ -84,9 +80,14 @@
 
   &__pagination-button {
     @include reset-button();
+    outline: none;
     padding: 1rem;
     opacity: 0.5;
     transition: opacity 0.8s $ease-out-expo;
+
+    @include hover-both() {
+      opacity: 1;
+    }
 
     &::after {
       content: '';

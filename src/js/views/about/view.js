@@ -8,9 +8,13 @@ const about = Barba.BaseView.extend({
 		this.slider = new TestimonialSlider()
 	},
 
-	onEnterCompleted () {},
+	onEnterCompleted () {
+		this.slider.init()
+	},
 
-	onLeave () {},
+	onLeave () {
+		this.slider.destroy()
+	},
 
 	onLeaveCompleted () {}
 })

@@ -14,11 +14,15 @@ class TestimonialSlider {
       current: 0,
       animating: false
     }
-
-    this.mount()
   }
 
-  mount () {
+  init () {
+    this.split()
+    this.addEvents()
+    this.update()
+  }
+
+  split () {
     this.text.forEach(quote => {
       const tmp = new SplitText(quote, {
         type: 'lines',
@@ -28,13 +32,22 @@ class TestimonialSlider {
       this.splits.push(tmp)
     })
 
-    this.lines = document.querySelectorAll('.line')
-    this.lines.forEach(line => line.innerHTML = `<span class="line__inner">${line.textContent}</span>`)
+    this.wrapSplits()
+  }
 
+  wrapSplits() {
+    document.querySelectorAll('.line').forEach(line =>
+      line.innerHTML = `<span class="line__inner">${line.textContent}</span>`)
+  }
+
+  addEvents() {
     this.buttons.forEach(btn => btn.addEventListener('click', this.onClick))
     this.nextButton.addEventListener('click', this.nextSlide)
+  }
 
-    this.update()
+  removeEvents() {
+    this.buttons.forEach(btn => btn.removeEventListener('click', this.onClick))
+    this.nextButton.removeEventListener('click', this.nextSlide)
   }
 
   onClick = ({ currentTarget }) => {
@@ -66,6 +79,10 @@ class TestimonialSlider {
         this.buttons[index].classList.remove('testimonial-slider__pagination-button--active')
       }
     })
+  }
+
+  destroy () {
+    this.removeEvents()
   }
 }
 

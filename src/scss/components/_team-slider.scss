@@ -17,7 +17,7 @@
     will-change: transform;
     background-color: $black;
 
-    &:hover {
+    @include hover-both() {
       z-index: 1;
       transform: scale(1.1);
 
