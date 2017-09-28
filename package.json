@@ -9,7 +9,9 @@
   },
   "browser": {
     "@constants": "./src/js/constants",
-    "@util": "./src/js/util"
+    "@config": "./src/js/config",
+    "@util": "./src/js/util",
+    "gsap/ScrollToPlugin": "./node_modules/gsap/ScrollToPlugin"
   },
   "dependencies": {
     "barba.js": "^1.0.0",
@@ -22,6 +24,7 @@
     "lodash.debounce": "^4.0.8",
     "preact": "^8.2.5",
     "preact-redux": "^2.0.2",
+    "raf-scroll": "^1.4.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sniffer": "watsondg/sniffer"

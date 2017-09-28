@@ -36,14 +36,14 @@ class App {
   }
 
   addEventListeners () {
-    window.addEventListener('resize', debounce(this.broadcastResize, 200))
+    window.addEventListener('resize', debounce(this.broadcastResize, 50))
   }
 
   broadcastResize = () => {
-    emitter.emit(WINDOW_RESIZE, {
-      width: window.innerWidth,
-      height: window.innerHeight
-    })
+    emitter.emit(WINDOW_RESIZE)
+
+    config.width = window.innerWidth
+    config.height = window.innerHeight
   }
 }
 

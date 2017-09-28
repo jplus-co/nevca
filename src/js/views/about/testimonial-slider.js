@@ -1,11 +1,10 @@
-import emitter from '../../core/emitter'
 import SplitText from '../../vendor/SplitText'
 
 class TestimonialSlider {
-  constructor (options = {}) {
-    this.slides = [...document.querySelectorAll('.js-slide')],
-    this.text = [...document.querySelectorAll('.js-text')],
-    this.buttons = [...document.querySelectorAll('.js-button')],
+  init () {
+    this.slides = [...document.querySelectorAll('.js-slide')]
+    this.text = [...document.querySelectorAll('.js-text')]
+    this.buttons = [...document.querySelectorAll('.js-button')]
     this.nextButton = document.querySelector('.js-next')
 
     this.splits = []
@@ -14,9 +13,7 @@ class TestimonialSlider {
       current: 0,
       animating: false
     }
-  }
 
-  init () {
     this.split()
     this.addEvents()
     this.update()

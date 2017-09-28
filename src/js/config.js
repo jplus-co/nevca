@@ -5,6 +5,9 @@ export default {
   app: document.querySelector('#app'),
   view: document.querySelector('.view'),
 
+  width: window.innerWidth,
+  height: window.innerHeight,
+
   isMouse: false,
   isTouch: false
 }
