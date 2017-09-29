@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <div class="view" data-namespace="faq">
+    {% include "hero.twig" with {
+      "hero_text": 'INVESTOR JOB BOARD'
+    } %}
+
+    <section class="js-section section">
+      <div class="section__container section__container--70">
+        {% if posts %}
+          {% include "job-archive-list.twig" with {
+            props: posts
+          } %}
+        {% endif %}
+      </div>
+    </section>
+
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}

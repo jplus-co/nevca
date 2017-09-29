@@ -1,0 +1,14 @@
+<ul class="job-archive-list">
+  {% for item in props %}
+    <li class="job-archive-list__item">
+      <span class="job-archive-list__firm">{{ item.firm_name }}</span>
+      <h2 class="job-archive-list__title">
+        <span class="text-block__rule"></span>
+        {{ item.title }}
+      </h2>
+      <div class="job-archive-list__body">
+        {{ item.content }}
+      </div>
+    </li>
+  {% endfor %}
+</ul>
