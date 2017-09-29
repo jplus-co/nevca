@@ -91,6 +91,10 @@ class NEVCASite extends TimberSite {
 			$title = 'Enter name here';
 		}
 
+		if  ( 'job' == $screen->post_type ) {
+			$title = 'Enter job title here';
+		}
+
 		return $title;
 	}
 }
