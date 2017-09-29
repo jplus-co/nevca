@@ -30,10 +30,10 @@ class PageNavigation {
   }
 
   resize = () => {
-    this.updateCache()
+    this.createCache()
   }
 
-  updateCache () {
+  createCache () {
     this.cache = this.sections.map((section, index) => {
       const bounds = section.getBoundingClientRect()
       const center = config.height / 2
