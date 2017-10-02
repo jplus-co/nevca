@@ -37,6 +37,7 @@ Version: 1.0.0
 @import 'objects/circle-button';
 @import 'objects/text-button';
 @import 'objects/image';
+@import 'objects/pagination';
 
 // Components
 @import 'components/noscript';
@@ -58,6 +59,8 @@ Version: 1.0.0
 @import 'components/team-slider';
 @import 'components/testimonial-slider';
 @import 'components/page-navigation';
+@import 'components/press-archive-list';
+@import 'components/downloads-list';
 
 // Helpers
 @import 'helpers/position';
@@ -65,3 +68,4 @@ Version: 1.0.0
 @import 'helpers/flex';
 @import 'helpers/transform';
 @import 'helpers/color';
+@import 'helpers/a11y';

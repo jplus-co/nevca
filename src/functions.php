@@ -61,6 +61,15 @@ class NEVCASite extends TimberSite {
 				'parent_slug' => 'options-general.php',
 				'redirect'		=> false
 			));
+
+			acf_add_options_page(array(
+				'page_title' 	=> 'Downloads',
+				'menu_title'	=> 'Downloads',
+				'menu_slug' 	=> 'downloads',
+				'capability'	=> 'edit_posts',
+				'parent_slug' => 'options-general.php',
+				'redirect'		=> false
+			));
 		}
 	}
 

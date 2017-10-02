@@ -1,0 +1,52 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <div class="view" data-namespace="faq">
+    {% include "hero.twig" with {
+      "hero_text": 'IN THE PRESS'
+    } %}
+
+    <section class="js-section section p-12p">
+      <div class="section__container section__container--70 section__container--left">
+        {% if posts %}
+          <ul class="press-archive-list">
+            {% for post in posts %}
+              <li class="press-archive-list__item">
+                <a class="press-archive-list__link"
+                   href="{{ post.get_field('link') }}"
+                   target="_blank">
+                  <span class="press-archive-list__date">
+                    <span class="press-archive-list__month">{{ post.post_date|date('F') }}</span>
+                    <span class="press-archive-list__day">{{ post.post_date|date('j') }}</span>
+                  </span>
+                  <h4 class="press-archive-list__source">{{ post.source }}</h6>
+                  <h3 class="press-archive-list__title">{{ post.title }}</h3>
+                  <span class="text-button text-button--underline">
+                    Read Article
+                  </span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+          {% if posts.pagination %}
+            {% include "pagination.twig" with {
+              "posts": posts
+            } %}
+          {% endif %}
+        {% endif %}
+      </div>
+
+      <aside class="downloads-list">
+        <h4 class="text-block__subheading">Media</h4>
+        {% for download in options.downloads %}
+          <a class="downloads-list__button button"
+             href="{{ download.file }}" target="_blank">{{ download.button_label }}</a>
+        {% endfor %}
+      </aside>
+    </section>
+
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}
