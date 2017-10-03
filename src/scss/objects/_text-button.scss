@@ -1,5 +1,9 @@
 .text-button {
   @include reset-anchor();
   @include type-style-action();
-  text-decoration: underline;
+
+
+  &--underline {
+    text-decoration: underline;
+  }
 }

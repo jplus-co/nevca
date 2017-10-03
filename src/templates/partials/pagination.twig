@@ -1,17 +1,19 @@
-<div class="pagination js-pagination">
-  <a href="{{ posts.pagination.prev.link | relative }}"
-    class="pagination__control pagination__control--prev{{ posts.pagination.prev.link | length ? '' : ' pagination__control--disabled' }}">
-    <span class="sr-text">Previous page</span>
-  </a>
-  <ul class="pagination__page-list">
-    {% for page in posts.pagination.pages %}
-      <li class="pagination__page-list-item">
-          <a href="{{ page.link | relative }}" class="pagination__page-link{{ not page.link ? ' pagination__page-link--current'}}">{{ page.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-  <a href="{{ posts.pagination.next.link | relative }}"
-    class="pagination__control pagination__control--next{{ posts.pagination.next.link | length ? '' : ' pagination__control--disabled' }}">
-    <span class="sr-text">Next page</span>
-  </a>
-</div>
+{% if props.pagination.pages | length %}
+  <div class="pagination js-pagination">
+    <a href="{{ props.pagination.prev.link | relative }}"
+      class="pagination__control pagination__control--prev{{ props.pagination.prev.link | length ? '' : ' pagination__control--disabled' }}">
+      <span class="sr-text">Previous page</span>
+    </a>
+    <ul class="pagination__page-list">
+      {% for page in props.pagination.pages %}
+        <li class="pagination__page-list-item">
+            <a href="{{ page.link | relative }}" class="pagination__page-link{{ not page.link ? ' pagination__page-link--current'}}">{{ page.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ props.pagination.next.link | relative }}"
+      class="pagination__control pagination__control--next{{ props.pagination.next.link | length ? '' : ' pagination__control--disabled' }}">
+      <span class="sr-text">Next page</span>
+    </a>
+  </div>
+{% endif %}

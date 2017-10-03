@@ -1,15 +1,19 @@
 .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
   &__control {
     position: relative;
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    transition: transform 0.2s $ease-out-quint;
+    transition: transform 0.7s $ease-out-expo;
 
     &::before {
       content: '';
       width: 0.6rem;
-      width: 0.6rem;
+      height: 0.6rem;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -24,7 +28,7 @@
       }
 
       &:hover {
-        transform: translate(-2px);
+        transform: translate(-4px);
       }
     }
 
@@ -35,7 +39,7 @@
       }
 
       &:hover {
-        transform: translate(2px);
+        transform: translate(4px);
       }
     }
 
@@ -46,18 +50,16 @@
   }
 
   &__page-list {
-    display: inline-block;
-    list-style-type: none;
+    @include reset-list();
+    display: flex;
     transform: translateY(-8px);
   }
 
-  &__page-list-item {
-    display: inline-block;
-  }
-
   &__page-link {
+    @include reset-anchor();
+    @include type-style-nav();
     opacity: 0.5;
-    padding: 8px;
+    padding: 1rem;
     transition: opacity 0.4s $ease-out-quint;
 
     &:hover {

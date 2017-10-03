@@ -1,0 +1,32 @@
+<li class="list-card">
+
+  {% if date_circle %}
+    <span class="date-circle">
+      <span class="date-circle__month">{{ date_circle|date('F') }}</span>
+      <span class="date-circle__day">{{ date_circle|date('j') }}</span>
+    </span>
+  {% endif %}
+
+  <a class="list-card__link"
+     href="{{ link }}"
+     target="{{ target }}">
+
+    <h4 class="list-card__subheading">{{ subheading }}</h6>
+
+    {% if rule %}
+      <div class="rule"></div>
+    {% endif %}
+
+    <h3 class="list-card__heading">{{ heading }}</h3>
+
+    {% if body %}
+      <div class="list-card__body">{{ body }}</div>
+    {% endif %}
+
+    {% if action %}
+    <span class="text-button text-button--underline">
+      {{ action }}{{ arrow }}
+    </span>
+    {% endif %}
+  </a>
+</li>

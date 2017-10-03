@@ -1,0 +1,63 @@
+.list-card {
+  margin-bottom: 7.2rem;
+  display: flex;
+
+  .date-circle {
+    display: inline-block;
+    width: 11rem;
+    height: 11rem;
+    background-color: $gray-3;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $gray-2;
+    margin-right: 5rem;
+    flex-shrink: 0;
+
+    &__month {
+      display: block;
+      @include type-style-heading-xs();
+    }
+
+    &__day {
+      display: block;
+      @include type-style-display-sm();
+      line-height: 0.65;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    color: $black;
+  }
+
+  &__subheading {
+    @include type-style-label();
+    text-transform: none;
+    margin-bottom: 1.2rem;
+    opacity: 0.5;
+  }
+
+  &__heading {
+    @include type-style-heading-lg();
+    text-transform: none;
+    margin-bottom: 2rem;
+  }
+
+  &__body {
+    p, .p1 {
+      margin-bottom: 2rem;
+    }
+
+    ul, .ul1, ol, .ol1 {
+      padding-left: 4rem;
+    }
+
+    li, .li1 {
+      line-height: 1.6;
+    }
+  }
+}

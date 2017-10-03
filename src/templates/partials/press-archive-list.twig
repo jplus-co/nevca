@@ -1,0 +1,12 @@
+<ul class="press-archive-list">
+  {% for post in props %}
+    {% include "list-card.twig" with {
+      "link": post.get_field('link')|relative,
+      "target": "_blank",
+      "date_circle": post.post_date,
+      "subheading": post.source,
+      "heading": post.title,
+      "action": 'Read article'
+    } %}
+  {% endfor %}
+</ul>

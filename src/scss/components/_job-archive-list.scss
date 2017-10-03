@@ -1,39 +1,4 @@
 .job-archive-list {
   @include reset-list();
   padding: $inner-padding 0;
-
-  &__item {
-    margin-bottom: 5rem;
-  }
-
-  &__firm {
-    display: inline-block;
-    @include type-style-label();
-    opacity: 0.5;
-  }
-
-  &__title {
-    @include type-style-heading-lg();
-    text-transform: none;
-    margin-bottom: 2rem;
-
-    .text-block__rule {
-      width: 8rem;
-      margin: 1.2rem 0;
-    }
-  }
-
-  &__body {
-    p, .p1 {
-      margin-bottom: 2rem;
-    }
-
-    ul, .ul1, ol, .ol1 {
-      padding-left: 4rem;
-    }
-
-    li, .li1 {
-      line-height: 1.6;
-    }
-  }
 }

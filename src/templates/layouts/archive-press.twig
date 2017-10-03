@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <div class="view" data-namespace="faq">
+  <div class="view" data-namespace="press">
     {% include "hero.twig" with {
       "hero_text": 'IN THE PRESS'
     } %}
@@ -10,30 +10,14 @@
     <section class="js-section section p-12p">
       <div class="section__container section__container--70 section__container--left">
         {% if posts %}
-          <ul class="press-archive-list">
-            {% for post in posts %}
-              <li class="press-archive-list__item">
-                <a class="press-archive-list__link"
-                   href="{{ post.get_field('link') }}"
-                   target="_blank">
-                  <span class="press-archive-list__date">
-                    <span class="press-archive-list__month">{{ post.post_date|date('F') }}</span>
-                    <span class="press-archive-list__day">{{ post.post_date|date('j') }}</span>
-                  </span>
-                  <h4 class="press-archive-list__source">{{ post.source }}</h6>
-                  <h3 class="press-archive-list__title">{{ post.title }}</h3>
-                  <span class="text-button text-button--underline">
-                    Read Article
-                  </span>
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-          {% if posts.pagination %}
-            {% include "pagination.twig" with {
-              "posts": posts
-            } %}
-          {% endif %}
+          {% include "press-archive-list.twig" with {
+            "props": posts
+          } %}
+          {% include "pagination.twig" with {
+            "props": posts
+          } %}
+        {% else %}
+          Nothing to show.
         {% endif %}
       </div>
 
