@@ -1,7 +1,7 @@
 import cache from './cache'
 
 const fetch = url => {
-  // Check cache for url. If it alrady exists, access it via the cache
+  // Check cache for url. If it already exists, access it via the cache
   if (cache.has(url)) {
     // Remove for production
     console.log(`%c${url}\n\nloaded from cache.\n\n`, 'color: palevioletred;')
