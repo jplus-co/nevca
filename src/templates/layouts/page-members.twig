@@ -1,9 +1,43 @@
 {% extends 'base.twig' %}
 
+{% set featured_member = post.get_field('featured_member') %}
+
 {% block content %}
 
   <div class="view" data-namespace="members">
-    <div class="members" />
+
+    {% include "hero.twig" with {
+      "hero_text": post.hero_text
+    } %}
+
+    <div class="p-x-12p">
+      <div class="featured-member">
+        <h2 class="featured-member__heading">Featured Member</h2>
+        <div class="featured-member__row">
+          <div class="featured-member__column">
+            <img class="featured-member__image"
+              src="{{ TimberImage(featured_member.image
+                ? featured_member.image
+                : featured_member.post.logo
+              ).src }}"
+              alt="{{ featured_member.post.title }}">
+          </div>
+          <div class="featured-member__column">
+            <h3 class="featured-member__title">
+              {{ featured_member.post.title }}
+            </h3>
+            <div class="featured-member__description">
+              {{ featured_member.description }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="featured-member__cta-link" href="{{ site.link | relative }}/membership">
+        {{ featured_member.cta_label }}
+      </a>
+    </div>
+
+    <div class="members p-y-12p" />
   </div>
 
 {% endblock %}

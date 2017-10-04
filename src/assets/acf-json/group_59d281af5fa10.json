@@ -36,6 +36,23 @@
             },
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_59d5163f2db58",
+            "label": "Date",
+            "name": "publish_date",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "Ymd",
+            "first_day": 1
         }
     ],
     "location": [
@@ -71,5 +88,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1506969777
+    "modified": 1507137305
 }

@@ -13,14 +13,9 @@ class BrowseMembers extends Component {
   render (props, state) {
     return (
       <div class={'members__inner'}>
-        <Sidebar>
-          <header class={'members__header'}>
-            <h1 class={'members__title'}>
-              Browse members
-            </h1>
-          </header>
+        {/*<Sidebar>
           <FilterPanel {...props} />
-        </Sidebar>
+        </Sidebar>*/}
         <MemberGrid {...props} />
       </div>
     )

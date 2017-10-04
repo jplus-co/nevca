@@ -3,7 +3,7 @@
     {% include "list-card.twig" with {
       "link": post.get_field('link')|relative,
       "target": "_blank",
-      "date_circle": post.post_date,
+      "date_circle": post.publish_date,
       "subheading": post.source,
       "heading": post.title,
       "action": 'Read article'

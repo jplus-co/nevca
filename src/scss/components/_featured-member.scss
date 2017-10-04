@@ -1,0 +1,51 @@
+.featured-member {
+  background-color: $white;
+  border: 2px solid $gray-3;
+  margin-top: -6rem;
+  padding: 8% 6% 6%;
+  position: relative;
+
+  &__heading {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include type-style-display-sm();
+    text-transform: none;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__column {
+    flex-basis: 50%;
+
+    &:not(:last-child) {
+      padding-right: 8rem;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  &__description {
+    font-size: 1.6rem;
+  }
+
+  &__cta-link {
+    display: inline-block;
+    @include reset-anchor();
+    @include type-style-action();
+    text-decoration: underline;
+    padding-top: 1rem;
+  }
+}
