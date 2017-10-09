@@ -118,6 +118,14 @@
   letter-spacing: 1px;
 }
 
+@mixin type-style-heading-xxxl() {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 13rem;
+  text-transform: uppercase;
+}
+
 @mixin type-style-heading-xxl() {
   font-family: $font-heading;
   font-weight: 700;
