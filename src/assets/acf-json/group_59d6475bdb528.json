@@ -1,12 +1,13 @@
 {
-    "key": "group_59c07d3bd6384",
-    "title": "Firm Info",
+    "key": "group_59d6475bdb528",
+    "title": "Page: Portfolio",
     "fields": [
         {
-            "key": "field_59c07d8ae7ae9",
-            "label": "Image",
-            "name": "image",
-            "type": "image",
+            "key": "field_59d6492a30e0c",
+            "label": "Hero",
+            "name": "hero",
+            "type": "clone",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,22 +16,20 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "jpg, png"
+            "clone": [
+                "group_59d648e719a41"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         },
         {
-            "key": "field_59c07dbae7aea",
-            "label": "Website",
-            "name": "website",
-            "type": "url",
+            "key": "field_59d6489ec5be6",
+            "label": "Featured Programs",
+            "name": "featured_posts",
+            "type": "relationship",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -39,16 +38,23 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "http:\/\/",
-            "placeholder": ""
+            "post_type": [
+                "program"
+            ],
+            "taxonomy": [],
+            "filters": "",
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "page",
                 "operator": "==",
-                "value": "member"
+                "value": "831"
             }
         ]
     ],
@@ -76,5 +82,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507210672
+    "modified": 1507236045
 }

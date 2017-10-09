@@ -3,10 +3,27 @@
     "title": "Page: Home",
     "fields": [
         {
+            "key": "field_59d7f16d5f4af",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59c53c8b222ab",
             "label": "Hero",
             "name": "hero",
             "type": "clone",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,7 +33,7 @@
                 "id": ""
             },
             "clone": [
-                "field_59c53b7706c2e"
+                "group_59c53b7223e9e"
             ],
             "display": "seamless",
             "layout": "block",
@@ -24,10 +41,27 @@
             "prefix_name": 0
         },
         {
+            "key": "field_59d7f1c95f4b1",
+            "label": "Mission",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59c54b6c9aa43",
             "label": "Mission Block",
             "name": "mission_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -43,6 +77,7 @@
                     "label": "Mission Block",
                     "name": "mission_block",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -52,7 +87,8 @@
                         "id": ""
                     },
                     "clone": [
-                        "group_59c5355e9657b",
+                        "field_59c536cbaff02",
+                        "field_59c9554c600a0",
                         "group_59c5370387d52"
                     ],
                     "display": "seamless",
@@ -63,10 +99,27 @@
             ]
         },
         {
+            "key": "field_59d7f1a95f4b0",
+            "label": "Events",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59c53f54222ad",
             "label": "Events Block",
             "name": "events_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -82,6 +135,7 @@
                     "label": "Text Block",
                     "name": "text_block",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -103,6 +157,7 @@
                     "label": "Customize Featured Events?",
                     "name": "customize_featured_events",
                     "type": "true_false",
+                    "value": null,
                     "instructions": "By default, events are automatically listed in reverse chronological order. Check this box to manually select and order events, but keep in mind that this option requires additional upkeep.",
                     "required": 0,
                     "conditional_logic": 0,
@@ -122,6 +177,7 @@
                     "label": "Featured Events",
                     "name": "featured_posts",
                     "type": "relationship",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": [
@@ -138,9 +194,13 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [],
+                    "post_type": [
+                        "tribe_events"
+                    ],
                     "taxonomy": [],
-                    "filters": "",
+                    "filters": [
+                        "search"
+                    ],
                     "elements": "",
                     "min": "",
                     "max": 4,
@@ -149,10 +209,27 @@
             ]
         },
         {
+            "key": "field_59d7f1d55f4b2",
+            "label": "Community",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59c540e47a575",
             "label": "Community Block",
             "name": "community_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -168,6 +245,7 @@
                     "label": "Text Block",
                     "name": "text_block",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -185,10 +263,11 @@
                     "prefix_name": 0
                 },
                 {
-                    "key": "field_59cac4d7bf7d2",
-                    "label": "Featured Community Content",
-                    "name": "featured_posts",
-                    "type": "relationship",
+                    "key": "field_59db7984d9f19",
+                    "label": "Member to Watch",
+                    "name": "member_to_watch",
+                    "type": "group",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -197,28 +276,174 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "member",
-                        "sponsor",
-                        "press"
-                    ],
-                    "taxonomy": [],
-                    "filters": [
-                        "search",
-                        "post_type"
-                    ],
-                    "elements": "",
-                    "min": "",
-                    "max": -11,
-                    "return_format": "object"
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_59db799dd9f1a",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "value": null,
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_59db79a9d9f1b",
+                            "label": "Link",
+                            "name": "link",
+                            "type": "link",
+                            "value": null,
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": ""
+                        },
+                        {
+                            "key": "field_59db79b9d9f1c",
+                            "label": "Author Avatar",
+                            "name": "author_avatar",
+                            "type": "image",
+                            "value": null,
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "",
+                            "preview_size": "thumbnail",
+                            "library": "",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "jpg, png"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_59db79e9d9f1d",
+                    "label": "Company to Watch",
+                    "name": "company_to_watch",
+                    "type": "group",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_59db79e9d9f1e",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "value": null,
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_59db79e9d9f1f",
+                            "label": "Link",
+                            "name": "link",
+                            "type": "link",
+                            "value": null,
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        },
+                        {
+                            "key": "field_59db79e9d9f20",
+                            "label": "Author Avatar",
+                            "name": "author_avatar",
+                            "type": "image",
+                            "value": null,
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "jpg, png"
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "key": "field_59d7f1ec5f4b3",
+            "label": "Members",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_59c546ce9aa36",
             "label": "Members Block",
             "name": "members_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -234,6 +459,7 @@
                     "label": "Heading",
                     "name": "heading",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -255,6 +481,7 @@
                     "label": "Customize Featured Members?",
                     "name": "customize_featured_members",
                     "type": "true_false",
+                    "value": null,
                     "instructions": "By default, members are automatically listed in reverse chronological order. Check this box to manually select and order members, but keep in mind that this option requires additional upkeep.",
                     "required": 0,
                     "conditional_logic": 0,
@@ -274,9 +501,18 @@
                     "label": "Featured Members",
                     "name": "featured_posts",
                     "type": "relationship",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_59cac20defa8e",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -299,6 +535,7 @@
                     "label": "Button",
                     "name": "button",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -318,10 +555,27 @@
             ]
         },
         {
-            "key": "button",
-            "label": "Press Block",
-            "name": "press_block",
+            "key": "field_59d7f1f75f4b4",
+            "label": "Sponsors",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_59d663f23873a",
+            "label": "Sponsors Block",
+            "name": "sponsors_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -333,10 +587,11 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_59cad63020ba7",
+                    "key": "field_59d663f23873b",
                     "label": "Heading",
                     "name": "heading",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -354,10 +609,11 @@
                     "prefix_name": 0
                 },
                 {
-                    "key": "field_59cac266efa91",
-                    "label": "Publication",
-                    "name": "publications",
-                    "type": "repeater",
+                    "key": "field_59d7c293e18b6",
+                    "label": "Major Sponsors",
+                    "name": "major_sponsors",
+                    "type": "relationship",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -366,80 +622,169 @@
                         "class": "",
                         "id": ""
                     },
-                    "collapsed": "field_59cac2a1efa93",
-                    "min": 0,
-                    "max": 5,
-                    "layout": "table",
-                    "button_label": "Add logo",
-                    "sub_fields": [
-                        {
-                            "key": "field_59cac28befa92",
-                            "label": "Image",
-                            "name": "image",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "id",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_59cac2a1efa93",
-                            "label": "Title",
-                            "name": "title",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_59cac2aeefa94",
-                            "label": "Link",
-                            "name": "link",
-                            "type": "url",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": ""
-                        }
-                    ]
+                    "post_type": [
+                        "sponsor"
+                    ],
+                    "taxonomy": [
+                        "sponsorship_tier:major"
+                    ],
+                    "filters": "",
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "object"
+                },
+                {
+                    "key": "field_59d7c2ade18b7",
+                    "label": "Supporting Sponsors",
+                    "name": "supporting_sponsors",
+                    "type": "relationship",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "sponsor"
+                    ],
+                    "taxonomy": [
+                        "sponsorship_tier:supporting"
+                    ],
+                    "filters": "",
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "object"
+                },
+                {
+                    "key": "field_59d663f23873e",
+                    "label": "Button",
+                    "name": "button",
+                    "type": "clone",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_59c9546644fc2"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 }
             ]
+        },
+        {
+            "key": "field_59d7f2015f4b5",
+            "label": "Press",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "button",
+            "label": "Press Block",
+            "name": "press_block",
+            "type": "group",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_59cad63020ba7",
+                    "label": "Heading",
+                    "name": "heading",
+                    "type": "clone",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "field_59c53564aff00"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                },
+                {
+                    "key": "field_59d7d045f2ba1",
+                    "label": "Featured Publications",
+                    "name": "publications",
+                    "type": "taxonomy",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "publication",
+                    "field_type": "multi_select",
+                    "allow_null": 0,
+                    "add_term": 0,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "return_format": "object",
+                    "multiple": 0
+                }
+            ]
+        },
+        {
+            "key": "field_59d7f20b5f4b6",
+            "label": "FAQ",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_59cac42694b9d",
             "label": "FAQ Block",
             "name": "faq_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -455,6 +800,7 @@
                     "label": "Heading",
                     "name": "heading",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -476,6 +822,7 @@
                     "label": "Featured FAQs",
                     "name": "featured_posts",
                     "type": "relationship",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -514,9 +861,11 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
+        "permalink",
         "the_content",
         "excerpt",
         "custom_fields",
+        "discussion",
         "comments",
         "revisions",
         "slug",
@@ -530,5 +879,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1506465402
+    "modified": 1507561775
 }

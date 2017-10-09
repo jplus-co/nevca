@@ -101,7 +101,7 @@
                 },
                 {
                     "key": "field_59c53fec222af",
-                    "label": "Board Members",
+                    "label": "Board of Directors",
                     "name": "board_members",
                     "type": "relationship",
                     "instructions": "",
@@ -115,7 +115,34 @@
                     "post_type": [
                         "team_member"
                     ],
-                    "taxonomy": [],
+                    "taxonomy": [
+                        "team:board-of-directors"
+                    ],
+                    "filters": "",
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "object"
+                },
+                {
+                    "key": "field_59d675bbf10ba",
+                    "label": "Board of Overseers",
+                    "name": "board_of_overseers",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "team_member"
+                    ],
+                    "taxonomy": [
+                        "team:board-of-overseers"
+                    ],
                     "filters": "",
                     "elements": "",
                     "min": "",
@@ -153,7 +180,7 @@
                         "id": ""
                     },
                     "clone": [
-                        "group_59c5355e9657b"
+                        "field_59c53564aff00"
                     ],
                     "display": "seamless",
                     "layout": "block",
@@ -182,27 +209,6 @@
                     "min": "",
                     "max": "",
                     "return_format": "object"
-                },
-                {
-                    "key": "field_59ca7132485b4",
-                    "label": "Image Cluster",
-                    "name": "image_cluster",
-                    "type": "clone",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "clone": [
-                        "group_59c5370387d52"
-                    ],
-                    "display": "seamless",
-                    "layout": "block",
-                    "prefix_label": 0,
-                    "prefix_name": 0
                 }
             ]
         },
@@ -366,5 +372,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1506530749
+    "modified": 1507227295
 }

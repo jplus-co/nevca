@@ -1,13 +1,14 @@
 {
-    "key": "group_59c5370387d52",
-    "title": "Image Cluster",
+    "key": "group_59d7cf6cd1dd9",
+    "title": "Publication Logo",
     "fields": [
         {
-            "key": "field_59c537077d517",
-            "label": "Images",
-            "name": "image_cluster",
-            "type": "gallery",
-            "instructions": "Add up to 2 images.",
+            "key": "field_59d7cf84908af",
+            "label": "Logo",
+            "name": "logo",
+            "type": "image",
+            "value": null,
+            "instructions": "Please make sure the logo is all black with a white or transparent background.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,9 +16,8 @@
                 "class": "",
                 "id": ""
             },
-            "min": "",
-            "max": 2,
-            "insert": "append",
+            "return_format": "id",
+            "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -25,15 +25,15 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": "jpg, png"
+            "mime_types": "png, jpg"
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "taxonomy",
                 "operator": "==",
-                "value": "post"
+                "value": "publication"
             }
         ]
     ],
@@ -43,7 +43,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
+    "active": 1,
     "description": "",
-    "modified": 1507227344
+    "modified": 1507315635
 }

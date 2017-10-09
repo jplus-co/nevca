@@ -54,21 +54,48 @@ class NEVCASite extends TimberSite {
 	function add_custom_options_page() {
 		if ( function_exists('acf_add_options_page') ) {
 			acf_add_options_page(array(
-				'page_title' 	=> 'SEO',
-				'menu_title'	=> 'SEO',
-				'menu_slug' 	=> 'seo',
-				'capability'	=> 'edit_posts',
-				'parent_slug' => 'options-general.php',
-				'redirect'		=> false
+				'page_title'   => 'SEO',
+				'menu_title'   => 'SEO',
+				'menu_slug'    => 'seo',
+				'capability'   => 'edit_posts',
+				'parent_slug'  => 'options-general.php',
+				'redirect'     => false
 			));
 
 			acf_add_options_page(array(
-				'page_title' 	=> 'Downloads',
-				'menu_title'	=> 'Downloads',
-				'menu_slug' 	=> 'downloads',
-				'capability'	=> 'edit_posts',
-				'parent_slug' => 'options-general.php',
-				'redirect'		=> false
+				'page_title'   => 'Press Page Options',
+				'menu_title'   => 'Press Page Options',
+				'menu_slug'    => 'press_page_options',
+				'capability'   => 'edit_posts',
+				'parent_slug'  => 'edit.php?post_type=press',
+				'redirect'     => false
+			));
+
+			acf_add_options_page(array(
+				'page_title'   => 'FAQ Page Options',
+				'menu_title'   => 'FAQ Page Options',
+				'menu_slug'    => 'faq_page_options',
+				'capability'   => 'edit_posts',
+				'parent_slug'  => 'edit.php?post_type=faq',
+				'redirect'     => false
+			));
+
+			acf_add_options_page(array(
+				'page_title' 	 => 'Jobs Page Options',
+				'menu_title'	 => 'Jobs Page Options',
+				'menu_slug' 	 => 'jobs_page_options',
+				'capability'	 => 'edit_posts',
+				'parent_slug'  => 'edit.php?post_type=job',
+				'redirect'     => false
+			));
+
+			acf_add_options_page(array(
+				'page_title'   => '404',
+				'menu_title'   => '404',
+				'menu_slug'    => 'not_found_page',
+				'capability'   => 'edit_posts',
+				'icon_url'     => 'dashicons-no',
+				'redirect'     => false
 			));
 		}
 	}

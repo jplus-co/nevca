@@ -56,7 +56,19 @@
             {
                 "param": "post_taxonomy",
                 "operator": "==",
-                "value": "team:board"
+                "value": "team:board-of-directors"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "team_member"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "team:board-of-overseers"
             }
         ]
     ],
@@ -84,5 +96,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1506534115
+    "modified": 1507164552
 }
