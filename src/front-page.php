@@ -14,4 +14,13 @@ if ( $members_block->customize_featured_members ) {
   ));
 }
 
+if ( $events_block->customize_featured_events ) {
+  $context['featured_events'] = $events_block->featured_posts;
+} else {
+  $context['featured_events'] = Timber::get_posts(array(
+    'post_type'    => 'tribe_events',
+    'numberposts'  => 4
+  ));
+}
+
 Timber::render( 'front-page.twig', $context );

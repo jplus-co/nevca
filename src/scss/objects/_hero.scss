@@ -1,6 +1,6 @@
 .hero {
   background-color: $black;
-  padding: $inner-padding 0;
+  padding: $inner-padding-lg 0;
   position: relative;
 
   &--front-page {
@@ -36,7 +36,7 @@
   &__inner {
     position: absolute;
     width: 100%;
-    padding: 0 8%;
+    padding: 0 $inner-padding-md;
     text-align: center;
 
     .hero--front-page & {
@@ -55,7 +55,6 @@
       @include type-style-heading-xxxl();
       line-height: 1.1;
       color: $white;
-      font-size: 9vw;
     }
   }
 }

@@ -1,0 +1,66 @@
+.sponsor-logo-grid {
+
+  &::before {
+    content: '';
+    background-color: $black;
+    width: 30%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__section {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -3rem -6rem 2.2rem 0;
+    position: relative;
+    padding-left: 2rem
+  }
+
+  &__tier {
+    position: absolute;
+    top: 0;
+    left: 0;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    transform: rotate(180deg);
+    font-size: 1.6rem;
+    color: $light-blue;
+    padding-bottom: 3rem;
+  }
+
+  &__item {
+    flex-basis: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 6rem;
+
+    &--l {
+
+    }
+
+    &--p {
+
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+
+    &--l {
+
+    }
+
+    &--p {
+
+    }
+
+    &--invert {
+      filter: invert(100%);
+      filter: progid:DXImageTransform.Microsoft.BasicImage(invert='1');
+    }
+  }
+}

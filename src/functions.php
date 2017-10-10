@@ -1,5 +1,7 @@
 <?php
 
+@ini_set( 'max_input_vars', '3000' );
+
 if ( ! class_exists( 'Timber' ) ) {
 	add_action( 'admin_notices', function() {
 		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php') ) . '</a></p></div>';
@@ -104,6 +106,14 @@ class NEVCASite extends TimberSite {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
 		$context['options'] = get_fields('option');
+		$context['colors'] = array(
+			'white' => '#FFFFFF',
+			'black' => '#181920',
+			'gold' => '#D9A03E',
+			'light_gold'   => '#F8D57C',
+			'blue' => '#363D4F',
+			'light_blue' => '#BDC4CB'
+		);
 		return $context;
 	}
 

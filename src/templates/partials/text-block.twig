@@ -2,11 +2,13 @@
   {% set tag = 'h2' %}
 {% endif %}
 
-<div class="text-block">
-  <{{ tag }} class="text-block__heading">
-    <span class="text-block__rule"></span>
-    {{ props.heading }}
-  </{{ tag }}>
+<div class="{{ is_lede ? 'text-block text-block--lede' : 'text-block' }}{{ classes ? ' ' ~ classes }}">
+  {% if not is_lede %}
+    <{{ tag }} class="text-block__heading">
+      <span class="text-block__rule"></span>
+      {{ props.heading }}
+    </{{ tag }}>
+  {% endif %}
   <div class="text-block__body">
     {{ props.body }}
     {% if props.button %}

@@ -1,0 +1,42 @@
+.blog-post-tease {
+  background-color: $blue;
+  color: $white;
+  text-align: center;
+  padding: 3rem;
+
+  &:not(:last-child) {
+    margin-bottom: 3.6rem;
+  }
+
+  &__image-mask {
+    width: 6.4rem;
+    height: 6.4rem;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 2.4rem auto;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__subheading {
+    @include type-style-action();
+    font-size: 1.5rem;
+    font-style: italic;
+    text-transform: none;
+    color: $gold;
+    margin-bottom: 1.6rem;
+  }
+
+  &__heading {
+    margin-bottom: 3rem;
+    line-height: 1.3;
+  }
+
+  &__link {
+
+  }
+}

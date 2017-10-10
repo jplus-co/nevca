@@ -1,15 +1,14 @@
 .section {
   width: 100%;
-  // min-height: 60rem;
   position: relative;
+  background-color: $white;
+
+  &--top {
+    z-index: 1;
+  }
 
   &__row {
     display: flex;
-    padding: 8% $inner-padding 0;
-
-    &:last-child {
-      padding-bottom: 8%;
-    }
   }
 
   &__container {

@@ -1,7 +1,7 @@
 {% set image_count = images|length %}
 
 {% if image_count %}
-  <div class="image-cluster">
+  <div class="{{ first_full ? 'image-cluster image-cluster--first-full' : 'image-cluster' }}">
     {% for image in images %}
       {% include "image-cluster-item.twig" with {
         'src': image.url

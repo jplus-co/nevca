@@ -4,6 +4,7 @@
 {% set events_block = post.get_field("events_block") %}
 {% set community_block = post.get_field("community_block") %}
 {% set members_block = post.get_field("members_block") %}
+{% set sponsors_block = post.get_field("sponsors_block") %}
 {% set press_block = post.get_field("press_block") %}
 {% set faq_block = post.get_field("faq_block") %}
 
@@ -16,104 +17,154 @@
       "hero_image": post.hero_image
     } %}
     <!-- Mission -->
-    <section id="mission" class="js-section section">
-      <div class="section__row justify-content-end">
-        <!-- Mission Text -->
-        {% include "text-block.twig" with {
-          "props": mission_block
-        } %}
+    <section id="mission" class="js-section section section--top">
+      <div class="section__row justify-content-between px-8p py-12p">
         <!-- Mission Images -->
         {% include "image-cluster.twig" with {
           "images": mission_block.image_cluster,
-          "ampersand": true
+          "first_full": true
+        } %}
+
+        <!-- Mission Text -->
+        {% include "text-block.twig" with {
+          "props": mission_block,
+          "is_lede": true
         } %}
       </div>
     </section>
     <!-- Events -->
-    <section id="events" class="js-section section bg-alt">
+    <section id="events" class="js-section section is-black py-12p">
       <!-- Events Text -->
-      <div class="section__row">
+      <div class="section__row px-8p">
         {% include "text-block.twig" with {
           "props": events_block
         } %}
       </div>
       <!-- Event Tease List -->
-      <div class="section__row">
+      <div class="section__row pt-4p px-8p">
         <div class="relative w-100">
-          {% include 'tease-list.twig' with {
-            "props": 1..4
+          {% include 'event-tease-list.twig' with {
+            "props": featured_events
           } %}
           <!-- View more circle button -->
-          <div class="absolute pos-br translate-x-100 p-left-1">
+          <div class="absolute pos-br translate-x-100 pl-1">
             {% include 'circle-button.twig' with {
               direction: 'right',
               url: '/events',
-              label: 'View all'
+              label: 'View all',
+              color: colors.gold
             } %}
           </div>
         </div>
       </div>
     </section>
     <!-- Community -->
-    <section id="community" class="js-section section">
-      <div class="section__row justify-content-end">
+    <section id="community" class="js-section section px-8p py-12p">
+      <div class="section__row justify-content-between">
+        <div class="pr-16p">
+          {% set mtw = community_block.member_to_watch %}
+          {% set ctw = community_block.company_to_watch %}
+
+          <div class="blog-post-tease">
+            <div class="blog-post-tease__image-mask">
+              <img class="blog-post-tease__image" src="{{ TimberImage(mtw.author_avatar).src }}" alt="{{ mtw.title }}">
+            </div>
+            <h4 class="blog-post-tease__subheading">Member to Watch</h4>
+            <h3 class="blog-post-tease__heading">{{ mtw.title }}</h3>
+            <a class="blog-post-tease__link text-button text-button--underline" href="{{ mtw.link.url }}" target="{{ mtw.link.target }}">{{ mtw.link.title }}</a>
+          </div>
+
+          <div class="blog-post-tease">
+            <div class="blog-post-tease__image-mask">
+              <img class="blog-post-tease__image" src="{{ TimberImage(ctw.author_avatar).src }}" alt="{{ ctw.title }}">
+            </div>
+            <h4 class="blog-post-tease__subheading">Member to Watch</h4>
+            <h3 class="blog-post-tease__heading">{{ ctw.title }}</h3>
+            <a class="blog-post-tease__link text-button text-button--underline" href="{{ ctw.link.url }}" target="{{ ctw.link.target }}">{{ ctw.link.title }}</a>
+          </div>
+        </div>
+
         <!-- Community Text -->
         {% include "text-block.twig" with {
-          "props": community_block
+          "props": community_block,
+          "classes": 'pt-6p'
         } %}
-        <div class="image image--top image--left image--padding w-40">
-          <div class="image__inner" style="background-image: url({{ TimberImage(community_block.images[0]).src }})"></div>
-        </div>
       </div>
-      <!-- Community Content Tease List -->
-      <div class="section__row">
-        {% include 'tease-list.twig' with {
-          "props": community_block.featured_posts
+    </section>
+
+    <!-- Members Block -->
+    <section id="members" class="section pt-12p pb-4p px-8p is-black">
+      <h3 class="text-block__subheading color-gold">{{ members_block.heading }}</h3>
+      <div class="member-logo-grid">
+        {% for member in featured_members %}
+          {% set logo = TimberImage(member.image) %}
+          <a href="{{ member.website }}" target="_blank"
+            class="member-logo-grid__item member-logo-grid__item--{{ logo.width > logo.height ? 'l' : 'p' }}">
+            <img class="member-logo-grid__image member-logo-grid__image--{{ logo.width > logo.height ? 'l' : 'p' }}"
+              src="{{ logo.src }}" alt="{{ member.title }}">
+          </a>
+        {% endfor %}
+      </div>
+
+      {% if members_block.has_button %}
+        {% include "button.twig" with {
+          props: members_block.button,
+          button_classes: 'button--white'
         } %}
-        <div class="image image--right p-top-10 w-50">
-          <div class="image__inner" style="background-image: url({{ TimberImage(community_block.images[1]).src }})"></div>
+      {% endif %}
+    </section>
+
+    <!-- Sponsors Block -->
+    <section id="sponsors" class="section flex justify-content-end">
+      <div class="w-70 py-6p pl-6p pr-12p is-blue">
+        <h3 class="text-block__subheading color-gold">{{ sponsors_block.heading }}</h3>
+        <div class="sponsor-logo-grid">
+
+          <div class="sponsor-logo-grid__section">
+            <h4 class="sponsor-logo-grid__tier">Major</h4>
+            {% for sponsor in sponsors_block.major_sponsors %}
+              {% set logo = TimberImage(sponsor.logo) %}
+              <a href="{{ sponsor.website_link }}" target="_blank"
+                class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width > logo.height ? 'l' : 'p' }}">
+                <img class="sponsor-logo-grid__image sponsor-logo-grid__image--{{ logo.width > logo.height ? 'l' : 'p' }}"
+                  src="{{ logo.src }}" alt="{{ sponsor.title }}">
+              </a>
+            {% endfor %}
+          </div>
+
+          <div class="sponsor-logo-grid__section">
+            <h4 class="sponsor-logo-grid__tier">Supporting</h4>
+            {% for sponsor in sponsors_block.supporting_sponsors %}
+              {% set logo = TimberImage(sponsor.logo) %}
+              <a href="{{ sponsor.website_link }}" target="_blank"
+                class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width > logo.height ? 'l' : 'p' }}">
+                <img class="sponsor-logo-grid__image sponsor-logo-grid__image--invert sponsor-logo-grid__image--{{ logo.width > logo.height ? 'l' : 'p' }}"
+                  src="{{ logo.src }}" alt="{{ sponsor.title }}">
+              </a>
+            {% endfor %}
+          </div>
         </div>
-      </div>
-      <!-- Members Block -->
-      <div class="section__row">
-        <div class="w-75 z-index-1">
-          <h3 class="text-block__subheading">{{ members_block.heading }}</h3>
-          {% include 'tease-list.twig' with {
-            "props": featured_members,
-            "wrap": true,
-            "flex_basis": 20
+
+        {% if sponsors_block.has_button %}
+          {% include "button.twig" with {
+            props: sponsors_block.button,
+            button_classes: 'button--white'
           } %}
-          {% if members_block.has_button %}
-            {% include "button.twig" with {
-              props: members_block.button
-            } %}
-          {% endif %}
-        </div>
+        {% endif %}
       </div>
-      <!-- Sponsors Block -->
-      <div class="section__row justify-content-end translate-x-7">
-        <div class="w-75 z-index-1">
-          <h3 class="text-block__subheading">{{ members_block.heading }}</h3>
-          {% include 'tease-list.twig' with {
-            "props": featured_members,
-            "wrap": true,
-            "flex_basis": 20
-          } %}
-          {% if members_block.has_button %}
-            {% include "button.twig" with {
-              props: members_block.button
-            } %}
-          {% endif %}
-        </div>
-      </div>
-      <!-- Press Block -->
-      <div class="p-6p">
-        <div class="w-100 p-6p align-items-center">
-          <h2 class="text-block__subheading text-align-center">Featured In</h2>
-          {% include "tease-list.twig" with {
-            "props": 1..4
-          } %}
-        </div>
+    </section>
+
+    <!-- Press Block -->
+    <section id="press" class="section py-14p px-20p text-align-center">
+      <h3 class="text-block__subheading color-gold">{{ press_block.heading }}</h3>
+      <div class="publication-grid">
+        {% for pub in press_block.publications %}
+          <a href="#0" target="_blank"
+            class="publication-grid__item">
+            <img class="publication-grid__image"
+              src="{{ TimberImage(TimberTerm(pub.term_id).logo).src }}" alt="{{ pub.name }}">
+          </a>
+        {% endfor %}
       </div>
     </section>
 

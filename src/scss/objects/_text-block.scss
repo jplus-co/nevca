@@ -1,36 +1,46 @@
 .text-block {
   position: relative;
   z-index: 1;
-  flex-basis: 58%;
+  flex-basis: 54%;
+
+  &--lede {
+    flex-basis: 64%;
+  }
 
   &__heading {
     @include type-style-heading-lg();
   }
 
   &__subheading {
-    @include type-style-heading-md();
+    @include type-style-heading-sm();
   }
 
   &__heading,
   &__subheading {
     margin-bottom: 4rem;
+    color: currentColor;
   }
 
   &__rule {
     display: block;
     width: 4rem;
     height: 0.6rem;
-    background-color: $black;
+    background-color: currentColor;
     margin-bottom: 0.8rem;
   }
 
   &__body {
     padding-left: 14%;
+    color: currentColor;
 
     .p1 {
       &:not(:last-child) {
         margin-bottom: 2rem;
       }
+    }
+
+    .text-block--lede & {
+      @include type-style-heading-lg();
     }
   }
 }

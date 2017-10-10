@@ -1,3 +1,22 @@
-.bg-alt {
-  background-color: $gray-3;
+.is-black {
+  background-color: $black;
+  color: $white;
+}
+
+.is-white {
+  background-color: $white;
+  color: $black;
+}
+
+.is-blue {
+  background-color: $blue;
+  color: $white;
+}
+
+.is-gold {
+  background-color: $gold;
+}
+
+.color-gold {
+  color: $gold;
 }

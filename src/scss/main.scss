@@ -54,6 +54,7 @@ Version: 1.0.0
 @import 'components/member-grid';
 @import 'components/member-card';
 @import 'components/tease-list';
+@import 'components/event-tease-list';
 @import 'components/post-title-list';
 @import 'components/faq-archive-list';
 @import 'components/job-archive-list';
@@ -64,6 +65,10 @@ Version: 1.0.0
 @import 'components/press-archive-list';
 @import 'components/downloads-list';
 @import 'components/featured-member';
+@import 'components/blog-post-tease';
+@import 'components/member-logo-grid';
+@import 'components/sponsor-logo-grid';
+@import 'components/publication-grid';
 
 // Helpers
 @import 'helpers/position';

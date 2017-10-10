@@ -1,0 +1,34 @@
+.member-logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -3rem -6rem 2rem -6rem;
+
+  &__item {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 6rem;
+
+    &--l {
+
+    }
+
+    &--p {
+
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+
+    &--l {
+
+    }
+
+    &--p {
+
+    }
+  }
+}

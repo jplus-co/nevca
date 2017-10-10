@@ -5,8 +5,6 @@
 }
 
 @for $i from 1 through 20 {
-
-  // padding
   .p-#{$i} {
     padding: #{$i}rem;
   }
@@ -16,32 +14,37 @@
   }
 
   @each $s in top, right, bottom, left {
-    .p-#{$s}-#{$i} {
+    .p#{str-slice($s, 1, 1)}-#{$i} {
       padding-#{$s}: #{$i}rem;
+    }
+
+    .p#{str-slice($s, 1, 1)}-#{$i}p {
+      padding-#{$s}: $i * 1%;
     }
   }
 
-  .p-x-#{$i} {
+  .px-#{$i} {
     padding-right: #{$i}rem;
     padding-left: #{$i}rem;
   }
 
-  .p-y-#{$i} {
+  .py-#{$i} {
     padding-top: #{$i}rem;
     padding-bottom: #{$i}rem;
   }
 
-  .p-x-#{$i}p {
+  .px-#{$i}p {
     padding-right: $i * 1%;
     padding-left: $i * 1%;
   }
 
-  .p-y-#{$i}p {
+  .py-#{$i}p {
     padding-top: $i * 1%;
     padding-bottom: $i * 1%;
   }
 
-  // margin
+
+
   .m-#{$i} {
     margin: #{$i}rem;
   }
@@ -51,17 +54,17 @@
   }
 
   @each $s in top, right, bottom, left {
-    .m-#{$s}-#{$i} {
+    .m#{str-slice($s, 1, 1)}-#{$i} {
       margin-#{$s}: #{$i}rem;
     }
   }
 
-  .m-x-#{$i} {
+  .mx-#{$i} {
     margin-right: #{$i}rem;
     margin-left: #{$i}rem;
   }
 
-  .m-y-#{$i} {
+  .my-#{$i} {
     margin-top: #{$i}rem;
     margin-bottom: #{$i}rem;
   }

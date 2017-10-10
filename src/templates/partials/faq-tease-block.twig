@@ -1,5 +1,5 @@
 <!-- FAQ Section -->
-<section id="faq" class="section bg-alt">
+<section id="faq" class="section p-8p is-black">
   <div class="section__row flex-column">
     <div class="text-block__heading">
       <span class="text-block__rule"></span>
@@ -9,7 +9,7 @@
       {% include "post-title-list.twig" with {
         "props": props.featured_posts
       } %}
-      <a href="{{ site.link ~ '/faq/' | relative }}" class="text-button">View all</a>
+      <a href="{{ site.link ~ '/faq/' | relative }}" class="text-button text-button--underline">View all</a>
     </div>
   </div>
 </section>

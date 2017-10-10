@@ -2,7 +2,7 @@
   background-color: $white;
   border: 2px solid $gray-3;
   margin-top: -6rem;
-  padding: 8% 6% 6%;
+  padding: $inner-padding-md $inner-padding-sm $inner-padding-sm;
   position: relative;
 
   &__heading {
