@@ -4,6 +4,7 @@ $context = Timber::get_context();
 $context['post'] = Timber::get_post();
 
 $members_block = get_field('members_block');
+$events_block = get_field('events_block');
 
 if ( $members_block->customize_featured_members ) {
   $context['featured_members'] = $members_block->featured_posts;
