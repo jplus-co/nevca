@@ -1,11 +1,18 @@
 import Barba from 'barba.js'
+import Scroller from './scroller'
 
 const home = Barba.BaseView.extend({
 	namespace: 'home',
 
-	onEnter () {},
+	onEnter () {
+		const parallaxItems = document.querySelectorAll('.js-parallax')
 
-	onEnterCompleted () {},
+		this.scroller = new Scroller({ parallaxItems })
+	},
+
+	onEnterCompleted () {
+		this.scroller.init()
+	},
 
 	onLeave () {},
 

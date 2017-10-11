@@ -35,13 +35,13 @@
     <!-- Events -->
     <section id="events" class="js-section section is-black py-12p">
       <!-- Events Text -->
-      <div class="section__row px-8p">
+      <div class="section__row px-8p js-parallax" data-speed="0.1">
         {% include "text-block.twig" with {
           "props": events_block
         } %}
       </div>
       <!-- Event Tease List -->
-      <div class="section__row pt-4p px-8p">
+      <div class="section__row pt-4p px-8p js-parallax" data-speed="0.1">
         <div class="relative w-100">
           {% include 'event-tease-list.twig' with {
             "props": featured_events
