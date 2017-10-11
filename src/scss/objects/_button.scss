@@ -3,7 +3,7 @@
   @include reset-anchor();
   @include type-style-nav();
   padding: 2rem 6rem;
-  box-shadow: 0 0 0 2px $gold inset;
+  box-shadow: 0 0 0 0.2rem $gold inset;
   color: $gold;
   text-align: center;
   position: relative;
@@ -39,7 +39,7 @@
   }
 
   &--white {
-    box-shadow: 0 0 0 2px $white inset;
+    box-shadow: 0 0 0 0.2rem $white inset;
     color: $white;
 
     &::before {

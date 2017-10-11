@@ -1,0 +1,65 @@
+{% extends 'base.twig' %}
+
+{% set featured_programs = post.get_field('featured_posts') %}
+{% set text_block = post.get_field('text_block') %}
+
+
+{% block content %}
+
+  <div class="view" data-namespace="portfolio">
+
+    {% include 'hero-alt.twig' with {
+      hero_text: post.hero_text,
+      hero_body: post.hero_body,
+      is_white: false
+    } %}
+
+    {% for post in featured_programs %}
+      <section id="{{ post.slug }}"
+        class="section program program--{{ post.has_background_image ? 'bg' : post.get_field('countup')|length > 0 ? 'stats' : 'normal' }}">
+        <div class="pt-12p pr-8p {{ post.get_field('countup')|length > 0 ? 'pb-4p' : 'pb-18p' }} pl-18p">
+          <div class="program__row">
+
+            {% include 'text-block.twig' with {
+              props: {
+                heading: post.title,
+                body: post.body,
+                button: post.get_field('button')
+              },
+              classes: post.has_background_image ? 'color-white' : false
+            } %}
+
+            {% if not post.has_background_image %}
+              <div class="program__image-cluster">
+                {% for image in post.images %}
+                  <img
+                    class="program__image program__image--{{ loop.index }} program__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
+                    src="{{ Image(image).src }}"
+                    alt="{{ post.title }}">
+                {% endfor %}
+              </div>
+            {% endif %}
+
+          </div>
+
+          {% if post.get_field('countup')|length > 0 %}
+            <div class="flex pt-6p">
+              {% for stat in post.get_field('countup') %}
+                <div class="stat js-countup" data-countup="{{ stat.number }}">
+                  <number class="stat__number">{{ stat.number }}{{  stat.plus_sign ? '+' }}</number>
+                  <span class="stat__caption">{{ stat.text }}</span>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        {% if post.has_background_image %}
+          <div class="program__background-image" style="background-image: url({{ Image(post.images[0]).src }})"></div>
+        {% endif %}
+      </section>
+    {% endfor %}
+
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}

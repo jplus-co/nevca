@@ -7,6 +7,13 @@
     height: 80rem;
   }
 
+  &--alt {
+    height: 50rem;
+    background-color: $white;
+    padding: 0 $inner-padding-sm;
+    z-index: 1;
+  }
+
   &__image {
     position: absolute;
     background-size: cover;
@@ -45,9 +52,16 @@
       left: 0;
       transform: translateY(-50%);
     }
+
+    .hero--alt & {
+      position: relative;
+      background-color: $gold;
+      height: 100%;
+      padding-top: $inner-padding-md;
+    }
   }
 
-  &__text {
+  &__heading {
     @include type-style-heading-lg();
     margin: 0;
 
@@ -55,6 +69,28 @@
       @include type-style-heading-xxxl();
       line-height: 1.1;
       color: $white;
+    }
+
+    .hero--alt & {
+      @include type-style-heading-xxxl();
+      font-style: normal;
+      color: $white;
+    }
+  }
+
+  &__body {
+    width: 56%;
+    padding: 3% 4%;
+    position: absolute;
+    bottom: -6%;
+    left: 30%;
+    background-color: $black;
+    color: $white;
+    text-align: left;
+
+    &--white {
+      background-color: $white;
+      color: $black;
     }
   }
 }

@@ -5,8 +5,9 @@
         {
             "key": "field_59ca6b8ef65a1",
             "label": "Stats",
-            "name": "stats",
+            "name": "countup",
             "type": "repeater",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -26,6 +27,7 @@
                     "label": "Number",
                     "name": "number",
                     "type": "number",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -47,6 +49,7 @@
                     "label": "Plus Sign?",
                     "name": "plus_sign",
                     "type": "true_false",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -66,6 +69,7 @@
                     "label": "Text",
                     "name": "text",
                     "type": "text",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -100,5 +104,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1506438517
+    "modified": 1507697286
 }

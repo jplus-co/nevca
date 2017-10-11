@@ -7,6 +7,7 @@
             "label": "Hero Text",
             "name": "hero_text",
             "type": "text",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -26,7 +27,8 @@
             "label": "Use Background Image?",
             "name": "has_image",
             "type": "true_false",
-            "instructions": "Check this box if you would like to add a full-bleed background image to the hero.",
+            "value": null,
+            "instructions": "Check this box if you would like to add a background image to the hero.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -45,6 +47,7 @@
             "label": "Hero Image",
             "name": "hero_image",
             "type": "image",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -90,5 +93,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1506098257
+    "modified": 1507681669
 }
