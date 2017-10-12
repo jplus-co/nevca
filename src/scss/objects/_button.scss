@@ -1,7 +1,7 @@
 .button {
   display: inline-block;
   @include reset-anchor();
-  @include type-style-nav();
+  @include type-style-nav-md();
   padding: 2rem 6rem;
   box-shadow: 0 0 0 0.2rem $gold inset;
   color: $gold;

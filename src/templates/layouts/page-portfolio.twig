@@ -16,7 +16,7 @@
 
     {% for post in featured_programs %}
       <section id="{{ post.slug }}"
-        class="section program program--{{ post.has_background_image ? 'bg' : post.get_field('countup')|length > 0 ? 'stats' : 'normal' }}">
+        class="js-section section program program--{{ post.has_background_image ? 'bg' : post.get_field('countup')|length > 0 ? 'stats' : 'normal' }}">
         <div class="pt-12p pr-8p {{ post.get_field('countup')|length > 0 ? 'pb-4p' : 'pb-18p' }} pl-18p">
           <div class="program__row">
 
@@ -60,6 +60,16 @@
     {% endfor %}
 
     {% include "site-footer.twig" %}
+
+    <nav class="js-page-navigation page-navigation">
+      <ul class="page-navigation__list">
+        {% for item in featured_programs %}
+          <li class="page-navigation__item">
+            <a class="js-anchor-link page-navigation__link" href="{{ '#' ~ item.slug }}">{{ item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
   </div>
 
 {% endblock %}

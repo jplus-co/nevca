@@ -2,7 +2,7 @@
   <div class="team-slider__container">
     {% for item in props %}
       <figure class="team-slider__item">
-        <img class="team-slider__image" src="{{ TimberImage(item.image).src }}" />
+        <img class="team-slider__image" src="{{ Image(item.image).src }}" />
         <figcaption class="team-slider__info">
           <h4 class="team-slider__name">{{ item.title }}</h4>
           <h5 class="team-slider__role">{{ item.role }}</h5>

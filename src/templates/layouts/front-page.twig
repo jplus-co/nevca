@@ -67,7 +67,7 @@
 
           <div class="blog-post-tease">
             <div class="blog-post-tease__image-mask">
-              <img class="blog-post-tease__image" src="{{ TimberImage(mtw.author_avatar).src }}" alt="{{ mtw.title }}">
+              <img class="blog-post-tease__image" src="{{ Image(mtw.author_avatar).src }}" alt="{{ mtw.title }}">
             </div>
             <h4 class="blog-post-tease__subheading">Member to Watch</h4>
             <h3 class="blog-post-tease__heading">{{ mtw.title }}</h3>
@@ -76,7 +76,7 @@
 
           <div class="blog-post-tease">
             <div class="blog-post-tease__image-mask">
-              <img class="blog-post-tease__image" src="{{ TimberImage(ctw.author_avatar).src }}" alt="{{ ctw.title }}">
+              <img class="blog-post-tease__image" src="{{ Image(ctw.author_avatar).src }}" alt="{{ ctw.title }}">
             </div>
             <h4 class="blog-post-tease__subheading">Member to Watch</h4>
             <h3 class="blog-post-tease__heading">{{ ctw.title }}</h3>
@@ -97,7 +97,7 @@
       <h3 class="text-block__subheading color-gold">{{ members_block.heading }}</h3>
       <div class="member-logo-grid">
         {% for member in featured_members %}
-          {% set logo = TimberImage(member.image) %}
+          {% set logo = Image(member.image) %}
           <a href="{{ member.website }}" target="_blank"
             class="member-logo-grid__item member-logo-grid__item--{{ logo.width > logo.height ? 'l' : 'p' }}">
             <img class="member-logo-grid__image member-logo-grid__image--{{ logo.width > logo.height ? 'l' : 'p' }}"
@@ -123,7 +123,7 @@
           <div class="sponsor-logo-grid__section">
             <h4 class="sponsor-logo-grid__tier">Major</h4>
             {% for sponsor in sponsors_block.major_sponsors %}
-              {% set logo = TimberImage(sponsor.logo) %}
+              {% set logo = Image(sponsor.logo) %}
               <a href="{{ sponsor.website_link }}" target="_blank"
                 class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width > logo.height ? 'l' : 'p' }}">
                 <img class="sponsor-logo-grid__image sponsor-logo-grid__image--{{ logo.width > logo.height ? 'l' : 'p' }}"
@@ -135,7 +135,7 @@
           <div class="sponsor-logo-grid__section">
             <h4 class="sponsor-logo-grid__tier">Supporting</h4>
             {% for sponsor in sponsors_block.supporting_sponsors %}
-              {% set logo = TimberImage(sponsor.logo) %}
+              {% set logo = Image(sponsor.logo) %}
               <a href="{{ sponsor.website_link }}" target="_blank"
                 class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width > logo.height ? 'l' : 'p' }}">
                 <img class="sponsor-logo-grid__image sponsor-logo-grid__image--invert sponsor-logo-grid__image--{{ logo.width > logo.height ? 'l' : 'p' }}"
@@ -162,7 +162,7 @@
           <a href="#0" target="_blank"
             class="publication-grid__item">
             <img class="publication-grid__image"
-              src="{{ TimberImage(TimberTerm(pub.term_id).logo).src }}" alt="{{ pub.name }}">
+              src="{{ Image(TimberTerm(pub.term_id).logo).src }}" alt="{{ pub.name }}">
           </a>
         {% endfor %}
       </div>

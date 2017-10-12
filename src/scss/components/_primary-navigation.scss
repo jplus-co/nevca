@@ -14,7 +14,7 @@
   }
 
   &__link {
-    @include type-style-nav();
+    @include type-style-nav-md();
     display: flex;
     align-items: center;
     height: $header-size;
@@ -49,7 +49,7 @@
 
   &__button {
     @include reset-anchor();
-    @include type-style-nav();
+    @include type-style-nav-md();
     padding: 1.2rem 3rem;
     margin-left: 2rem;
     box-shadow: 0 0 0 0.2rem $black inset;

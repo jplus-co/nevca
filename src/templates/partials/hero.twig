@@ -1,6 +1,6 @@
 <div class="{{ is_home ? 'hero hero--front-page' : 'hero' }}">
   {% if hero_image %}
-    <div class="hero__image" style="background-image: url({{ TimberImage(hero_image).src }});"></div>
+    <div class="hero__image" style="background-image: url({{ Image(hero_image).src }});"></div>
   {% endif %}
   <div class="hero__inner">
     <h1 class="hero__heading">

@@ -26,13 +26,13 @@
         }
 
         &--2 {
-          left: 5%;
+          left: 4%;
         }
 
         &--portrait {
           width: 24%;
           bottom: 10%;
-          left: 5%;
+          left: 4%;
           z-index: 2;
         }
       }
@@ -93,12 +93,13 @@
 
     &--2 {
       bottom: 14%;
+      right: 4%;
     }
 
     &--portrait {
       width: 24%;
       bottom: 10%;
-      right: 5%;
+      right: 4%;
     }
   }
 }
