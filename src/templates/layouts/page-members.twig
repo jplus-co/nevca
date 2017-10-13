@@ -7,10 +7,14 @@
   <div class="view" data-namespace="members">
 
     {% include "hero.twig" with {
-      "hero_text": post.hero_text
+      "hero_text": post.hero_text,
+      "hero_image": post.hero_image,
+      "half_image": true
     } %}
 
-    <div class="px-12p">
+    {{featured_member.image|print_r}}
+
+    <div class="px-16p">
       <div class="featured-member">
         <h2 class="featured-member__heading">Featured Member</h2>
         <div class="featured-member__row">
@@ -18,7 +22,7 @@
             <img class="featured-member__image"
               src="{{ Image(featured_member.image
                 ? featured_member.image
-                : featured_member.post.logo
+                : featured_member.post.image
               ).src }}"
               alt="{{ featured_member.post.title }}">
           </div>
@@ -29,15 +33,20 @@
             <div class="featured-member__description">
               {{ featured_member.description }}
             </div>
+            <a class="featured-member__membership-cta-link" href="{{ site.link | relative }}/membership">
+              {{ featured_member.cta_label }}
+            </a>
           </div>
         </div>
       </div>
-      <a class="featured-member__cta-link" href="{{ site.link | relative }}/membership">
-        {{ featured_member.cta_label }}
-      </a>
     </div>
 
-    <div class="members py-12p" />
+    <div class="py-12p px-16p">
+      <!-- preact entry point -->
+      <div class="members"></div>
+    </div>
+
+    {% include 'site-footer.twig' %}
   </div>
 
 {% endblock %}

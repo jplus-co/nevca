@@ -4,7 +4,7 @@ import FilterControl from '../containers/FilterControlContainer'
 const FilterGroup = ({
   parent
 }) => (
-  <li class={'filter-group'} key={parent.id}>
+  <li class={'filter-group filter-group--industry'} key={parent.id}>
     <FilterControl {...parent} isParent>
       {parent.name}
     </FilterControl>

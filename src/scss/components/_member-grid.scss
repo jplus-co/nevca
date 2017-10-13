@@ -1,7 +1,6 @@
 .member-grid {
   position: relative;
   display: flex;
-  padding: 0 $inner-padding-lg;
 
   &__list,
   &__skeleton {
@@ -10,12 +9,13 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    margin: 0 -1.5rem;
 
-    @supports (display: grid) {
-      display: grid;
-      grid-template: repeat(4, 1fr) / repeat(4, 1fr);
-      grid-gap: 3rem;
-    }
+    // @supports (display: grid) {
+    //   display: grid;
+    //   grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    //   grid-gap: 3rem;
+    // }
   }
 
   &__skeleton {

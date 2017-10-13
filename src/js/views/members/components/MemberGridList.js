@@ -1,17 +1,27 @@
 import { h } from 'preact'
 import MemberCard from './MemberCard'
+import CTACard from './CTACard'
 
 const MemberGridList = ({
   members
-}) => (
-  <ul className="member-grid__list">
-    {members.map(member =>
-      <MemberCard
-        {...member}
-        key={member.id}
-      />
-    )}
-  </ul>
-)
+}) => {
+  const membersWithCTACard = [
+    ...members.slice(0, 5),
+    'cta',
+    ...members.slice(5)
+  ]
+
+  return (
+    <ul className="member-grid__list">
+      {membersWithCTACard.map((member, i) =>
+        member === 'cta'
+          ? <CTACard />
+          : <MemberCard {...member} key={member.id} />
+      )}
+    </ul>
+  )
+}
+
+
 
 export default MemberGridList
