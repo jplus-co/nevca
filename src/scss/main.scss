@@ -40,6 +40,7 @@ Version: 1.0.0
 @import 'objects/image';
 @import 'objects/pagination';
 @import 'objects/list-card';
+@import 'objects/columns-block';
 @import 'objects/scroll-area';
 
 // Components
@@ -70,9 +71,9 @@ Version: 1.0.0
 @import 'components/member-logo-grid';
 @import 'components/sponsor-logo-grid';
 @import 'components/publication-grid';
-@import 'components/program';
 @import 'components/stat';
 @import 'components/close-button';
+@import 'components/member-benefits';
 
 // Helpers
 @import 'helpers/position';

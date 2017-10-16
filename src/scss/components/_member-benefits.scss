@@ -1,0 +1,21 @@
+.member-benefits {
+  &__heading {
+    @include type-style-display-sm();
+    text-transform: none;
+    color: $gold;
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  &__row {
+
+  }
+
+  &__column {
+    font-size: 1.4rem;
+
+    li, .l1 {
+      margin-bottom: 1.6rem;
+    }
+  }
+}

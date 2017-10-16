@@ -18,7 +18,7 @@
       <section id="{{ post.slug }}"
         class="js-section section program program--{{ post.has_background_image ? 'bg' : post.get_field('countup')|length > 0 ? 'stats' : 'normal' }}">
         <div class="pt-12p pr-8p {{ post.get_field('countup')|length > 0 ? 'pb-4p' : 'pb-18p' }} pl-18p">
-          <div class="program__row">
+          <div class="columns-block__row">
 
             {% include 'text-block.twig' with {
               props: {
@@ -30,10 +30,10 @@
             } %}
 
             {% if not post.has_background_image %}
-              <div class="program__image-cluster">
+              <div class="columns-block__image-cluster">
                 {% for image in post.images %}
                   <img
-                    class="program__image program__image--{{ loop.index }} program__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
+                    class="columns-block__image columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
                     src="{{ Image(image).src }}"
                     alt="{{ post.title }}">
                 {% endfor %}
@@ -54,7 +54,7 @@
           {% endif %}
         </div>
         {% if post.has_background_image %}
-          <div class="program__background-image" style="background-image: url({{ Image(post.images[0]).src }})"></div>
+          <div class="columns-block__background-image" style="background-image: url({{ Image(post.images[0]).src }})"></div>
         {% endif %}
       </section>
     {% endfor %}

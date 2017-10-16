@@ -18,6 +18,19 @@
     z-index: 1;
   }
 
+  &--black {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 7rem;
+      right: 4%;
+      bottom: 0;
+      left: 4%;
+      background-color: $black;
+    }
+  }
+
   &__inner {
     position: relative;
     width: 100%;
@@ -32,6 +45,11 @@
 
     .hero--half-image & {
       padding-left: 30%;
+    }
+
+    .hero--black & {
+      z-index: 1;
+      // padding-left: 40%;
     }
 
     .hero--alt & {
@@ -111,6 +129,12 @@
           mix-blend-mode: multiply;
         }
       }
+    }
+
+    .hero--black & {
+      z-index: 1;
+      width: 52%;
+      height: 110%;
     }
   }
 

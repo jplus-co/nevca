@@ -1,4 +1,4 @@
-.program {
+.columns-block {
 
   &__row {
     display: flex;
@@ -7,7 +7,7 @@
 
   &--bg {
     &:nth-child(odd) {
-      .program__row {
+      .columns-block__row {
         justify-content: flex-end;
       }
     }
@@ -15,11 +15,11 @@
 
   &--normal {
     &:nth-child(odd) {
-      .program__row {
+      .columns-block__row {
         flex-direction: row-reverse;
       }
 
-      .program__image {
+      .columns-block__image {
         &--1 {
           z-index: 1;
           left: 0;
@@ -41,7 +41,7 @@
 
   &--stats {
 
-    .program__image {
+    .columns-block__image {
       &--1 {
         width: 28%;
       }
@@ -85,6 +85,13 @@
     width: 32%;
     height: auto;
     position: absolute;
+
+    &--sm {
+      width: 28%;
+      &.columns-block__image--2 {
+        right: 8%;
+      }
+    }
 
     &--1 {
       top: 12%;

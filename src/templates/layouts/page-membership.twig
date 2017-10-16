@@ -1,0 +1,51 @@
+{% extends 'base.twig' %}
+
+{% set featured_member = post.get_field('featured_member') %}
+
+{% block content %}
+
+  <div class="view" data-namespace="membership">
+
+    {% include "hero.twig" with {
+      "hero_text": post.hero_text,
+      "hero_image": post.hero_image,
+      "half_image": true,
+      "has_black": true
+    } %}
+
+    <div class="relative px-4p">
+      <div class="flex justify-content-between py-12p is-black">
+        {% include 'text-block.twig' with {
+          props: {
+            heading: post.get_field('columns_block').heading,
+            body: post.get_field('columns_block').body,
+            button: post.get_field('columns_block').button
+          },
+          classes: 'pl-8p pr-4p color-white'
+        } %}
+        <div class="columns-block__image-cluster">
+          {% for image in post.get_field('columns_block').image_cluster %}
+            <img
+              class="columns-block__image columns-block__image--sm columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
+              src="{{ Image(image).src }}"
+              alt="{{ post.title }}">
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="member-benefits py-12p px-20p">
+      <h2 class="member-benefits__heading">{{ post.get_field('benefits_list').heading }}</h2>
+      <div class="member-benefits__row flex">
+        <div class="member-benefits__column px-1p">
+          {{ post.get_field('benefits_list').column_1 }}
+        </div>
+        <div class="member-benefits__column px-1p">
+          {{ post.get_field('benefits_list').column_2 }}
+        </div>
+      </div>
+    </div>
+
+    {% include 'site-footer.twig' %}
+  </div>
+
+{% endblock %}
