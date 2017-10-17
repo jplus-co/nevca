@@ -40,10 +40,12 @@
   align-items: center;
 }
 
-.flex-column {
-  flex-direction: column;
-}
+@each $d in column, row {
+  .flex-#{$d} {
+    flex-direction: #{$d};
+  }
 
-.flex-row {
-  flex-direction: row;
+  .flex-#{$d}-reverse {
+    flex-direction: #{$d}-reverse;
+  }
 }

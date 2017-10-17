@@ -1,5 +1,7 @@
 <ul class="board-member-list">
+  {{props|print_r}}
   {% for item in props %}
+
     <li class="board-member-list__item">
       <div class="board-member-list__image-mask">
         {% if item.image %}

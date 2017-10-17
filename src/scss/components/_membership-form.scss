@@ -1,0 +1,76 @@
+.membership-form {
+  position: absolute;
+  top: 0;
+  left: $inner-padding-md;
+  width: 32%;
+  bottom: 10%;
+  font-size: 1.4rem;
+
+  &__inner {
+    border-radius: 0.6rem;
+  }
+
+  &__heading {
+    margin-bottom: 2rem;
+  }
+
+  &__body {
+    padding: 0;
+    margin-bottom: 3rem;
+  }
+
+  &__caption {
+    a {
+      color: $black;
+      text-decoration: underline;
+      transition: color 0.3s;
+
+      @include hover-both() {
+        color: $gold;
+      }
+    }
+  }
+
+  label,
+  .wpcf7-form-control-wrap,
+  .wpcf7-form-control {
+    display: block;
+    width: 100%;
+  }
+
+  label {
+    @include type-style-nav-sm();
+    font-size: 1.1rem;
+
+    span:not(.wpcf7-form-control-wrap) {
+      display: inline-block;
+      margin-left: 0.2rem;
+      color: $turqoise;
+    }
+  }
+
+  .wpcf7-form-control-wrap {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    letter-spacing: 0;
+  }
+
+  .wpcf7-form-control:not(#submit) {
+    background: none;
+    border: none;
+    appearance: none;
+    color: $white;
+    @include type-style-action();
+    border-bottom: 0.1rem solid $light-blue;
+    padding-bottom: 0.5rem;
+    outline: none;
+  }
+
+  .wpcf7-select {
+    border: 0.1rem solid $light-blue !important;
+
+    option {
+      padding: 0.2rem 0.5rem;
+    }
+  }
+}

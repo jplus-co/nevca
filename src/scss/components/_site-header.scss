@@ -15,5 +15,10 @@
     height: $header-size;
     display: flex;
     align-items: center;
+
+    svg {
+      width: 17.2rem;
+      height: 4.5rem;
+    }
   }
 }

@@ -51,6 +51,12 @@
     }
   }
 
+  &--reset {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
   &--dropdown {
     background: none;
     border: none;

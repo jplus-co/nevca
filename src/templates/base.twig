@@ -15,21 +15,6 @@
 
 		<div id="app">
 			{% block content %}
-				<div class="view" data-namespace="home">
-					<section class="js-section section">
-						{% if posts %}
-							<div class="section__row flex-column">
-						      {% include 'post-title-list.twig' with {
-										"props": posts
-									} %}
-							</div>
-						{% else %}
-							<div class="section__row flex-column">
-			      		<p>Nothing to show.</p>
-							</div>
-			    	{% endif %}
-					</section>
-				</div>
 			{% endblock %}
 		</div>
 

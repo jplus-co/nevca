@@ -3,6 +3,22 @@
     "title": "Page: About",
     "fields": [
         {
+            "key": "field_59e507940285b",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59ca69ef64a51",
             "label": "Hero",
             "name": "hero",
@@ -23,6 +39,22 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
+        },
+        {
+            "key": "field_59e507a20285c",
+            "label": "Mission",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_59ca69ef64a7e",
@@ -65,6 +97,22 @@
                     "prefix_name": 0
                 }
             ]
+        },
+        {
+            "key": "field_59e507bfeb80a",
+            "label": "Board",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_59ca69ef64a89",
@@ -159,6 +207,22 @@
             ]
         },
         {
+            "key": "field_59e507cfeb80b",
+            "label": "Team",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59ca69ef64a94",
             "label": "Team Block",
             "name": "team_block",
@@ -221,6 +285,22 @@
                     "return_format": "object"
                 }
             ]
+        },
+        {
+            "key": "field_59e507daeb80c",
+            "label": "Testimonials",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_59ca69ef64a9e",
@@ -287,6 +367,22 @@
                     "prefix_name": 0
                 }
             ]
+        },
+        {
+            "key": "field_59e507e6eb80d",
+            "label": "FAQ",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_59ca69ef64ab3",
@@ -388,5 +484,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507682445
+    "modified": 1508182005
 }

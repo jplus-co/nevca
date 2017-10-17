@@ -40,7 +40,6 @@
   }
 
   &--stats {
-
     .columns-block__image {
       &--1 {
         width: 28%;
@@ -49,6 +48,22 @@
       &--2 {
         top: 42%;
         right: 0;
+      }
+    }
+  }
+
+  &--left {
+    .columns-block__stats {
+      transform: translate(0, 50%);
+    }
+
+    .columns-block__image {
+      &--1 {
+        left: 16%;
+      }
+
+      &--2 {
+        left: $inner-padding-lg;
       }
     }
   }

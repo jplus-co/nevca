@@ -42,6 +42,7 @@ Version: 1.0.0
 @import 'objects/list-card';
 @import 'objects/columns-block';
 @import 'objects/scroll-area';
+@import 'objects/arrow';
 
 // Components
 @import 'components/noscript';
@@ -74,6 +75,8 @@ Version: 1.0.0
 @import 'components/stat';
 @import 'components/close-button';
 @import 'components/member-benefits';
+@import 'components/membership-form';
+@import 'components/not-found';
 
 // Helpers
 @import 'helpers/position';

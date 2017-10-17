@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+
+{% set not_found = options.not_found_page_options %}
+
+{% block content %}
+  <div class="view" data-namespace="not-found">
+
+    <div class="section__container section__container--65 py-12p">
+      <div class="not-found">
+        <div class="not-found__inner">
+          <h1 class="not-found__heading">{{ not_found.heading }}</h1>
+          <div class="flex flex-wrap">
+            {% for item in not_found.suggested_links %}
+              <a class="text-button text-button--underline flex-basis-50 mb-2" href="{{ item.link.url }}" target="{{ item.link.target }}">{{ item.link.title }}</a>
+            {% endfor %}
+          </div>
+          <div class="py-12p">
+            <a class="text-button" href="{{ site.link }}">Return home {% include "arrow-right.twig" %}</a>
+          </div>
+        </div>
+        <div class="not-found__background-text">{{ not_found.background_text }}</div>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}
