@@ -111,6 +111,10 @@
     &--1 {
       top: 12%;
       right: 0;
+
+      &.columns-block__image--portrait {
+        right: 0;
+      }
     }
 
     &--2 {

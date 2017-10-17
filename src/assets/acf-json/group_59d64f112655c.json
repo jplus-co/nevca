@@ -25,10 +25,10 @@
             "prefix_name": 0
         },
         {
-            "key": "field_59d69759a76d3",
-            "label": "Major Sponsors",
-            "name": "major_sponsors",
-            "type": "relationship",
+            "key": "field_59e64ffd0c4e2",
+            "label": "Sponsors",
+            "name": "sponsors",
+            "type": "repeater",
             "value": null,
             "instructions": "",
             "required": 0,
@@ -38,49 +38,86 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "sponsor"
-            ],
-            "taxonomy": [
-                "sponsorship_tier:major"
-            ],
-            "filters": "",
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
-        },
-        {
-            "key": "field_59d6977ea76d4",
-            "label": "Supporting Sponsors",
-            "name": "supporting_sponsors",
-            "type": "relationship",
-            "value": null,
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "sponsor"
-            ],
-            "taxonomy": [
-                "sponsorship_tier:supporting"
-            ],
-            "filters": "",
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
+            "collapsed": "field_59e6502e0c4e3",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Group",
+            "sub_fields": [
+                {
+                    "key": "field_59e6502e0c4e3",
+                    "label": "Group Heading",
+                    "name": "heading",
+                    "type": "text",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_59e650830c4e4",
+                    "label": "Group Sponsors",
+                    "name": "posts",
+                    "type": "relationship",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "sponsor"
+                    ],
+                    "taxonomy": [],
+                    "filters": [
+                        "search",
+                        "taxonomy"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "object"
+                },
+                {
+                    "key": "field_59e6526060bfb",
+                    "label": "Show Descriptions",
+                    "name": "show_descriptions",
+                    "type": "true_false",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
         },
         {
             "key": "field_59d64f82f2034",
             "label": "CTA Block",
             "name": "cta_block",
-            "type": "clone",
+            "type": "group",
             "value": null,
             "instructions": "",
             "required": 0,
@@ -90,13 +127,56 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "field_59c538a8c1d50"
-            ],
-            "display": "group",
             "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "sub_fields": [
+                {
+                    "key": "field_59e64fa60c4e0",
+                    "label": "Text Block",
+                    "name": "text_block",
+                    "type": "clone",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_59c5355e9657b"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                },
+                {
+                    "key": "field_59e64fd40c4e1",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg, png"
+                }
+            ]
         }
     ],
     "location": [
@@ -132,5 +212,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507235864
+    "modified": 1508266973
 }

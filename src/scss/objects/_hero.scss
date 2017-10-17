@@ -8,12 +8,10 @@
   }
 
   &--half-image {
-    // background-color: $white;
   }
 
   &--alt {
     height: 50rem;
-    // background-color: $white;
     padding: 0 $inner-padding-sm;
     z-index: 1;
   }
@@ -49,12 +47,11 @@
 
     .hero--black & {
       z-index: 1;
-      // padding-left: 40%;
     }
 
     .hero--alt & {
       text-align: center;
-      background-color: $gold;
+      background-color: $blue;
       height: 100%;
       padding-top: $inner-padding-md;
     }
@@ -110,8 +107,8 @@
     .hero--half-image & {
       top: 0;
       left: 0;
+      bottom: -3.6rem;
       width: 70%;
-      height: 100%;
 
       &::after {
         content: '';

@@ -1,11 +1,9 @@
 <ul class="board-member-list">
-  {{props|print_r}}
   {% for item in props %}
-
     <li class="board-member-list__item">
       <div class="board-member-list__image-mask">
         {% if item.image %}
-          <img src="{{ Image(item.image).src }}" alt="{{ item.title }}">
+          <img class="board-member-list__image" src="{{ Image(item.image).src }}" alt="{{ item.title }}">
         {% endif %}
       </div>
       <h4 class="board-member-list__name">{{ item.title }}</h4>

@@ -132,8 +132,8 @@
             "sub_fields": [
                 {
                     "key": "field_59c53f9a222ae",
-                    "label": "Heading",
-                    "name": "heading",
+                    "label": "Text Block",
+                    "name": "text_block",
                     "type": "clone",
                     "value": null,
                     "instructions": "",
@@ -145,7 +145,8 @@
                         "id": ""
                     },
                     "clone": [
-                        "field_59c53564aff00"
+                        "field_59c53564aff00",
+                        "field_59c536cbaff02"
                     ],
                     "display": "seamless",
                     "layout": "block",
@@ -277,12 +278,30 @@
                     "post_type": [
                         "team_member"
                     ],
-                    "taxonomy": [],
+                    "taxonomy": [
+                        "team:internal-team"
+                    ],
                     "filters": "",
                     "elements": "",
                     "min": "",
                     "max": "",
                     "return_format": "object"
+                },
+                {
+                    "key": "field_59e645e08ac0e",
+                    "label": "Jobs Link",
+                    "name": "jobs_link",
+                    "type": "link",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
                 }
             ]
         },
@@ -484,5 +503,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1508182005
+    "modified": 1508263403
 }
