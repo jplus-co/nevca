@@ -7,9 +7,13 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin'
 
 class PageNavigation {
   init () {
+    this.container = document.querySelector('.js-page-navigation')
     this.sections = [...document.querySelectorAll('.js-section')]
     this.links = [...document.querySelectorAll('.js-anchor-link')]
     this.scrollY = util.scroll.current()
+
+    this.previousColor = null
+    this.currentColor = null
 
     this.addEvents()
     this.resize()
@@ -34,34 +38,60 @@ class PageNavigation {
   }
 
   createCache () {
+    const { scrollY } = this
+    const containerBounds = this.container.getBoundingClientRect()
+    const center = containerBounds.top + (containerBounds.height / 2)
+
     this.cache = this.sections.map((section, index) => {
-      const bounds = section.getBoundingClientRect()
-      const center = config.height / 2
-      const { scrollY } = this
+      const sectionBounds = section.getBoundingClientRect()
 
       return {
         target: section,
-        top: scrollY + bounds.top - center,
-        bottom: scrollY + bounds.top + bounds.height - center,
-        index
+        top: scrollY + sectionBounds.top - center,
+        bottom: scrollY + sectionBounds.top + sectionBounds.height - center,
+        index,
+        background: section.dataset.background
       }
     })
+
+    this.currentColor = this.cache[0].background
   }
 
   onScroll = ({ scrollY }) => {
     this.scrollY = scrollY
 
+    this.onContainerActive(scrollY)
+
     this.cache.forEach(({
       top,
       bottom,
-      index
+      index,
+      background
     }) => {
-      if (scrollY > top && scrollY < bottom ) {
-        this.links[index].classList.add('page-navigation__link--active')
-      } else {
-        this.links[index].classList.remove('page-navigation__link--active')
-      }
+      this.onSectionActive(scrollY, top, bottom, index, background)
     })
+  }
+
+  onContainerActive (scrollY) {
+    if (scrollY > this.cache[0].top && scrollY < this.cache[this.cache.length - 1].bottom) {
+      this.container.classList.remove('inactive')
+    } else {
+      this.container.classList.add('inactive')
+    }
+  }
+
+  onSectionActive (scrollY, top, bottom, index, background) {
+    if (scrollY > top && scrollY < bottom ) {
+      this.links[index].classList.add('page-navigation__link--active')
+      this.currentColor = background
+    } else {
+      this.links[index].classList.remove('page-navigation__link--active')
+    }
+
+    this.previousColor && this.container.classList.remove(this.previousColor)
+    this.container.classList.add(this.currentColor)
+
+    this.previousColor = this.currentColor
   }
 
   onClick = (e) => {
