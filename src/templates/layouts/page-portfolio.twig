@@ -16,7 +16,7 @@
 
     {% for post in featured_programs %}
       <section id="{{ post.slug }}"
-        class="js-section section program program--{{ post.has_background_image ? 'bg' : post.get_field('countup')|length > 0 ? 'stats' : 'normal' }}">
+        class="js-section section columns-block columns-block--{{ post.has_background_image ? 'bg' : post.get_field('countup')|length > 0 ? 'stats' : 'normal' }}">
         <div class="pt-12p pr-8p {{ post.get_field('countup')|length > 0 ? 'pb-4p' : 'pb-18p' }} pl-18p">
           <div class="columns-block__row">
 

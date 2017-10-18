@@ -9,6 +9,11 @@
 
   &__heading {
     @include type-style-heading-lg();
+
+    &--display {
+      @include type-style-display-sm();
+      text-transform: none;
+    }
   }
 
   &__subheading {

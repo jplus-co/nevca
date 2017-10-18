@@ -43,6 +43,7 @@ Version: 1.0.0
 @import 'objects/columns-block';
 @import 'objects/scroll-area';
 @import 'objects/arrow';
+@import 'objects/mouse-pointer-circle';
 
 // Components
 @import 'components/noscript';
@@ -77,6 +78,8 @@ Version: 1.0.0
 @import 'components/member-benefits';
 @import 'components/membership-form';
 @import 'components/not-found';
+@import 'components/sponsor-group';
+@import 'components/sponsor-list-item';
 
 // Helpers
 @import 'helpers/position';

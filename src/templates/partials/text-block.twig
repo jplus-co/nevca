@@ -4,8 +4,10 @@
 
 <div class="{{ is_lede ? 'text-block text-block--lede' : 'text-block' }}{{ classes ? ' ' ~ classes }}">
   {% if not is_lede %}
-    <{{ tag }} class="text-block__heading">
-      <span class="text-block__rule"></span>
+    <{{ tag }} class="text-block__heading{{ heading_classes ? ' ' ~ heading_classes }}">
+      {% if not no_rule %}
+        <span class="text-block__rule"></span>
+      {% endif %}
       {{ props.heading }}
     </{{ tag }}>
   {% endif %}

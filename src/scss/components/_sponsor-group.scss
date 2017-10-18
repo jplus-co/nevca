@@ -1,0 +1,22 @@
+.sponsor-group {
+  transform: translateY(-6.4rem);
+
+  &__inner {
+
+  }
+
+  &__row {
+
+  }
+
+  &__list {
+    @include reset-list();
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -4rem;
+
+    &--logo-only {
+      align-items: center;
+    }
+  }
+}
