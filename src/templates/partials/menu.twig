@@ -5,7 +5,7 @@
 			<a
         class="{{ loop.index == loop.length ? block ~ '__button' : block ~ '__link' }}"
         target="{{ item.target }}"
-        href="{{ item.link }}">
+        href="{{ item.target == '_blank' ? item.link : item.link|relative }}">
 					{% if loop.index == loop.length %}
           	<span>{{ item.title }}</span>
 					{% else %}
