@@ -1,9 +1,9 @@
-<div class="{{ is_home ? 'hero hero--front-page' : 'hero' }}">
+<div class="hero hero--{{ is_home ? 'front-page' : half_image ? 'half-image' }}{{ has_black ? ' hero--black'}}{{ classes ? ' ' ~ classes}}">
   {% if hero_image %}
-    <div class="hero__image js-parallax" data-speed="-0.25" style="background-image: url({{ TimberImage(hero_image).src }});"></div>
+    <div class="hero__image js-parallax" data-speed="-0.25" style="background-image: url({{ Image(hero_image).src }});"></div>
   {% endif %}
   <div class="hero__inner">
-    <h1 class="hero__text js-parallax" data-speed="0.05">
+    <h1 class="hero__heading js-parallax" data-speed="0.05">
       {{ hero_text }}
     </h1>
   </div>

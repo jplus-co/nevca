@@ -1,16 +1,23 @@
 .page-navigation {
   position: fixed;
-  top: 50%;
+  top: 16%;
   left: 0;
-  transform: translateY(-50%);
+  z-index: 10;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.8s $ease-out-expo;
+
+  &.inactive {
+    opacity: 0;
+    pointer-events: none;
+  }
 
   &__link {
     @include reset-anchor();
-    @include type-style-nav();
+    @include type-style-nav-sm();
     position: relative;
     display: block;
-    padding: 1.5rem 0 1.5rem 5rem;
-    color: rgba($black, 0.3);
+    padding: 1.5rem 0 1.5rem 6.5rem;
     transition: color 0.8s $ease-out-expo;
 
     &::before {
@@ -19,20 +26,64 @@
       position: absolute;
       top: 50%;
       left: 0;
-      width: 3.5rem;
-      height: 1px;
-      background-color: $black;
+      width: 5rem;
+      height: 0.1rem;
       transform-origin: left;
       transform: scaleX(0.3);
-      transition: transform 0.8s $ease-out-expo;
+      transition: transform 0.8s $ease-out-expo, background-color 0.8s $ease-out-expo;
     }
 
-    &:hover,
-    &--active {
+    .page-navigation.white & {
       color: $black;
 
       &::before {
-        transform: scaleX(1);
+        background-color: $black;
+      }
+
+      &:hover,
+      &--active {
+        color: $gold;
+
+        &::before {
+          transform: scaleX(0.999);
+          background-color: $gold;
+        }
+      }
+    }
+
+    .page-navigation.black & {
+      color: $white;
+
+      &::before {
+        background-color: $white;
+      }
+
+      &:hover,
+      &--active {
+        color: $gold;
+
+        &::before {
+          transform: scaleX(0.999);
+          background-color: $gold;
+        }
+      }
+    }
+
+    .page-navigation.gold & {
+      color: $black;
+
+      &::before {
+        background-color: $black;
+      }
+
+      &:hover,
+      &--active {
+        color: $white;
+
+        &::before {
+          transform: scaleX(0.999);
+          background-color: $white;
+        }
       }
     }
   }

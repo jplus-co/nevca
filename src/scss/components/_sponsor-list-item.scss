@@ -1,0 +1,31 @@
+.sponsor-list-item {
+
+  .sponsor-group__list--descriptions & {
+    flex-basis: calc(100% / 3);
+    margin-bottom: 9.6rem;
+    padding: 0 4rem;
+  }
+
+  .sponsor-group__list--logo-only & {
+    flex-basis: calc(100% / 6);
+    margin-bottom: 4.2rem;
+    padding: 0 4rem;
+  }
+
+  &__image {
+    width: auto;
+    height: 5rem;
+    margin-bottom: 2.5rem;
+
+    .sponsor-group__list--logo-only & {
+      width: 100%;
+      height: auto;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &__description {
+    margin-bottom: 1.6rem;
+    font-size: 1.4rem;
+  }
+}

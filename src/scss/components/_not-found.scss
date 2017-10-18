@@ -1,0 +1,43 @@
+.not-found {
+  position: relative;
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__heading {
+    text-transform: none;
+    text-align: center;
+    font-size: 4.8rem;
+    color: $gold;
+    margin-bottom: 10rem;
+  }
+
+  &__background-text {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    @include type-style-display-md();
+    font-size: 40rem;
+    line-height: 0;
+    text-align: center;
+    text-transform: lowercase;
+    color: $light-gold;
+    opacity: 0.25;
+  }
+
+  .arrow {
+    display: inline-block;
+    height: 0.8rem;
+    margin-left: 1rem;
+    transition: transform 0.5s $ease-out-quint;
+  }
+
+  .text-button:hover {
+    .arrow {
+      transform: translateX(1rem);
+    }
+  }
+}

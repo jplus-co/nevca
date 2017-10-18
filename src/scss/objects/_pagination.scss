@@ -57,7 +57,7 @@
 
   &__page-link {
     @include reset-anchor();
-    @include type-style-nav();
+    @include type-style-nav-md();
     opacity: 0.5;
     padding: 1rem;
     transition: opacity 0.4s $ease-out-quint;

@@ -3,10 +3,27 @@
     "title": "Page: About",
     "fields": [
         {
+            "key": "field_59e507940285b",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59ca69ef64a51",
             "label": "Hero",
             "name": "hero",
             "type": "clone",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,7 +33,7 @@
                 "id": ""
             },
             "clone": [
-                "field_59c53b7706c2e"
+                "group_59c53b7223e9e"
             ],
             "display": "seamless",
             "layout": "block",
@@ -24,10 +41,27 @@
             "prefix_name": 0
         },
         {
+            "key": "field_59e507a20285c",
+            "label": "Mission",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59ca69ef64a7e",
             "label": "Mission Block",
             "name": "mission_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -43,6 +77,7 @@
                     "label": "Mission Block",
                     "name": "mission_block",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -64,10 +99,27 @@
             ]
         },
         {
+            "key": "field_59e507bfeb80a",
+            "label": "Board",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59ca69ef64a89",
             "label": "Board Block",
             "name": "board_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -80,9 +132,10 @@
             "sub_fields": [
                 {
                     "key": "field_59c53f9a222ae",
-                    "label": "Heading",
-                    "name": "heading",
+                    "label": "Text Block",
+                    "name": "text_block",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -92,7 +145,8 @@
                         "id": ""
                     },
                     "clone": [
-                        "field_59c53564aff00"
+                        "field_59c53564aff00",
+                        "field_59c536cbaff02"
                     ],
                     "display": "seamless",
                     "layout": "block",
@@ -104,6 +158,7 @@
                     "label": "Board of Directors",
                     "name": "board_members",
                     "type": "relationship",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -129,6 +184,7 @@
                     "label": "Board of Overseers",
                     "name": "board_of_overseers",
                     "type": "relationship",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -152,10 +208,27 @@
             ]
         },
         {
+            "key": "field_59e507cfeb80b",
+            "label": "Team",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59ca69ef64a94",
             "label": "Team Block",
             "name": "team_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -171,6 +244,7 @@
                     "label": "Text Block",
                     "name": "text_block",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -192,6 +266,7 @@
                     "label": "Team Members",
                     "name": "team_members",
                     "type": "relationship",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -203,20 +278,55 @@
                     "post_type": [
                         "team_member"
                     ],
-                    "taxonomy": [],
+                    "taxonomy": [
+                        "team:internal-team"
+                    ],
                     "filters": "",
                     "elements": "",
                     "min": "",
                     "max": "",
                     "return_format": "object"
+                },
+                {
+                    "key": "field_59e645e08ac0e",
+                    "label": "Jobs Link",
+                    "name": "jobs_link",
+                    "type": "link",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
                 }
             ]
+        },
+        {
+            "key": "field_59e507daeb80c",
+            "label": "Testimonials",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
         },
         {
             "key": "field_59ca69ef64a9e",
             "label": "Testimonials Block",
             "name": "testimonials_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -232,6 +342,7 @@
                     "label": "Featured Testimonials",
                     "name": "featured_posts",
                     "type": "relationship",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -257,6 +368,7 @@
                     "label": "Image Cluster",
                     "name": "image_cluster",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -276,10 +388,27 @@
             ]
         },
         {
+            "key": "field_59e507e6eb80d",
+            "label": "FAQ",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_59ca69ef64ab3",
             "label": "FAQ Block",
             "name": "faq_block",
             "type": "group",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -295,6 +424,7 @@
                     "label": "Heading",
                     "name": "heading",
                     "type": "clone",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -316,6 +446,7 @@
                     "label": "Featured Questions",
                     "name": "featured_posts",
                     "type": "relationship",
+                    "value": null,
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -372,5 +503,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507227295
+    "modified": 1508263403
 }

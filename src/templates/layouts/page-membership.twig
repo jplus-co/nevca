@@ -1,0 +1,90 @@
+{% extends 'base.twig' %}
+
+{% set featured_member = post.get_field('featured_member') %}
+{% set benefits_list = post.get_field('benefits_list') %}
+{% set columns_block = post.get_field('columns_block') %}
+{% set form_text_block = post.get_field('form_text_block') %}
+{% set faq_block = post.get_field('faq_block') %}
+
+{% block content %}
+
+  <div class="view" data-namespace="membership">
+
+    {% include "hero.twig" with {
+      "hero_text": post.hero_text,
+      "hero_image": post.hero_image,
+      "half_image": true,
+      "has_black": true
+    } %}
+
+    <div class="relative px-4p">
+      <div class="flex justify-content-between py-12p is-black">
+        {% include 'text-block.twig' with {
+          props: {
+            heading: columns_block.heading,
+            body: columns_block.body,
+            button: columns_block.button
+          },
+          classes: 'pl-8p pr-4p color-white'
+        } %}
+        <div class="columns-block__image-cluster">
+          {% for image in columns_block.image_cluster %}
+            <img
+              class="columns-block__image columns-block__image--sm columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
+              src="{{ Image(image).src }}"
+              alt="{{ post.title }}">
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="member-benefits py-12p px-20p">
+      <h2 class="member-benefits__heading">{{ benefits_list.heading }}</h2>
+      <div class="member-benefits__row flex">
+        <div class="member-benefits__column px-1p">
+          {{ benefits_list.column_1 }}
+        </div>
+        <div class="member-benefits__column px-1p">
+          {{ benefits_list.column_2 }}
+        </div>
+      </div>
+    </div>
+
+    <div class="relative pb-10p">
+      <div class="pt-8p pb-20p">
+        <div class="flex justify-content-end is-gold">
+
+            <div class="membership-form">
+              <div class="membership-form__inner is-blue p-7">
+                <div class="membership-form__heading text-block__heading">
+                  <span class="text-block__rule"></span>
+                  {{ form_text_block.heading }}
+                </div>
+                <div class="membership-form__body text-block__body">
+                  {{ form_text_block.body }}
+                </div>
+                {% filter shortcodes %}
+                  {{ form_text_block.form_shortcode }}
+                {% endfilter %}
+              </div>
+              <div class="membership-form__caption py-2 px-5">
+                {{ form_text_block.form_caption }}
+              </div>
+            </div>
+
+
+          {% include "testimonial-slider.twig" with {
+            "props": post.get_field('featured_testimonials'),
+            "is_white": true
+          } %}
+        </div>
+      </div>
+    </div>
+
+
+    {% include 'faq-tease-block.twig' with {
+      props: faq_block,
+    } %}
+    {% include 'site-footer.twig' %}
+  </div>
+
+{% endblock %}

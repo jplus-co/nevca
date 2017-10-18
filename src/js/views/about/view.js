@@ -1,6 +1,6 @@
 import Barba from 'barba.js'
-import TestimonialSlider from './testimonial-slider'
-import PageNavigation from './page-navigation'
+import TestimonialSlider from '../../core/modules/testimonial-slider'
+import PageNavigation from '../../core/modules/page-navigation'
 
 const about = Barba.BaseView.extend({
 	namespace: 'about',

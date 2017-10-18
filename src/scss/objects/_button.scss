@@ -1,9 +1,9 @@
 .button {
   display: inline-block;
   @include reset-anchor();
-  @include type-style-nav();
+  @include type-style-nav-md();
   padding: 2rem 6rem;
-  box-shadow: 0 0 0 2px $gold inset;
+  box-shadow: 0 0 0 0.2rem $gold inset;
   color: $gold;
   text-align: center;
   position: relative;
@@ -24,7 +24,7 @@
     transition: transform 0.8s $ease-in-out-quint;
   }
 
-  span {
+  > span {
     position: relative;
     z-index: 1;
   }
@@ -39,7 +39,7 @@
   }
 
   &--white {
-    box-shadow: 0 0 0 2px $white inset;
+    box-shadow: 0 0 0 0.2rem $white inset;
     color: $white;
 
     &::before {
@@ -48,6 +48,43 @@
 
     @include hover-mouse() {
       color: $gold;
+    }
+  }
+
+  &--reset {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  &--dropdown {
+    background: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0.2rem $black inset;
+    color: $black;
+    padding: 2rem 3rem;
+    margin-bottom: 7.2rem;
+    outline: none;
+    transition: color 0.4s $ease-out-quint;
+
+    .button__text {
+      margin-right: 6rem;
+    }
+
+    &::before {
+      background-color: $black;
+      transform: scaleX(1);
+      opacity: 0;
+      transition: opacity 0.4s $ease-out-quint;
+    }
+
+    @include hover-mouse() {
+      color: $gold;
+
+      &::before {
+        opacity: 1;
+      }
     }
   }
 }

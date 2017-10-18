@@ -110,12 +110,20 @@
 // -----------------------------------------------------------------------------
 
 
-@mixin type-style-nav() {
+@mixin type-style-nav-md() {
   font-family: $font-heading;
   font-weight: 700;
   font-size: 1.4rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.1rem;
+}
+
+@mixin type-style-nav-sm() {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 
 @mixin type-style-heading-xxxl() {

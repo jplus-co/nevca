@@ -1,0 +1,77 @@
+{% extends 'base.twig' %}
+
+{% set cta_block = post.get_field('cta_block') %}
+{% set faq_block = post.get_field('faq_block') %}
+
+{% block content %}
+
+  <div class="view" data-namespace="sponsors">
+
+    {% include 'hero-alt.twig' with {
+      hero_text: post.hero_text,
+      hero_body: post.hero_body,
+      is_white: true
+    } %}
+
+    {% for group in post.get_field('sponsors') %}
+      <section class="js-section section sponsor-group{{ loop.index == 1 ? ' pt-16p mb-12 is-black'}}">
+        <div class="sponsor-group__inner px-6p pb-8p">
+          <div class="sponsor-group__row px-4p pb-6p">
+            <h2 class="text-block__heading">
+              <span class="text-block__rule"></span>
+              {{ group.heading }}
+            </h2>
+          </div>
+          <ul class="sponsor-group__list sponsor-group__list--{{ group.show_descriptions ? 'descriptions' : 'logo-only' }}">
+            {% for post in group.posts %}
+              <li class="sponsor-list-item">
+                {% if group.show_descriptions %}
+                  <img class="sponsor-list-item__image" src="{{ Image(post.logo).src }}" alt="{{ post.title }}">
+                  <div class="sponsor-list-item__description">
+                    {{ post.description }}
+                  </div>
+                  <a class="text-button flex align-items-center" href="{{ post.website_link }}" target="_blank">
+                    {% include "mouse-pointer-circle.twig" %}
+                    <div class="text-button--underline ml-1">
+                      View website
+                    </div>
+                  </a>
+                {% else %}
+                  <a href="{{ post.website_link }}" target="_blank">
+                    <img class="sponsor-list-item__image{{ Image(post.logo).aspect < 2 ? ' px-4' }}" src="{{ Image(post.logo).src }}" alt="{{ post.title }}">
+                  </a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+    {% endfor %}
+
+    <section class="js-section section pb-6p">
+      <div class="px-6p pb-6p relative">
+        <div class="flex justify-content-end py-8p pr-16p is-blue">
+
+          <img class="w-30 absolute pos-bl" src="{{ Image(cta_block).src }}" alt="{{ cta_block.heading }}">
+
+          {% include 'text-block.twig' with {
+            "props": {
+              "heading": cta_block.heading,
+              "body": cta_block.body,
+              "button": cta_block.button
+            },
+            "button_classes": 'button--white',
+            "heading_classes": 'text-block__heading--display',
+            "no_rule": true
+          } %}
+        </div>
+      </div>
+    </section>
+
+    {% include 'faq-tease-block.twig' with {
+      props: faq_block,
+    } %}
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}

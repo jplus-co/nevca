@@ -3,10 +3,14 @@
 	{% for item in menu.get_items %}
 		<li class="{{ block ~ '__item' }}">
 			<a
-        class="{{ block ~ '__link' }}"
+        class="{{ loop.index == loop.length ? block ~ '__button' : block ~ '__link' }}"
         target="{{ item.target }}"
-        href="{{ item.link }}">
-          {{ item.title }}
+        href="{{ item.target == '_blank' ? item.link : item.link|relative }}">
+					{% if loop.index == loop.length %}
+          	<span>{{ item.title }}</span>
+					{% else %}
+						{{ item.title }}
+					{% endif %}
       </a>
 			{% include "menu.twig" with {"menu": item.get_children} %}
 		</li>

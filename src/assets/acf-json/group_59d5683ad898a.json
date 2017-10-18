@@ -7,6 +7,7 @@
             "label": "Text Block",
             "name": "text_block",
             "type": "clone",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,7 +17,8 @@
                 "id": ""
             },
             "clone": [
-                "group_59c5355e9657b"
+                "field_59c536cbaff02",
+                "group_59c9546644fc2"
             ],
             "display": "seamless",
             "layout": "block",
@@ -28,6 +30,7 @@
             "label": "Images",
             "name": "images",
             "type": "gallery",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -53,6 +56,7 @@
             "label": "Background Image?",
             "name": "has_background_image",
             "type": "true_false",
+            "value": null,
             "instructions": "Check this box to turn the first image above into a background image.",
             "required": 0,
             "conditional_logic": 0,
@@ -72,6 +76,7 @@
             "label": "Stats",
             "name": "stats",
             "type": "clone",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -81,7 +86,7 @@
                 "id": ""
             },
             "clone": [
-                "group_59ca6b88c9eb3"
+                "field_59ca6b8ef65a1"
             ],
             "display": "seamless",
             "layout": "block",
@@ -122,5 +127,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507158451
+    "modified": 1507693314
 }

@@ -15,25 +15,24 @@
 
 		<div id="app">
 			{% block content %}
-				<div class="view" data-namespace="home">
-					<section class="js-section section">
-						{% if posts %}
-							<div class="section__row flex-column">
-						      {% include 'post-title-list.twig' with {
-										"props": posts
-									} %}
-							</div>
-						{% else %}
-							<div class="section__row flex-column">
-			      		<p>Nothing to show.</p>
-							</div>
-			    	{% endif %}
-					</section>
-				</div>
 			{% endblock %}
 		</div>
 
 		<div class="transition-overlay js-overlay">
+			<div class="page-loader js-page-loader">
+				<div class="page-loader__inner">
+					{% include "header-logo.twig" with {
+						logo_classes: 'page-loader__logo page-loader__logo--background'
+					} %}
+					<div class="page-loader__progress js-page-loader-progress">
+						<div class="page-loader__progress-inner js-page-loader-progress-inner">
+							{% include "header-logo.twig" with {
+								logo_classes: 'page-loader__logo page-loader__logo--progress'
+							} %}
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="transition-overlay__layer transition-overlay__layer--top js-layer-top"></div>
 			<div class="transition-overlay__layer transition-overlay__layer--bottom js-layer-bottom"></div>
 		</div>

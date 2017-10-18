@@ -1,8 +1,7 @@
 .testimonial-slider {
   width: 100%;
-  height: 100vh;
   max-width: 80rem;
-  margin: 0 auto;
+  height: 64rem;
   position: relative;
 
   &__quote-list {
@@ -11,7 +10,11 @@
 
   &__quote-item {
     position: absolute;
-    top: 25%;
+    top: $inner-padding-lg;
+
+    .testimonial-slider--white & {
+      color: $white;
+    }
 
     .line {
       display: block;
@@ -46,6 +49,14 @@
     @include type-style-display-sm();
     line-height: 1.4;
     margin-bottom: 2.6rem;
+    padding-top: 4rem;
+
+    &::before {
+      content: open-quote;
+      display: block;
+      font-size: 10rem;
+      line-height: 0.3;
+    }
   }
 
   &__attribution {
@@ -58,7 +69,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    padding-bottom: $inner-padding-lg;
+    padding-bottom: $inner-padding-md;
     display: flex;
     align-items: center;
   }
@@ -95,7 +106,7 @@
       content: '';
       display: block;
       width: 100%;
-      height: 2px;
+      height: 0.2rem;
       position: absolute;
       left: 0;
       bottom: 0;

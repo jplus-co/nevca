@@ -1,10 +1,82 @@
 .hero {
-  background-color: $black;
   padding: $inner-padding-lg 0;
   position: relative;
 
   &--front-page {
+    background-color: $black;
     height: 80rem;
+  }
+
+  &--half-image {
+  }
+
+  &--alt {
+    height: 50rem;
+    padding: 0 4%;
+    z-index: 1;
+  }
+
+  &--black {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 7rem;
+      right: 4%;
+      bottom: 0;
+      left: 4%;
+      background-color: $black;
+    }
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    padding: 0 $inner-padding-md;
+
+    .hero--front-page & {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .hero--half-image & {
+      padding-left: 30%;
+    }
+
+    .hero--black & {
+      z-index: 1;
+    }
+
+    .hero--alt & {
+      text-align: center;
+      background-color: $blue;
+      height: 100%;
+      padding-top: $inner-padding-md;
+    }
+  }
+
+  &__heading {
+    @include type-style-heading-lg();
+    margin: 0;
+
+    .hero--front-page & {
+      @include type-style-heading-xxxl();
+      line-height: 1.1;
+      color: $white;
+    }
+
+    .hero--half-image & {
+      color: $gold;
+      line-height: 1.5;
+    }
+
+    .hero--alt & {
+      @include type-style-heading-xxxl();
+      font-style: normal;
+      color: $white;
+    }
   }
 
   &__image {
@@ -31,30 +103,52 @@
         opacity: 0.84;
       }
     }
-  }
 
-  &__inner {
-    position: absolute;
-    width: 100%;
-    padding: 0 $inner-padding-md;
-    text-align: center;
-
-    .hero--front-page & {
-      text-align: left;
-      top: 50%;
+    .hero--half-image & {
+      top: 0;
       left: 0;
-      transform: translateY(-50%);
+      bottom: -3.6rem;
+      width: 70%;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $black;
+        opacity: 0.65;
+
+        @supports (mix-blend-mode: multiply) {
+          background-color: $blue;
+          mix-blend-mode: multiply;
+        }
+      }
+    }
+
+    .hero--black & {
+      z-index: 1;
+      width: 52%;
+      height: 110%;
     }
   }
 
-  &__text {
-    @include type-style-heading-lg();
-    margin: 0;
+  // body element exists in .hero--alt only
+  &__body {
+    width: 56%;
+    padding: 3% 4%;
+    position: absolute;
+    bottom: -6%;
+    left: 30%;
+    background-color: $black;
+    color: $white;
+    text-align: left;
 
-    .hero--front-page & {
-      @include type-style-heading-xxxl();
-      line-height: 1.1;
-      color: $white;
+    &--white {
+      background-color: $white;
+      color: $black;
     }
   }
 }
