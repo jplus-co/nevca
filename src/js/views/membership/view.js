@@ -1,5 +1,5 @@
 import Barba from 'barba.js'
-import TestimonialSlider from '../about/testimonial-slider'
+import TestimonialSlider from '../../core/modules/testimonial-slider'
 
 const membership = Barba.BaseView.extend({
 	namespace: 'membership',
