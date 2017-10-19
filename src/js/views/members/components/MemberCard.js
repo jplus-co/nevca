@@ -15,11 +15,13 @@ const MemberCard = ({
         <div class={classnames('member-card__inner', {
           'px-6': isNearlySquare(acf.image)
         })}>
-          <img
-            class='member-card__logo'
-            src={acf.image.url}
-            alt={title.rendered}
-          />
+          {acf.image && (
+            <img
+              class='member-card__logo'
+              src={acf.image.url}
+              alt={title.rendered}
+            />
+          )}
           <span class='member-card__hover'>
             <span>Visit website</span>
           </span>

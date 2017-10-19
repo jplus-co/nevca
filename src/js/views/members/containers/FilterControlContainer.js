@@ -1,6 +1,5 @@
 import { connect } from 'preact-redux'
 import FilterControl from '../components/FilterControl'
-import { fetchMembers } from '../store/members/actions'
 import { addFilter, removeFilter } from '../store/filters/actions'
 
 const mapStateToProps = state => ({
@@ -9,8 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   addFilter,
-  removeFilter,
-  fetchMembers
+  removeFilter
 }
 
 export default connect(

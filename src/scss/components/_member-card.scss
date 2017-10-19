@@ -3,10 +3,6 @@
   padding: 1.5rem;
   margin-bottom: 3.6rem;
 
-  &--skeleton {
-    background-color: #eee;
-  }
-
   &__link {
     @include reset-anchor();
     font-size: 1.4rem;
@@ -24,12 +20,17 @@
     justify-content: center;
     align-items: center;
     padding: 3rem;
+    margin-bottom: 1.8rem;
 
     .member-card--cta & {
       background-color: $gold;
       color: $white;
       text-align: center;
       padding: 1.6rem;
+    }
+
+    .member-card--skeleton & {
+      background-color: $light-blue;
     }
   }
 
@@ -39,6 +40,11 @@
 
     .member-card__link:hover & {
       transition-delay: 0s;
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    .member-card--skeleton & {
       opacity: 0;
       transform: scale(0.9);
     }
@@ -58,6 +64,10 @@
       .member-card__link:hover & {
         transform: none;
         transition-delay: 0.2s;
+
+        .member-card--skeleton & {
+          transform: translateY(100%);
+        }
       }
     }
   }
@@ -65,11 +75,19 @@
   &__text {
     font-size: 1.4rem;
     display: block;
-    margin-top: 1.8rem;
-    transition: color 0.3s;
+    transition: color 0.3s, background-color 0.3s;
 
     .member-card__link:hover & {
       color: $gold;
+
+      .member-card--skeleton & {
+        color: $light-blue;
+      }
+    }
+
+    .member-card--skeleton & {
+      color: $light-blue;
+      background-color: $light-blue;
     }
   }
 

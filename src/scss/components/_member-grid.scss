@@ -18,6 +18,14 @@
     // }
   }
 
+  &__list {
+    transition: opacity 0.2s;
+
+    .member-grid--loading & {
+      opacity: 0;
+    }
+  }
+
   &__skeleton {
     opacity: 0;
     pointer-events: none;

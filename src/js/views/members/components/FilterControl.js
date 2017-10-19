@@ -6,8 +6,6 @@ class FilterControl extends Component {
     target.checked
       ? this.props.addFilter(id)
       : this.props.removeFilter(id)
-
-    this.props.fetchMembers()
   }
 
   render ({ id, isParent, slug, children }, state) {
@@ -16,9 +14,7 @@ class FilterControl extends Component {
         <label class='filter__hit-area' htmlFor={slug}>
           <FilterCheckbox {...this.props} onClick={this.onClick(id)} align='vertical' />
           <span class='filter__checkbox'></span>
-          <span class='filter__label'>
-            {children}
-          </span>
+          <span class='filter__label' dangerouslySetInnerHTML={{ __html: children }}></span>
         </label>
       </li>
     )

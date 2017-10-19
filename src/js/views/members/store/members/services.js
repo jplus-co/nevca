@@ -16,10 +16,19 @@ import { MEMBERS_URL } from '@constants'
 //     : util.fetch(MEMBERS_URL)
 // )
 
+const callback = (res) => console.log(res)
+
 export const getMembers = (
-  filters = []
+  filters = [],
+  pagination
 ) => (
   filters.length
-    ? util.fetch(`${MEMBERS_URL}&sectors=${filters.join(',')}`)
-    : util.fetch(MEMBERS_URL)
+    ? util.fetch({
+      url: `${MEMBERS_URL}&sectors=${filters.join(',')}&page=${pagination.current}`,
+      callback
+    })
+    : util.fetch({
+      url: MEMBERS_URL,
+      callback
+    })
 )

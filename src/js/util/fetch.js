@@ -1,6 +1,9 @@
 import cache from './cache'
 
-const fetch = url => {
+const fetch = (opts = {}) => {
+  let url = typeof opts === 'string' ? opts : opts.url
+  let callback = typeof opts === 'object' ? opts.callback : undefined
+
   // Check cache for url. If it already exists, access it via the cache
   if (cache.has(url)) {
     // Remove for production
@@ -10,7 +13,10 @@ const fetch = url => {
   } else {
     // Or we'll fetch it
     return window.fetch(url)
-      .then(res => res.json())
+      .then(res => {
+        callback && callback(res)
+        return res.json()
+      })
       .then(json => {
         cache.set(url, json)
         // Remove for production

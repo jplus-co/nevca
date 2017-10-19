@@ -3,7 +3,8 @@ import CloseButton from './CloseButton'
 import FilterGroup from './FilterGroup'
 
 const FilterPanel = ({
-  sectors
+  sectors,
+  fetchMembers
 }) => (
   <div class='filter-panel' onClick={() => document.body.classList.remove('filter-panel--active')}>
     <div class='filter-panel__inner' onClick={evt => evt.stopPropagation()}>
@@ -11,7 +12,10 @@ const FilterPanel = ({
         <div class='filter-panel__row'>
           <div class='filter-panel__column'>
             <header class='filter-panel__header'>
-              <CloseButton onClick={() => document.body.classList.remove('filter-panel--active')} />
+              <CloseButton onClick={() => {
+                document.body.classList.remove('filter-panel--active')
+                fetchMembers()
+              }} />
               <h4 class='filter-panel__title'>Sectors</h4>
             </header>
             <div class='scroll-area'>
