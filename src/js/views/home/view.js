@@ -1,5 +1,5 @@
 import Barba from 'barba.js'
-import Scroller from './scroller'
+import Scroller from '../../core/modules/scroller'
 
 const home = Barba.BaseView.extend({
 	namespace: 'home',
@@ -14,7 +14,9 @@ const home = Barba.BaseView.extend({
 		this.scroller.init()
 	},
 
-	onLeave () {},
+	onLeave () {
+		this.scroller.destroy()
+	},
 
 	onLeaveCompleted () {}
 })

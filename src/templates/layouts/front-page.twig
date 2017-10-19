@@ -13,11 +13,11 @@
     <!-- Hero -->
     {% include "hero.twig" with {
       "hero_text": post.hero_text,
-      "is_home": true,
-      "hero_image": post.hero_image
+      "hero_image": post.hero_image,
+      "is_home": true
     } %}
     <!-- Mission -->
-    <section id="mission" class="js-section section section--top">
+    <section id="mission" class="js-section section z-index-1">
       <div class="section__row justify-content-between px-8p py-12p">
         <!-- Mission Images -->
         {% include "image-cluster.twig" with {

@@ -42,7 +42,8 @@
             <div class="columns-block__image-cluster">
               {% for image in mission_block.image_cluster %}
                 <img
-                  class="columns-block__image columns-block__image--sm columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
+                  class="columns-block__image columns-block__image--sm columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }} js-parallax"
+                  data-speed="{{ 0.025 * loop.index }}"
                   src="{{ Image(image).src }}"
                   alt="{{ post.title }}">
               {% endfor %}

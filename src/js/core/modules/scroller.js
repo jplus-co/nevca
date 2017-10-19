@@ -3,12 +3,6 @@ import emitter from '../../core/emitter'
 import { WINDOW_RESIZE } from '@constants'
 import config from '@config'
 
-// rafScroll.add(function onScroll(event) {
-//   if (window.innerHeight + event.scrollY >= document.offsetHeight - window.innerHeight * 0.5) {
-//     triggerInfiniteScroll();
-//   }
-// }
-
 class Parallax {
   constructor (opt) {
     this.resizing = false
