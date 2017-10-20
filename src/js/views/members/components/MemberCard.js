@@ -26,7 +26,9 @@ const MemberCard = ({
             <span>Visit website</span>
           </span>
         </div>
-        <figcaption class='member-card__text'>{title.rendered}</figcaption>
+        <figcaption
+          class='member-card__text'
+          dangerouslySetInnerHTML={{__html: title.rendered}}></figcaption>
       </figure>
     </a>
   </li>

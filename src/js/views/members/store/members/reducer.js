@@ -1,6 +1,7 @@
-import { MEMBERS_LOAD } from '@constants'
+import { combineReducers } from 'redux'
+import { MEMBERS_LOAD, UPDATE_TOTAL_RECORDS } from '@constants'
 
-const members = (
+const data = (
   state = [],
   action
 ) => {
@@ -12,5 +13,19 @@ const members = (
   }
 }
 
-// Using commonjs so tests can be run in the command line using node.
-module.exports = members
+const count = (
+  state = 0,
+  action
+) => {
+  switch (action.type) {
+    case UPDATE_TOTAL_RECORDS:
+      return parseInt(action.payload)
+    default:
+      return state
+  }
+}
+
+export default combineReducers({
+  data,
+  count
+})

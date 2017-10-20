@@ -15,12 +15,15 @@ class BrowseMembers extends Component {
       <div class={'members__inner'}>
         <FilterPanel {...props} />
         <div>
-          <button class='button button--dropdown' onClick={() => document.body.classList.add('filter-panel--active')}>
-            <span class='button__inner'>
-              <span class='button__text'>Filter members</span>
-              <span class='button__icon'>▾</span>
-            </span>
-          </button>
+          <div class='flex justify-content-between align-items-center pb-6'>
+            <button class='button button--dropdown' onClick={() => document.body.classList.add('filter-panel--active')}>
+              <span class='button__inner'>
+                <span class='button__text'>Filter members</span>
+                <span class='button__icon'>▾</span>
+              </span>
+            </button>
+            <p>{props.members.count} results</p>
+          </div>
           <MemberGrid {...props} />
         </div>
       </div>

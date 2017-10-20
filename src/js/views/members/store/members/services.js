@@ -1,5 +1,7 @@
 import util from '@util'
 import { MEMBERS_URL } from '@constants'
+import { updateTotalRecords } from './actions'
+import { updatePageCount } from '../pagination/actions'
 
 // TODO: cache members for each sector ID to minimize api calls.
 // attempted to fix in commented code below, but isn't working correctly
@@ -16,19 +18,26 @@ import { MEMBERS_URL } from '@constants'
 //     : util.fetch(MEMBERS_URL)
 // )
 
-const callback = (res) => console.log(res)
-
 export const getMembers = (
-  filters = [],
-  pagination
-) => (
-  filters.length
+  dispatch,
+  getState
+) => {
+  const { filters, pagination } = getState()
+  return filters.length
     ? util.fetch({
       url: `${MEMBERS_URL}&sectors=${filters.join(',')}&page=${pagination.current}`,
-      callback
+      callback: fetchMembersCallback(dispatch)
     })
     : util.fetch({
       url: MEMBERS_URL,
-      callback
+      callback: fetchMembersCallback(dispatch)
     })
-)
+}
+
+const fetchMembersCallback = dispatch => ({
+  totalRecords,
+  pageCount
+}) => {
+  dispatch(updateTotalRecords(totalRecords))
+  dispatch(updatePageCount(pageCount))
+}

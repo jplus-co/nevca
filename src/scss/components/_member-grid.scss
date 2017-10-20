@@ -19,7 +19,7 @@
   }
 
   &__list {
-    transition: opacity 0.2s;
+    transition: opacity 1s $ease-out-quint;
 
     .member-grid--loading & {
       opacity: 0;
@@ -29,7 +29,7 @@
   &__skeleton {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s;
+    transition: opacity 1s $ease-out-quint;
     position: absolute;
     top: 0;
     left: 0;

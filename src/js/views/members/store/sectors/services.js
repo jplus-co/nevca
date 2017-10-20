@@ -5,6 +5,7 @@ export const getSectors = () => (
   // Fetch sector data from WordPress API
   util.fetch(SECTORS_URL)
     // nest arrays of child sectors inside the children key of their parent
+    .then(data => data.json)
     .then(nestSectors)
 )
 

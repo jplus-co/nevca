@@ -6,13 +6,21 @@ import MemberGridSkeleton from './MemberGridSkeleton'
 const MemberGrid = ({
   members,
   loading
-}) => (
-  <div class={classnames('member-grid', {
-    'member-grid--loading': loading
-  })}>
-    <MemberGridList members={members} />
-    <MemberGridSkeleton members={members} />
-  </div>
-)
+}) => {
+  const membersWithCTACard = [
+    ...members.data.slice(0, 5),
+    'cta',
+    ...members.data.slice(5)
+  ]
+
+  return (
+    <div class={classnames('member-grid', {
+      'member-grid--loading': loading
+    })}>
+      <MemberGridList members={membersWithCTACard} />
+      <MemberGridSkeleton members={membersWithCTACard} />
+    </div>
+  )
+}
 
 export default MemberGrid

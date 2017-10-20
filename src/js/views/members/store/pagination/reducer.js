@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux'
 import {
-  UPDATE_PAGE
+  UPDATE_PAGE,
   INCREMENT_PAGE,
   DECREMENT_PAGE,
-  UPDATE_TOTAL_RECORDS,
-  UPDATE_TOTAL_PAGES
+  UPDATE_PAGE_COUNT
 } from '@constants'
 
 const current = (
@@ -23,28 +22,19 @@ const current = (
   }
 }
 
-const totalRecords = (
+const count = (
   state = 0,
   action
 ) => {
   switch (action.type) {
-    case UPDATE_TOTAL_RECORDS:
-      return action.payload
-  }
-}
-
-const totalPages = (
-  state = 0,
-  action
-) => {
-  switch (action.type) {
-    case UPDATE_TOTAL_PAGES:
-      return action.payload
+    case UPDATE_PAGE_COUNT:
+      return parseInt(action.payload)
+    default:
+      return state
   }
 }
 
 export default combineReducers({
   current,
-  totalRecords,
-  totalPages
+  count
 })

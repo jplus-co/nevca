@@ -15,5 +15,4 @@ const filters = (
   }
 }
 
-// Using commonjs so tests can be run in the command line using node.
-module.exports = filters
+export default filters

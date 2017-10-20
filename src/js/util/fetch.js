@@ -9,20 +9,30 @@ const fetch = (opts = {}) => {
     // Remove for production
     console.log(`%c${url}\n\nloaded from cache.\n\n`, 'color: palevioletred;')
 
-    return Promise.resolve(cache.get(url))
+    const data = cache.get(url)
+
+    callback && callback(data)
+
+    return Promise.resolve(data)
   } else {
     // Or we'll fetch it
     return window.fetch(url)
       .then(res => {
-        callback && callback(res)
-        return res.json()
+        return {
+          totalRecords: res.headers.get('X-WP-Total'),
+          pageCount: res.headers.get('X-WP-TotalPages'),
+          json: res.json()
+        }
       })
-      .then(json => {
-        cache.set(url, json)
+      .then(data => {
+        callback && callback(data)
+
+        cache.set(url, data)
+
         // Remove for production
         console.log(`%c${url}\n\nloaded from API.\n\n`, 'color: papayawhip;')
 
-        return Promise.resolve(json)
+        return Promise.resolve(data)
       })
   }
 }
