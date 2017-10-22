@@ -19,6 +19,7 @@ const fetch = (opts = {}) => {
     return window.fetch(url)
       .then(res => {
         return {
+          url,
           totalRecords: res.headers.get('X-WP-Total'),
           pageCount: res.headers.get('X-WP-TotalPages'),
           json: res.json()

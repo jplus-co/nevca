@@ -9,7 +9,7 @@ const MemberGridSkeleton = ({
   {members.map((member, i) =>
     member === 'cta'
       ? <CTACard skeleton />
-      : <MemberCard skeleton {...member} key={member.id} />
+      : <MemberCard skeleton member={member} key={member.id} />
   )}
   </ul>
 )

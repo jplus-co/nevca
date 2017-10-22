@@ -3,14 +3,19 @@ import MemberCard from './MemberCard'
 import CTACard from './CTACard'
 
 const MemberGridList = ({
-  members
+  members,
+  sectors
 }) => {
   return (
     <ul className="member-grid__list">
       {members.map((member, i) =>
         member === 'cta'
           ? <CTACard />
-          : <MemberCard {...member} key={member.id} />
+          : <MemberCard
+              sectors={sectors}
+              member={member}
+              key={member.id}
+            />
       )}
     </ul>
   )

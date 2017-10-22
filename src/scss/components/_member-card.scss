@@ -2,6 +2,7 @@
   flex-basis: 25%;
   padding: 1.5rem;
   margin-bottom: 3.6rem;
+  // position: relative;
 
   &__link {
     @include reset-anchor();
@@ -97,5 +98,20 @@
     .member-card--skeleton & {
       color: lighten($light-blue, 10%);
     }
+  }
+
+  &__sector-list-hover {
+    @include reset-list();
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    border: 0.1rem solid $black;
+    padding: 0.5rem 1rem;
+    transition: opacity 0.4s;
+  }
+
+  &__sector-list-item {
+    line-height: 1.5;
   }
 }

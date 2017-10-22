@@ -6,17 +6,6 @@ export const getSectors = () => (
   util.fetch(SECTORS_URL)
     // nest arrays of child sectors inside the children key of their parent
     .then(data => data.json)
-    .then(nestSectors)
-)
-
-const nestSectors = json => (
-  json
-  .filter(sector => sector.parent === 0)
-  .map(parent => ({
-    ...parent,
-    // Get child sectors of parent industry and spread into a new object
-    children: json.filter(sector => sector.parent === parent.id)
-  }))
 )
 
 const mapActiveFlags = sectors => (

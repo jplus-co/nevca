@@ -25,11 +25,11 @@ export const getMembers = (
   const { filters, pagination } = getState()
   return filters.length
     ? util.fetch({
-      url: `${MEMBERS_URL}&sectors=${filters.join(',')}&page=${pagination.current}`,
+      url: `${MEMBERS_URL}&page=${pagination.current}&sectors=${filters.join(',')}`,
       callback: fetchMembersCallback(dispatch)
     })
     : util.fetch({
-      url: MEMBERS_URL,
+      url: `${MEMBERS_URL}&page=${pagination.current}`,
       callback: fetchMembersCallback(dispatch)
     })
 }
