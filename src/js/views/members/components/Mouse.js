@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import emitter from '../../../core/emitter'
 import { WINDOW_RESIZE } from '@constants'
+import util from '@util'
 
 class Mouse extends Component {
   state = {
@@ -17,11 +18,11 @@ class Mouse extends Component {
 
     emitter.on(WINDOW_RESIZE, this.resize)
 
-    this.startLoop()
+    // this.startLoop()
   }
 
   componentWillUnmount () {
-    this.stopLoop()
+    // this.stopLoop()
 
     emitter.off(WINDOW_RESIZE, this.resize)
   }
@@ -37,28 +38,28 @@ class Mouse extends Component {
     this.setState({ bounds })
   }
 
-  startLoop () {
-    if (!this._frameId) {
-      this._frameId = window.requestAnimationFrame(this.loop)
-    }
-  }
+  // startLoop () {
+  //   if (!this._frameId) {
+  //     this._frameId = window.requestAnimationFrame(this.loop)
+  //   }
+  // }
 
-  loop = () => {
-    let { easeX, easeY, pageX, pageY, bounds } = {...this.state}
+  // loop = () => {
+  //   let { easeX, easeY, pageX, pageY, bounds } = {...this.state}
+  //
+  //   // console.log(pageX, bounds.x, easeX)
+  //
+  //   easeX += ((pageX - bounds.x) - easeX) * 0.2
+  //   easeY += ((pageY - bounds.y - util.scroll.current()) - easeY) * 0.2
+  //
+  //   this.setState({ easeX, easeY })
+  //
+  //   this.frameId = window.requestAnimationFrame(this.loop)
+  // }
 
-    // console.log(pageX, bounds.x, easeX)
-
-    easeX += ((pageX) - easeX) * 0.2
-    easeY += ((pageY) - easeY) * 0.2
-
-    this.setState({ easeX, easeY })
-
-    this.frameId = window.requestAnimationFrame(this.loop)
-  }
-
-  stopLoop() {
-    window.cancelAnimationFrame(this._frameId)
-  }
+  // stopLoop() {
+  //   window.cancelAnimationFrame(this._frameId)
+  // }
 
   onMouseEnter = () => {
     this.setState({ hover: true })
@@ -69,7 +70,10 @@ class Mouse extends Component {
   }
 
   onMouseMove = ({ pageX, pageY }) => {
-    this.setState({ pageX, pageY })
+    this.setState({
+      easeX: pageX,
+      easeY: pageY - util.scroll.current()
+    })
   }
 
   childFn (children, state) {

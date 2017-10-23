@@ -40,15 +40,18 @@ const MemberCard = ({
               dangerouslySetInnerHTML={{__html: member.title.rendered}}></figcaption>
 
             {!skeleton && (
-              <ul class="member-card__sector-list-hover"
+              <ul class={classnames('member-card__sector-list-hover', {
+                'member-card__sector-list-hover--active': mouse.hover
+              })}
                 style={{
-                  transform: `translate3d(calc(50% + ${mouse.easeX}px), calc(50% + ${mouse.easeY}px), 0)`,
+                  transform: `translate3d(${15 + mouse.easeX}px, ${15 + mouse.easeY}px, 0)`,
                   opacity: mouse.hover ? 1 : 0
                 }}>
                 {member.sectors
                   .map(id => sectors.find(sector => id === sector.id))
                   .map(sector => (
-                    <li class="member-card__sector-list-item">{sector.name}</li>
+                    <li class="member-card__sector-list-item"
+                    dangerouslySetInnerHTML={{__html: sector.name}}></li>
                   ))
                 }
               </ul>

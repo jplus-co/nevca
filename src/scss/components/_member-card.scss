@@ -2,7 +2,7 @@
   flex-basis: 25%;
   padding: 1.5rem;
   margin-bottom: 3.6rem;
-  // position: relative;
+  position: relative;
 
   &__link {
     @include reset-anchor();
@@ -108,7 +108,13 @@
     background-color: $white;
     border: 0.1rem solid $black;
     padding: 0.5rem 1rem;
-    transition: opacity 0.4s;
+    pointer-events: none;
+    transition: opacity 0.4s $ease-out-quint;
+    z-index: 9999;
+
+    &--active {
+      transition: opacity 0.4s $ease-out-quint 0.1s;
+    }
   }
 
   &__sector-list-item {
