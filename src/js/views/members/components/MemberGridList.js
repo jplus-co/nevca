@@ -4,7 +4,8 @@ import CTACard from './CTACard'
 
 const MemberGridList = ({
   members,
-  sectors
+  sectors,
+  filters
 }) => {
   return (
     <ul className="member-grid__list">
@@ -12,6 +13,7 @@ const MemberGridList = ({
         member === 'cta'
           ? <CTACard />
           : <MemberCard
+              filters={filters}
               sectors={sectors}
               member={member}
               key={member.id}

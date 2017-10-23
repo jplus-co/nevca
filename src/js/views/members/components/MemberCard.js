@@ -7,6 +7,7 @@ const MemberCard = ({
   member,
   skeleton,
   sectors,
+  filters,
   index
 }) => (
   <li class={classnames('member-card', {
@@ -54,8 +55,9 @@ const MemberCard = ({
                   .map(sector => (
                     <li class={classnames('member-card__sector-list-item', {
                       'flex-basis-50': member.sectors.length > 10,
+                      'member-card__sector-list-item--active': filters.find(id => id === sector.id)
                     })}
-                    dangerouslySetInnerHTML={{__html: sector.name}}></li>
+                    dangerouslySetInnerHTML={{ __html: sector.name }}></li>
                   ))
                 }
               </ul>

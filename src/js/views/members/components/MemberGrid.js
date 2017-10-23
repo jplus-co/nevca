@@ -6,6 +6,7 @@ import MemberGridSkeleton from './MemberGridSkeleton'
 const MemberGrid = ({
   members,
   sectors,
+  filters,
   loading
 }) => {
   const membersWithCTACard = [
@@ -18,7 +19,11 @@ const MemberGrid = ({
     <div class={classnames('member-grid', {
       'member-grid--loading': loading
     })}>
-      <MemberGridList members={membersWithCTACard} sectors={sectors} />
+      <MemberGridList
+        members={membersWithCTACard}
+        sectors={sectors}
+        filters={filters}
+      />
       <MemberGridSkeleton members={membersWithCTACard} />
     </div>
   )
