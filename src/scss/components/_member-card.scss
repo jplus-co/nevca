@@ -111,6 +111,7 @@
     pointer-events: none;
     transition: opacity 0.4s $ease-out-quint;
     z-index: 9999;
+    max-width: 40vw;
 
     &--active {
       transition: opacity 0.4s $ease-out-quint 0.1s;

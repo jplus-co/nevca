@@ -6,7 +6,8 @@ import Mouse from './Mouse'
 const MemberCard = ({
   member,
   skeleton,
-  sectors
+  sectors,
+  index
 }) => (
   <li class={classnames('member-card', {
     'member-card--skeleton': skeleton
@@ -41,16 +42,19 @@ const MemberCard = ({
 
             {!skeleton && (
               <ul class={classnames('member-card__sector-list-hover', {
-                'member-card__sector-list-hover--active': mouse.hover
+                'member-card__sector-list-hover--active': mouse.hover,
+                'flex flex-wrap': member.sectors.length > 15
               })}
                 style={{
-                  transform: `translate3d(${15 + mouse.easeX}px, ${15 + mouse.easeY}px, 0)`,
+                  transform: `translate3d(calc(${index % 4 ? '0%' : '-100%'} + ${mouse.easeX}px), ${25 + mouse.easeY}px, 0)`,
                   opacity: mouse.hover ? 1 : 0
                 }}>
                 {member.sectors
                   .map(id => sectors.find(sector => id === sector.id))
                   .map(sector => (
-                    <li class="member-card__sector-list-item"
+                    <li class={classnames('member-card__sector-list-item', {
+                      'flex-basis-50': member.sectors.length > 10,
+                    })}
                     dangerouslySetInnerHTML={{__html: sector.name}}></li>
                   ))
                 }

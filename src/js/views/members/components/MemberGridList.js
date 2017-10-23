@@ -15,6 +15,7 @@ const MemberGridList = ({
               sectors={sectors}
               member={member}
               key={member.id}
+              index={i + 1}
             />
       )}
     </ul>
