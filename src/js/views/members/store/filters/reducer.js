@@ -1,14 +1,16 @@
+import { ADD_FILTER, REMOVE_FILTER } from '@constants'
+
 const filters = (
   state = [],
   action
 ) => {
   switch (action.type) {
-    case 'ADD_FILTER':
+    case ADD_FILTER:
       return [
         ...state,
         action.id
       ]
-    case 'REMOVE_FILTER':
+    case REMOVE_FILTER:
       return state.filter(id => id !== action.id)
     default:
       return state

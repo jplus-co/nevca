@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
 import {
+  ADD_FILTER,
+  REMOVE_FILTER,
   UPDATE_PAGE,
   INCREMENT_PAGE,
   DECREMENT_PAGE,
@@ -17,6 +19,9 @@ const current = (
       return state + 1
     case DECREMENT_PAGE:
       return state - 1
+    case ADD_FILTER:
+    case REMOVE_FILTER:
+      return 1
     default:
       return state
   }
