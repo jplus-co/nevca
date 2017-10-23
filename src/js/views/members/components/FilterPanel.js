@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import CloseButton from './CloseButton'
 import FilterGroup from './FilterGroup'
+import SelectedFilter from './SelectedFilter'
 
 const createSectorTree = json => (
   json
@@ -14,7 +15,9 @@ const createSectorTree = json => (
 
 const FilterPanel = ({
   sectors,
-  fetchMembers
+  filters,
+  fetchMembers,
+  removeFilter
 }) => {
   const sectorTree = createSectorTree(sectors)
   return (
@@ -42,7 +45,19 @@ const FilterPanel = ({
               <header class='filter-panel__header'>
                 <h4 class='filter-panel__title'>Selected Filters</h4>
               </header>
-              <div class='scroll-area'></div>
+              <div class='scroll-area px-3'>
+                <ul class='filter-panel__list'>
+                  {filters.map((id, i) => sectors.find(sector => sector.id === id))
+                    .map(sector => (
+                      <SelectedFilter
+                        key={sector.id}
+                        sector={sector}
+                        removeFilter={removeFilter}
+                      />
+                    ))
+                  }
+                </ul>
+              </div>
             </div>
           </div>
         </div>

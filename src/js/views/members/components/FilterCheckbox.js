@@ -1,6 +1,7 @@
 import { h } from 'preact'
 
 const FilterCheckbox = ({
+  filters,
   id,
   slug,
   onClick
@@ -11,6 +12,7 @@ const FilterCheckbox = ({
     type='checkbox'
     id={slug}
     value={id}
+    checked={filters.find(filter => filter === id) ? true : false}
   />
 )
 

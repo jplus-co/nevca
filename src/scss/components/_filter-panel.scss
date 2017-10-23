@@ -63,6 +63,10 @@
     }
   }
 
+  &__list {
+    @include reset-list();
+  }
+
   &__title {
     @include type-style-nav-md();
     margin-bottom: 1.5rem;

@@ -2,7 +2,7 @@ import { connect } from 'preact-redux'
 import BrowseMembers from '../components/BrowseMembers'
 import { fetchSectors } from '../store/sectors/actions'
 import { fetchMembers } from '../store/members/actions'
-import { updatePage, incrementPage, decrementPage } from '../store/pagination/actions'
+import { addFilter, removeFilter } from '../store/filters/actions'
 
 const mapStateToProps = state => ({
   loading: state.loading,
@@ -15,9 +15,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   fetchSectors,
   fetchMembers,
-  updatePage,
-  incrementPage,
-  decrementPage
+  removeFilter
 }
 
 export default connect(
