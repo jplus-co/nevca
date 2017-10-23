@@ -3,6 +3,7 @@ import classnames from 'classnames'
 
 import FilterPanel from './FilterPanel'
 import MemberGrid from './MemberGrid'
+import Pagination from '../containers/PaginationContainer'
 
 class BrowseMembers extends Component {
   componentDidMount () {
@@ -26,42 +27,7 @@ class BrowseMembers extends Component {
             <p class="ml-4">{members.count} results</p>
           </div>
           <MemberGrid {...props} />
-
-
-          {pagination.count > 1 && (
-            <div class='pagination js-pagination'>
-              <button onClick={decrementPage}
-                class={classnames('pagination__control pagination__control--prev', {
-                  'pagination__control--disabled': pagination.current === 1
-                })}>
-                <span class='sr-text'>Previous page</span>
-              </button>
-              <ul class='pagination__page-list'>
-                {
-                  Array(pagination.count).fill().map((item, i) => {
-                    const target = i + 1
-                    return (
-                      <li class='pagination__page-list-item'>
-                        <button
-                          onClick={() => updatePage(target)}
-                          class={classnames('pagination__page-link', {
-                            'pagination__page-link--current': pagination.current === target
-                          })}>
-                          {target}
-                        </button>
-                      </li>
-                    )
-                  })
-                }
-              </ul>
-              <button onClick={incrementPage}
-                class={classnames('pagination__control pagination__control--next', {
-                  'pagination__control--disabled': pagination.current === pagination.count
-                })}>
-                <span class='sr-text'>Next page</span>
-              </button>
-            </div>
-          )}
+          <Pagination />
         </div>
       </div>
     )
