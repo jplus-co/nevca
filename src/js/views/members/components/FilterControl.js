@@ -3,9 +3,16 @@ import FilterCheckbox from './FilterCheckbox'
 
 class FilterControl extends Component {
   onClick = id => ({ target }) => {
-    target.checked
-      ? this.props.addFilter(id)
-      : this.props.removeFilter(id)
+    const { isParent, sectors, addFilter, removeFilter } = this.props
+
+    if (isParent) {
+      const children = sectors.filter(sector => sector.parent === id || sector.id === id)
+      children.map(child => target.checked ? addFilter(child.id) : removeFilter(child.id))
+    } else {
+      target.checked
+        ? addFilter(id)
+        : removeFilter(id)
+    }
   }
 
   render ({ id, isParent, slug, children }, state) {

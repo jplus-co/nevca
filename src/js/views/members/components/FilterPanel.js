@@ -3,21 +3,12 @@ import CloseButton from './CloseButton'
 import FilterGroup from './FilterGroup'
 import SelectedFilter from './SelectedFilter'
 
-const createSectorTree = json => (
-  json
-  .filter(sector => sector.parent === 0)
-  .map(parent => ({
-    ...parent,
-    // Get child sectors of parent industry and spread into a new object
-    children: json.filter(sector => sector.parent === parent.id)
-  }))
-)
-
 const FilterPanel = ({
   sectors,
   filters,
   fetchMembers,
-  removeFilter
+  removeFilter,
+  clearFilters
 }) => {
   const sectorTree = createSectorTree(sectors)
   return (
@@ -46,17 +37,28 @@ const FilterPanel = ({
                 <h4 class='filter-panel__title'>Selected Filters</h4>
               </header>
               <div class='scroll-area px-3'>
-                <ul class='filter-panel__list'>
-                  {filters.map((id, i) => sectors.find(sector => sector.id === id))
-                    .map(sector => (
-                      <SelectedFilter
-                        key={sector.id}
-                        sector={sector}
-                        removeFilter={removeFilter}
-                      />
-                    ))
-                  }
-                </ul>
+                {filters.length ? (
+                  <button
+                    class="filter-panel__unselect-all-button"
+                    onClick={clearFilters}>
+                    Unselect all
+                  </button>
+                ) : null}
+                {filters.length ? (
+                  <ul class='filter-panel__list'>
+                    {filters.map((id, i) => sectors.find(sector => sector.id === id))
+                      .map(sector => (
+                        <SelectedFilter
+                          key={sector.id}
+                          sector={sector}
+                          removeFilter={removeFilter}
+                        />
+                      ))
+                    }
+                  </ul>
+                ) : (
+                  <p class="filter-panel__text">No filters selected.</p>
+                )}
               </div>
             </div>
           </div>
@@ -67,3 +69,13 @@ const FilterPanel = ({
 }
 
 export default FilterPanel
+
+const createSectorTree = json => (
+  json
+  .filter(sector => sector.parent === 0)
+  .map(parent => ({
+    ...parent,
+    // Get child sectors of parent industry and spread into a new object
+    children: json.filter(sector => sector.parent === parent.id)
+  }))
+)

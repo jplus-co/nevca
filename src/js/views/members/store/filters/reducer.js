@@ -1,4 +1,4 @@
-import { ADD_FILTER, REMOVE_FILTER } from '@constants'
+import { ADD_FILTER, REMOVE_FILTER, CLEAR_FILTERS } from '@constants'
 
 const filters = (
   state = [],
@@ -12,6 +12,8 @@ const filters = (
       ]
     case REMOVE_FILTER:
       return state.filter(id => id !== action.id)
+    case CLEAR_FILTERS:
+      return []
     default:
       return state
   }

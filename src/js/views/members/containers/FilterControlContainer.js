@@ -3,7 +3,8 @@ import FilterControl from '../components/FilterControl'
 import { addFilter, removeFilter } from '../store/filters/actions'
 
 const mapStateToProps = state => ({
-  filters: state.filters
+  filters: state.filters,
+  sectors: state.sectors
 })
 
 const mapDispatchToProps = {
