@@ -84,6 +84,9 @@ Version: 1.0.0
 @import 'components/selected-filter';
 @import 'components/term-navigation';
 
+// Tribe Events
+@import 'tribe-events/index.scss';
+
 // Helpers
 @import 'helpers/position';
 @import 'helpers/size';
@@ -91,3 +94,4 @@ Version: 1.0.0
 @import 'helpers/transform';
 @import 'helpers/color';
 @import 'helpers/a11y';
+@import 'helpers/resets';
