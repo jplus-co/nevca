@@ -195,6 +195,12 @@
   font-style: italic;
 }
 
+@mixin type-style-display-lg() {
+  font-family: $font-display;
+  font-weight: 900;
+  font-size: 46rem;
+}
+
 @mixin type-style-display-md() {
   font-family: $font-display;
   font-weight: 900;

@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <div class="view" data-namespace="resources">
+    {% include "term-navigation.twig" with {
+      "resource_topics": resource_topics
+    } %}
+    <div class="px-10p">
+      <div class="flex">
+
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
