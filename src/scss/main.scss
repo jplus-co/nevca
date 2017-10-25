@@ -83,6 +83,7 @@ Version: 1.0.0
 @import 'components/page-loader';
 @import 'components/selected-filter';
 @import 'components/term-navigation';
+@import 'components/resource-topic-collection';
 
 // Helpers
 @import 'helpers/position';
@@ -91,3 +92,4 @@ Version: 1.0.0
 @import 'helpers/transform';
 @import 'helpers/color';
 @import 'helpers/a11y';
+@import 'helpers/overflow';

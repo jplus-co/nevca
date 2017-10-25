@@ -1,0 +1,55 @@
+.resource-topic-collection {
+  padding-left: $inner-padding-sm;
+  padding-right: $inner-padding-sm;
+
+  &__heading {
+    font-size: 4rem;
+    padding-bottom: 8rem;
+    padding-left: calc(20% + 2rem);
+    display: flex;
+
+    > span {
+      display: inline-block;
+      background-color: $white;
+      position: relative;
+      z-index: 1;
+
+      .resource-topic-collection--odd & {
+        padding-right: 2rem;
+      }
+
+      .resource-topic-collection--even & {
+        padding-left: 2rem;
+      }
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 3rem;
+      background-color: $gold;
+      top: 0.6rem;
+
+
+      .resource-topic-collection--even & {
+        left: -75%;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+
+    .resource-topic-collection--even & {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-basis: 80%;
+  }
+}
