@@ -6,9 +6,20 @@
     {% include "term-navigation.twig" with {
       "resource_topics": resource_topics
     } %}
-    <div class="px-10p">
+    <div class="translate-y-n10 px-6p">
       <div class="flex">
-
+        {% for type in resource_types %}
+          {# get latest post in each resource type #}
+          {% set post = Term(type).posts[0] %}
+          <div class="flex-1 m-1 p-2 is-blue">
+            {% include "list-card.twig" with {
+              "subheading": Term(post.resource_topic).name ~ ' | ' ~ type.name,
+              "heading": post.title,
+              "body": post.title,
+              "rule": true
+            } %}
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>

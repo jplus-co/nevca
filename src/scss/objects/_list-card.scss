@@ -1,5 +1,4 @@
 .list-card {
-  margin-bottom: 7.2rem;
   display: flex;
 
   .date-circle {
@@ -31,23 +30,30 @@
 
   &__link {
     display: inline-block;
-    color: $black;
+    color: currentColor;
   }
 
   &__subheading {
     @include type-style-label();
     text-transform: none;
     margin-bottom: 1.2rem;
-    opacity: 0.5;
+    color: $gold;
   }
 
   &__heading {
     @include type-style-heading-lg();
     text-transform: none;
     margin-bottom: 2rem;
+    color: currentColor;
+
+    font-size: 2.8rem;
   }
 
   &__body {
+    color: currentColor;
+    font-size: 1.4rem;
+    line-height: 1.6;
+
     p, .p1 {
       margin-bottom: 2rem;
     }
