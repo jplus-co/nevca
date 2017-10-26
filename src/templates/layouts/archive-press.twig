@@ -21,10 +21,10 @@
         {% endif %}
       </div>
 
-      <aside class="downloads-list">
+      <aside class="button-group">
         <h4 class="text-block__subheading">Media</h4>
         {% for download in options.downloads %}
-          <a class="downloads-list__button button"
+          <a class="button-group__button button"
              href="{{ download.file }}" target="_blank">{{ download.button_label }}</a>
         {% endfor %}
       </aside>
