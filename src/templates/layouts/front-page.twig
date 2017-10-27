@@ -100,8 +100,8 @@
         {% for member in featured_members %}
           {% set logo = Image(member.image) %}
           <a href="{{ member.website }}" target="_blank"
-            class="member-logo-grid__item member-logo-grid__item--{{ logo.width > logo.height ? 'l' : 'p' }}">
-            <img class="member-logo-grid__image member-logo-grid__image--{{ logo.width > logo.height ? 'l' : 'p' }}"
+            class="member-logo-grid__item member-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
+            <img class="member-logo-grid__image"
               src="{{ logo.src }}" alt="{{ member.title }}">
           </a>
         {% endfor %}
@@ -126,8 +126,8 @@
             {% for sponsor in sponsors_block.major_sponsors %}
               {% set logo = Image(sponsor.logo) %}
               <a href="{{ sponsor.website_link }}" target="_blank"
-                class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width > logo.height ? 'l' : 'p' }}">
-                <img class="sponsor-logo-grid__image sponsor-logo-grid__image--{{ logo.width > logo.height ? 'l' : 'p' }}"
+                class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
+                <img class="sponsor-logo-grid__image"
                   src="{{ logo.src }}" alt="{{ sponsor.title }}">
               </a>
             {% endfor %}
@@ -138,8 +138,8 @@
             {% for sponsor in sponsors_block.supporting_sponsors %}
               {% set logo = Image(sponsor.logo) %}
               <a href="{{ sponsor.website_link }}" target="_blank"
-                class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width > logo.height ? 'l' : 'p' }}">
-                <img class="sponsor-logo-grid__image sponsor-logo-grid__image--invert sponsor-logo-grid__image--{{ logo.width > logo.height ? 'l' : 'p' }}"
+                class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
+                <img class="sponsor-logo-grid__image sponsor-logo-grid__image--invert"
                   src="{{ logo.src }}" alt="{{ sponsor.title }}">
               </a>
             {% endfor %}

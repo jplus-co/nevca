@@ -8,27 +8,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3rem 6rem;
+    padding: 3rem 5rem;
 
-    &--l {
-
-    }
-
-    &--p {
-
+    &--square {
+      padding: 3rem 8rem;
     }
   }
 
   &__image {
     width: 100%;
     height: auto;
-
-    &--l {
-
-    }
-
-    &--p {
-
-    }
   }
 }

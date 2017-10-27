@@ -37,12 +37,8 @@
     align-items: center;
     padding: 3rem 6rem;
 
-    &--l {
-
-    }
-
-    &--p {
-
+    &--square {
+      padding: 3rem 9rem;
     }
   }
 
@@ -50,16 +46,8 @@
     width: 100%;
     height: auto;
 
-    &--l {
-
-    }
-
-    &--p {
-
-    }
-
     &--invert {
-      filter: invert(100%);
+      filter: invert(100%) brightness(2);
       filter: progid:DXImageTransform.Microsoft.BasicImage(invert='1');
     }
   }
