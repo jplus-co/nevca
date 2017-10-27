@@ -2,9 +2,10 @@
   display: flex;
   flex-wrap: wrap;
   margin: -3rem -6rem 2rem -6rem;
+  flex: 1;
 
   &__item {
-    flex-basis: 20%;
+    flex-basis: 25%;
     display: flex;
     justify-content: center;
     align-items: center;

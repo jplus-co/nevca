@@ -69,6 +69,7 @@
 
     .hero--front-page & {
       @include type-style-heading-xxxl();
+      font-size: 10rem;
       line-height: 1.1;
       color: $white;
     }
