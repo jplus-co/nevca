@@ -7,13 +7,19 @@
     height: 80rem;
   }
 
-  &--half-image {
-  }
+  &--half-image {}
 
   &--alt {
     height: 50rem;
     padding: 0 4%;
     z-index: 1;
+  }
+
+  &--aux {
+    background-color: $black;
+    color: $gold;
+    text-align: center;
+    padding: 10% 0;
   }
 
   &--black {
@@ -76,6 +82,10 @@
       @include type-style-heading-xxxl();
       font-style: normal;
       color: $white;
+    }
+
+    .hero--aux & {
+      font-size: 13rem;
     }
   }
 
