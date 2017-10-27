@@ -1,22 +1,39 @@
 import cache from './cache'
 
-const fetch = url => {
+const fetch = (opts = {}) => {
+  let url = typeof opts === 'string' ? opts : opts.url
+  let callback = typeof opts === 'object' ? opts.callback : undefined
+
   // Check cache for url. If it already exists, access it via the cache
   if (cache.has(url)) {
     // Remove for production
     console.log(`%c${url}\n\nloaded from cache.\n\n`, 'color: palevioletred;')
 
-    return Promise.resolve(cache.get(url))
+    const data = cache.get(url)
+
+    callback && callback(data)
+
+    return Promise.resolve(data)
   } else {
     // Or we'll fetch it
     return window.fetch(url)
-      .then(res => res.json())
-      .then(json => {
-        cache.set(url, json)
+      .then(res => {
+        return {
+          url,
+          totalRecords: res.headers.get('X-WP-Total'),
+          pageCount: res.headers.get('X-WP-TotalPages'),
+          json: res.json()
+        }
+      })
+      .then(data => {
+        callback && callback(data)
+
+        cache.set(url, data)
+
         // Remove for production
         console.log(`%c${url}\n\nloaded from API.\n\n`, 'color: papayawhip;')
 
-        return Promise.resolve(json)
+        return Promise.resolve(data)
       })
   }
 }

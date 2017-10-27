@@ -38,6 +38,7 @@
     @include type-style-action();
     margin-top: 1rem;
     transform: translateY(2px);
+    white-space: nowrap;
   }
 
   &--left {

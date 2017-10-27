@@ -1,0 +1,49 @@
+.selected-filter {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border: 0.1rem solid $white;
+  border-radius: 0.8rem;
+
+  &__button {
+    @include reset-button();
+    width: 100%;
+    height: 100%;
+    padding: 0 0.6rem;
+  }
+
+  &__label {
+    display: inline-block;
+    @include type-style-nav-sm();
+    line-height: 1.8;
+    padding-left: 0.6rem;
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    position: relative;
+    transform: rotate(45deg);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      width: 100%;
+      height: 0.2rem;
+    }
+
+    &::after {
+      width: 0.2rem;
+      height: 100%;
+    }
+  }
+}

@@ -1,14 +1,15 @@
 .pagination {
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
 
   &__control {
+    @include reset-button();
+    outline: none;
     position: relative;
     display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    transition: transform 0.7s $ease-out-expo;
 
     &::before {
       content: '';
@@ -19,27 +20,32 @@
       left: 50%;
       display: inline-block;
       transform: translate(-50%, -50%) rotate(45deg);
+      transition: border-color 0.7s $ease-out-expo, opacity 0.7s $ease-out-expo;
     }
 
     &--prev {
       &::before {
-        border-left: 2px solid $black;
-        border-bottom: 2px solid $black;
+        border-left: 0.2rem solid $black;
+        border-bottom: 0.2rem solid $black;
       }
 
       &:hover {
-        transform: translate(-4px);
+        &::before {
+            border-color: $gold;
+        }
       }
     }
 
     &--next {
       &::before {
-        border-right: 2px solid $black;
-        border-top: 2px solid $black;
+        border-right: 0.2rem solid $black;
+        border-top: 0.2rem solid $black;
       }
 
       &:hover {
-        transform: translate(4px);
+        &::before {
+            border-color: $gold;
+        }
       }
     }
 
@@ -52,22 +58,23 @@
   &__page-list {
     @include reset-list();
     display: flex;
-    transform: translateY(-8px);
   }
 
   &__page-link {
     @include reset-anchor();
+    @include reset-button();
     @include type-style-nav-md();
-    opacity: 0.5;
+    outline: none;
+    color: $black;
     padding: 1rem;
-    transition: opacity 0.4s $ease-out-quint;
+    transition: color 0.4s $ease-out-quint;
 
     &:hover {
-      opacity: 1;
+      color: $gold;
     }
 
     &--current {
-      opacity: 1;
+      color: $gold;
       pointer-events: none;
       &::after {
         transform: scale(1);

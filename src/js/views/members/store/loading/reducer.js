@@ -12,5 +12,4 @@ const loading = (
   }
 }
 
-// Using commonjs so tests can be run in the command line using node.
-module.exports = loading
+export default loading

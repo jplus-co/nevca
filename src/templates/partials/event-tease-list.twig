@@ -4,7 +4,7 @@
       <a class="event-tease-list__link" href="{{ event.link|relative }}">
 
         <div class="event-tease-list__inner">
-          <span class="event-tease-list__date">{{ event.date }}</span>
+          <span class="event-tease-list__date">{{ event.EventStartDate|date('M d, Y') }}</span>
           <h3 class="event-tease-list__title">{{ event.title }}</h3>
           <span class="event-tease-list__rule"></span>
           <div class="event-tease-list__excerpt">{{ event.post_excerpt }}</div>

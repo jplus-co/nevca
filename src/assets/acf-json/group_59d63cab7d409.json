@@ -7,6 +7,7 @@
             "label": "Resource Topic",
             "name": "resource_topic",
             "type": "taxonomy",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -29,6 +30,7 @@
             "label": "Resource Type",
             "name": "resource_type",
             "type": "taxonomy",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -51,7 +53,8 @@
             "label": "Description",
             "name": "description",
             "type": "textarea",
-            "instructions": "",
+            "value": null,
+            "instructions": "Please try and keep descriptions concise! (approximately 140 characters)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -61,7 +64,7 @@
             },
             "default_value": "",
             "placeholder": "",
-            "maxlength": 140,
+            "maxlength": "",
             "rows": 6,
             "new_lines": "wpautop"
         },
@@ -70,6 +73,7 @@
             "label": "Link to file or website?",
             "name": "link_type",
             "type": "radio",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -94,6 +98,7 @@
             "label": "File",
             "name": "file",
             "type": "file",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -110,7 +115,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "url",
             "library": "all",
             "min_size": "",
             "max_size": "",
@@ -121,6 +126,7 @@
             "label": "Link",
             "name": "link",
             "type": "link",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -138,52 +144,6 @@
                 "id": ""
             },
             "return_format": "array"
-        },
-        {
-            "key": "field_59d63d94a4945",
-            "label": "Add Button?",
-            "name": "has_button",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_59d63defa4946",
-            "label": "Button Label",
-            "name": "button_label",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_59d63d94a4945",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         }
     ],
     "location": [
@@ -219,5 +179,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507213224
+    "modified": 1509038436
 }

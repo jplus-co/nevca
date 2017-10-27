@@ -1,0 +1,109 @@
+.term-navigation {
+  overflow: hidden;
+
+  &__heading {
+    @include type-style-action();
+    text-transform: none;
+  }
+
+  &__list {
+    @include reset-list();
+  }
+
+  &__item {
+    display: inline-block;
+  }
+
+  &__link {
+    @include reset-anchor();
+    display: inline-block;
+    margin-right: 8rem;
+    margin-bottom: 5rem;
+    z-index: 1;
+
+    &:hover {
+      + .term-navigation__count {
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 1.2s $ease-out-cubic 0.2s, transform 1.2s $ease-out-cubic 0.2s;
+
+        .term-navigation__count--inner {
+          > span {
+            opacity: 1;
+            transform-origin: top left;
+            transform: none;
+            transition: opacity 1s $ease-out-quint 0.6s, transform 1s $ease-out-quint 0.6s;
+          }
+        }
+      }
+
+      .term-navigation__term-name {
+        > span,
+        > span::before {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  &__term-name {
+    display: inline-block;
+    @include type-style-heading-lg();
+    font-size: 5rem;
+    position: relative;
+    z-index: 1;
+    color: $white;
+
+    > span {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s $ease-in-out-quint;
+      transform: translateX(-100%);
+      overflow: hidden;
+      pointer-events: none;
+
+      &::before {
+        content: attr(data-name);
+        display: inline-block;
+        color: $gold;
+        transition: transform 0.8s $ease-in-out-quint;
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  &__count {
+    position: absolute;
+    bottom: -4rem;
+    right: 7rem;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s $ease-out-cubic, transform 0.8s $ease-out-cubic;
+
+    &--inner {
+      position: relative;
+      @include type-style-display-lg();
+      font-family: 'Lora';
+      color: $dark-blue;
+      line-height: 1;
+
+      > span {
+        display: inline-block;
+        @include type-style-action();
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 1;
+        color: $light-blue;
+        opacity: 0;
+        transform-origin: top left;
+        transform: translateY(100%) skewY(4deg);
+        transition: opacity 0.8s $ease-out-cubic, transform 0.8s $ease-out-cubic;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div class="term-navigation pt-6p pb-8p px-8p is-black relative">
+  <h2 class="term-navigation__heading">Browse Resources</h2>
+  <ul class="term-navigation__list pt-3p">
+    {% for topic in resource_topics %}
+      <li class="term-navigation__item">
+        <a class="term-navigation__link" href="{{ '#' ~ topic.slug }}">
+          <h3 class="term-navigation__term-name">
+            {{ topic.name }}
+            <span data-name="{{ topic.name }}"></span>
+          </h3>
+        </a>
+        <div class="term-navigation__count">
+          <div class="term-navigation__count--inner">
+            {{ topic.count }}
+            <span>Resources</span>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -40,6 +40,18 @@
   align-items: center;
 }
 
+.align-self-start {
+  align-self: flex-end;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
 @each $d in column, row {
   .flex-#{$d} {
     flex-direction: #{$d};
@@ -48,4 +60,8 @@
   .flex-#{$d}-reverse {
     flex-direction: #{$d}-reverse;
   }
+}
+
+.flex-1 {
+  flex: 1;
 }

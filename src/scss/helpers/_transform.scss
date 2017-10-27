@@ -1,5 +1,11 @@
-@for $i from 1 through 100 {
-  .translate-x-#{$i} {
-    transform: translateX($i * 1%);
-  }
+.translate-x-100 {
+  transform: translateX(100%);
+}
+
+.translate-y-n5 {
+  transform: translateY(-5rem);
+}
+
+.translate-y-n7 {
+  transform: translateY(-7rem);
 }

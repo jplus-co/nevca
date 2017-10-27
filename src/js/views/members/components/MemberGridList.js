@@ -3,25 +3,25 @@ import MemberCard from './MemberCard'
 import CTACard from './CTACard'
 
 const MemberGridList = ({
-  members
+  members,
+  sectors,
+  filters
 }) => {
-  const membersWithCTACard = [
-    ...members.slice(0, 5),
-    'cta',
-    ...members.slice(5)
-  ]
-
   return (
     <ul className="member-grid__list">
-      {membersWithCTACard.map((member, i) =>
+      {members.map((member, i) =>
         member === 'cta'
           ? <CTACard />
-          : <MemberCard {...member} key={member.id} />
+          : <MemberCard
+              filters={filters}
+              sectors={sectors}
+              member={member}
+              key={member.id}
+              index={i + 1}
+            />
       )}
     </ul>
   )
 }
-
-
 
 export default MemberGridList

@@ -2,10 +2,7 @@
   flex-basis: 25%;
   padding: 1.5rem;
   margin-bottom: 3.6rem;
-
-  &--skeleton {
-    background-color: #eee;
-  }
+  position: relative;
 
   &__link {
     @include reset-anchor();
@@ -24,6 +21,7 @@
     justify-content: center;
     align-items: center;
     padding: 3rem;
+    margin-bottom: 1.8rem;
 
     .member-card--cta & {
       background-color: $gold;
@@ -31,14 +29,23 @@
       text-align: center;
       padding: 1.6rem;
     }
+
+    .member-card--skeleton & {
+      background-color: lighten($light-blue, 10%);
+    }
   }
 
   &__logo {
     width: 100%;
-    transition: transform 0.5s $ease-out-expo 0.3s, opacity 0.5s $ease-out-expo 0.3s;
+    transition: transform 1s $ease-out-expo 0.3s, opacity 1s $ease-out-expo 0.3s;
 
     .member-card__link:hover & {
       transition-delay: 0s;
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    .member-card--skeleton & {
       opacity: 0;
       transform: scale(0.9);
     }
@@ -58,6 +65,10 @@
       .member-card__link:hover & {
         transform: none;
         transition-delay: 0.2s;
+
+        .member-card--skeleton & {
+          transform: translateY(100%);
+        }
       }
     }
   }
@@ -65,15 +76,53 @@
   &__text {
     font-size: 1.4rem;
     display: block;
-    margin-top: 1.8rem;
-    transition: color 0.3s;
+    transition: color 1.2s $ease-out-quint, background-color 1.2s $ease-out-quint;
 
     .member-card__link:hover & {
       color: $gold;
+
+      .member-card--skeleton & {
+        color: lighten($light-blue, 10%);
+      }
+    }
+
+    .member-card--skeleton & {
+      color: lighten($light-blue, 10%);
+      background-color: lighten($light-blue, 10%);
     }
   }
 
   &__cta-text {
     line-height: 1.35;
+
+    .member-card--skeleton & {
+      color: lighten($light-blue, 10%);
+    }
+  }
+
+  &__sector-list-hover {
+    @include reset-list();
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    border: 0.2rem solid $black;
+    padding: 0.5rem 1rem;
+    pointer-events: none;
+    transition: opacity 0.4s $ease-out-quint;
+    z-index: 9999;
+    max-width: 40vw;
+
+    &--active {
+      transition: opacity 0.4s $ease-out-quint 0.1s;
+    }
+  }
+
+  &__sector-list-item {
+    line-height: 1.5;
+
+    &--active {
+      font-weight: 700;
+    }
   }
 }
