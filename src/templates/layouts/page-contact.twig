@@ -1,0 +1,42 @@
+{% extends 'base.twig' %}
+
+{% set cta_block = post.get_field('cta_block') %}
+
+{% block content %}
+  <div class="view" data-namespace="contact">
+
+    <div class="pt-12p pb-8p px-18p">
+      <h1 class="color-gold mb-4">{{ post.form_heading }}</h1>
+      <div class="flex">
+        <div class="flex-1 pr-8p">
+          <div class="contact-form">
+            {% filter shortcodes %}
+              {{ post.contact_form_shortcode }}
+            {% endfilter %}
+          </div>
+        </div>
+        <div>
+          <div class="p-5 text-align-center is-blue">
+            <div class="mb-3">
+              <p>{{ cta_block.cta_text }}</p>
+            </div>
+            <div class="button-group">
+              {% for item in cta_block.buttons %}
+                <a href="{{ item.button.url }}"
+                   target="{{ item.button.target }}"
+                   class="button-group__button button button--white">
+                  <span>
+                    {{ item.button.title }}
+                  </span>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include "site-footer.twig" %}
+
+  </div>
+{% endblock %}

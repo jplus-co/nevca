@@ -1,0 +1,9 @@
+.button-group {
+  &__button {
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}

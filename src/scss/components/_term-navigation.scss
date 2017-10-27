@@ -26,6 +26,15 @@
         opacity: 1;
         transform: scale(1);
         transition: opacity 1.2s $ease-out-cubic 0.2s, transform 1.2s $ease-out-cubic 0.2s;
+
+        .term-navigation__count--inner {
+          > span {
+            opacity: 1;
+            transform-origin: top left;
+            transform: none;
+            transition: opacity 1s $ease-out-quint 0.6s, transform 1s $ease-out-quint 0.6s;
+          }
+        }
       }
 
       .term-navigation__term-name {
@@ -71,12 +80,30 @@
     position: absolute;
     bottom: -4rem;
     right: 7rem;
-    @include type-style-display-lg();
-    font-family: 'Lora';
-    color: $dark-blue;
-    line-height: 1;
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 0.8s $ease-out-cubic, transform 0.8s $ease-out-cubic;
+
+    &--inner {
+      position: relative;
+      @include type-style-display-lg();
+      font-family: 'Lora';
+      color: $dark-blue;
+      line-height: 1;
+
+      > span {
+        display: inline-block;
+        @include type-style-action();
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 1;
+        color: $light-blue;
+        opacity: 0;
+        transform-origin: top left;
+        transform: translateY(100%) skewY(4deg);
+        transition: opacity 0.8s $ease-out-cubic, transform 0.8s $ease-out-cubic;
+      }
+    }
   }
 }
