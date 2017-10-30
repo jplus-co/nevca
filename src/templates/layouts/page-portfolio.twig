@@ -18,17 +18,17 @@
       <section id="{{ post.slug }}"
         class="js-section section columns-block columns-block--{{ post.has_background_image ? 'bg' : post.get_field('countup')|length > 0 ? 'stats' : 'normal' }}"
         data-background="{{ post.has_background_image ? 'black' : 'white' }}">
-        <div class="pt-12p pr-8p {{ post.get_field('countup')|length > 0 ? 'pb-4p' : 'pb-18p' }} pl-18p pl-8p-lg">
+        <div class="pt-12p pt-18p-md pr-8p {{ post.get_field('countup')|length > 0 ? 'pb-4p' : 'pb-18p' }} pl-18p pl-8p-lg">
           <div class="columns-block__row">
 
-            {% include 'text-block.twig' with {
-              props: {
-                heading: post.title,
-                body: post.body,
-                button: post.get_field('button')
-              },
-              classes: post.has_background_image ? 'color-white' : false
-            } %}
+              {% include 'text-block.twig' with {
+                props: {
+                  heading: post.title,
+                  body: post.body,
+                  button: post.get_field('button')
+                },
+                classes: post.has_background_image ? 'color-white mb-8-lg mb-6-md mb-4-sm' : 'mb-8-lg mb-6-md mb-4-sm'
+              } %}
 
             {% if not post.has_background_image %}
               <div class="columns-block__image-cluster">

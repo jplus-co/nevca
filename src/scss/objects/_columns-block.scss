@@ -38,6 +38,10 @@
           bottom: 10%;
           left: 4%;
           z-index: 2;
+
+          @media (max-width: $lg) {
+            width: 56%;
+          }
         }
       }
     }
@@ -47,6 +51,10 @@
     .columns-block__image {
       &--1 {
         width: 28%;
+
+        @media (max-width: $lg) {
+          width: 56%;
+        }
       }
 
       &--2 {
@@ -98,6 +106,10 @@
   &__image-cluster {
     flex-basis: 46%;
     padding-left: 6%;
+
+    @media (max-width: $lg) {
+      padding-left: 0;
+    }
   }
 
   &__image {
@@ -139,6 +151,22 @@
       left: auto;
       bottom: auto;
       right: auto;
+
+      &--1 {
+        margin-left: 25%;
+
+        &.columns-block__image--portrait {
+          margin-left: 0;
+        }
+      }
+
+      &--2 {
+        margin-top: -8%;
+      }
+
+      &--portrait {
+        width: 56%;
+      }
     }
   }
 }

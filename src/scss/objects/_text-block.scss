@@ -38,6 +38,10 @@
     padding-left: 14%;
     color: currentColor;
 
+    @media (max-width: $lg) {
+      padding-left: 8%;
+    }
+
     .p1 {
       &:not(:last-child) {
         margin-bottom: 2rem;
