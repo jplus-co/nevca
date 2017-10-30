@@ -3,6 +3,10 @@
   &__row {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: $lg) {
+      display: block;
+    }
   }
 
   &--bg {
@@ -126,6 +130,15 @@
       width: 24%;
       bottom: 10%;
       right: 4%;
+    }
+
+    @media (max-width: $lg) {
+      position: relative;
+      width: 75%;
+      top: auto;
+      left: auto;
+      bottom: auto;
+      right: auto;
     }
   }
 }
