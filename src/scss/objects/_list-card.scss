@@ -5,14 +5,14 @@
     display: inline-block;
     width: 11rem;
     height: 11rem;
-    background-color: $gray-3;
+    background-color: $gold;
     border-radius: 50%;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: $gray-2;
+    color: $white;
     margin-right: 5rem;
     flex-shrink: 0;
 
@@ -71,11 +71,11 @@
     li, .li1 {
       line-height: 1.6;
     }
-  }
 
-  .text-button {
-    display: inline-block;
-    margin-top: 3rem;
-    transition: color 0.7s $ease-out-cubic;
+    + .text-button {
+      display: inline-block;
+      margin-top: 3rem;
+      transition: color 0.7s $ease-out-cubic;
+    }
   }
 }
