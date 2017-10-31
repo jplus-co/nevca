@@ -69,6 +69,9 @@
               "props": board_block.board_members
             } %}
           </div>
+          <div class="mt-2 hidden block-lg">
+            {% include "scroll-cta.twig" %}
+          </div>
           <div class="pt-6 pb-4 pl-8p-lg">
             <h3 class="text-block__subheading color-gold">Board of Overseers</h3>
           </div>
@@ -77,24 +80,33 @@
               "props": board_block.board_of_overseers
             } %}
           </div>
+          <div class="mt-2 hidden block-lg">
+            {% include "scroll-cta.twig" %}
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Team -->
     <section id="team" class="js-section section is-black" data-background="black">
-      <div class="pt-12p pb-6p pl-15p pl-8p-lg pr-8p">
+      <div class="pt-12p pb-6p pb-10p-lg pl-15p pl-0-lg pr-8p pr-0-lg">
         <div class="section__row justify-content-between">
           <!-- Team Text -->
           {% include "text-block.twig" with {
-            "props": team_block
+            "props": team_block,
+            "classes": 'pl-8p-lg'
           } %}
         </div>
-        <div class="section__row pt-3p pb-5p pl-5p">
-          <!-- Team Slider -->
-          {% include "team-slider.twig" with {
-            "props": team_block.team_members
-          } %}
+        <div class="section__row pt-3p pt-0-lg pb-5p pb-0-lg pl-5p pl-0-lg">
+          <div class="scroll-x pl-8p-lg">
+            <!-- Team Slider -->
+            {% include "team-slider.twig" with {
+              "props": team_block.team_members
+            } %}
+          </div>
+        </div>
+        <div class="mt-3 mb-5 hidden block-lg">
+          {% include "scroll-cta.twig" %}
         </div>
         <div class="section__row justify-content-center">
           <a class="button button--white" href="{{ team_block.jobs_link.url }}">
