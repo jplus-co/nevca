@@ -1,0 +1,112 @@
+@each $prop in margin, padding {
+  @for $i from 0 through 20 {
+    // percent
+    .#{str-slice($prop, 1, 1)}-#{$i}p {
+      #{$prop}: $i * 1%;
+    }
+
+    .#{str-slice($prop, 1, 1)}x-#{$i}p,
+    .#{str-slice($prop, 1, 1)}r-#{$i}p {
+      #{$prop}-right: $i * 1%;
+    }
+
+    .#{str-slice($prop, 1, 1)}x-#{$i}p,
+    .#{str-slice($prop, 1, 1)}l-#{$i}p {
+      #{$prop}-left: $i * 1%;
+    }
+
+    .#{str-slice($prop, 1, 1)}y-#{$i}p,
+    .#{str-slice($prop, 1, 1)}t-#{$i}p {
+      #{$prop}-top: $i * 1%;
+    }
+
+    .#{str-slice($prop, 1, 1)}y-#{$i}p,
+    .#{str-slice($prop, 1, 1)}b-#{$i}p {
+      #{$prop}-bottom: $i * 1%;
+    }
+
+
+    // rems
+    .#{str-slice($prop, 1, 1)}-#{$i} {
+      #{$prop}: #{$i}rem;
+    }
+
+    .#{str-slice($prop, 1, 1)}x-#{$i},
+    .#{str-slice($prop, 1, 1)}r-#{$i} {
+      #{$prop}-right: #{$i}rem;
+    }
+
+    .#{str-slice($prop, 1, 1)}x-#{$i},
+    .#{str-slice($prop, 1, 1)}l-#{$i} {
+      #{$prop}-left: #{$i}rem;
+    }
+
+    .#{str-slice($prop, 1, 1)}y-#{$i},
+    .#{str-slice($prop, 1, 1)}t-#{$i} {
+      #{$prop}-top: #{$i}rem;
+    }
+
+    .#{str-slice($prop, 1, 1)}y-#{$i},
+    .#{str-slice($prop, 1, 1)}b-#{$i} {
+      #{$prop}-bottom: #{$i}rem;
+    }
+  }
+}
+
+@each $suffix, $value in $breakpoints {
+  @media (max-width: $value) {
+    @each $prop in margin, padding {
+      @for $i from 0 through 20 {
+        // percent
+        .#{str-slice($prop, 1, 1)}-#{$i}p-#{$suffix} {
+          #{$prop}: $i * 1% !important;
+        }
+
+        .#{str-slice($prop, 1, 1)}x-#{$i}p-#{$suffix},
+        .#{str-slice($prop, 1, 1)}r-#{$i}p-#{$suffix} {
+          #{$prop}-right: $i * 1% !important;
+        }
+
+        .#{str-slice($prop, 1, 1)}x-#{$i}p-#{$suffix},
+        .#{str-slice($prop, 1, 1)}l-#{$i}p-#{$suffix} {
+          #{$prop}-left: $i * 1% !important;
+        }
+
+        .#{str-slice($prop, 1, 1)}y-#{$i}p-#{$suffix},
+        .#{str-slice($prop, 1, 1)}t-#{$i}p-#{$suffix} {
+          #{$prop}-top: $i * 1% !important;
+        }
+
+        .#{str-slice($prop, 1, 1)}y-#{$i}p-#{$suffix},
+        .#{str-slice($prop, 1, 1)}b-#{$i}p-#{$suffix} {
+          #{$prop}-bottom: $i * 1% !important;
+        }
+
+        // rems
+        .#{str-slice($prop, 1, 1)}-#{$i}-#{$suffix} {
+          #{$prop}: #{$i}rem !important;
+        }
+
+        .#{str-slice($prop, 1, 1)}x-#{$i}-#{$suffix},
+        .#{str-slice($prop, 1, 1)}r-#{$i}-#{$suffix} {
+          #{$prop}-right: #{$i}rem !important;
+        }
+
+        .#{str-slice($prop, 1, 1)}x-#{$i}-#{$suffix},
+        .#{str-slice($prop, 1, 1)}l-#{$i}-#{$suffix} {
+          #{$prop}-left: #{$i}rem !important;
+        }
+
+        .#{str-slice($prop, 1, 1)}y-#{$i}-#{$suffix},
+        .#{str-slice($prop, 1, 1)}t-#{$i}-#{$suffix} {
+          #{$prop}-top: #{$i}rem !important;
+        }
+
+        .#{str-slice($prop, 1, 1)}y-#{$i}-#{$suffix},
+        .#{str-slice($prop, 1, 1)}b-#{$i}-#{$suffix} {
+          #{$prop}-bottom: #{$i}rem !important;
+        }
+      }
+    }
+  }
+}

@@ -67,6 +67,11 @@
   &--left {
     .columns-block__stats {
       transform: translate(0, 50%);
+
+      @media (max-width: $md) {
+        transform: none;
+        padding: 0 $inner-padding-md * 2;
+      }
     }
 
     .columns-block__image {
@@ -136,6 +141,10 @@
     &--2 {
       bottom: 14%;
       right: 4%;
+
+      @media(max-width: $lg) {
+        transform: translate(10%, -10%);
+      }
     }
 
     &--portrait {
@@ -156,7 +165,7 @@
         margin-left: 25%;
 
         &.columns-block__image--portrait {
-          margin-left: 0;
+          margin-left: 36%;
         }
       }
 

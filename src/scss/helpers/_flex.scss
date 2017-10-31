@@ -1,5 +1,15 @@
 .flex {
   display: flex;
+
+  @each $suffix, $value in $breakpoints {
+    &-#{$suffix} {
+      display: flex;
+
+      @media (max-width: $value) {
+        display: block;
+      }
+    }
+  }
 }
 
 .flex-wrap {
@@ -62,10 +72,24 @@
   }
 }
 
+@each $suffix, $value in $breakpoints {
+  @media (max-width: $value) {
+    @each $d in column, row {
+      .flex-#{$d}-#{$suffix} {
+        flex-direction: #{$d};
+      }
+
+      .flex-#{$d}-reverse-#{$suffix} {
+        flex-direction: #{$d}-reverse;
+      }
+    }
+  }
+}
+
 .flex-1 {
   flex: 1;
 }
-// 
+//
 //
 // @each $suffix, $value in $breakpoints {
 //   @media (max-width: $value) {

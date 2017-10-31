@@ -58,6 +58,10 @@
 
     .hero--half-image & {
       padding-left: 30%;
+
+      @media (max-width: $lg) {
+        padding-left: 8%;
+      }
     }
 
     .hero--black & {
@@ -86,6 +90,14 @@
     .hero--half-image & {
       color: $gold;
       line-height: 1.5;
+
+      @media (max-width: $lg) {
+        font-size: 4rem;
+      }
+
+      @media (max-width: $md) {
+        font-size: 3.2rem;
+      }
     }
 
     .hero--alt & {
@@ -153,6 +165,10 @@
           background-color: $blue;
           mix-blend-mode: multiply;
         }
+      }
+
+      @media (max-width: $lg) {
+        width: 100%;
       }
     }
 

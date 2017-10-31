@@ -1,0 +1,7 @@
+@each $suffix, $value in $breakpoints {
+  @media (max-width: $value) {
+    .hidden-#{$suffix} {
+      display: none;
+    }
+  }
+}
