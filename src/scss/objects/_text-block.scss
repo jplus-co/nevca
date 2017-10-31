@@ -14,6 +14,10 @@
       @include type-style-display-sm();
       text-transform: none;
     }
+
+    @media (max-width: $sm) {
+      font-size: 3.5rem;
+    }
   }
 
   &__subheading {
