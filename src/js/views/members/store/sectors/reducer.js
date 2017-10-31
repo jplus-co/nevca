@@ -12,5 +12,14 @@ const sectors = (
   }
 }
 
-// Using commonjs so tests can be run in the command line using node.
-module.exports = sectors
+export const createSectorTree = state => (
+  state
+  .filter(sector => sector.parent === 0)
+  .map(parent => ({
+    ...parent,
+    // Get child sectors of parent industry and spread into a new object
+    children: state.filter(sector => sector.parent === parent.id)
+  }))
+)
+
+export default sectors

@@ -10,6 +10,7 @@ Version: 1.0.0
 @import 'settings/easings';
 @import 'settings/typography';
 @import 'settings/sizes';
+@import 'settings/breakpoints';
 
 
 // Tools
@@ -85,6 +86,7 @@ Version: 1.0.0
 @import 'components/selected-filter';
 @import 'components/term-navigation';
 @import 'components/resource-topic-collection';
+@import 'components/scroll-cta';
 
 // Helpers
 @import 'helpers/position';
@@ -94,3 +96,5 @@ Version: 1.0.0
 @import 'helpers/color';
 @import 'helpers/a11y';
 @import 'helpers/overflow';
+@import 'helpers/spacing';
+@import 'helpers/display';

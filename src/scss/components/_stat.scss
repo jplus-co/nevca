@@ -2,17 +2,23 @@
   display: flex;
   flex-direction: column;
 
+  @media (max-width: $sm) {
+    display: block;
+  }
+
   &:not(:last-child) {
-    margin-right: 10%;  
+    margin-right: 10%;
   }
 
   &__number {
     @include type-style-display-md();
     color: $gold;
     margin-bottom: 3rem;
+    display: block;
   }
 
   &__caption {
     @include type-style-heading-xs();
+    display: block;
   }
 }
