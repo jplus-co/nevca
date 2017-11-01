@@ -4,30 +4,41 @@
 
   <div class="view" data-namespace="press">
     {% include "hero.twig" with {
-      "hero_text": 'IN THE PRESS'
+      "hero_text": 'IN THE PRESS',
+      "aux": true
     } %}
 
-    <section class="js-section section p-12p">
-      <div class="section__container section__container--70 section__container--left">
-        {% if posts %}
-          {% include "press-archive-list.twig" with {
-            "props": posts
-          } %}
-          {% include "pagination.twig" with {
-            "props": posts
-          } %}
-        {% else %}
-          Nothing to show.
-        {% endif %}
-      </div>
+    <section class="js-section section p-12p relative">
+      <div class="flex">
+        <div class="section__container section__container--70 section__container--left flex-1">
+          {% if posts %}
+            {% include "press-archive-list.twig" with {
+              "props": posts
+            } %}
+            {% include "pagination.twig" with {
+              "props": posts
+            } %}
+          {% else %}
+            Nothing to show.
+          {% endif %}
+        </div>
 
-      <aside class="downloads-list">
-        <h4 class="text-block__subheading">Media</h4>
-        {% for download in options.downloads %}
-          <a class="downloads-list__button button"
-             href="{{ download.file }}" target="_blank">{{ download.button_label }}</a>
-        {% endfor %}
-      </aside>
+        <div class="flex-1">
+          <div class="is-blue py-5 pl-5 pr-8p translate-y-n5 absolute pos-tr">
+            <h4 class="text-block__heading">Media</h4>
+            <div class="button-group">
+              {% for download in options.downloads %}
+                <a class="button-group__button button button--white"
+                   href="{{ download.file }}" target="_blank">
+                   <span>
+                     {{ download.button_label }}
+                   </span>
+                 </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     {% include "site-footer.twig" %}

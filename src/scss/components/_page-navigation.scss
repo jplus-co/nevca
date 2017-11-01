@@ -12,6 +12,10 @@
     pointer-events: none;
   }
 
+  @media (max-width: $lg) {
+    display: none;
+  }
+
   &__link {
     @include reset-anchor();
     @include type-style-nav-sm();

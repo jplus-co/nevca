@@ -1,12 +1,22 @@
 <ul class="press-archive-list">
+  {% set last_post_year = '' %}
   {% for post in props %}
+    {% if post.publish_date|date('Y') != last_post_year %}
+      <h3 class="text-block__heading">
+        <div class="text-block__rule"></div>
+        {{ post.publish_date|date('Y') }}
+      </h3>
+    {% endif %}
     {% include "list-card.twig" with {
       "link": post.get_field('link')|relative,
       "target": "_blank",
       "date_circle": post.publish_date,
       "subheading": post.source,
       "heading": post.title,
-      "action": 'Read article'
+      "action": 'Read article',
+      "list_card_classes": 'mb-7'
     } %}
+
+    {% set last_post_year = post.publish_date|date('Y') %}
   {% endfor %}
 </ul>

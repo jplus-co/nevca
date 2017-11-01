@@ -1,4 +1,4 @@
-<div class="hero hero--{{ is_home ? 'front-page' : half_image ? 'half-image' }}{{ has_black ? ' hero--black'}}{{ classes ? ' ' ~ classes}}">
+<div class="hero{{ is_home ? ' hero--front-page' : half_image ? ' hero--half-image' }}{{ has_black ? ' hero--black'}}{{ aux ? ' hero--aux'}}{{ classes ? ' ' ~ classes}}">
   {% if hero_image %}
     <div class="hero__image" style="background-image: url({{ Image(hero_image).src }});"></div>
   {% endif %}

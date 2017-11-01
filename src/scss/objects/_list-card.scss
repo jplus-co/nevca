@@ -1,19 +1,18 @@
 .list-card {
-  margin-bottom: 7.2rem;
   display: flex;
 
   .date-circle {
     display: inline-block;
     width: 11rem;
     height: 11rem;
-    background-color: $gray-3;
+    background-color: $gold;
     border-radius: 50%;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: $gray-2;
+    color: $white;
     margin-right: 5rem;
     flex-shrink: 0;
 
@@ -31,23 +30,36 @@
 
   &__link {
     display: inline-block;
-    color: $black;
+    color: currentColor;
+
+    &:hover {
+      .text-button {
+        color: $gold;
+      }
+    }
   }
 
   &__subheading {
     @include type-style-label();
     text-transform: none;
     margin-bottom: 1.2rem;
-    opacity: 0.5;
+    color: $gold;
   }
 
   &__heading {
     @include type-style-heading-lg();
     text-transform: none;
     margin-bottom: 2rem;
+    color: currentColor;
+    font-size: 2.8rem;
+    transition: color 0.7s $ease-out-cubic;
   }
 
   &__body {
+    color: currentColor;
+    font-size: 1.4rem;
+    line-height: 1.6;
+
     p, .p1 {
       margin-bottom: 2rem;
     }
@@ -58,6 +70,12 @@
 
     li, .li1 {
       line-height: 1.6;
+    }
+
+    + .text-button {
+      display: inline-block;
+      margin-top: 3rem;
+      transition: color 0.7s $ease-out-cubic;
     }
   }
 }
