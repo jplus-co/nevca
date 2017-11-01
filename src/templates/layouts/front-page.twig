@@ -35,15 +35,15 @@
       </div>
     </section>
     <!-- Events -->
-    <section id="events" class="js-section section is-black py-12p" data-tween="fadeInStagger">
+    <section id="events" class="js-section section is-black py-12p" data-tween="line">
       <!-- Events Text -->
-      <div class="section__row px-8p js-stagger">
+      <div class="section__row px-8p">
         {% include "text-block.twig" with {
           "props": events_block
         } %}
       </div>
       <!-- Event Tease List -->
-      <div class="section__row pt-4p px-8p js-stagger">
+      <div class="section__row pt-4p px-8p">
         <div class="flex">
           {% include 'event-tease-list.twig' with {
             "props": featured_events
@@ -95,9 +95,9 @@
     </section>
 
     <!-- Members Block -->
-    <section id="members" class="section pt-12p pb-4p px-8p is-black" data-tween="fadeInStagger">
-      <h3 class="text-block__subheading color-gold js-stagger">{{ members_block.heading }}</h3>
-      <div class="flex js-stagger">
+    <section id="members" class="section pt-12p pb-4p px-8p is-black">
+      <h3 class="text-block__subheading color-gold">{{ members_block.heading }}</h3>
+      <div class="flex">
         <div class="member-logo-grid">
           {% for member in featured_members %}
             {% set logo = Image(member.image) %}
@@ -122,19 +122,19 @@
       {% if members_block.has_button %}
         {% include "button.twig" with {
           props: members_block.button,
-          button_classes: 'button--white js-stagger'
+          button_classes: 'button--white'
         } %}
       {% endif %}
     </section>
 
     <!-- Sponsors Block -->
-    <section id="sponsors" class="section flex justify-content-end" data-tween="fadeInStagger">
+    <section id="sponsors" class="section flex justify-content-end">
       <div class="w-70 py-6p pl-6p pr-12p is-blue">
-        <h3 class="text-block__subheading color-gold js-stagger">{{ sponsors_block.heading }}</h3>
+        <h3 class="text-block__subheading color-gold">{{ sponsors_block.heading }}</h3>
         <div class="flex">
           <div class="sponsor-logo-grid">
 
-            <div class="sponsor-logo-grid__section js-stagger">
+            <div class="sponsor-logo-grid__section">
               <h4 class="sponsor-logo-grid__tier">Major</h4>
               {% for sponsor in sponsors_block.major_sponsors %}
                 {% set logo = Image(sponsor.logo) %}
@@ -146,7 +146,7 @@
               {% endfor %}
             </div>
 
-            <div class="sponsor-logo-grid__section js-stagger">
+            <div class="sponsor-logo-grid__section">
               <h4 class="sponsor-logo-grid__tier">Supporting</h4>
               {% for sponsor in sponsors_block.supporting_sponsors %}
                 {% set logo = Image(sponsor.logo) %}
@@ -159,7 +159,7 @@
             </div>
           </div>
           <!-- View more circle button -->
-          <div class="align-self-end pl-12p mb-5 js-stagger">
+          <div class="align-self-end pl-12p mb-5">
             {% include 'circle-button.twig' with {
               direction: 'right',
               url: site.link ~ '/sponsors' | relative,
@@ -172,7 +172,7 @@
         {% if sponsors_block.has_button %}
           {% include "button.twig" with {
             props: sponsors_block.button,
-            button_classes: 'button--white js-stagger'
+            button_classes: 'button--white'
           } %}
         {% endif %}
       </div>

@@ -6,7 +6,7 @@
   {% if not is_lede %}
     <{{ tag }} class="text-block__heading{{ heading_classes ? ' ' ~ heading_classes }}">
       {% if not no_rule %}
-        <span class="text-block__rule"></span>
+        <span class="text-block__rule js-rule"></span>
       {% endif %}
       {{ props.heading }}
     </{{ tag }}>

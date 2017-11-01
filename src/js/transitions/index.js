@@ -5,6 +5,7 @@ import fadeIn from './tween.fade-in'
 import fadeInStagger from './tween.fade-in-stagger'
 import homeHero from './tween.home-hero'
 import columnsBlock from './tween.columns-block'
+import line from './tween.line'
 
 export default {
   fade,
@@ -14,6 +15,7 @@ export default {
     fadeIn,
     fadeInStagger,
     homeHero,
-    columnsBlock
+    columnsBlock,
+    line
   }
 }

@@ -1,4 +1,5 @@
 import config from '@config'
+import debounce from 'lodash.debounce'
 import { WINDOW_RESIZE } from '@constants'
 import emitter from '../../core/emitter'
 import transition from '../../transitions'
@@ -9,13 +10,18 @@ import util from '@util'
 class Scroller {
   constructor (opt = {}) {
     this.sections = opt.sections
-    this.cache = []
+    this.tweenCache = []
   }
 
   init () {
-    this.scrollY = util.scroll.current()
+    this.header = document.querySelector('.js-site-header')
+    this.scrollY = this.lastScrollY = util.scroll.current()
 
-    this.tweens = this.sections.map(section => transition.tween[section.dataset.tween](section))
+    this.tweens = this.sections.map(section => {
+      // each tween factory takes section dom element and performs setup.
+      // returns function; call it again to trigger animation.
+      return transition.tween[section.dataset.tween](section)
+    })
 
     this.addEvents()
     this.resize()
@@ -32,36 +38,46 @@ class Scroller {
   }
 
   resize = () => {
-    this.createCache()
+    this.createTweenCache()
   }
 
-  createCache () {
+  createTweenCache () {
     const { scrollY } = this
-    const center = config.height / 2
+    const threshold = config.height / 2
 
-    this.cache = this.sections.map((section, index) => {
+    this.tweenCache = this.sections.map((section, index) => {
       const sectionBounds = section.getBoundingClientRect()
 
       return {
         target: section,
-        top: scrollY + sectionBounds.top - center,
-        tween: this.tweens[index]
+        top: scrollY + sectionBounds.top - threshold,
+        tween: this.tweens[index] // save reference to the tween
       }
     })
   }
 
-  onScroll = ({ scrollY }) => {
+  onScroll = ({ scrollY, deltaY }) => {
     this.scrollY = scrollY
 
-    this.cache.forEach(({ target, top, tween }, index) => {
+    this.handleNav(scrollY, deltaY)
+
+    this.tweenCache.forEach(({ target, top, tween }, index) => {
       if (scrollY > top) {
         if (target.classList.contains('handled')) return
-
         tween()
-
         target.classList.add('handled')
       }
     })
+  }
+
+  handleNav = (scrollY, deltaY) => {
+    if (scrollY > config.height) {
+      if (deltaY > 0) {
+        this.header.classList.add('site-header--is-hidden')
+      } else if (deltaY < 0) {
+        this.header.classList.remove('site-header--is-hidden')
+      }
+    }
   }
 
   destroy () {
