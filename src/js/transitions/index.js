@@ -2,14 +2,18 @@ import fade from './transition.fade'
 import overlay from './transition.overlay'
 
 import fadeIn from './tween.fade-in'
+import fadeInStagger from './tween.fade-in-stagger'
+import homeHero from './tween.home-hero'
+import columnsBlock from './tween.columns-block'
 
 export default {
   fade,
   overlay,
 
-  // Generic tweens that do not compatible with the reducer
-  // extending `Barba.BaseTransition`
   tween: {
-    fadeIn
+    fadeIn,
+    fadeInStagger,
+    homeHero,
+    columnsBlock
   }
 }

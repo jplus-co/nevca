@@ -14,10 +14,11 @@
     {% include "hero.twig" with {
       "hero_text": post.hero_text,
       "is_home": true,
-      "hero_image": post.hero_image
+      "hero_image": post.hero_image,
+      "hero_video": post.get_field('hero_video')
     } %}
     <!-- Mission -->
-    <section id="mission" class="js-section section section--top">
+    <section id="mission" class="js-section section section--top" data-tween="columnsBlock">
       <div class="section__row justify-content-between px-8p py-12p">
         <!-- Mission Images -->
         {% include "image-cluster.twig" with {
@@ -28,20 +29,21 @@
         <!-- Mission Text -->
         {% include "text-block.twig" with {
           "props": mission_block,
-          "is_lede": true
+          "is_lede": true,
+          "button_classes": 'js-button'
         } %}
       </div>
     </section>
     <!-- Events -->
-    <section id="events" class="js-section section is-black py-12p">
+    <section id="events" class="js-section section is-black py-12p" data-tween="fadeInStagger">
       <!-- Events Text -->
-      <div class="section__row px-8p">
+      <div class="section__row px-8p js-stagger">
         {% include "text-block.twig" with {
           "props": events_block
         } %}
       </div>
       <!-- Event Tease List -->
-      <div class="section__row pt-4p px-8p">
+      <div class="section__row pt-4p px-8p js-stagger">
         <div class="flex">
           {% include 'event-tease-list.twig' with {
             "props": featured_events
@@ -78,7 +80,7 @@
             <div class="blog-post-tease__image-mask">
               <img class="blog-post-tease__image" src="{{ Image(ctw.author_avatar).src }}" alt="{{ ctw.title }}">
             </div>
-            <h4 class="blog-post-tease__subheading">Member to Watch</h4>
+            <h4 class="blog-post-tease__subheading">Company to Watch</h4>
             <h3 class="blog-post-tease__heading">{{ ctw.title }}</h3>
             <a class="blog-post-tease__link text-button text-button--underline" href="{{ ctw.link.url }}" target="{{ ctw.link.target }}">{{ ctw.link.title }}</a>
           </div>
@@ -93,9 +95,9 @@
     </section>
 
     <!-- Members Block -->
-    <section id="members" class="section pt-12p pb-4p px-8p is-black">
-      <h3 class="text-block__subheading color-gold">{{ members_block.heading }}</h3>
-      <div class="flex">
+    <section id="members" class="section pt-12p pb-4p px-8p is-black" data-tween="fadeInStagger">
+      <h3 class="text-block__subheading color-gold js-stagger">{{ members_block.heading }}</h3>
+      <div class="flex js-stagger">
         <div class="member-logo-grid">
           {% for member in featured_members %}
             {% set logo = Image(member.image) %}
@@ -120,19 +122,19 @@
       {% if members_block.has_button %}
         {% include "button.twig" with {
           props: members_block.button,
-          button_classes: 'button--white'
+          button_classes: 'button--white js-stagger'
         } %}
       {% endif %}
     </section>
 
     <!-- Sponsors Block -->
-    <section id="sponsors" class="section flex justify-content-end">
+    <section id="sponsors" class="section flex justify-content-end" data-tween="fadeInStagger">
       <div class="w-70 py-6p pl-6p pr-12p is-blue">
-        <h3 class="text-block__subheading color-gold">{{ sponsors_block.heading }}</h3>
+        <h3 class="text-block__subheading color-gold js-stagger">{{ sponsors_block.heading }}</h3>
         <div class="flex">
           <div class="sponsor-logo-grid">
 
-            <div class="sponsor-logo-grid__section">
+            <div class="sponsor-logo-grid__section js-stagger">
               <h4 class="sponsor-logo-grid__tier">Major</h4>
               {% for sponsor in sponsors_block.major_sponsors %}
                 {% set logo = Image(sponsor.logo) %}
@@ -144,7 +146,7 @@
               {% endfor %}
             </div>
 
-            <div class="sponsor-logo-grid__section">
+            <div class="sponsor-logo-grid__section js-stagger">
               <h4 class="sponsor-logo-grid__tier">Supporting</h4>
               {% for sponsor in sponsors_block.supporting_sponsors %}
                 {% set logo = Image(sponsor.logo) %}
@@ -157,7 +159,7 @@
             </div>
           </div>
           <!-- View more circle button -->
-          <div class="align-self-end pl-12p mb-5">
+          <div class="align-self-end pl-12p mb-5 js-stagger">
             {% include 'circle-button.twig' with {
               direction: 'right',
               url: site.link ~ '/sponsors' | relative,
@@ -170,7 +172,7 @@
         {% if sponsors_block.has_button %}
           {% include "button.twig" with {
             props: sponsors_block.button,
-            button_classes: 'button--white'
+            button_classes: 'button--white js-stagger'
           } %}
         {% endif %}
       </div>

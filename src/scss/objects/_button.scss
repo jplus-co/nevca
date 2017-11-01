@@ -24,6 +24,14 @@
     transition: transform 0.8s $ease-in-out-quint;
   }
 
+  &--enter {
+    transition: none;
+
+    &::before {
+      transition: none;
+    }
+  }
+
   > span {
     position: relative;
     z-index: 1;
@@ -31,6 +39,15 @@
 
   @include hover-mouse() {
     color: $white;
+
+    &::before {
+      transform-origin: left;
+      transform: scaleX(1);
+    }
+  }
+
+  &--enter {
+    color: $gold;
 
     &::before {
       transform-origin: left;

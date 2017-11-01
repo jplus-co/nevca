@@ -15,7 +15,8 @@
     {{ props.body }}
     {% if props.button %}
       {% include "button.twig" with {
-        props: props.button
+        props: props.button,
+        button_classes: button_classes
       } %}
     {% endif %}
   </div>
