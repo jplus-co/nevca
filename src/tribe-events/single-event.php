@@ -22,7 +22,6 @@ $event_id = get_the_ID();
 
 ?>
 
-<div class="view" data-namespace="events">
 	<div id="tribe-events-content" class="tribe-events-single">
 
 		<p class="tribe-events-back flex align-items-center">
@@ -80,4 +79,3 @@ $event_id = get_the_ID();
 		<!-- #tribe-events-footer -->
 
 	</div><!-- #tribe-events-content -->
-</div><!-- .view (barba.js) -->

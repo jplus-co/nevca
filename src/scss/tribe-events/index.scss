@@ -4,6 +4,10 @@
 //
 // 1. General Styles
 // 2. Filter Bar
+// 3. Month View
+// 4. List View
+// 5. Day View
+// 6. Week View
 //
 // -----------------------------------------------------------------------------
 
@@ -17,18 +21,22 @@
 //
 // -----------------------------------------------------------------------------
 
-
+  // Main title for different views
   h2.tribe-events-page-title {
     @include type-style-heading-lg();
+    margin-top: 5rem;
   }
 
   a {
     @include reset-anchor();
   }
 
+  // The previous & next event links in different views
   #tribe-events-header,
   #tribe-events-footer {
-    ul.tribe-events-sub-nav a{
+    ul.tribe-events-sub-nav a,
+    .tribe-events-nav-previous a,
+    .tribe-events-nav-next a{
         font-weight: bold;
         transition: color 0.7s $ease-out-expo;
       &:hover{
@@ -43,26 +51,15 @@
     }
   }
 
-  .tribe-events-back{
-    font-weight: bold;
-    transition: color 0.7s $ease-out-expo;
-    &:hover{
-      color: $gold;
-
-    .pagination__control {
-      &::before {
-        border-color: $gold;
-        }
+      @media (max-width: 768px) {
+        // Background color for prev & next month links on mobile
+      .tribe-events-sub-nav li a {
+        background-color: transparent;
+        padding: 2rem 0;
       }
     }
-  }
 
-
-  .tribe-events-schedule .tribe-events-notices{
-    text-align: center;
-    margin-top: 3rem;
-  }
-
+  // Text that displays when there are no results
   .tribe-events-notices {
       @include type-style-label();
       color: $blue;
@@ -74,6 +71,66 @@
       padding: .8rem 3.5rem .8rem 1.4rem;
       text-shadow: 0 0 0 #fff;
     }
+
+  // Text when an event has passed on a single event
+  .tribe-events-schedule .tribe-events-notices {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  // Event title on Day & List view
+  h2.tribe-events-list-event-title,
+  a.tribe-event-url {
+    transition: color 0.7s $ease-out-expo;
+    &:hover{
+      color: $gold;
+    }
+  }
+
+  // Venue details and address on Day & List view
+  .tribe-events-venue-details a,
+  .tribe-address {
+    @include type-style-label();
+    font-size: 1.3rem;
+  }
+
+  // Read more button on list & day view
+  .tribe-events-read-more {
+    font-weight: bold;
+    transition: color 0.7s $ease-out-expo;
+    &:hover{
+      color: $gold;
+
+      span.pagination__control {
+        &::before {
+          border-color: $gold;
+        }
+      }
+    }
+  }
+
+  a.tribe-events-button {
+    @include type-style-heading-xs();
+    color: black;
+    font-weight: 600 !important;
+    background-color: $white;
+    border: .2rem solid $gold;
+    transition: color 0.7s $ease-out-expo;
+    border-radius: 0;
+    margin-bottom: 3rem;
+    padding: 1.2rem 5.0rem;
+
+    &:hover{
+      color: $gold;
+      background-color: transparent;
+    }
+  }
+  @media (max-width: 768px) {
+    a.tribe-events-button {
+      padding: .6rem 1.0rem;
+      height: 45px;
+    }
+  }
 
 // -----------------------------------------------------------------------------
 //
@@ -143,11 +200,14 @@
     }// #tribe-bar-views
   } // #tribe-bar-form
 
-
+#tribe-bar-collapse-toggle {
+  @include type-style-heading-xs();
+  background-color: $blue;
+}
 
 // -----------------------------------------------------------------------------
 //
-// 3. Month - Calendar
+// 3. Month View
 //
 // -----------------------------------------------------------------------------
 
@@ -158,6 +218,16 @@
       td {
           border: .1rem solid $light-blue;
           height: 14.5rem;
+          &:after{
+            background-color: $blue;
+          }
+      }
+      // Selected state of a calendar cell on mobile
+      td.mobile-active{
+        background-color: $gold;
+        &:after{
+          background-color: $white;
+        }
       }
 
       // Day label
@@ -175,15 +245,30 @@
         color: $blue;
       }
 
+      @media (max-width: 768px) {
+         div[id*=tribe-events-daynum-],
+         div[id*=tribe-events-daynum-] a {
+           background-color: transparent;
+         }
+       }
+
       // Event name
       div[id*=tribe-events-event-] h3.tribe-events-month-event-title {
         @include type-style-action();
         font-size: 1.2rem;
         color: black;
       }
-
-      div[id*=tribe-events-event-] h3.tribe-events-month-event-title a:hover{
+      // Hover state for Event name
+      div[id*=tribe-events-event-]:hover{
+        h3.tribe-events-month-event-title a{
         color: $gold;
+      }
+    }
+
+      @media (max-width: 768px) {
+      .tribe-events-present {
+          background-color: $gray-3;
+        }
       }
 
     } // .tribe-events-calendar
@@ -222,12 +307,105 @@
 
 
 
+
 // -----------------------------------------------------------------------------
 //
-// 4. Single Event
+// 4. List View
 //
 // -----------------------------------------------------------------------------
 
+  // Seperator for different months
+  .tribe-events-list-separator-month {
+    @include type-style-heading-sm();
+    background-color: $blue;
+    color: $white;
+  }
+
+  @media (max-width: 768px) {
+
+      .tribe-events-event-meta {
+        background-color: white;
+        border: none;
+        padding: 0 0 1.5rem;
+        // Schedule details
+        .tribe-event-schedule-details {
+          border-top: 0px;
+          padding: 0;
+          margin-top: 0;
+        }
+
+      // Venue details
+      .tribe-events-venue-details {
+        border-top: none;
+        padding: 1.2rem 0;
+        margin-top: 0;
+        line-height: 2.4rem;
+        .tribe-address,
+        a {
+          font-size: 1.8rem;
+          border-top: none;
+          padding: 0;
+          margin-top: 0;
+        }
+      }
+    } // .tribe-events-event-meta
+
+
+    .tribe-events-gmap {
+      display: none;
+    }
+  } // Media query
+
+
+// -----------------------------------------------------------------------------
+//
+// 5. Day View
+//
+// -----------------------------------------------------------------------------
+
+  // Seperator for different hours
+  .tribe-events-day .tribe-events-day-time-slot h5 {
+    @include type-style-heading-sm();
+    background-color: $blue;
+    color: $white;
+  }
+
+  @media (max-width: 768px) {
+    .time-details {
+      padding: 0;
+    }
+  }
+
+
+// -----------------------------------------------------------------------------
+//
+// 6. Week View
+//
+// -----------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+//
+// 6. Photo View
+//
+// -----------------------------------------------------------------------------
+
+
+
+// -----------------------------------------------------------------------------
+//
+// 6. Map View
+//
+// -----------------------------------------------------------------------------
+
+
+// -----------------------------------------------------------------------------
+//
+// 7. Single Event
+//
+// -----------------------------------------------------------------------------
+
+  // Main header for a single event
   .tribe-events-schedule {
     background-size: cover;
     background-position: center;
@@ -264,8 +442,48 @@
     }
   }
 
+  // Spacing for the calendar buttons
+  .tribe-events-cal-links a:nth-child(2) {
+      margin: 2rem 0 0 4rem;
+  }
 
+    // Main back button to month view from a single event
+    .tribe-events-back {
+      font-weight: bold;
+      transition: color 0.7s $ease-out-expo;
+      &:hover {
+        color: $gold;
 
+      .pagination__control {
+        &::before {
+          border-color: $gold;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tribe-events-schedule {
+        padding: 6rem;
+
+      .tribe-events-single-event-title {
+        font-size: 3rem;
+      }
+      .tribe_events_event_schedule_details {
+        font-size: 2rem;
+      }
+    }
+      .tribe-events-cal-links a:nth-child(2) {
+        margin: 2rem 0 0 0;
+      }
+      .tribe-events-meta-group {
+        padding: 0;
+      }
+      .tribe-events-venue-map {
+        margin: 0;
+        width: 100%;
+      }
+  } // Media Query
 
 
 } // Ends the #tribe-events selector
@@ -276,6 +494,7 @@
   // Year heading
   .datepicker-switch {
     font-family: $font-heading;
+    text-transform: uppercase;
   }
   // Selected state for a month
   table tr td.active.active,
