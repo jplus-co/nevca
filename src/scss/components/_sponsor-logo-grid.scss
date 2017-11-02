@@ -1,16 +1,6 @@
 .sponsor-logo-grid {
   flex: 1;
 
-  &::before {
-    content: '';
-    background-color: $black;
-    width: 30%;
-    height: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
   &__section {
     display: flex;
     flex-wrap: wrap;
