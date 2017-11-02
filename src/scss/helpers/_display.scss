@@ -1,0 +1,19 @@
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+@each $suffix, $value in $breakpoints {
+  @media (max-width: $value) {
+    .hidden-#{$suffix} {
+      display: none !important;
+    }
+
+    .block-#{$suffix} {
+      display: block !important;
+    }
+  }
+}

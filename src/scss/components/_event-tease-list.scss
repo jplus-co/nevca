@@ -61,6 +61,7 @@
     background-repeat: no-repeat;
     background-position: center;
     transform: scale(1.2);
+    transition: all 1.2s $ease-out-expo;
 
     &::after {
       content: '';
@@ -73,6 +74,10 @@
       .event-tease-list__item:hover & {
         opacity: 0.8;
       }
+    }
+
+    .event-tease-list__item:hover & {
+      transform: scale(1.1);
     }
   }
 }

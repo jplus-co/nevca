@@ -19,18 +19,18 @@
     <!-- Mission -->
     <section id="mission" class="js-section section" data-background="black">
       <div class="columns-block columns-block--left">
-        <div class="py-8p is-black">
-          <div class="flex flex-row-reverse justify-content-between py-15p relative">
+        <div class="py-8p py-4p-md is-black">
+          <div class="flex-md flex-row-reverse justify-content-between py-15p py-8p-lg pt-15p-sm relative">
             {% include 'text-block.twig' with {
               props: {
                 heading: mission_block.heading,
                 body: mission_block.body,
                 button: mission_block.button
               },
-              classes: 'pl-4p pr-8p color-white'
+              classes: 'pl-4p pl-2p-lg pl-8p-md pr-8p pr-4p-lg pr-18p-md pr-8p-sm mb-3-md color-white'
             } %}
             {% if mission_block.countup|length > 0 %}
-              <div class="columns-block__stats flex flex-column z-index-1">
+              <div class="columns-block__stats flex flex-column flex-row-md flex-column-sm z-index-1">
                 {% for stat in mission_block.countup %}
                   <div class="stat js-countup" data-countup="{{ stat.number }}">
                     <number class="stat__number">{{ stat.number }}{{  stat.plus_sign ? '+' }}</number>
@@ -39,7 +39,7 @@
                 {% endfor %}
               </div>
             {% endif %}
-            <div class="columns-block__image-cluster">
+            <div class="columns-block__image-cluster hidden-md">
               {% for image in mission_block.image_cluster %}
                 <img
                   class="columns-block__image columns-block__image--sm columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }} js-parallax"
@@ -56,7 +56,7 @@
     <!-- Board -->
     <section id="board" class="js-section section" data-background="white">
       <div class="py-12p">
-        <div class="px-20p pb-6">
+        <div class="px-20p pl-8p-lg pb-6">
           {% include "text-block.twig" with {
             props: {
               heading: board_block.heading,
@@ -64,34 +64,50 @@
             }
           } %}
         </div>
-        <div class="pl-12p pr-6p">
-          {% include "board-member-list.twig" with {
-            "props": board_block.board_members
-          } %}
-          <div class="pt-6 pb-4">
+        <div class="pl-12p pl-0-lg pr-6p pr-0-lg">
+          <div class="scroll-x-lg pl-8p-lg pr-12p-lg">
+            {% include "board-member-list.twig" with {
+              "props": board_block.board_members
+            } %}
+          </div>
+          <div class="mt-2 hidden block-lg">
+            {% include "scroll-cta.twig" %}
+          </div>
+          <div class="pt-6 pb-4 pl-8p-lg">
             <h3 class="text-block__subheading color-gold">Board of Overseers</h3>
           </div>
-          {% include "board-member-list.twig" with {
-            "props": board_block.board_of_overseers
-          } %}
+          <div class="scroll-x-lg px-8p-lg">
+            {% include "board-member-list.twig" with {
+              "props": board_block.board_of_overseers
+            } %}
+          </div>
+          <div class="mt-2 hidden block-lg">
+            {% include "scroll-cta.twig" %}
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Team -->
     <section id="team" class="js-section section is-black" data-background="black">
-      <div class="pt-12p pb-6p pl-15p pr-8p">
+      <div class="pt-12p pb-6p pb-10p-lg pl-15p pl-0-lg pr-8p pr-0-lg">
         <div class="section__row justify-content-between">
           <!-- Team Text -->
           {% include "text-block.twig" with {
-            "props": team_block
+            "props": team_block,
+            "classes": 'pl-8p-lg'
           } %}
         </div>
-        <div class="section__row pt-3p pb-5p pl-5p">
-          <!-- Team Slider -->
-          {% include "team-slider.twig" with {
-            "props": team_block.team_members
-          } %}
+        <div class="section__row pt-3p pt-0-lg pb-5p pb-0-lg pl-5p pl-0-lg">
+          <div class="scroll-x pl-8p-lg">
+            <!-- Team Slider -->
+            {% include "team-slider.twig" with {
+              "props": team_block.team_members
+            } %}
+          </div>
+        </div>
+        <div class="mt-3 mb-5 hidden block-lg">
+          {% include "scroll-cta.twig" %}
         </div>
         <div class="section__row justify-content-center">
           <a class="button button--white" href="{{ team_block.jobs_link.url }}">
@@ -102,22 +118,22 @@
     </section>
 
     <section id="testimonials" class="js-section section" data-background="gold">
-      <div class="relative pr-12p">
-        <div class="pl-20p is-gold">
-          <div class="py-12p">
+      <div class="relative pr-12p pr-0-lg">
+        <div class="pl-20p pl-8p-lg pt-10p-lg is-gold">
+          <div class="columns-block__image-cluster">
+            {% for image in testimonials_block.image_cluster %}
+              <img
+                class="columns-block__image columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
+                src="{{ Image(image).src }}"
+                alt="{{ post.title }}">
+            {% endfor %}
+          </div>
+          <div class="py-12p py-0-lg pr-8p">
             {% include "testimonial-slider.twig" with {
               "props": testimonials_block.featured_posts,
               "is_white": true
             } %}
           </div>
-        <div class="columns-block__image-cluster">
-          {% for image in testimonials_block.image_cluster %}
-            <img
-              class="columns-block__image columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
-              src="{{ Image(image).src }}"
-              alt="{{ post.title }}">
-          {% endfor %}
-        </div>
         </div>
       </div>
     </section>

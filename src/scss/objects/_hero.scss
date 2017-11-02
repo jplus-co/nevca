@@ -5,6 +5,18 @@
   &--front-page {
     background-color: $black;
     height: 80rem;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $black;
+      opacity: 0.84;
+    }
   }
 
   &--half-image {}
@@ -13,6 +25,15 @@
     height: 50rem;
     padding: 0 4%;
     z-index: 1;
+
+    @media (max-width: $lg) {
+      height: auto;
+      margin-bottom: 4rem;
+    }
+
+    @media (max-width: $sm) {
+      margin-bottom: 6rem;
+    }
   }
 
   &--aux {
@@ -39,6 +60,7 @@
     position: relative;
     width: 100%;
     padding: 0 $inner-padding-md;
+    z-index: 2;
 
     .hero--front-page & {
       position: absolute;
@@ -49,10 +71,10 @@
 
     .hero--half-image & {
       padding-left: 30%;
-    }
 
-    .hero--black & {
-      z-index: 1;
+      @media (max-width: $lg) {
+        padding-left: 8%;
+      }
     }
 
     .hero--alt & {
@@ -77,12 +99,28 @@
     .hero--half-image & {
       color: $gold;
       line-height: 1.5;
+
+      @media (max-width: $lg) {
+        font-size: 4rem;
+      }
+
+      @media (max-width: $md) {
+        font-size: 3.2rem;
+      }
     }
 
     .hero--alt & {
       @include type-style-heading-xxxl();
       font-style: normal;
       color: $white;
+
+      @media (max-width: $lg) {
+        font-size: 8rem;
+      }
+
+      @media (max-width: $sm) {
+        font-size: 6rem;
+      }
     }
 
     .hero--aux & {
@@ -101,18 +139,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $black;
-        opacity: 0.84;
-      }
     }
 
     .hero--half-image & {
@@ -137,6 +163,10 @@
           mix-blend-mode: multiply;
         }
       }
+
+      @media (max-width: $lg) {
+        width: 100%;
+      }
     }
 
     .hero--black & {
@@ -160,6 +190,40 @@
     &--white {
       background-color: $white;
       color: $black;
+    }
+
+    @media (max-width: $lg) {
+      width: 72%;
+      position: relative;
+      transform: translateY(4rem);
+    }
+
+    @media (max-width: $md) {
+      width: 100%;
+      left: auto;
+      padding: 4% 5%;
+    }
+  }
+
+  &__video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.8s $ease-out-quint;
+
+    &--video-loading {
+      opacity: 0;
+    }
+
+    > video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+      min-height: 100%;
     }
   }
 }

@@ -13,11 +13,12 @@
     <!-- Hero -->
     {% include "hero.twig" with {
       "hero_text": post.hero_text,
+      "is_home": true,
       "hero_image": post.hero_image,
-      "is_home": true
+      "hero_video": post.get_field('hero_video')
     } %}
     <!-- Mission -->
-    <section id="mission" class="js-section section z-index-1">
+    <section id="mission" class="js-section section section--top" data-tween="columnsBlock">
       <div class="section__row justify-content-between px-8p py-12p">
         <!-- Mission Images -->
         {% include "image-cluster.twig" with {
@@ -28,12 +29,13 @@
         <!-- Mission Text -->
         {% include "text-block.twig" with {
           "props": mission_block,
-          "is_lede": true
+          "is_lede": true,
+          "button_classes": 'js-button'
         } %}
       </div>
     </section>
     <!-- Events -->
-    <section id="events" class="js-section section is-black py-12p">
+    <section id="events" class="js-section section is-black py-12p" data-tween="line">
       <!-- Events Text -->
       <div class="section__row px-8p js-parallax" data-speed="0.1">
         {% include "text-block.twig" with {
@@ -78,7 +80,7 @@
             <div class="blog-post-tease__image-mask">
               <img class="blog-post-tease__image" src="{{ Image(ctw.author_avatar).src }}" alt="{{ ctw.title }}">
             </div>
-            <h4 class="blog-post-tease__subheading">Member to Watch</h4>
+            <h4 class="blog-post-tease__subheading">Company to Watch</h4>
             <h3 class="blog-post-tease__heading">{{ ctw.title }}</h3>
             <a class="blog-post-tease__link text-button text-button--underline" href="{{ ctw.link.url }}" target="{{ ctw.link.target }}">{{ ctw.link.title }}</a>
           </div>
@@ -160,7 +162,7 @@
           <div class="align-self-end pl-12p mb-5">
             {% include 'circle-button.twig' with {
               direction: 'right',
-              url: site.link ~ '/members' | relative,
+              url: site.link ~ '/sponsors' | relative,
               label: 'View all',
               color: colors.gold
             } %}
