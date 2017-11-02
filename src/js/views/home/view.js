@@ -8,8 +8,8 @@ const home = Barba.BaseView.extend({
 	namespace: 'home',
 
 	onEnter () {
-		this.initScroller()
 		this.initBackgroundVideo()
+		this.initScroller()
 		this.animateIn = this.setup()
 	},
 
