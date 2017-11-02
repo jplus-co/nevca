@@ -1,6 +1,6 @@
-import { WINDOW_RESIZE } from '@constants'
+import util from '@util'
 import emitter from '../../core/emitter'
-import scroll from 'raf-scroll'
+import { WINDOW_RESIZE } from '@constants'
 
 class BackgroundVideo {
   constructor (opt = {}) {
@@ -34,12 +34,12 @@ class BackgroundVideo {
     this.video.addEventListener('loadeddata', this.onLoad, { once: true })
 
     emitter.on(WINDOW_RESIZE, this.resize)
-    scroll.add(this.onScroll)
+    util.scroll.manager.add(this.onScroll)
   }
 
   removeEvents () {
     emitter.off(WINDOW_RESIZE, this.resize)
-    scroll.remove(this.onScroll)
+    util.scroll.manager.remove(this.onScroll)
   }
 
   onLoad = () => {

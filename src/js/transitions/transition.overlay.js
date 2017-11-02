@@ -51,8 +51,6 @@ function overlay (oldContainer, newContainer, done) {
 
     const progress = 100 - ((loadedCount / e.images.length) * 100)
 
-    console.log(progress)
-
     TweenLite.to('.js-page-loader-progress', 0.5, { y: `${progress}%`, ease: Cubic.easeInOut })
     TweenLite.to('.js-page-loader-progress-inner', 0.5, { y: `${-progress}%`, ease: Cubic.easeInOut })
   }

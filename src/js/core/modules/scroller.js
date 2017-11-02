@@ -1,7 +1,7 @@
-import rafScroll from 'raf-scroll'
+import util from '@util'
+import config from '@config'
 import emitter from '../../core/emitter'
 import { WINDOW_RESIZE } from '@constants'
-import config from '@config'
 
 class Parallax {
   constructor (opt) {
@@ -13,7 +13,7 @@ class Parallax {
   init () {
     this.resize()
     emitter.on(WINDOW_RESIZE, this.resize)
-    rafScroll.add(this.onScroll)
+    util.scroll.manager.add(this.onScroll)
   }
 
   resize = () => {
@@ -22,7 +22,7 @@ class Parallax {
 
   createCache = () => {
     this.cache = this.parallaxItems.map((el, index) => {
-      const { scrollY } = rafScroll.getCurrent()
+      const { scrollY } = util.scroll.current()
       const bounds = el.getBoundingClientRect()
       return {
         target: el,
@@ -56,8 +56,7 @@ class Parallax {
 
   destroy () {
     emitter.off(WINDOW_RESIZE, this.resize)
-    rafScroll.remove()
-    rafScroll.destroy()
+    util.scroll.manager.remove(this.onScroll)
   }
 }
 

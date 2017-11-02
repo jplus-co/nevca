@@ -36,7 +36,7 @@ class App {
   }
 
   addEventListeners () {
-    window.addEventListener('resize', debounce(this.broadcastResize, 50))
+    window.addEventListener('resize', debounce(this.broadcastResize, 200))
   }
 
   broadcastResize = () => {

@@ -1,13 +1,19 @@
 import config from '../config'
+import rafScroll from 'raf-scroll'
 
-export default {
+// wraps singleton of `raf-scroll` package
+class Scroll {
+  constructor () {
+    this.manager = rafScroll
+  }
+
   to (x, y) {
     window.scroll(x, y)
-  },
+  }
 
   reset () {
     this.to(0, 0)
-  },
+  }
 
   current () {
     if (window.pageYOffset) return window.pageYOffset
@@ -16,3 +22,5 @@ export default {
       : document.body.scrollTop
   }
 }
+
+export default new Scroll()
