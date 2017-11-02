@@ -22,7 +22,7 @@ class Parallax {
 
   createCache = () => {
     this.cache = this.parallaxItems.map((el, index) => {
-      const { scrollY } = util.scroll.current()
+      const { scrollY } = util.scroll.manager.getCurrent()
       const bounds = el.getBoundingClientRect()
       return {
         target: el,
@@ -35,6 +35,8 @@ class Parallax {
   }
 
   onScroll = (e) => {
+    console.count()
+
     this.cache.forEach((entry, i) => {
       if (!this.cache) return
 
@@ -46,8 +48,11 @@ class Parallax {
       const inView = bottom > 0 && top < config.height
 
       if (inView) {
-        console.log(entry.computed)
-        el.style.transform = `${entry.computed === 'none' ? '' : entry.computed} translate3d(0, ${transform.toFixed(2)}px, 0)`
+        el.style.transform = `${
+          entry.computed === 'none'
+            ? ''
+            : entry.computed + ' '
+        }translate3d(0, ${transform.toFixed(3)}px, 0)`
       } else {
         el.style.transform = 'none'
       }
