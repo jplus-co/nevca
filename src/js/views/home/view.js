@@ -10,7 +10,7 @@ const home = Barba.BaseView.extend({
 	onEnter () {
 		!config.isDevice && this.initBackgroundVideo()
 
-		this.initScroller()
+		// this.initScroller()
 
 		this.animateIn = this.setup()
 	},
@@ -51,7 +51,7 @@ const home = Barba.BaseView.extend({
 	},
 
 	onLeave () {
-		this.scroller.destroy()
+		// this.scroller.destroy()
 	},
 
 	onLeaveCompleted () {

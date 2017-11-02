@@ -17,11 +17,11 @@ class Scroller {
     this.header = document.querySelector('.js-site-header')
     this.scrollY = this.lastScrollY = util.scroll.current()
 
-    this.tweens = this.sections.map(section => {
-      // each tween factory takes section dom element and performs setup.
-      // returns function; call it again to trigger animation.
-      return transition.tween[section.dataset.tween](section)
-    })
+    // this.tweens = this.sections.map(section => {
+    //   // each tween factory takes section dom element and performs setup.
+    //   // returns function; call it again to trigger animation.
+    //   return transition.tween[section.dataset.tween](section)
+    // })
 
     this.addEvents()
     this.resize()
@@ -38,7 +38,7 @@ class Scroller {
   }
 
   resize = () => {
-    this.createTweenCache()
+    // this.createTweenCache()
   }
 
   createTweenCache () {
@@ -61,13 +61,13 @@ class Scroller {
 
     this.handleNav(scrollY, deltaY)
 
-    this.tweenCache.forEach(({ target, top, tween }, index) => {
-      if (scrollY > top) {
-        if (target.classList.contains('handled')) return
-        tween()
-        target.classList.add('handled')
-      }
-    })
+    // this.tweenCache.forEach(({ target, top, tween }, index) => {
+    //   if (scrollY > top) {
+    //     if (target.classList.contains('handled')) return
+    //     tween()
+    //     target.classList.add('handled')
+    //   }
+    // })
   }
 
   handleNav = (scrollY, deltaY) => {

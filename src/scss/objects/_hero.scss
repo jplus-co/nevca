@@ -60,14 +60,13 @@
     position: relative;
     width: 100%;
     padding: 0 $inner-padding-md;
-    z-index: 1;
+    z-index: 2;
 
     .hero--front-page & {
       position: absolute;
       top: 50%;
       left: 0;
       transform: translateY(-50%);
-      z-index: 2;
     }
 
     .hero--half-image & {
@@ -76,10 +75,6 @@
       @media (max-width: $lg) {
         padding-left: 8%;
       }
-    }
-
-    .hero--black & {
-      z-index: 1;
     }
 
     .hero--alt & {

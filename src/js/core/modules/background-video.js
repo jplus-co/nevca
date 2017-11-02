@@ -50,7 +50,7 @@ class BackgroundVideo {
   }
 
   onScroll = ({ scrollY }) => {
-    if (scrollY > this.cache.height) {
+    if (scrollY > this.threshold) {
       this.video.pause()
     } else {
       this.video.play()
@@ -64,9 +64,7 @@ class BackgroundVideo {
   createCache () {
     const containerBounds = this.container.getBoundingClientRect()
 
-    this.cache = {
-      height: containerBounds.height
-    }
+    this.threshold = containerBounds.height
   }
 
   destroy () {
