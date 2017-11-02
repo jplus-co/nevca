@@ -22,8 +22,6 @@ class BackgroundVideo {
 
   createVideoElement () {
     this.video = document.createElement('video')
-    this.video.classList.add('js-parallax')
-    this.video.setAttribute('data-speed', -0.25)
     this.container.appendChild(this.video)
   }
 
