@@ -103,7 +103,8 @@ class NEVCASite extends TimberSite {
 	}
 
 	function add_to_context( $context ) {
-		$context['menu'] = new TimberMenu();
+		$context['menu'] = new TimberMenu('Primary Navigation');
+		$context['footer_menu'] = new TimberMenu('Footer');
 		$context['site'] = $this;
 		$context['options'] = get_fields('option');
 		$context['colors'] = array(

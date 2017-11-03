@@ -2,17 +2,28 @@
 	<ul class="{{ block ~ '__list' }}">
 	{% for item in menu.get_items %}
 		<li class="{{ block ~ '__item' }}">
-			<a
-        class="{{ loop.index == loop.length ? block ~ '__button' : block ~ '__link' }}"
-        target="{{ item.target }}"
-        href="{{ item.target == '_blank' ? item.link : item.link|relative }}">
+			<a class="{{ loop.index == loop.length ? block ~ '__button' : block ~ '__link' }}"
+				target="{{ item.is_external ? '_blank' : '_self' }}"
+        href="{{ item.is_external ? item.link : item.link|relative }}">
 					{% if loop.index == loop.length %}
-          	<span>{{ item.title }}</span>
+						<span>{{ item.title }}</span>
 					{% else %}
-						{{ item.title }}
+						{{ item.title }}{{ item.get_children ? '<span class="primary-navigation__dropdown-icon">▾</span>'}}
 					{% endif %}
       </a>
-			{% include "menu.twig" with {"menu": item.get_children} %}
+			{% if item.get_children %}
+				<ul class="dropdown">
+					{% for child in item.get_children %}
+						<li class="dropdown__item">
+							<a class="dropdown__link"
+								target="{{ child.is_external ? '_blank' : '_self' }}"
+								href="{{ child.is_external ? child.link : child.link|relative }}">
+									<span>{{ child.title }}</span>
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
 		</li>
 	{% endfor %}
 	</ul>
