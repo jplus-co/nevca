@@ -12,6 +12,10 @@
   background-color: $white;
   transition: transform 0.8s $ease-out-quint;
 
+  @media (max-width: $xl) {
+    padding: 0 4rem;
+  }
+
   &--is-hidden {
     transform: translateY(-100%);
   }
