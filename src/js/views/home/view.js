@@ -2,30 +2,72 @@ import Barba from 'barba.js'
 import config from '@config'
 import transition from '../../transitions'
 import BackgroundVideo from '../../core/modules/background-video'
-import Scroller from '../../core/modules/scroller'
+import Parallax from '../../core/modules/parallax'
+import ScrollFx from '../../core/modules/scroll-fx'
 
 const home = Barba.BaseView.extend({
 	namespace: 'home',
 
+	// Barba Lifecycle:
+
 	onEnter () {
+		this.page = document.querySelector(`[data-namespace="${this.namespace}"]`)
+		this.heading = this.page.querySelector('.hero__heading')
+		this.setup()
+
 		this.initBackgroundVideo()
-		this.initScroller()
-		this.animateIn = this.setup()
 	},
 
 	onEnterCompleted () {
+		this.initParallax()
+		this.initFx()
+
 		this.animateIn()
 	},
 
-	onLeave () {
-		this.scroller.destroy()
-	},
+	onLeave () {},
 
 	onLeaveCompleted () {
+		this.parallax.destroy()
+		this.fx.destroy()
 		!config.isDevice && this.video.destroy()
 	},
 
-// methods:
+	// Methods:
+
+	setup () {
+		const split = this.heading.innerHTML.split('<br>')
+	    .map(lineContent => `
+	      <div class="line">${lineContent}</div>
+	    `).join('')
+
+	  this.heading.innerHTML = split
+
+	  TweenLite.set('.line', { y: '75%', autoAlpha: 0 })
+	},
+
+	animateIn () {
+		return new TimelineLite()
+	    .staggerTo('.line', 1.2, {
+	      y: '0%',
+	      autoAlpha: 1,
+	      ease: Expo.easeOut
+	    }, 0.075)
+	},
+
+	initParallax () {
+		const parallaxItems = document.querySelectorAll('.js-parallax')
+
+		this.parallax = new Parallax({ parallaxItems })
+		this.parallax.init()
+	},
+
+	initFx () {
+		const fxTriggers = document.querySelectorAll('.js-fx-trigger')
+
+		this.fx = new ScrollFx({ fxTriggers })
+		this.fx.init()
+	},
 
 	initBackgroundVideo () {
 		const container = document.querySelector('.js-video-container')
@@ -34,26 +76,10 @@ const home = Barba.BaseView.extend({
 			container,
 			src: container.dataset.src,
 			loop: true,
-			className: 'hero__video-container--video-loading'
+			loadingClass: 'hero__video-container--video-loading'
 		})
 
 		this.video.init()
-	},
-
-	initScroller () {
-		const parallaxItems = document.querySelectorAll('.js-parallax')
-
-		this.scroller = new Scroller({ parallaxItems })
-
-		this.scroller.init()
-	},
-
-	setup () {
-		const heading = document.querySelector('.hero__heading')
-
-		return transition.tween.homeHero({
-			heading
-		})
 	}
 })
 

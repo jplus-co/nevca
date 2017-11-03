@@ -1,3 +1,4 @@
-<a class="button{{ button_classes ? ' ' ~ button_classes }}"
+<a class="button js-fx{{ button_classes ? ' ' ~ button_classes }}"
    href="{{ props.url }}"
+   data-tween="button"
    {{ props.target ? 'target="{{props.target}}"' }}><span>{{ props.title }}</span></a>

@@ -18,7 +18,7 @@
       "hero_video": post.get_field('hero_video')
     } %}
     <!-- Mission -->
-    <section id="mission" class="js-section section section--top" data-tween="columnsBlock">
+    <section id="mission" class="js-section section section--top js-fx-trigger">
       <div class="section__row justify-content-between px-8p py-12p">
         <!-- Mission Images -->
         {% include "image-cluster.twig" with {
@@ -29,13 +29,12 @@
         <!-- Mission Text -->
         {% include "text-block.twig" with {
           "props": mission_block,
-          "is_lede": true,
-          "button_classes": 'js-button'
+          "is_lede": true
         } %}
       </div>
     </section>
     <!-- Events -->
-    <section id="events" class="js-section section is-black py-12p" data-tween="line">
+    <section id="events" class="js-section section is-black py-12p js-fx-trigger">
       <div class="js-parallax" data-speed="0.175">
         <!-- Events Text -->
         <div class="section__row px-8p">
@@ -63,7 +62,7 @@
       </div>
     </section>
     <!-- Community -->
-    <section id="community" class="js-section section px-8p py-12p">
+    <section id="community" class="js-section section px-8p py-12p js-fx-trigger">
       <div class="section__row justify-content-between">
         <div class="js-parallax" data-speed="0.1">
           <div class="pr-16p">
@@ -99,7 +98,7 @@
     </section>
 
     <!-- Members Block -->
-    <section id="members" class="section pt-12p pb-4p px-8p is-black">
+    <section id="members" class="section pt-12p pb-4p px-8p is-black js-fx-trigger">
       <div class="js-parallax" data-speed="0.025">
         <h3 class="text-block__subheading color-gold">{{ members_block.heading }}</h3>
         <div class="flex">
@@ -134,61 +133,59 @@
     </section>
 
     <!-- Sponsors Block -->
-    <section id="sponsors" class="section flex justify-content-end">
+    <section id="sponsors" class="section flex justify-content-end js-fx-trigger">
       <div class="absolute pos-tl w-100 h-50 is-black"></div>
-      <div class="w-70 py-6p pl-6p pr-12p is-blue js-parallax" data-speed="0.2">
-        <div class="js-parallax" data-speed="0.05">
-          <h3 class="text-block__subheading color-gold">{{ sponsors_block.heading }}</h3>
-          <div class="flex">
-            <div class="sponsor-logo-grid">
+      <div class="w-70 py-6p pl-6p pr-12p is-blue z-index-1 js-parallax" data-speed="0.15">
+        <h3 class="text-block__subheading color-gold">{{ sponsors_block.heading }}</h3>
+        <div class="flex">
+          <div class="sponsor-logo-grid">
 
-              <div class="sponsor-logo-grid__section">
-                <h4 class="sponsor-logo-grid__tier">Major</h4>
-                {% for sponsor in sponsors_block.major_sponsors %}
-                  {% set logo = Image(sponsor.logo) %}
-                  <a href="{{ sponsor.website_link }}" target="_blank"
-                    class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
-                    <img class="sponsor-logo-grid__image"
-                      src="{{ logo.src }}" alt="{{ sponsor.title }}">
-                  </a>
-                {% endfor %}
-              </div>
-
-              <div class="sponsor-logo-grid__section">
-                <h4 class="sponsor-logo-grid__tier">Supporting</h4>
-                {% for sponsor in sponsors_block.supporting_sponsors %}
-                  {% set logo = Image(sponsor.logo) %}
-                  <a href="{{ sponsor.website_link }}" target="_blank"
-                    class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
-                    <img class="sponsor-logo-grid__image sponsor-logo-grid__image--invert"
-                      src="{{ logo.src }}" alt="{{ sponsor.title }}">
-                  </a>
-                {% endfor %}
-              </div>
+            <div class="sponsor-logo-grid__section">
+              <h4 class="sponsor-logo-grid__tier">Major</h4>
+              {% for sponsor in sponsors_block.major_sponsors %}
+                {% set logo = Image(sponsor.logo) %}
+                <a href="{{ sponsor.website_link }}" target="_blank"
+                  class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
+                  <img class="sponsor-logo-grid__image"
+                    src="{{ logo.src }}" alt="{{ sponsor.title }}">
+                </a>
+              {% endfor %}
             </div>
-            <!-- View more circle button -->
-            <div class="align-self-end pl-12p mb-5">
-              {% include 'circle-button.twig' with {
-                direction: 'right',
-                url: site.link ~ '/sponsors' | relative,
-                label: 'View all',
-                color: colors.gold
-              } %}
+
+            <div class="sponsor-logo-grid__section">
+              <h4 class="sponsor-logo-grid__tier">Supporting</h4>
+              {% for sponsor in sponsors_block.supporting_sponsors %}
+                {% set logo = Image(sponsor.logo) %}
+                <a href="{{ sponsor.website_link }}" target="_blank"
+                  class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
+                  <img class="sponsor-logo-grid__image sponsor-logo-grid__image--invert"
+                    src="{{ logo.src }}" alt="{{ sponsor.title }}">
+                </a>
+              {% endfor %}
             </div>
           </div>
-
-          {% if sponsors_block.has_button %}
-            {% include "button.twig" with {
-              props: sponsors_block.button,
-              button_classes: 'button--white'
+          <!-- View more circle button -->
+          <div class="align-self-end pl-12p mb-5">
+            {% include 'circle-button.twig' with {
+              direction: 'right',
+              url: site.link ~ '/sponsors' | relative,
+              label: 'View all',
+              color: colors.gold
             } %}
-          {% endif %}
+          </div>
         </div>
+
+        {% if sponsors_block.has_button %}
+          {% include "button.twig" with {
+            props: sponsors_block.button,
+            button_classes: 'button--white'
+          } %}
+        {% endif %}
       </div>
     </section>
 
     <!-- Press Block -->
-    <section id="press" class="section pt-8p pb-14p px-20p text-align-center">
+    <section id="press" class="section pt-8p pb-14p px-20p text-align-center js-fx-trigger">
       <div class="js-parallax" data-speed="0.1">
         <h3 class="text-block__subheading color-gold">{{ press_block.heading }}</h3>
         <div class="publication-grid">

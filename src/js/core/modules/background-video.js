@@ -5,7 +5,7 @@ import { WINDOW_RESIZE } from '@constants'
 class BackgroundVideo {
   constructor (opt = {}) {
     this.container = opt.container
-    this.className = opt.className
+    this.loadingClass = opt.loadingClass
 
     this.settings = {
       src: opt.src,
@@ -22,6 +22,12 @@ class BackgroundVideo {
 
   createVideoElement () {
     this.video = document.createElement('video')
+
+    if (this.container.dataset.speed) {
+      this.video.classList.add('js-parallax')
+      this.video.setAttribute('data-speed', this.container.dataset.speed)
+    }
+
     this.container.appendChild(this.video)
   }
 
@@ -45,7 +51,7 @@ class BackgroundVideo {
   onLoad = () => {
     window.requestAnimationFrame(() => {
       this.video.play()
-      this.container.classList.remove(this.className)
+      this.container.classList.remove(this.loadingClass)
     })
   }
 
