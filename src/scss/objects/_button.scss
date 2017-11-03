@@ -37,7 +37,8 @@
     z-index: 1;
   }
 
-  @include hover-mouse() {
+  // @include hover-mouse() {
+  &:hover {
     color: $white;
 
     &::before {
@@ -63,7 +64,8 @@
       background-color: $white;
     }
 
-    @include hover-mouse() {
+    // @include hover-mouse() {
+    &:hover {
       color: $gold;
     }
   }
@@ -96,7 +98,8 @@
       transition: opacity 0.4s $ease-out-quint;
     }
 
-    @include hover-mouse() {
+    // @include hover-mouse() {
+    &:hover {
       color: $gold;
 
       &::before {

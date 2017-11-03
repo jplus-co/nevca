@@ -88,6 +88,9 @@ Version: 1.0.0
 @import 'components/resource-topic-collection';
 @import 'components/scroll-cta';
 
+// Tribe Events
+@import 'tribe-events/index.scss';
+
 // Helpers
 @import 'helpers/position';
 @import 'helpers/size';
@@ -95,6 +98,7 @@ Version: 1.0.0
 @import 'helpers/transform';
 @import 'helpers/color';
 @import 'helpers/a11y';
+@import 'helpers/resets';
 @import 'helpers/overflow';
 @import 'helpers/spacing';
 @import 'helpers/display';

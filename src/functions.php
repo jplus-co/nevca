@@ -145,3 +145,22 @@ class NEVCASite extends TimberSite {
 	}
 }
 new NEVCASite();
+
+
+// Changes the text labels for Google Calendar and iCal buttons on a single event page
+remove_action( 'tribe_events_single_event_after_the_content', array( tribe( 'tec.iCal' ), 'single_event_links' ) );
+
+add_action( 'tribe_events_single_event_after_the_content', 'customized_tribe_single_event_links' );
+
+function customized_tribe_single_event_links()	{
+
+	if ( is_single() && post_password_required() ) {
+		return;
+	}
+	echo '<div class="tribe-events-cal-links">';
+	echo '<a class="button" href="' . tribe_get_gcal_link() . '" title="' . __( 'Add to Google Calendar', 'tribe-events-calendar-pro' ) . '"><span>+ Export to Google Calendar</span></a>';
+	echo '<a class="button" href="' . tribe_get_single_ical_link() . '"><span>+ Export to iCal</span></a>';
+	echo '</div>';
+}
+
+// button classes: tribe-events-ical tribe-events-button
