@@ -107,11 +107,11 @@ class NEVCASite extends TimberSite {
 		$context['site'] = $this;
 		$context['options'] = get_fields('option');
 		$context['colors'] = array(
-			'white' => '#FFFFFF',
-			'black' => '#181920',
-			'gold' => '#D9A03E',
-			'light_gold'   => '#F8D57C',
-			'blue' => '#363D4F',
+			'white'      => '#FFFFFF',
+			'black'      => '#181920',
+			'gold'       => '#D9A03E',
+			'light_gold' => '#F8D57C',
+			'blue'       => '#363D4F',
 			'light_blue' => '#BDC4CB'
 		);
 		return $context;
