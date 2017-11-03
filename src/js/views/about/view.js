@@ -6,6 +6,8 @@ const about = Barba.BaseView.extend({
 	namespace: 'about',
 
 	onEnter () {
+		const parallaxItems = document.querySelectorAll('.js-parallax')
+
 		this.slider = new TestimonialSlider()
 		this.navigation = new PageNavigation()
 	},

@@ -1,6 +1,8 @@
-@for $i from 1 through 20 {
-  .w-#{$i*5} {
-    width: $i*5*1%;
+@each $prop in width, height {
+  @for $i from 1 through 20 {
+    .#{str-slice($prop, 1, 1)}-#{$i * 5} {
+      #{$prop}: $i * 5 * 1%;
+    }
   }
 }
 

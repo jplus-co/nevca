@@ -1,8 +1,7 @@
-import config from '@config'
-import { WINDOW_RESIZE } from '@constants'
-import emitter from '../../core/emitter'
-import scroll from 'raf-scroll'
 import util from '@util'
+import config from '@config'
+import emitter from '../../core/emitter'
+import { WINDOW_RESIZE } from '@constants'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
 
 class PageNavigation {
@@ -21,14 +20,14 @@ class PageNavigation {
 
   addEvents () {
     emitter.on(WINDOW_RESIZE, this.resize)
-    scroll.add(this.onScroll)
+    util.scroll.manager.add(this.onScroll)
 
     this.links.forEach(link => link.addEventListener('click', this.onClick))
   }
 
   removeEvents () {
     emitter.off(WINDOW_RESIZE, this.resize)
-    scroll.remove(this.onScroll)
+    util.scroll.manager.remove(this.onScroll)
 
     this.links.forEach(link => link.removeEventListener('click', this.onClick))
   }
@@ -105,7 +104,6 @@ class PageNavigation {
 
   destroy () {
     this.removeEvents()
-    scroll.destroy()
   }
 }
 

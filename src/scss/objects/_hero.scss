@@ -5,6 +5,18 @@
   &--front-page {
     background-color: $black;
     height: 80rem;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $black;
+      opacity: 0.84;
+    }
   }
 
   &--half-image {}
@@ -48,6 +60,7 @@
     position: relative;
     width: 100%;
     padding: 0 $inner-padding-md;
+    z-index: 2;
 
     .hero--front-page & {
       position: absolute;
@@ -62,10 +75,6 @@
       @media (max-width: $lg) {
         padding-left: 8%;
       }
-    }
-
-    .hero--black & {
-      z-index: 1;
     }
 
     .hero--alt & {
@@ -130,18 +139,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $black;
-        opacity: 0.84;
-      }
     }
 
     .hero--half-image & {
@@ -205,6 +202,28 @@
       width: 100%;
       left: auto;
       padding: 4% 5%;
+    }
+  }
+
+  &__video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.8s $ease-out-quint;
+
+    &--video-loading {
+      opacity: 0;
+    }
+
+    > video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-height: 100%;
+      min-width: 100%;
     }
   }
 }

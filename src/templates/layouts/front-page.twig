@@ -14,10 +14,11 @@
     {% include "hero.twig" with {
       "hero_text": post.hero_text,
       "is_home": true,
-      "hero_image": post.hero_image
+      "hero_image": post.hero_image,
+      "hero_video": post.get_field('hero_video')
     } %}
     <!-- Mission -->
-    <section id="mission" class="js-section section section--top">
+    <section id="mission" class="js-section section section--top js-fx-trigger">
       <div class="section__row justify-content-between px-8p py-12p">
         <!-- Mission Images -->
         {% include "image-cluster.twig" with {
@@ -33,54 +34,58 @@
       </div>
     </section>
     <!-- Events -->
-    <section id="events" class="js-section section is-black py-12p">
-      <!-- Events Text -->
-      <div class="section__row px-8p">
-        {% include "text-block.twig" with {
-          "props": events_block
-        } %}
-      </div>
-      <!-- Event Tease List -->
-      <div class="section__row pt-4p px-8p">
-        <div class="flex">
-          {% include 'event-tease-list.twig' with {
-            "props": featured_events
+    <section id="events" class="js-section section is-black py-12p js-fx-trigger">
+      <div class="js-parallax" data-speed="0.175">
+        <!-- Events Text -->
+        <div class="section__row px-8p">
+          {% include "text-block.twig" with {
+            "props": events_block
           } %}
-          <!-- View more circle button -->
-          <div class="align-self-end pl-2">
-            {% include 'circle-button.twig' with {
-              direction: 'right',
-              url: site.link ~ '/events' | relative,
-              label: 'View all',
-              color: colors.gold
+        </div>
+        <!-- Event Tease List -->
+        <div class="section__row pt-4p px-8p">
+          <div class="flex">
+            {% include 'event-tease-list.twig' with {
+              "props": featured_events
             } %}
+            <!-- View more circle button -->
+            <div class="align-self-end pl-2">
+              {% include 'circle-button.twig' with {
+                direction: 'right',
+                url: site.link ~ '/events' | relative,
+                label: 'View all',
+                color: colors.gold
+              } %}
+            </div>
           </div>
         </div>
       </div>
     </section>
     <!-- Community -->
-    <section id="community" class="js-section section px-8p py-12p">
+    <section id="community" class="js-section section px-8p py-12p js-fx-trigger">
       <div class="section__row justify-content-between">
-        <div class="pr-16p">
-          {% set mtw = community_block.member_to_watch %}
-          {% set ctw = community_block.company_to_watch %}
+        <div class="js-parallax" data-speed="0.1">
+          <div class="pr-16p">
+            {% set mtw = community_block.member_to_watch %}
+            {% set ctw = community_block.company_to_watch %}
 
-          <div class="blog-post-tease">
-            <div class="blog-post-tease__image-mask">
-              <img class="blog-post-tease__image" src="{{ Image(mtw.author_avatar).src }}" alt="{{ mtw.title }}">
+            <div class="blog-post-tease">
+              <div class="blog-post-tease__image-mask">
+                <img class="blog-post-tease__image" src="{{ Image(mtw.author_avatar).src }}" alt="{{ mtw.title }}">
+              </div>
+              <h4 class="blog-post-tease__subheading">Member to Watch</h4>
+              <h3 class="blog-post-tease__heading">{{ mtw.title }}</h3>
+              <a class="blog-post-tease__link text-button text-button--underline" href="{{ mtw.link.url }}" target="{{ mtw.link.target }}">{{ mtw.link.title }}</a>
             </div>
-            <h4 class="blog-post-tease__subheading">Member to Watch</h4>
-            <h3 class="blog-post-tease__heading">{{ mtw.title }}</h3>
-            <a class="blog-post-tease__link text-button text-button--underline" href="{{ mtw.link.url }}" target="{{ mtw.link.target }}">{{ mtw.link.title }}</a>
-          </div>
 
-          <div class="blog-post-tease">
-            <div class="blog-post-tease__image-mask">
-              <img class="blog-post-tease__image" src="{{ Image(ctw.author_avatar).src }}" alt="{{ ctw.title }}">
+            <div class="blog-post-tease">
+              <div class="blog-post-tease__image-mask">
+                <img class="blog-post-tease__image" src="{{ Image(ctw.author_avatar).src }}" alt="{{ ctw.title }}">
+              </div>
+              <h4 class="blog-post-tease__subheading">Company to Watch</h4>
+              <h3 class="blog-post-tease__heading">{{ ctw.title }}</h3>
+              <a class="blog-post-tease__link text-button text-button--underline" href="{{ ctw.link.url }}" target="{{ ctw.link.target }}">{{ ctw.link.title }}</a>
             </div>
-            <h4 class="blog-post-tease__subheading">Member to Watch</h4>
-            <h3 class="blog-post-tease__heading">{{ ctw.title }}</h3>
-            <a class="blog-post-tease__link text-button text-button--underline" href="{{ ctw.link.url }}" target="{{ ctw.link.target }}">{{ ctw.link.title }}</a>
           </div>
         </div>
 
@@ -93,41 +98,44 @@
     </section>
 
     <!-- Members Block -->
-    <section id="members" class="section pt-12p pb-4p px-8p is-black">
-      <h3 class="text-block__subheading color-gold">{{ members_block.heading }}</h3>
-      <div class="flex">
-        <div class="member-logo-grid">
-          {% for member in featured_members %}
-            {% set logo = Image(member.image) %}
-            <a href="{{ member.website }}" target="_blank"
-              class="member-logo-grid__item member-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
-              <img class="member-logo-grid__image"
-                src="{{ logo.src }}" alt="{{ member.title }}">
-            </a>
-          {% endfor %}
+    <section id="members" class="section pt-12p pb-4p px-8p is-black js-fx-trigger">
+      <div class="js-parallax" data-speed="0.025">
+        <h3 class="text-block__subheading color-gold">{{ members_block.heading }}</h3>
+        <div class="flex">
+          <div class="member-logo-grid">
+            {% for member in featured_members %}
+              {% set logo = Image(member.image) %}
+              <a href="{{ member.website }}" target="_blank"
+                class="member-logo-grid__item member-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
+                <img class="member-logo-grid__image"
+                  src="{{ logo.src }}" alt="{{ member.title }}">
+              </a>
+            {% endfor %}
+          </div>
+          <!-- View more circle button -->
+          <div class="align-self-end pl-12p mb-5">
+            {% include 'circle-button.twig' with {
+              direction: 'right',
+              url: site.link ~ '/members' | relative,
+              label: 'View all',
+              color: colors.gold
+            } %}
+          </div>
         </div>
-        <!-- View more circle button -->
-        <div class="align-self-end pl-12p mb-5">
-          {% include 'circle-button.twig' with {
-            direction: 'right',
-            url: site.link ~ '/members' | relative,
-            label: 'View all',
-            color: colors.gold
-          } %}
-        </div>
-      </div>
 
-      {% if members_block.has_button %}
-        {% include "button.twig" with {
-          props: members_block.button,
-          button_classes: 'button--white'
-        } %}
-      {% endif %}
+        {% if members_block.has_button %}
+          {% include "button.twig" with {
+            props: members_block.button,
+            button_classes: 'button--white'
+          } %}
+        {% endif %}
+      </div>
     </section>
 
     <!-- Sponsors Block -->
-    <section id="sponsors" class="section flex justify-content-end">
-      <div class="w-70 py-6p pl-6p pr-12p is-blue">
+    <section id="sponsors" class="section flex justify-content-end js-fx-trigger">
+      <div class="absolute pos-tl w-100 h-50 is-black"></div>
+      <div class="w-70 py-6p pl-6p pr-12p is-blue z-index-1 js-parallax" data-speed="0.15">
         <h3 class="text-block__subheading color-gold">{{ sponsors_block.heading }}</h3>
         <div class="flex">
           <div class="sponsor-logo-grid">
@@ -177,16 +185,18 @@
     </section>
 
     <!-- Press Block -->
-    <section id="press" class="section py-14p px-20p text-align-center">
-      <h3 class="text-block__subheading color-gold">{{ press_block.heading }}</h3>
-      <div class="publication-grid">
-        {% for pub in press_block.publications %}
-          <a href="#0" target="_blank"
-            class="publication-grid__item">
-            <img class="publication-grid__image"
-              src="{{ Image(TimberTerm(pub.term_id).logo).src }}" alt="{{ pub.name }}">
-          </a>
-        {% endfor %}
+    <section id="press" class="section pt-8p pb-14p px-20p text-align-center js-fx-trigger">
+      <div class="js-parallax" data-speed="0.1">
+        <h3 class="text-block__subheading color-gold">{{ press_block.heading }}</h3>
+        <div class="publication-grid">
+          {% for pub in press_block.publications %}
+            <a href="#0" target="_blank"
+              class="publication-grid__item">
+              <img class="publication-grid__image"
+                src="{{ Image(TimberTerm(pub.term_id).logo).src }}" alt="{{ pub.name }}">
+            </a>
+          {% endfor %}
+        </div>
       </div>
     </section>
 

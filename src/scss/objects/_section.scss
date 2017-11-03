@@ -3,10 +3,6 @@
   position: relative;
   background-color: $white;
 
-  &--top {
-    z-index: 1;
-  }
-
   &__row {
     display: flex;
   }
