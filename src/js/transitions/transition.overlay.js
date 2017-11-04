@@ -87,8 +87,8 @@ const overlay = (
       cancelLoop()
 
       return new TimelineLite({ onComplete: onDone })
-        .to(ui.mask, 1, { x: '0%', ease: SlowMo.easeOut }, 'in')
-        .to(ui.inner, 1, { x: '0%', ease: SlowMo.easeOut }, 'in')
+        .to(ui.mask, 1, { x: '0%', ease: SlowMo.easeOut, clearProps: 'all' }, 'in')
+        .to(ui.inner, 1, { x: '0%', ease: SlowMo.easeOut, clearProps: 'all' }, 'in')
     }
   }
 

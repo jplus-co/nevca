@@ -15,20 +15,14 @@ class Preloader {
 
     const newContainer = document.querySelector('.view')
 
-    transition.overlay(null, newContainer, this.done.bind(this))
+    return transition.overlay(
+      null,
+      newContainer,
+      this.done
+    )
   }
 
-  // animateIn = () => {
-  //   TweenLite.to(this.el.querySelector('p'), 0.7, { opacity: 0.7, onComplete: this.animateOut })
-  // }
-  //
-  // animateOut = () => {
-  //   TweenLite.to(this.el, 0.5, { opacity: 0, onComplete: this.done })
-  // }
-
   done = () => {
-    this.el.parentNode.removeChild(this.el)
-
     config.body.classList.remove('is-loading')
 
     this.preloaded()
