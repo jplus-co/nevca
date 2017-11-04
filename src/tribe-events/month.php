@@ -15,10 +15,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'tribe_events_before_template' );
 
-// Tribe Bar
-tribe_get_template_part( 'modules/bar' );
+?>
 
-// Main Events Content
-tribe_get_template_part( 'month/content' );
+<div class="flex">
 
-do_action( 'tribe_events_after_template' );
+	<aside class="pt-2p flex-basis-25">
+		<!-- Tribe Bar -->
+		<?php tribe_get_template_part( 'modules/bar' ) ?>
+	</aside>
+
+	<div class="flex-1 pl-4p">
+		<!-- Main Events Content -->
+		<?php tribe_get_template_part( 'month/content' ) ?>
+	</div>
+
+</div>
+
+<?php do_action( 'tribe_events_after_template' ) ?>

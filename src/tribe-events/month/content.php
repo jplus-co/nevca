@@ -15,14 +15,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 
 <div id="tribe-events-content" class="tribe-events-month">
+	<div class="mb-4">
+		<!-- Month Title -->
+		<?php do_action( 'tribe_events_before_the_title' ) ?>
+		<h2 class="tribe-events-page-title text-align-left"><?php tribe_events_title() ?></h2>
+		<?php do_action( 'tribe_events_after_the_title' ) ?>
 
-	<!-- Month Title -->
-	<?php do_action( 'tribe_events_before_the_title' ) ?>
-	<h2 class="tribe-events-page-title"><?php tribe_events_title() ?></h2>
-	<?php do_action( 'tribe_events_after_the_title' ) ?>
-
-	<!-- Notices -->
-	<?php tribe_the_notices() ?>
+		<!-- Notices -->
+		<?php tribe_the_notices() ?>
+	</div>
 
 	<!-- Month Header -->
 	<?php do_action( 'tribe_events_before_header' ) ?>
