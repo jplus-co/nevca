@@ -42,5 +42,34 @@
     p {
       margin-bottom: 1rem;
     }
+
+    a {
+      @include reset-anchor();
+      color: $gold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__social-media-links {
+    display: flex;
+    align-items: center;
+    margin-left: -0.8rem;
+  }
+
+  &__social-media-link {
+    margin-right: 0.5rem;
+
+    .primary-path {
+      transition: fill 0.3s;
+    }
+
+    &:hover {
+      .primary-path {
+        fill: $gold;
+      }
+    }
   }
 }

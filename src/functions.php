@@ -99,6 +99,15 @@ class NEVCASite extends TimberSite {
 				'icon_url'     => 'dashicons-no',
 				'redirect'     => false
 			));
+
+			acf_add_options_page(array(
+				'page_title'   => 'Footer',
+				'menu_title'   => 'Footer',
+				'menu_slug'    => 'nevca_footer',
+				'capability'   => 'edit_posts',
+				'icon_url'     => 'dashicons-arrow-down',
+				'redirect'     => false
+			));
 		}
 	}
 

@@ -1,3 +1,6 @@
+{% set newsletter_column = options.newsletter_column %}
+{% set contact_column = options.contact_column %}
+
 <footer class="site-footer">
   <div class="flex p-8p is-black">
     {% if footer_menu %}
@@ -23,21 +26,39 @@
     {% endif %}
     <div class="site-footer__column">
       <h5 class="site-footer__heading">
-        Join the newsletter
+        {{ newsletter_column.heading }}
       </h5>
       <div class="site-footer__body">
-        <p>We send regular updates to members, entrepreneurs, students, and community members on NEVCA news, events, and local goings-on.</p>
-        <p>
-          <span class="color-gold">Sign up here</span> and be in the know!
-        </p>
+        {{ newsletter_column.body }}
       </div>
     </div>
     <div class="site-footer__column">
       <h5 class="site-footer__heading">
-        Contact us
+        {{ contact_column.heading }}
       </h5>
       <div class="site-footer__body">
-        <p><a class="color-gold" href="#0">info@newenglandvc.org</a></p>
+        <p><a href="{{ 'mailto:' ~ contact_column.contact_email }}">{{ contact_column.contact_email }}</a></p>
+      </div>
+      <div class="site-footer__social-media-links">
+        <a class="site-footer__social-media-link"
+           href="{{ contact_column.social_media_links.facebook }}">
+          {% include "social-icon-facebook.twig" with {
+            primary_fill: colors.white
+          } %}
+        </a>
+        <a class="site-footer__social-media-link"
+           href="">
+          {% include "social-icon-twitter.twig" with {
+            primary_fill: colors.white
+          } %}
+        </a>
+        <a class="site-footer__social-media-link"
+           href="">
+          {% include "social-icon-medium.twig" with {
+            bg_fill: 'none',
+            primary_fill: colors.white
+          } %}
+        </a>
       </div>
     </div>
   </div>
