@@ -1,3 +1,46 @@
 .site-footer {
   border-top: 0.2rem solid $white;
+
+  &__column {
+    @include reset-list();
+    flex: 1;
+
+    &:not(:last-child) {
+      padding-right: 5rem;
+    }
+  }
+
+  &__heading {
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__list {
+    @include reset-list();
+  }
+
+  &__item {
+
+  }
+
+  &__link {
+    display: inline-block;
+    @include reset-anchor();
+    font-size: 1.4rem;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $gold;
+    }
+  }
+
+  &__body {
+    font-size: 1.4rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
 }

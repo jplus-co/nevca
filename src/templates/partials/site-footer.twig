@@ -1,5 +1,44 @@
 <footer class="site-footer">
-  <div class="p-8p is-black">
-
+  <div class="flex p-8p is-black">
+    {% if footer_menu %}
+      {% for item in footer_menu.get_items %}
+        <div class="site-footer__column">
+          <h5 class="site-footer__heading">
+            {{ item.title }}
+          </h5>
+          <div class="site-footer__list">
+            {% for child in item.get_children %}
+              <div class="site-footer__item">
+                <a class="site-footer__link"
+                   href="{{ child.is_external ? child.link : child.link|relative }}"
+                   target="{{ child.is_external ? '_blank' : '_self' }}"
+                >
+                  {{ child.title }}
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+    <div class="site-footer__column">
+      <h5 class="site-footer__heading">
+        Join the newsletter
+      </h5>
+      <div class="site-footer__body">
+        <p>We send regular updates to members, entrepreneurs, students, and community members on NEVCA news, events, and local goings-on.</p>
+        <p>
+          <span class="color-gold">Sign up here</span> and be in the know!
+        </p>
+      </div>
+    </div>
+    <div class="site-footer__column">
+      <h5 class="site-footer__heading">
+        Contact us
+      </h5>
+      <div class="site-footer__body">
+        <p><a class="color-gold" href="#0">info@newenglandvc.org</a></p>
+      </div>
+    </div>
   </div>
 </footer>
