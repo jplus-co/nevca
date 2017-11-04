@@ -6,11 +6,11 @@ Version: 1.0.0
 
 
 // Settings
+@import 'settings/breakpoints';
 @import 'settings/colors';
 @import 'settings/easings';
 @import 'settings/typography';
 @import 'settings/sizes';
-@import 'settings/breakpoints';
 
 
 // Tools
@@ -88,6 +88,7 @@ Version: 1.0.0
 @import 'components/term-navigation';
 @import 'components/resource-topic-collection';
 @import 'components/scroll-cta';
+@import 'components/mobile-toggle';
 
 // Helpers
 @import 'helpers/position';

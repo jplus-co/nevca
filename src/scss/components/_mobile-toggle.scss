@@ -1,0 +1,158 @@
+.mobile-toggle {
+  @include reset-button();
+  outline: none;
+  width: $header-size-mobile;
+  height: $header-size-mobile;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @media (min-width: $lg) {
+    display: none;
+  }
+
+  &__inner {
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    position: relative;
+  }
+}
+
+.burger {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  &__line {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 3px;
+    margin: 5px 0;
+    transform-origin: right;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: $black;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.5s $ease-out-cubic;
+    }
+
+    &::before {
+      transform-origin: right;
+      transform: scaleX(0);
+
+      .menu--is-open & {
+        transform-origin: right;
+        transform: scaleX(0);
+      }
+    }
+
+    &::after {
+      transform-origin: left;
+      transform: scaleX(1);
+
+      .menu--is-open & {
+        transform-origin: right;
+        transform: scaleX(0);
+      }
+    }
+
+    .mobile-toggle:hover & {
+      &::before {
+        transform-origin: left;
+        transform: scaleX(1);
+
+        .menu--is-open & {
+          transform-origin: right;
+          transform: scaleX(0);
+        }
+      }
+
+      &::after {
+        transform-origin: right;
+        transform: scaleX(0);
+      }
+    }
+
+    &--1 {
+
+    }
+
+    &--2 {
+      transform: scaleX(0.85);
+    }
+
+    &--3 {
+      transform: scaleX(0.7);
+    }
+
+    &::before,
+    &::after {
+      transition-delay: 0.4s;
+    }
+
+    .menu--is-open & {
+      &::before,
+      &::after {
+        transition-delay: 0s;
+      }
+    }
+  }
+}
+
+.close-icon {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+
+  &__line {
+    display: block;
+    position: relative;
+    background-color: $black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: transform 0.5s $ease-out-cubic;
+    transition-delay: 0s;
+
+    .menu--is-open & {
+      transition-delay: 0.4s;
+    }
+
+    &--1 {
+      width: 100%;
+      height: 3px;
+      transform: translate(-50%, -50%) scaleX(0);
+      transform-origin: right;
+
+      .menu--is-open & {
+        transform-origin: left;
+        transform: translate(-50%, -50%) scaleX(1);
+      }
+    }
+
+    &--2 {
+      width: 3px;
+      height: 100%;
+      transform: translate(-50%, -50%) scaleY(0);
+      transform-origin: top;
+
+      .menu--is-open & {
+        transform-origin: bottom;
+        transform: translate(-50%, -50%) scaleY(1);
+      }
+    }
+  }
+}

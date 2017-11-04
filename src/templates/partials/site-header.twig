@@ -2,5 +2,8 @@
   <a href="{{ site.link }}" class="site-header__logo">
     {% include "header-logo.twig" %}
   </a>
+
   {% include "primary-navigation.twig" with { "menu": menu } %}
+
+  {% include "mobile-toggle.twig" %}
 </header>

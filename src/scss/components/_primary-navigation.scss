@@ -2,6 +2,10 @@
   display: flex;
   margin-left: auto;
 
+  @media (max-width: $lg) {
+    display: none;
+  }
+
   &__list {
     @include reset-list();
     display: flex;
