@@ -62,30 +62,28 @@
       </div>
     </section>
     <!-- Community -->
-    <section id="community" class="js-section section px-8p py-12p js-fx-trigger">
+    <section id="community" class="js-section section px-14p py-12p js-fx-trigger">
       <div class="section__row justify-content-between">
-        <div class="js-parallax" data-speed="0.1">
-          <div class="pr-16p">
-            {% set mtw = community_block.member_to_watch %}
-            {% set ctw = community_block.company_to_watch %}
+        <div class="pr-16p js-parallax" data-speed="0.1">
+          {% set mtw = community_block.member_to_watch %}
+          {% set ctw = community_block.company_to_watch %}
 
-            <div class="blog-post-tease">
-              <div class="blog-post-tease__image-mask">
-                <img class="blog-post-tease__image" src="{{ Image(mtw.author_avatar).src }}" alt="{{ mtw.title }}">
-              </div>
-              <h4 class="blog-post-tease__subheading">Member to Watch</h4>
-              <h3 class="blog-post-tease__heading">{{ mtw.title }}</h3>
-              <a class="blog-post-tease__link text-button text-button--underline" href="{{ mtw.link.url }}" target="{{ mtw.link.target }}">{{ mtw.link.title }}</a>
+          <div class="blog-post-tease">
+            <div class="blog-post-tease__image-mask">
+              <img class="blog-post-tease__image" src="{{ Image(mtw.author_avatar).src }}" alt="{{ mtw.title }}">
             </div>
+            <h4 class="blog-post-tease__subheading">Member to Watch</h4>
+            <h3 class="blog-post-tease__heading">{{ mtw.title }}</h3>
+            <a class="blog-post-tease__link text-button text-button--underline" href="{{ mtw.link.url }}" target="{{ mtw.link.target }}">{{ mtw.link.title }}</a>
+          </div>
 
-            <div class="blog-post-tease">
-              <div class="blog-post-tease__image-mask">
-                <img class="blog-post-tease__image" src="{{ Image(ctw.author_avatar).src }}" alt="{{ ctw.title }}">
-              </div>
-              <h4 class="blog-post-tease__subheading">Company to Watch</h4>
-              <h3 class="blog-post-tease__heading">{{ ctw.title }}</h3>
-              <a class="blog-post-tease__link text-button text-button--underline" href="{{ ctw.link.url }}" target="{{ ctw.link.target }}">{{ ctw.link.title }}</a>
+          <div class="blog-post-tease">
+            <div class="blog-post-tease__image-mask">
+              <img class="blog-post-tease__image" src="{{ Image(ctw.author_avatar).src }}" alt="{{ ctw.title }}">
             </div>
+            <h4 class="blog-post-tease__subheading">Company to Watch</h4>
+            <h3 class="blog-post-tease__heading">{{ ctw.title }}</h3>
+            <a class="blog-post-tease__link text-button text-button--underline" href="{{ ctw.link.url }}" target="{{ ctw.link.target }}">{{ ctw.link.title }}</a>
           </div>
         </div>
 

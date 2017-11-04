@@ -8,11 +8,14 @@ function overlay (oldContainer, newContainer, done) {
   let rafActive = true
   let lastRafId
   let progress = 0
-  let ease = 0
+  let ease = 100
 
   const ui = {
+    loader: document.querySelector('.js-page-loader'),
     mask: document.querySelector('.js-page-loader-progress'),
-    inner: document.querySelector('.js-page-loader-progress-inner')
+    inner: document.querySelector('.js-page-loader-progress-inner'),
+    bottom: document.querySelector('.js-layer-bottom'),
+    top: document.querySelector('.js-layer-top')
   }
 
   function cover () {
@@ -24,27 +27,26 @@ function overlay (oldContainer, newContainer, done) {
         loadImages()
       }
     })
-    .to('.js-layer-bottom', 1, { y: 0, ease: Expo.easeInOut }, 'out')
-    .to('.js-layer-top', 1, { y: 0, ease: Expo.easeInOut, delay: 0.075 }, 'out')
-    .to('.js-page-loader', 1, { opacity: 1, ease: Expo.easeOut })
+    .to(ui.bottom, 1, { y: '0%', ease: Expo.easeInOut }, 'out')
+    .to(ui.top, 1, { y: '0%', ease: Expo.easeInOut, delay: 0.075 }, 'out')
+    .to(ui.loader, 1, { y: '0%', ease: Expo.easeOut, delay: 0.075 }, 'out')
   }
 
   function loop () {
-    const percent = 100 - (progress * 100)
+    const target = 100 - (progress * 100)
 
-    ease += (percent - ease) * 0.05
+    ease += (target - ease) * 0.1
 
     if (ease < 0.1) {
       ease = 0
-
       onDone()
     }
 
-    ui.mask.style.transform = `translateY(${ease}%)`
-    ui.inner.style.transform = `translateY(${-ease}%)`
+    ui.mask.style.transform = `translateX(${-ease}%)`
+    ui.inner.style.transform = `translateX(${ease}%)`
 
     if (rafActive) {
-      requestAnimationFrame(loop)
+      lastRafId = requestAnimationFrame(loop)
     }
   }
 
@@ -60,9 +62,9 @@ function overlay (oldContainer, newContainer, done) {
       .set(oldContainer, { display: 'none' })
       .set(newContainer, { autoAlpha: 1 })
 
-      .to('.js-page-loader', 1, { y: '-100%', opacity: 0, ease: Expo.easeInOut, clearProps: 'all' }, 'out')
-      .to('.js-layer-bottom', 1, { y: '-100%', ease: Expo.easeInOut, delay: 0.075, clearProps: 'all' }, 'out')
-      .to('.js-layer-top', 1, { y: '-100%', ease: Expo.easeInOut, clearProps: 'all' }, 'out')
+      .to(ui.loader, 1, { y: '100%', ease: Expo.easeInOut, clearProps: 'all' }, 'out')
+      .to(ui.bottom, 1, { y: '-100%', ease: Expo.easeInOut, delay: 0.075, clearProps: 'all' }, 'out')
+      .to(ui.top, 1, { y: '-100%', ease: Expo.easeInOut, clearProps: 'all' }, 'out')
   }
 
   function loadImages () {
@@ -74,8 +76,8 @@ function overlay (oldContainer, newContainer, done) {
       cancelLoop()
 
       return new TimelineLite({ onComplete: onDone })
-        .to(ui.mask, 1, { y: '0%', ease: SlowMo.easeOut }, 'in')
-        .to(ui.inner, 1, { y: '0%', ease: SlowMo.easeOut }, 'in')
+        .to(ui.mask, 1, { x: '0%', ease: SlowMo.easeOut }, 'in')
+        .to(ui.inner, 1, { x: '0%', ease: SlowMo.easeOut }, 'in')
     }
   }
 
