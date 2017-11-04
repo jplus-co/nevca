@@ -30,14 +30,7 @@ class App {
     router.init()
 
     this.addEventListeners()
-
     this.initSiteNavigation()
-
-    this.animateIn()
-  }
-
-  animateIn () {
-    return transition.tween.fadeIn(this.el)
   }
 
   addEventListeners () {

@@ -20,11 +20,11 @@
     height: 100%;
     will-change: transform;
     transform: translateY(100%);
+    overflow: hidden;
 
     &--top {
       background-color: $white;
       z-index: 1;
-      overflow: hidden;
     }
 
     &--bottom {

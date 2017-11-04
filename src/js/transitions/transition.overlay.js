@@ -1,7 +1,11 @@
 import util from '../util'
 import imagesLoaded from 'imagesloaded'
 
-function overlay (oldContainer, newContainer, done) {
+const overlay = (
+  oldContainer,
+  newContainer,
+  done
+) => {
   let imageLoader
   let loadedCount = 0
 
@@ -27,9 +31,28 @@ function overlay (oldContainer, newContainer, done) {
         loadImages()
       }
     })
-    .to(ui.bottom, 1, { y: '0%', ease: Expo.easeInOut }, 'out')
-    .to(ui.top, 1, { y: '0%', ease: Expo.easeInOut, delay: 0.075 }, 'out')
-    .to(ui.loader, 1, { y: '0%', ease: Expo.easeOut, delay: 0.075 }, 'out')
+    .set(ui.loader, { opacity: 0, scale: 0.95, y: '-80%' })
+    .set(ui.bottom, { y: '100%' })
+    .set(ui.top, { y: '100%' })
+
+    .to(ui.loader, 0.75, { opacity: 1, scale: 1, y: '0%', ease: Expo.easeInOut, delay: 0.075 }, 'out')
+    .to(ui.bottom, 0.75, { y: '0%', ease: Expo.easeInOut }, 'out')
+    .to(ui.top, 0.75, { y: '0%', ease: Expo.easeInOut, delay: 0.075 }, 'out')
+  }
+
+  function uncover () {
+    const tl = new TimelineLite({
+      onComplete: () => {
+        done()
+      }
+    })
+
+    oldContainer && tl.set(oldContainer, { display: 'none' })
+    newContainer && tl.set(newContainer, { autoAlpha: 1 })
+
+    tl.to(ui.loader, 1, { opacity: 0, scale: 0.95, y: '80%', ease: Expo.easeInOut }, 'out')
+    tl.to(ui.bottom, 1, { y: '-100%', ease: Expo.easeInOut, delay: 0.075 }, 'out')
+    tl.to(ui.top, 1, { y: '-100%', ease: Expo.easeInOut }, 'out')
   }
 
   function loop () {
@@ -53,18 +76,6 @@ function overlay (oldContainer, newContainer, done) {
   function cancelLoop () {
     rafActive = false
     cancelAnimationFrame(lastRafId)
-  }
-
-  function uncover () {
-    return new TimelineLite({ onComplete: () => {
-      done()
-    }})
-      .set(oldContainer, { display: 'none' })
-      .set(newContainer, { autoAlpha: 1 })
-
-      .to(ui.loader, 1, { y: '100%', ease: Expo.easeInOut, clearProps: 'all' }, 'out')
-      .to(ui.bottom, 1, { y: '-100%', ease: Expo.easeInOut, delay: 0.075, clearProps: 'all' }, 'out')
-      .to(ui.top, 1, { y: '-100%', ease: Expo.easeInOut, clearProps: 'all' }, 'out')
   }
 
   function loadImages () {
