@@ -8,7 +8,11 @@ class SiteNavigation {
       menuLinks: opt.menuLinks
     }
 
-    this.options = {
+    this.state = {
+      open: false
+    }
+
+    this.props = {
       breakpoint: opt.breakpoint
     }
   }
@@ -20,11 +24,27 @@ class SiteNavigation {
   addEvents () {
     this.ui.toggle.addEventListener('click', this.toggleMenu)
     this.ui.menuLinks.forEach(link =>
-      link.addEventListener('click', this.toggleMenu))
+      link.addEventListener('click', this.closeMenu))
   }
 
-  toggleMenu (e) {
-    config.body.classList.toggle('menu--is-open')
+  toggleMenu = () => {
+    this.state.open ? this.closeMenu() : this.openMenu()
+  }
+
+  closeMenu = () => {
+    if (!this.state.open) return
+
+    this.state.open = false
+
+    config.body.classList.remove('menu--is-open')
+  }
+
+  openMenu = () => {
+    if (this.state.open) return
+
+    this.state.open = true
+
+    config.body.classList.add('menu--is-open')
   }
 }
 
