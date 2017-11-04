@@ -3,9 +3,6 @@
   min-height: 100vh;
   padding-top: $header-size;
 
-  opacity: 0;
-  visibility: hidden;
-
   @media (max-width: $lg) {
     padding-top: $header-size-mobile;
   }

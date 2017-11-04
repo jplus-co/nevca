@@ -1,9 +1,8 @@
 export default {
   html: document.documentElement,
   body: document.body,
-  preloader: document.querySelector('#preloader'),
+  container: document.querySelector('#container'),
   app: document.querySelector('#app'),
-  view: document.querySelector('.view'),
 
   width: window.innerWidth,
   height: window.innerHeight,

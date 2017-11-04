@@ -13,11 +13,9 @@ class Preloader {
     utils.detectPointer()
     utils.detectBrowser()
 
-    const newContainer = document.querySelector('.view')
-
     return transition.overlay(
       null,
-      newContainer,
+      config.container,
       this.done
     )
   }
