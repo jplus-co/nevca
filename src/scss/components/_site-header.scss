@@ -21,6 +21,10 @@
     height: $header-size-mobile;
   }
 
+  // @media (max-width: $sm) {
+  //   padding: 0 rem;
+  // }
+
   &--is-hidden {
     transform: translateY(-100%);
   }

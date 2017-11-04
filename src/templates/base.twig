@@ -3,7 +3,7 @@
 <head>
 	{% include "html-head.twig" %}
 </head>
-<body class="is-loading menu--is-open">
+<body class="is-loading">
 	<div id="container">
 
 		<noscript>
@@ -16,6 +16,28 @@
 		<div id="app">
 			{% block content %}
 			{% endblock %}
+		</div>
+
+		<div class="js-mobile-menu mobile-menu">
+			<div class="mobile-menu__inner">
+				<span class="mobile-menu__close-label js-mobile-menu-close-label">
+					<span>Close</span>
+				</span>
+				{% if mobile_menu %}
+					<ul class="{{ 'mobile-menu__list' }}">
+						{% for item in mobile_menu.get_items %}
+							<li class="{{ 'mobile-menu__item' }}">
+								<a class="mobile-menu__link js-menu-link{{ loop.index == loop.length ? ' color-gold' }}"
+									target="{{ item.is_external ? '_blank' : '_self' }}"
+					        href="{{ item.is_external ? item.link : item.link|relative }}"
+								>
+									<span>{{ item.title }}</span>
+					      </a>
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</div>
 		</div>
 
 		<div class="transition-overlay js-overlay">
