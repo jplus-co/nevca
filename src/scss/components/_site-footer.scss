@@ -2,7 +2,6 @@
   border-top: 0.2rem solid $white;
 
   &__column {
-    @include reset-list();
     flex: 1;
 
     &:not(:last-child) {
@@ -17,7 +16,6 @@
   }
 
   &__list {
-    @include reset-list();
   }
 
   &__item {
