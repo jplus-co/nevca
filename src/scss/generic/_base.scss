@@ -1,7 +1,5 @@
 html {
-  // font-size: 2vmax; Use vmax as root font-size for fluid relative units
   font-size: 0.7vw;
-  font-size: 10px;
 
   @media (max-width: $lg) {
     font-size: 8px;
