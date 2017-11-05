@@ -19,25 +19,26 @@
     } %}
     <!-- Mission -->
     <section id="mission" class="js-section section section--top js-fx-trigger">
-      <div class="section__row justify-content-between px-8p py-12p">
+      <div class="flex block-md justify-content-between px-8p px-0-lg py-12p pb-0-md">
+        <!-- Mission Text -->
+        {% include "text-block.twig" with {
+          "props": mission_block,
+          "is_lede": true,
+          "classes": 'pl-4p-lg pl-3-md pr-3-md mb-7-md'
+        } %}
+
         <!-- Mission Images -->
         {% include "image-cluster.twig" with {
           "images": mission_block.image_cluster,
           "first_full": true
         } %}
-
-        <!-- Mission Text -->
-        {% include "text-block.twig" with {
-          "props": mission_block,
-          "is_lede": true
-        } %}
       </div>
     </section>
     <!-- Events -->
-    <section id="events" class="js-section section is-black py-12p js-fx-trigger">
+    <section id="events" class="js-section section is-black py-12p py-20p-md js-fx-trigger">
       <div class="js-parallax" data-speed="0.175">
         <!-- Events Text -->
-        <div class="section__row px-8p">
+        <div class="flex block-md px-8p mb-4-md">
           {% include "text-block.twig" with {
             "props": events_block
           } %}

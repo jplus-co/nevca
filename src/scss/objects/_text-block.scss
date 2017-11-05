@@ -47,6 +47,10 @@
       padding-left: 8%;
     }
 
+    @media (max-width: $md) {
+      padding-left: 0;
+    }
+
     .p1 {
       &:not(:last-child) {
         margin-bottom: 2rem;
@@ -55,6 +59,14 @@
 
     .text-block--lede & {
       @include type-style-heading-lg();
+
+      @media (max-width: $md) {
+        font-size: 3.2rem;
+      }
+
+      @media (max-width: $sm) {
+        font-size: 2.8rem;
+      }
     }
   }
 }

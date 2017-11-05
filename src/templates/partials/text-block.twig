@@ -11,7 +11,7 @@
       {{ props.heading }}
     </{{ tag }}>
   {% endif %}
-  <div class="text-block__body">
+  <div class="text-block__body{{ body_classes ? ' ' ~ body_classes }}">
     {{ props.body }}
     {% if props.button %}
       {% include "button.twig" with {
