@@ -85,6 +85,19 @@
     }
   }
 
+  &--gold {
+    .columns-block__image {
+      &--1 {
+        top: -12%;
+      }
+
+      &--2 {
+        right: $inner-padding-sm;
+        bottom: -12%;
+      }
+    }
+  }
+
   &__background-image {
     position: absolute;
     top: 0;
