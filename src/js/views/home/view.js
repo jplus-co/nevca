@@ -13,23 +13,23 @@ const home = Barba.BaseView.extend({
 	onEnter () {
 		this.page = document.querySelector(`[data-namespace="${this.namespace}"]`)
 		this.heading = this.page.querySelector('.hero__heading')
-		// this.setup()
+		this.setup()
 
 		this.initBackgroundVideo()
 	},
 
 	onEnterCompleted () {
-		// this.initParallax()
-		// this.initFx()
+		this.initParallax()
+		this.initFx()
 
-		// this.animateIn()
+		this.animateIn()
 	},
 
 	onLeave () {},
 
 	onLeaveCompleted () {
-		// this.parallax.destroy()
-		// this.fx.destroy()
+		this.parallax.destroy()
+		this.fx.destroy()
 		!config.isDevice && this.video.destroy()
 	},
 
