@@ -111,7 +111,7 @@
     </section>
 
     <!-- Members Block -->
-    <section id="members" class="section pt-12p pb-4p px-8p px-0-lg is-black js-fx-trigger">
+    <section id="members" class="section pt-12p pb-4p py-12p-lg px-8p px-0-lg is-black js-fx-trigger">
       <div class="js-parallax" data-speed="0.025">
         <h3 class="text-block__subheading color-gold pl-3-lg">{{ members_block.heading }}</h3>
         <div class="flex scroll-x-lg">
@@ -151,11 +151,11 @@
 
     <!-- Sponsors Block -->
     <section id="sponsors" class="section flex justify-content-end js-fx-trigger">
-      <div class="absolute pos-tl w-100 h-50 is-black"></div>
-      <div class="w-70 py-6p pl-6p pr-12p is-blue z-index-1 js-parallax" data-speed="0.15">
-        <h3 class="text-block__subheading color-gold">{{ sponsors_block.heading }}</h3>
-        <div class="flex">
-          <div class="sponsor-logo-grid">
+      <div class="absolute pos-tl w-100 h-50 is-black hidden-lg"></div>
+      <div class="w-70 w-100-lg py-6p py-12p-lg pl-6p pl-3-lg pl-0-md pr-12p pr-3-lg pr-0-md is-blue z-index-1 js-parallax" data-speed="0.15">
+        <h3 class="text-block__subheading color-gold pl-3-md">{{ sponsors_block.heading }}</h3>
+        <div class="flex scroll-x-lg px-3-md">
+          <div class="sponsor-logo-grid min-w-md-md">
 
             <div class="sponsor-logo-grid__section">
               <h4 class="sponsor-logo-grid__tier">Major</h4>
@@ -182,7 +182,7 @@
             </div>
           </div>
           <!-- View more circle button -->
-          <div class="align-self-end pl-12p mb-5">
+          <div class="align-self-end pl-12p mb-5 hidden-lg">
             {% include 'circle-button.twig' with {
               direction: 'right',
               url: site.link ~ '/sponsors' | relative,
@@ -192,12 +192,17 @@
           </div>
         </div>
 
-        {% if sponsors_block.has_button %}
-          {% include "button.twig" with {
-            props: sponsors_block.button,
-            button_classes: 'button--white'
-          } %}
-        {% endif %}
+        <div class="mt-2 mb-4 hidden block-lg">
+          {% include "scroll-cta.twig" %}
+        </div>
+        <div class="text-align-center-lg">
+          {% if sponsors_block.has_button %}
+            {% include "button.twig" with {
+              props: sponsors_block.button,
+              button_classes: 'button--white'
+            } %}
+          {% endif %}
+        </div>
       </div>
     </section>
 

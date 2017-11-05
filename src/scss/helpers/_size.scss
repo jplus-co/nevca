@@ -6,10 +6,22 @@
   }
 }
 
+.w-100-lg {
+  @media (max-width: $lg) {
+    width: 100%;
+  }
+}
+
 .min-w-0 {
   min-width: 0;
 }
 
 .min-w-md {
   min-width: $md;
+
+  &-md {
+    @media (max-width: $md) {
+      min-width: $md;
+    }
+  }
 }

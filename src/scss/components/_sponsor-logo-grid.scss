@@ -6,7 +6,12 @@
     flex-wrap: wrap;
     margin: -3rem -6rem 2.2rem 0;
     position: relative;
-    padding-left: 2rem
+    padding-left: 2rem;
+
+    @media (max-width: $lg) {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
   &__tier {
@@ -29,8 +34,16 @@
     align-items: center;
     padding: 3rem 6rem;
 
+    @media (max-width: $lg) {
+      padding: 4rem 8rem;
+    }
+
     &--square {
-      padding: 3rem 9rem;
+      padding: 3rem 8rem;
+
+      @media (max-width: $lg) {
+        padding: 4rem 13rem;
+      }
     }
   }
 
