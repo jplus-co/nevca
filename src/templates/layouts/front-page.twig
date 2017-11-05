@@ -24,7 +24,7 @@
         {% include "text-block.twig" with {
           "props": mission_block,
           "is_lede": true,
-          "classes": 'pl-4p-lg pl-3-md pr-3-md mb-7-md'
+          "classes": 'pl-4p-lg pl-3-md pr-3-md mb-7-md order-2'
         } %}
 
         <!-- Mission Images -->
@@ -44,28 +44,48 @@
           } %}
         </div>
         <!-- Event Tease List -->
-        <div class="section__row pt-4p px-8p">
-          <div class="flex">
-            {% include 'event-tease-list.twig' with {
-              "props": featured_events
-            } %}
-            <!-- View more circle button -->
-            <div class="align-self-end pl-2">
-              {% include 'circle-button.twig' with {
-                direction: 'right',
-                url: site.link ~ '/events' | relative,
-                label: 'View all',
-                color: colors.gold
+        <div class="section__row pt-4p px-8p pr-0-lg">
+          <div class="scroll-x-lg pb-6p">
+            <div class="flex min-w-md">
+              {% include 'event-tease-list.twig' with {
+                "props": featured_events
               } %}
+              <!-- View more circle button -->
+              <div class="align-self-end pl-2 pr-3-lg">
+                {% include 'circle-button.twig' with {
+                  direction: 'right',
+                  url: site.link ~ '/events' | relative,
+                  label: 'View all',
+                  color: colors.gold
+                } %}
+              </div>
             </div>
           </div>
+        </div>
+        <div class="mt-2 mb-4 hidden block-lg">
+          {% include "scroll-cta.twig" %}
+        </div>
+        <div class="hidden block-lg text-align-center">
+          {% include "button.twig" with {
+            "props": {
+              "url": site.link|relative ~ '/events/month',
+              "target": '_self',
+              "title": 'View all'
+            }
+          } %}
         </div>
       </div>
     </section>
     <!-- Community -->
-    <section id="community" class="js-section section px-14p py-12p js-fx-trigger">
-      <div class="section__row justify-content-between">
-        <div class="pr-16p js-parallax" data-speed="0.1">
+    <section id="community" class="js-section section px-14p px-3-sm py-12p js-fx-trigger">
+      <div class="flex block-md justify-content-between">
+        <!-- Community Text -->
+        {% include "text-block.twig" with {
+          "props": community_block,
+          "classes": 'pt-6p mb-5-md order-2'
+        } %}
+
+        <div class="pr-16p pr-0-md js-parallax" data-speed="0.1">
           {% set mtw = community_block.member_to_watch %}
           {% set ctw = community_block.company_to_watch %}
 
@@ -87,12 +107,6 @@
             <a class="blog-post-tease__link text-button text-button--underline" href="{{ ctw.link.url }}" target="{{ ctw.link.target }}">{{ ctw.link.title }}</a>
           </div>
         </div>
-
-        <!-- Community Text -->
-        {% include "text-block.twig" with {
-          "props": community_block,
-          "classes": 'pt-6p'
-        } %}
       </div>
     </section>
 
@@ -189,7 +203,7 @@
         <h3 class="text-block__subheading color-gold">{{ press_block.heading }}</h3>
         <div class="publication-grid">
           {% for pub in press_block.publications %}
-            <a href="#0" target="_blank"
+            <a href="{{ site.link|relative ~ '/press' }}" target="_blank"
               class="publication-grid__item">
               <img class="publication-grid__image"
                 src="{{ Image(TimberTerm(pub.term_id).logo).src }}" alt="{{ pub.name }}">

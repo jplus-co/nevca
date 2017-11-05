@@ -9,7 +9,9 @@
       {% include "post-title-list.twig" with {
         "props": props.featured_posts
       } %}
-      <a href="{{ site.link ~ '/faq/' | relative }}" class="text-button text-button--underline">View all</a>
+      <a href="{{ site.link|relative  ~ '/faq' }}" class="text-button text-button--underline">
+        View all
+      </a>
     </div>
   </div>
 </section>
