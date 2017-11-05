@@ -5,6 +5,14 @@
   padding: 7rem 10rem;
   position: relative;
 
+  @media (max-width: $md) {
+    margin-top: 0;
+  }
+
+  @media (max-width: $sm) {
+    padding: 12% 3rem;
+  }
+
   &__heading {
     position: absolute;
     text-align: center;
@@ -14,11 +22,25 @@
     transform: translate(-50%, -58%);
     @include type-style-display-sm();
     text-transform: none;
+
+    @media (max-width: $sm) {
+      position: relative;
+      transform: none;
+      top: auto;
+      left: auto;
+      font-size: 4rem;
+      margin-bottom: 4rem;
+    }
   }
 
   &__row {
     display: flex;
     align-items: center;
+
+    @media (max-width: $md) {
+      display: block;
+      text-align: center;
+    }
   }
 
   &__column {
@@ -26,12 +48,21 @@
 
     &:not(:last-child) {
       padding-right: 12rem;
+
+      @media (max-width: $md) {
+        padding-right: 0;
+      }
     }
   }
 
   &__image {
     width: 100%;
     height: auto;
+
+    @media (max-width: $md) {
+      width: 40%;
+      margin-bottom: 4rem;
+    }
   }
 
   &__title {
