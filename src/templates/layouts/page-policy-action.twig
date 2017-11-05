@@ -28,6 +28,7 @@
               {% for item in press_block.featured_posts %}
                 {% include "list-card.twig" with {
                   "link": item.get_field('link'),
+                  "target": '_blank',
                   "subheading": item.publish_date|date('M d, Y') ~ ' | ' ~ item.source,
                   "rule": true,
                   "heading": item.title,
