@@ -29,6 +29,12 @@
 
 .text-align-center {
   text-align: center !important;
+
+  &-lg {
+    @media (max-width: $lg) {
+      text-align: center !important;
+    }
+  }
 }
 
 .text-align-left {
