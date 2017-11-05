@@ -1,5 +1,6 @@
 import config from '../config'
 import utils from '../util'
+import transition from '../transitions'
 
 class Preloader {
   constructor (onComplete) {
@@ -12,20 +13,14 @@ class Preloader {
     utils.detectPointer()
     utils.detectBrowser()
 
-    this.animateIn()
-  }
-
-  animateIn = () => {
-    TweenLite.to(this.el.querySelector('p'), 0.7, { opacity: 0.7, onComplete: this.animateOut })
-  }
-
-  animateOut = () => {
-    TweenLite.to(this.el, 0.5, { opacity: 0, onComplete: this.done })
+    return transition.overlay(
+      null,
+      config.container,
+      this.done
+    )
   }
 
   done = () => {
-    this.el.parentNode.removeChild(this.el)
-
     config.body.classList.remove('is-loading')
 
     this.preloaded()

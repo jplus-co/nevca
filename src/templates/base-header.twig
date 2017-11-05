@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% include "html-head.twig" %}
+</head>
+<body class="is-loading">
+	<div id="container">
+
+		<noscript>
+			{% include "noscript.twig" %}
+		</noscript>
+
+		{% include "site-header.twig" with { "menu": menu } %}
+
+		<div id="app">

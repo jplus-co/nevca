@@ -9,6 +9,8 @@ import {
   APP_READY
 } from './constants'
 
+import SiteNavigation from './core/modules/site-navigation'
+
 class App {
   constructor () {
     this.el = config.app
@@ -28,11 +30,7 @@ class App {
     router.init()
 
     this.addEventListeners()
-    this.animateIn()
-  }
-
-  animateIn () {
-    return transition.tween.fadeIn(this.el)
+    this.initSiteNavigation()
   }
 
   addEventListeners () {
@@ -44,6 +42,17 @@ class App {
 
     config.width = window.innerWidth
     config.height = window.innerHeight
+  }
+
+  initSiteNavigation () {
+    this.navigation = new SiteNavigation({
+      toggle: document.querySelector('.js-mobile-toggle'),
+      header: document.querySelector('.js-site-header'),
+      breakpoint: 1000,
+      menuLinks: [...document.querySelectorAll('.js-menu-link')]
+    })
+
+    this.navigation.init()
   }
 }
 

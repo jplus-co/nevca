@@ -1,18 +1,25 @@
 import util from '../util'
 import imagesLoaded from 'imagesloaded'
 
-function overlay (oldContainer, newContainer, done) {
+const overlay = (
+  oldContainer,
+  newContainer,
+  done
+) => {
   let imageLoader
   let loadedCount = 0
 
   let rafActive = true
   let lastRafId
   let progress = 0
-  let ease = 0
+  let ease = 100
 
   const ui = {
+    loader: document.querySelector('.js-page-loader'),
     mask: document.querySelector('.js-page-loader-progress'),
-    inner: document.querySelector('.js-page-loader-progress-inner')
+    inner: document.querySelector('.js-page-loader-progress-inner'),
+    bottom: document.querySelector('.js-layer-bottom'),
+    top: document.querySelector('.js-layer-top')
   }
 
   function cover () {
@@ -24,45 +31,51 @@ function overlay (oldContainer, newContainer, done) {
         loadImages()
       }
     })
-    .to('.js-layer-bottom', 1, { y: 0, ease: Expo.easeInOut }, 'out')
-    .to('.js-layer-top', 1, { y: 0, ease: Expo.easeInOut, delay: 0.075 }, 'out')
-    .to('.js-page-loader', 1, { opacity: 1, ease: Expo.easeOut })
+    .set(ui.loader, { opacity: 0, scale: 0.95, y: '-80%' })
+    .set(ui.bottom, { y: '100%' })
+    .set(ui.top, { y: '100%' })
+
+    .to(ui.loader, 0.75, { opacity: 1, scale: 1, y: '0%', ease: Expo.easeInOut, delay: 0.075 }, 'out')
+    .to(ui.bottom, 0.75, { y: '0%', ease: Expo.easeInOut }, 'out')
+    .to(ui.top, 0.75, { y: '0%', ease: Expo.easeInOut, delay: 0.075 }, 'out')
+  }
+
+  function uncover () {
+    const tl = new TimelineLite({
+      onComplete: () => {
+        done()
+      }
+    })
+
+    oldContainer && tl.set(oldContainer, { display: 'none' })
+    newContainer && tl.set(newContainer, { autoAlpha: 1 })
+
+    tl.to(ui.loader, 1, { opacity: 0, scale: 0.95, y: '80%', ease: Expo.easeInOut }, 'out')
+    tl.to(ui.bottom, 1, { y: '-100%', ease: Expo.easeInOut, delay: 0.075 }, 'out')
+    tl.to(ui.top, 1, { y: '-100%', ease: Expo.easeInOut }, 'out')
   }
 
   function loop () {
-    const percent = 100 - (progress * 100)
+    const target = 100 - (progress * 100)
 
-    ease += (percent - ease) * 0.05
+    ease += (target - ease) * 0.1
 
     if (ease < 0.1) {
       ease = 0
-
       onDone()
     }
 
-    ui.mask.style.transform = `translateY(${ease}%)`
-    ui.inner.style.transform = `translateY(${-ease}%)`
+    ui.mask.style.transform = `translateX(${-ease}%)`
+    ui.inner.style.transform = `translateX(${ease}%)`
 
     if (rafActive) {
-      requestAnimationFrame(loop)
+      lastRafId = requestAnimationFrame(loop)
     }
   }
 
   function cancelLoop () {
     rafActive = false
     cancelAnimationFrame(lastRafId)
-  }
-
-  function uncover () {
-    return new TimelineLite({ onComplete: () => {
-      done()
-    }})
-      .set(oldContainer, { display: 'none' })
-      .set(newContainer, { autoAlpha: 1 })
-
-      .to('.js-page-loader', 1, { y: '-100%', opacity: 0, ease: Expo.easeInOut, clearProps: 'all' }, 'out')
-      .to('.js-layer-bottom', 1, { y: '-100%', ease: Expo.easeInOut, delay: 0.075, clearProps: 'all' }, 'out')
-      .to('.js-layer-top', 1, { y: '-100%', ease: Expo.easeInOut, clearProps: 'all' }, 'out')
   }
 
   function loadImages () {
@@ -74,8 +87,8 @@ function overlay (oldContainer, newContainer, done) {
       cancelLoop()
 
       return new TimelineLite({ onComplete: onDone })
-        .to(ui.mask, 1, { y: '0%', ease: SlowMo.easeOut }, 'in')
-        .to(ui.inner, 1, { y: '0%', ease: SlowMo.easeOut }, 'in')
+        .to(ui.mask, 1, { x: '0%', ease: SlowMo.easeOut, clearProps: 'all' }, 'in')
+        .to(ui.inner, 1, { x: '0%', ease: SlowMo.easeOut, clearProps: 'all' }, 'in')
     }
   }
 

@@ -8,7 +8,7 @@
   height: 100%;
   overflow: hidden;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99999;
 
   &__layer {
     position: fixed;
@@ -20,6 +20,7 @@
     height: 100%;
     will-change: transform;
     transform: translateY(100%);
+    overflow: hidden;
 
     &--top {
       background-color: $white;

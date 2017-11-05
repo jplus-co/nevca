@@ -2,4 +2,8 @@
   width: 100%;
   min-height: 100vh;
   padding-top: $header-size;
+
+  @media (max-width: $lg) {
+    padding-top: $header-size-mobile;
+  }
 }

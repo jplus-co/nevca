@@ -99,19 +99,30 @@ class NEVCASite extends TimberSite {
 				'icon_url'     => 'dashicons-no',
 				'redirect'     => false
 			));
+
+			acf_add_options_page(array(
+				'page_title'   => 'Footer',
+				'menu_title'   => 'Footer',
+				'menu_slug'    => 'nevca_footer',
+				'capability'   => 'edit_posts',
+				'icon_url'     => 'dashicons-arrow-down',
+				'redirect'     => false
+			));
 		}
 	}
 
 	function add_to_context( $context ) {
-		$context['menu'] = new TimberMenu();
+		$context['menu'] = new TimberMenu('Primary Navigation');
+		$context['mobile_menu'] = new TimberMenu('Mobile Menu');
+		$context['footer_menu'] = new TimberMenu('Footer');
 		$context['site'] = $this;
 		$context['options'] = get_fields('option');
 		$context['colors'] = array(
-			'white' => '#FFFFFF',
-			'black' => '#181920',
-			'gold' => '#D9A03E',
-			'light_gold'   => '#F8D57C',
-			'blue' => '#363D4F',
+			'white'      => '#FFFFFF',
+			'black'      => '#181920',
+			'gold'       => '#D9A03E',
+			'light_gold' => '#F8D57C',
+			'blue'       => '#363D4F',
 			'light_blue' => '#BDC4CB'
 		);
 		return $context;

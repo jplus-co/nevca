@@ -1,4 +1,69 @@
-<footer class="site-footer flex justify-content-center align-items-end"
-  style="background-color: {{ colors.black }}; height: 320px; border-top: 0.2rem solid {{ colors.white }}">
-  <span class="text-button py-3p" style="color: {{ colors.white }}; font-weight: 700;">Copyright NEVCA 2017</span>
+{% set newsletter_column = options.newsletter_column %}
+{% set contact_column = options.contact_column %}
+
+<footer class="site-footer">
+  <div class="flex block-lg p-8p py-16p-md is-black">
+    {% if footer_menu %}
+      <div class="flex flex-1 mb-4-lg">
+        {% for item in footer_menu.get_items %}
+          <div class="flex-1 pr-5">
+            <h5 class="site-footer__heading">
+              {{ item.title }}
+            </h5>
+            <div class="site-footer__list">
+              {% for child in item.get_children %}
+                <div class="site-footer__item">
+                  <a class="site-footer__link"
+                     href="{{ child.is_external ? child.link : child.link|relative }}"
+                     target="{{ child.is_external ? '_blank' : '_self' }}"
+                  >
+                    {{ child.title }}
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="flex block-sm flex-1">
+      <div class="flex-1 pr-5 mb-4-sm">
+        <h5 class="site-footer__heading">
+          {{ newsletter_column.heading }}
+        </h5>
+        <div class="site-footer__body">
+          {{ newsletter_column.body }}
+        </div>
+      </div>
+      <div class="flex-1 pr-5">
+        <h5 class="site-footer__heading">
+          {{ contact_column.heading }}
+        </h5>
+        <div class="site-footer__body">
+          <p><a href="{{ 'mailto:' ~ contact_column.contact_email }}">{{ contact_column.contact_email }}</a></p>
+        </div>
+        <div class="site-footer__social-media-links">
+          <a class="site-footer__social-media-link"
+             href="{{ contact_column.social_media_links.facebook }}">
+            {% include "social-icon-facebook.twig" with {
+              primary_fill: colors.white
+            } %}
+          </a>
+          <a class="site-footer__social-media-link"
+             href="">
+            {% include "social-icon-twitter.twig" with {
+              primary_fill: colors.white
+            } %}
+          </a>
+          <a class="site-footer__social-media-link"
+             href="">
+            {% include "social-icon-medium.twig" with {
+              bg_fill: 'none',
+              primary_fill: colors.white
+            } %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>

@@ -46,7 +46,7 @@ class Router {
     config.body.classList.add(`is-${Barba.Pjax.History.currentStatus().namespace}`)
 
     if (Barba.Pjax.History.prevStatus()) {
-        config.body.classList.remove(`is-${Barba.Pjax.History.prevStatus().namespace}`)
+      config.body.classList.remove(`is-${Barba.Pjax.History.prevStatus().namespace}`)
     }
   }
 

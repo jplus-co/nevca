@@ -8,9 +8,22 @@
   background-color: #fff;
   z-index: 8888;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: $white;
-  transition: all 0.8s $ease-out-quint;
+  transition: transform 0.8s $ease-out-quint;
+
+  @media (max-width: $xl) {
+    padding: 0 4rem;
+  }
+
+  @media (max-width: $lg) {
+    height: $header-size-mobile;
+  }
+
+  // @media (max-width: $sm) {
+  //   padding: 0 rem;
+  // }
 
   &--is-hidden {
     transform: translateY(-100%);

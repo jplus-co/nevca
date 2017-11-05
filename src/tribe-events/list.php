@@ -10,20 +10,26 @@
  *
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	die( '-1' );
-}
+ if ( ! defined( 'ABSPATH' ) ) {
+ 	die( '-1' );
+ }
 
-do_action( 'tribe_events_before_template' );
-?>
+ do_action( 'tribe_events_before_template' );
 
-	<!-- Tribe Bar -->
-<?php tribe_get_template_part( 'modules/bar' ); ?>
+ ?>
 
-	<!-- Main Events Content -->
-<?php tribe_get_template_part( 'list/content' ); ?>
+ <div class="flex">
 
-	<div class="tribe-clear"></div>
+ 	<aside class="pt-2p flex-basis-25">
+ 		<!-- Tribe Bar -->
+ 		<?php tribe_get_template_part( 'modules/bar' ) ?>
+ 	</aside>
 
-<?php
-do_action( 'tribe_events_after_template' );
+ 	<div class="flex-1 pl-4p">
+ 		<!-- Main Events Content -->
+ 		<?php tribe_get_template_part( 'list/content' ) ?>
+ 	</div>
+
+ </div>
+
+ <?php do_action( 'tribe_events_after_template' ) ?>

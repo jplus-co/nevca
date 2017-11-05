@@ -21,6 +21,7 @@ $events_label_plural = tribe_get_event_label_plural();
 $event_id = get_the_ID();
 
 ?>
+<div class="view" namespace="events-single-event">
 
 	<div id="tribe-events-content" class="tribe-events-single">
 
@@ -79,3 +80,4 @@ $event_id = get_the_ID();
 		<!-- #tribe-events-footer -->
 
 	</div><!-- #tribe-events-content -->
+</div><!-- .view (barba.js) -->

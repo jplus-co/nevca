@@ -1,6 +1,5 @@
 export default function (mask) {
   const inner = mask.children[0]
-  console.log(inner)
 
   new TimelineMax()
     .set(mask, { x: '-108%' })

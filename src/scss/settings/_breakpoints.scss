@@ -1,8 +1,10 @@
+$xl: 1280px;
 $lg: 1000px;
 $md: 800px;
 $sm: 500px;
 
 $breakpoints: (
+  xl: $xl,
   lg: $lg,
   md: $md,
   sm: $sm

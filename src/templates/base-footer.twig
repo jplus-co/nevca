@@ -1,0 +1,20 @@
+			</div><!-- #app -->
+
+			{% include "mobile-menu.twig" with { "mobile_menu": mobile_menu } %}
+
+		</div><!-- #container -->
+
+		{% include "transition-overlay.twig" %}
+
+		<script>
+			window.APP = window.APP || {}
+			APP.BASE_URL = "{{site.url}}"
+			APP.BASE_URL_RELATIVE = "{{site.url|relative}}"
+			APP.THEME_URL = "{{site.theme.uri}}"
+			APP.AJAX_URL = "{{fn("admin_url", "admin-ajax.php")}}"
+		</script>
+		<script src="{{site.theme.link}}/js/vendor.bundle.js" defer></script>
+		<script src="{{site.theme.link}}/js/app.bundle.js" defer></script>
+		{{ wp_footer }}
+	</body>
+</html>
