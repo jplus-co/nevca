@@ -1,0 +1,36 @@
+{% extends 'base.twig' %}
+
+{% set hero_block = post.get_field('hero') %}
+{% set press_block = post.get_field('press_block') %}
+{% set positions_block = post.get_field('positions_block') %}
+{% set programs_block = post.get_field('programs_block') %}
+
+{% block content %}
+
+  <div class="view" data-namespace="policy-action">
+
+    {% include 'hero-alt.twig' with {
+      hero_text: hero_block.hero_text,
+      hero_body: hero_block.hero_body,
+      is_white: false
+    } %}
+
+    <div class="flex py-12p px-8p">
+
+      <!-- press -->
+      <div>
+
+      </div>
+
+      <!-- positions -->
+      <div>
+
+      </div>
+    </div>
+
+    <!-- programs -->
+
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}
