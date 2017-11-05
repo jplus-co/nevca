@@ -53,7 +53,7 @@ $event_id = get_the_ID();
 
 				<!-- Event content -->
 				<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
-				<div class="tribe-events-single-event-description tribe-events-content">
+				<div class="tribe-events-single-event-description tribe-events-content pr-20p pr-sm-0">
 					<?php the_content(); ?>
 				</div>
 				<!-- .tribe-events-single-event-description -->
