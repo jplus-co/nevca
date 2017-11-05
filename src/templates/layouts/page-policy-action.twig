@@ -1,0 +1,130 @@
+{% extends 'base.twig' %}
+
+{% set hero_block = post.get_field('hero') %}
+{% set press_block = post.get_field('press_block') %}
+{% set positions_block = post.get_field('positions_block') %}
+{% set programs_block = post.get_field('programs_block') %}
+
+{% block content %}
+
+  <div class="view" data-namespace="policy-action">
+
+    {% include 'hero-alt.twig' with {
+      hero_text: hero_block.hero_text,
+      hero_body: hero_block.hero_body,
+      is_white: false
+    } %}
+
+    <section class="section">
+      <div class="flex px-8p py-12p">
+        <!-- press -->
+        <div class="flex-1 pr-12p">
+          <h3 class="text-block__heading">
+            <div class="text-block__rule"></div>
+            {{ press_block.heading }}
+          </h3>
+          <div class="pl-3">
+            <ul class="press-archive-list">
+              {% for item in press_block.featured_posts %}
+                {% include "list-card.twig" with {
+                  "link": item.get_field('link'),
+                  "subheading": item.publish_date|date('M d, Y') ~ ' | ' ~ item.source,
+                  "rule": true,
+                  "heading": item.title,
+                  "body": item.body,
+                  "list_card_classes": 'mb-3'
+                } %}
+              {% endfor %}
+            </ul>
+            <a class="text-button text-button--underline" href="{{ site.link|relative ~ '/press' }}">
+              View more
+            </a>
+          </div>
+        </div>
+
+        <!-- positions -->
+        <div class="flex-basis-45 px-4p">
+          <h3 class="text-block__heading">
+            <div class="text-block__rule"></div>
+            {{ positions_block.heading }}
+          </h3>
+          <div class="pl-3">
+            <ul class="reset-list">
+              {% for item in positions_block.links %}
+                <li>
+                  <a class="text-button text-button--large flex align-items-center mb-3 reset-anchor"
+                    target="{{ item.link.target }}"
+                    href="{{ item.link.url }}">
+                      {{ item.link.title }}
+                      {% include "circle-button.twig" with {
+                        "direction": 'right',
+                        "class": 'ml-2'
+                      } %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+            <a class="text-button text-button--underline"
+              target="_blank"
+              href="{{ options.contact_column.social_media_links.medium }}">
+              View more
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-12p">
+        <div class="pr-16p">
+          <div class="pt-8p px-8p is-gold color-white">
+            <h3 class="text-block__heading text-block__heading--display m-0">
+              {{ programs_block.heading }}
+            </h3>
+          </div>
+        </div>
+
+          {% for post in programs_block.featured_posts %}
+            <div class="columns-block columns-block--gold relative">
+              <div class="pr-16p">
+                <div class="is-gold color-white">
+                  <div class="columns-block__row py-10p pl-8p">
+
+                    {% include 'text-block.twig' with {
+                      props: {
+                        heading: post.title,
+                        body: post.body,
+                        button: post.get_field('button')
+                      },
+                      button_classes: 'button--white',
+                      classes: 'mb-8-lg mb-6-md mb-4-sm'
+                    } %}
+
+                    <div class="columns-block__image-cluster">
+                      {% for image in post.images %}
+                        <img
+                          class="columns-block__image columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
+                          src="{{ Image(image).src }}"
+                          alt="{{ post.title }}">
+                      {% endfor %}
+                    </div>
+
+                  </div><!-- .columns-block__row -->
+                </div>
+              </div>
+            </div><!-- .columns-block -->
+          {% endfor %}
+
+      </div><!-- end programs -->
+
+
+    </section>
+
+    {% include "faq-tease-block.twig" with {
+      "props": {
+        "heading": options.default_faqs_heading.heading,
+        "featured_posts": options.default_faqs
+      }
+    } %}
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}

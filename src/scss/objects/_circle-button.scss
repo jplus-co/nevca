@@ -6,6 +6,10 @@
   outline: none;
   color: currentColor;
 
+  .text-button & {
+    pointer-events: none;
+  }
+
   &__circle {
     display: inline-block;
     width: 4.5rem;
@@ -15,6 +19,11 @@
     border-style: solid;
     border-radius: 50%;
     overflow: hidden;
+
+    .text-button & {
+      width: 3rem;
+      height: 3rem;
+    }
   }
 
   &__arrow {
@@ -31,6 +40,10 @@
       left: 52%;
       top: 52%;
       transform: translate(-50%, -50%);
+
+      .text-button & {
+        transform: translate(-50%, -50%) scale(0.75);
+      }
     }
   }
 
@@ -48,6 +61,7 @@
       }
     }
 
+    .text-button:hover &,
     &:hover {
       .circle-button__arrow {
         transition: transform 1s $ease-in-out-quint;
@@ -70,6 +84,7 @@
       }
     }
 
+    .text-button:hover &,
     &:hover {
       .circle-button__arrow {
         transition: transform 1s $ease-in-out-quint;
