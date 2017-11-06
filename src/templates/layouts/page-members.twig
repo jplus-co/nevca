@@ -44,6 +44,12 @@
       <div class="members"></div>
     </div>
 
+    {% include "faq-tease-block.twig" with {
+      "props": {
+        "heading": options.default_faqs_heading.heading,
+        "featured_posts": options.default_faqs
+      }
+    } %}
     {% include 'site-footer.twig' %}
   </div>
 
