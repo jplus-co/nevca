@@ -10,6 +10,9 @@ import {
   TRANSITION_COMPLETED
 } from '../constants'
 
+import Parallax from './modules/parallax'
+import ScrollFx from './modules/scroll-fx'
+
 class Router {
   constructor () {
     Barba.Pjax.Dom.wrapperId = 'app'
@@ -42,16 +45,37 @@ class Router {
     this.utils.lock()
   }
 
-  handleNewPageReady = () => {
+  handleNewPageReady = (cur, prev, page) => {
     config.body.classList.add(`is-${Barba.Pjax.History.currentStatus().namespace}`)
 
     if (Barba.Pjax.History.prevStatus()) {
       config.body.classList.remove(`is-${Barba.Pjax.History.prevStatus().namespace}`)
     }
+
+    this.initModules(page)
   }
 
   handleTransitionCompleted = () => {
     this.utils.unlock()
+  }
+
+  initModules(page) {
+    this.initParallax(page)
+    this.initFx(page)
+  }
+
+  initParallax (page) {
+    const parallaxItems = page.querySelectorAll('.js-parallax')
+
+    this.parallax = new Parallax({ parallaxItems })
+    this.parallax.init()
+  }
+
+  initFx (page) {
+    const fxTriggers = page.querySelectorAll('.js-fx-trigger')
+
+    this.fx = new ScrollFx({ fxTriggers })
+    this.fx.init()
   }
 }
 

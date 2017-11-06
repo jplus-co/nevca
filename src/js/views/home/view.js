@@ -2,8 +2,6 @@ import Barba from 'barba.js'
 import config from '@config'
 import transition from '../../transitions'
 import BackgroundVideo from '../../core/modules/background-video'
-import Parallax from '../../core/modules/parallax'
-import ScrollFx from '../../core/modules/scroll-fx'
 
 const home = Barba.BaseView.extend({
 	namespace: 'home',
@@ -19,17 +17,12 @@ const home = Barba.BaseView.extend({
 	},
 
 	onEnterCompleted () {
-		this.initParallax()
-		this.initFx()
-
 		this.animateIn()
 	},
 
 	onLeave () {},
 
 	onLeaveCompleted () {
-		this.parallax.destroy()
-		this.fx.destroy()
 		!config.isDevice && this.video.destroy()
 	},
 
@@ -53,20 +46,6 @@ const home = Barba.BaseView.extend({
 	      autoAlpha: 1,
 	      ease: Expo.easeOut
 	    }, 0.075)
-	},
-
-	initParallax () {
-		const parallaxItems = this.page.querySelectorAll('.js-parallax')
-
-		this.parallax = new Parallax({ parallaxItems })
-		this.parallax.init()
-	},
-
-	initFx () {
-		const fxTriggers = this.page.querySelectorAll('.js-fx-trigger')
-
-		this.fx = new ScrollFx({ fxTriggers })
-		this.fx.init()
 	},
 
 	initBackgroundVideo () {
