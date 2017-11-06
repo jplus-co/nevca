@@ -6,8 +6,8 @@
     {% include "term-navigation.twig" with {
       "resource_topics": resource_topics
     } %}
-    <div class="translate-y-n7 px-6p">
-      <div class="flex">
+    <div class="translate-y-n7 px-6p scroll-x-lg pl-4p-lg pl-3-md pr-0-lg">
+      <div class="flex min-w-md-md">
         {# maximum of 5 featured resources #}
         {% for type in resource_types|slice(0, 4) %}
           {# get latest post in each resource type #}
@@ -17,11 +17,14 @@
             "heading": post.title,
             "body": post.description,
             "rule": true,
-            "list_card_classes": 'flex-1 m-1 min-w-0 is-blue',
+            "list_card_classes": 'flex-1 m-1 m-0-md mr-1-md min-w-0 is-blue',
             "list_card_link_classes": 'p-2 overflow-hidden'
           } %}
         {% endfor %}
       </div>
+    </div>
+    <div class="translate-y-n7 mt-2 hidden block-lg">
+      {% include "scroll-cta.twig" %}
     </div>
     {% for topic in resource_topics %}
       <div id="{{ topic.slug }}" class="js-section section">

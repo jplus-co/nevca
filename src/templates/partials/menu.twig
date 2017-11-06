@@ -2,7 +2,7 @@
 	<ul class="{{ block ~ '__list' }}">
 	{% for item in menu.get_items %}
 		<li class="{{ block ~ '__item' }}">
-			<!-- TODO: ECP x Barba.js integration -->
+			{# TODO: ECP x Barba.js integration #}
 			<a class="{{ loop.index == 5 ? 'no-barba '}}{{ loop.index == loop.length ? block ~ '__button' : block ~ '__link' }}"
 				target="{{ item.is_external ? '_blank' : '_self' }}"
         href="{{ item.is_external ? item.link : item.link|relative }}">
