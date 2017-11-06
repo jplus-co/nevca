@@ -18,14 +18,14 @@
 
  ?>
 
- <div class="flex">
+ <div class="flex block-md">
 
- 	<aside class="pt-2p flex-basis-25">
+ 	<aside class="mt-5 mt-0-sm flex-basis-25">
  		<!-- Tribe Bar -->
  		<?php tribe_get_template_part( 'modules/bar' ) ?>
  	</aside>
 
- 	<div class="flex-1 pl-4p">
+ 	<div class="flex-1 block-md pl-4p pl-0-md">
  		<!-- Main Events Content -->
  		<?php tribe_get_template_part( 'list/content' ) ?>
  	</div>

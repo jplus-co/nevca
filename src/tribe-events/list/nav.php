@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <ul class="tribe-events-sub-nav">
 	<!-- Left Navigation -->
 	<?php if ( tribe_has_previous_event() ) : ?>
-			<a class="flex align-items-center" aria-label="previous events link" href="<?php echo esc_url( tribe_get_listview_prev_link() ); ?>" rel="prev"><?php printf( '<span class="pagination__control pagination__control--prev"></span> ' . esc_html__( 'Previous %s', 'the-events-calendar' ), $events_label_plural ); ?></a>
+			<a class="flex align-items-center mb-2 mb-2-md" aria-label="previous events link" href="<?php echo esc_url( tribe_get_listview_prev_link() ); ?>" rel="prev"><?php printf( '<span class="pagination__control pagination__control--prev"></span> ' . esc_html__( 'Previous %s', 'the-events-calendar' ), $events_label_plural ); ?></a>
 		<!-- .tribe-events-nav-left -->
 	<?php endif; ?>
 

@@ -29,33 +29,30 @@ $organizer_id = get_the_ID();
 <?php while ( have_posts() ) : the_post(); ?>
 	<div class="tribe-events-organizer">
 			<p class="tribe-events-back">
-				<a href="<?php echo esc_url( tribe_get_events_link() ); ?>" rel="bookmark"><?php printf( __( '&larr; Back to %s', 'tribe-events-calendar-pro' ), tribe_get_event_label_plural() ); ?></a>
+				<a class="flex align-items-center reset-anchor" href="<?php echo esc_url( tribe_get_events_link() ); ?>">
+					<span class="pagination__control pagination__control--prev"></span>
+					<?php printf( __( 'Back to %s', 'tribe-events-calendar-pro' ), tribe_get_event_label_plural() ); ?>
+				</a>
 			</p>
 
-		<?php do_action( 'tribe_events_single_organizer_before_organizer' ) ?>
-		<div class="tribe-events-organizer-meta tribe-clearfix">
 
-				<!-- Organizer Title -->
-				<?php do_action( 'tribe_events_single_organizer_before_title' ) ?>
-				<h2 class="tribe-organizer-name"><?php echo tribe_get_organizer( $organizer_id ); ?></h2>
-				<?php do_action( 'tribe_events_single_organizer_after_title' ) ?>
 
-				<!-- Organizer Meta -->
-				<?php do_action( 'tribe_events_single_organizer_before_the_meta' ); ?>
-				<?php echo tribe_get_organizer_details(); ?>
-				<?php do_action( 'tribe_events_single_organizer_after_the_meta' ) ?>
-
-				<!-- Organizer Featured Image -->
-				<?php echo tribe_event_featured_image( null, 'full' ) ?>
-
-				<!-- Organizer Content -->
-				<?php if ( get_the_content() ) { ?>
-				<div class="tribe-organizer-description tribe-events-content">
-					<?php the_content(); ?>
+			<div class="tribe-events-schedule tribe-clearfix"
+					style="background-image: url(<?php echo tribe_event_featured_image( $event_id, 'full', false, false); ?>)">
+				<div class="relative z-index-1">
+					<div class="hero-label">Events from</div>
+					<?php the_title( '<h1 class="tribe-events-single-event-title">', '</h1>' ); ?>
+					<div class="organizer-details"><?php echo tribe_get_organizer_details(); ?></div>
 				</div>
-				<?php } ?>
-
 			</div>
+
+			<!-- Organizer Content -->
+			<?php if ( get_the_content() ) { ?>
+			<div class="tribe-organizer-description tribe-events-content">
+				<?php the_content(); ?>
+			</div>
+			<?php } ?>
+
 			<!-- .tribe-events-organizer-meta -->
 		<?php do_action( 'tribe_events_single_organizer_after_organizer' ) ?>
 

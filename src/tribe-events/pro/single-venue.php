@@ -26,71 +26,82 @@ if ( ! defined( 'ABSPATH' ) ) {
 $venue_id     = get_the_ID();
 $full_address = tribe_get_full_address();
 $telephone    = tribe_get_phone();
-$website_link = tribe_get_venue_website_link();
+$website_link = tribe_get_venue_website_link(null, 'Website');
 global $wp_query;
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 <div class="tribe-events-venue">
 
-		<p class="tribe-events-back">
-			<a href="<?php echo esc_url( tribe_get_events_link() ); ?>" rel="bookmark"><?php printf( __( '&larr; Back to %s', 'tribe-events-calendar-pro' ), tribe_get_event_label_plural() ); ?></a>
-		</p>
+	<p class="tribe-events-back">
+		<a class="flex align-items-center reset-anchor" href="<?php echo esc_url( tribe_get_events_link() ); ?>">
+			<span class="pagination__control pagination__control--prev"></span>
+			<?php printf( __( 'Back to %s', 'tribe-events-calendar-pro' ), tribe_get_event_label_plural() ); ?>
+		</a>
+	</p>
 
-	<div class="tribe-events-venue-meta tribe-clearfix">
-		<!-- Venue Title -->
-		<?php do_action( 'tribe_events_single_venue_before_title' ) ?>
-		<h2 class="tribe-venue-name"><?php echo tribe_get_venue( $venue_id ); ?></h2>
-		<?php do_action( 'tribe_events_single_venue_after_title' ) ?>
+		<div class="tribe-events-schedule tribe-clearfix">
+			<div class="relative z-index-1">
+				<div class="hero-label">Events happening at</div>
+				<?php the_title( '<h1 class="tribe-events-single-event-title">', '</h1>' ); ?>
 
-		<?php if ( tribe_embed_google_map() && tribe_address_exists() ) : ?>
-			<!-- Venue Map -->
-			<div class="tribe-events-map-wrap">
-				<?php echo tribe_get_embedded_map( $venue_id, '100%', '200px' ); ?>
-			</div><!-- .tribe-events-map-wrap -->
-		<?php endif; ?>
+				<div class="tribe-events-event-meta">
+					<!-- Venue Meta -->
+					<?php do_action( 'tribe_events_single_venue_before_the_meta' ) ?>
 
-		<div class="tribe-events-event-meta">
+					<div class="venue-address">
 
-			<?php if ( tribe_show_google_map_link() && tribe_address_exists() ) : ?>
-				<!-- Google Map Link -->
-				<?php echo tribe_get_map_link_html(); ?>
-			<?php endif; ?>
+						<?php if ( $full_address ) : ?>
+						<address class="tribe-events-address">
+							<div class="location mb-1">
+								<?php echo $full_address; ?>
+							</div>
+						</address>
+						<?php endif; ?>
 
-			<!-- Venue Meta -->
-			<?php do_action( 'tribe_events_single_venue_before_the_meta' ) ?>
+						<?php if ( $telephone ): ?>
+							<span class="tel">
+								<?php echo $telephone; ?>
+							</span>
+						<?php endif; ?>
 
-			<div class="venue-address">
+						<?php if ( $website_link ): ?>
+							<div class="url mb-1">
+								<?php echo $website_link; ?>
+							</div>
+						<?php endif; ?>
 
-				<?php if ( $full_address ) : ?>
-				<address class="tribe-events-address">
-					<span class="location">
-						<?php echo $full_address; ?>
-					</span>
-				</address>
-				<?php endif; ?>
+					</div><!-- .venue-address -->
 
-				<?php if ( $telephone ): ?>
-					<span class="tel">
-						<?php echo $telephone; ?>
-					</span>
-				<?php endif; ?>
+					<?php if ( tribe_show_google_map_link() && tribe_address_exists() ) : ?>
+						<!-- Google Map Link -->
+						<?php echo tribe_get_map_link_html(); ?>
+					<?php endif; ?>
 
-				<?php if ( $website_link ): ?>
-					<span class="url">
-						<?php echo $website_link; ?>
-					</span>
-				<?php endif; ?>
+					<?php do_action( 'tribe_events_single_venue_after_the_meta' ) ?>
 
-			</div><!-- .venue-address -->
+				</div><!-- .tribe-events-event-meta -->
 
-			<?php do_action( 'tribe_events_single_venue_after_the_meta' ) ?>
+			</div>
 
-		</div><!-- .tribe-events-event-meta -->
 
 		<!-- Venue Description -->
 		<?php if ( get_the_content() ) : ?>
 		<div class="tribe-venue-description tribe-events-content">
 			<?php the_content(); ?>
+
+			<?php if ( $website_link ): ?>
+				<div class="url mb-1">
+					<?php echo $website_link; ?>
+				</div>
+			<?php endif; ?>
+
+		</div><!-- .venue-address -->
+
+		<?php if ( tribe_show_google_map_link() && tribe_address_exists() ) : ?>
+			<!-- Google Map Link -->
+			<?php echo tribe_get_map_link_html(); ?>
+		<?php endif; ?>
+
 		</div>
 		<?php endif; ?>
 
