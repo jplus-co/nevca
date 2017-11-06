@@ -1,23 +1,26 @@
 <div class="transition-overlay js-overlay">
+
   <div class="transition-overlay__layer transition-overlay__layer--top js-layer-top">
+
     <div class="page-loader js-page-loader">
       <div class="page-loader__inner">
-        {% include "badge-logo.twig" with {
-          logo_classes: 'page-loader__logo page-loader__logo--background',
-          textColor: colors.white,
-          bgColor: colors.black
-        } %}
-        <div class="page-loader__progress js-page-loader-progress">
-          <div class="page-loader__progress-inner js-page-loader-progress-inner">
-            {% include "badge-logo.twig" with {
-              logo_classes: 'page-loader__logo page-loader__logo--progress',
-              textColor: colors.white,
-              bgColor: colors.gold
-            } %}
+
+        <div class="page-loader__background js-page-loader-background">
+          <div class="page-loader__background-inner js-page-loader-background-inner">
+            {% include "header-logo.twig" with { color: colors.black } %}
           </div>
         </div>
+
+        <div class="page-loader__progress js-page-loader-progress">
+          <div class="page-loader__progress-inner js-page-loader-progress-inner">
+            {% include "header-logo.twig" with { color: colors.gold } %}
+          </div>
+        </div>
+
       </div>
     </div>
+
   </div>
+
   <div class="transition-overlay__layer transition-overlay__layer--bottom js-layer-bottom"></div>
 </div>
