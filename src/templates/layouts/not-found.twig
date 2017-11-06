@@ -5,13 +5,13 @@
 {% block content %}
   <div class="view" data-namespace="not-found">
 
-    <div class="section__container section__container--65 py-12p">
+    <div class="section__container section__container--65 py-12p px-3">
       <div class="not-found">
         <div class="not-found__inner">
           <h1 class="not-found__heading">{{ not_found.heading }}</h1>
-          <div class="flex flex-wrap">
+          <div class="flex flex-wrap block-sm">
             {% for item in not_found.suggested_links %}
-              <a class="text-button text-button--underline flex-basis-50 mb-2" href="{{ item.link.url }}" target="{{ item.link.target }}">{{ item.link.title }}</a>
+              <a class="block text-button text-button--underline flex-basis-50 mb-2 pr-2" href="{{ item.link.url }}" target="{{ item.link.target }}">{{ item.link.title }}</a>
             {% endfor %}
           </div>
           <div class="py-12p">
