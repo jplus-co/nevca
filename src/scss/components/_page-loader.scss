@@ -20,6 +20,16 @@
     height: 100%;
     overflow: hidden;
     will-change: transform;
+
+    > .header-logo * {
+      fill: $gold !important;
+    }
+  }
+
+  &__background {
+    > .header-logo * {
+      fill: $black !important;
+    }
   }
 
   &__progress-inner {
