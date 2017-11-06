@@ -54,12 +54,14 @@
       </div>
     </div>
 
-    <div class="relative pb-10p">
-      <div class="pt-8p pb-20p">
-        <div class="flex justify-content-end is-gold">
+    <div class="relative mb-10p mb-7-lg">
+      <div class="hidden block-lg is-white absolute pos-t pos-l pos-r h-20"></div>
+      <div class="hidden block-lg is-white absolute pos-b pos-l pos-r h-20"></div>
+      <div class="pt-8p pb-20p pb-0-lg">
+        <div class="flex justify-content-end block-lg is-gold">
 
             <div class="membership-form">
-              <div class="membership-form__inner is-blue p-7">
+              <div class="membership-form__inner is-blue p-7 p-5-sm">
                 <div class="membership-form__heading text-block__heading">
                   <span class="text-block__rule"></span>
                   {{ form_text_block.heading }}
@@ -76,11 +78,11 @@
               </div>
             </div>
 
-
-          {% include "testimonial-slider.twig" with {
-            "props": post.get_field('featured_testimonials'),
-            "is_white": true
-          } %}
+            {% include "testimonial-slider.twig" with {
+              "props": post.get_field('featured_testimonials'),
+              "is_white": true,
+              "classes": 'testimonial-slider--hidden-lg'
+            } %}
         </div>
       </div>
     </div>

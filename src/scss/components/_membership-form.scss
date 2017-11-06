@@ -6,6 +6,19 @@
   bottom: 10%;
   font-size: 1.4rem;
 
+  @media (max-width: $lg) {
+    right: auto;
+    left: auto;
+    padding: 0 4%;
+    width: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: $md) {
+    padding: 0 3rem;
+  }
+
   &__inner {
     border-radius: 0.6rem;
   }
