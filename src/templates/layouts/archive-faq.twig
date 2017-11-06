@@ -4,16 +4,21 @@
 
   <div class="view" data-namespace="faq">
     {% include "hero.twig" with {
-      "hero_text": 'FAQ',
+      "hero_text": options.faq_page_options.hero_text,
       "aux": true
     } %}
 
     <section class="js-section section">
-      <div class="section__container section__container--70">
+      <div class="section__container section__container--70 px-3">
         {% if posts %}
           {% include "faq-archive-list.twig" with {
-            props: posts
+            "props": posts
           } %}
+          <div class="mb-12p">
+            {% include "pagination.twig" with {
+              "props": posts
+            } %}
+          </div>
         {% endif %}
       </div>
     </section>

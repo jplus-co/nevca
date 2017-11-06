@@ -6,8 +6,8 @@
     {% include "term-navigation.twig" with {
       "resource_topics": resource_topics
     } %}
-    <div class="translate-y-n7 px-6p">
-      <div class="flex">
+    <div class="translate-y-n7 px-6p scroll-x-lg pl-4p-lg pl-3-md pr-0-lg">
+      <div class="flex min-w-md-md">
         {# maximum of 5 featured resources #}
         {% for type in resource_types|slice(0, 4) %}
           {# get latest post in each resource type #}
@@ -17,22 +17,25 @@
             "heading": post.title,
             "body": post.description,
             "rule": true,
-            "list_card_classes": 'flex-1 m-1 min-w-0 is-blue',
+            "list_card_classes": 'flex-1 m-1 m-0-md mr-1-md min-w-0 is-blue',
             "list_card_link_classes": 'p-2 overflow-hidden'
           } %}
         {% endfor %}
       </div>
     </div>
+    <div class="translate-y-n7 mt-2 hidden block-lg">
+      {% include "scroll-cta.twig" %}
+    </div>
     {% for topic in resource_topics %}
       <div id="{{ topic.slug }}" class="js-section section">
-        <div class="py-6p">
+        <div class="py-6p py-8p-lg">
           <div class="relative">
             <div class="resource-topic-collection resource-topic-collection--{{ loop.index is odd ? 'odd' : 'even' }}">
               <h3 class="resource-topic-collection__heading">
                 <span>{{ topic.name }}</span>
               </h3>
-              <div class="resource-topic-collection__row">
-                <ul class="resource-topic-collection__list">
+              <div class="resource-topic-collection__row scroll-x-lg pb-4p-lg">
+                <ul class="resource-topic-collection__list min-w-md-md">
                   {% for post in Term(topic).posts|slice(0, 4) %}
                     {% set type = post.get_terms('resource_type')[0] %}
                     {% include "list-card.twig" with {
@@ -47,14 +50,26 @@
                     } %}
                   {% endfor %}
                 </ul>
-                <div class="px-4p">
+                <div class="px-4p hidden-lg">
                   {% include 'circle-button.twig' with {
                     direction: loop.index is odd ? 'right' : 'left',
                     url: Term(topic).link|relative,
-                    label: 'Show all',
+                    label: 'View all',
                     color: colors.gold
                   } %}
                 </div>
+              </div>
+              <div class="mt-2 mb-4 hidden block-lg">
+                {% include "scroll-cta.twig" %}
+              </div>
+              <div class="hidden block-lg text-align-center">
+                {% include "button.twig" with {
+                  "props": {
+                    "url": Term(topic).link|relative,
+                    "target": '_self',
+                    "title": 'View all'
+                  }
+                } %}
               </div>
             </div>
           </div>
@@ -62,6 +77,12 @@
       </div>
     {% endfor %}
 
+    {% include "faq-tease-block.twig" with {
+      "props": {
+        "heading": options.default_faqs_heading.heading,
+        "featured_posts": options.default_faqs
+      }
+    } %}
     {% include "site-footer.twig" %}
   </div>
 {% endblock %}

@@ -17,7 +17,7 @@ class BrowseMembers extends Component {
       <div class={'members__inner'}>
         <FilterPanel {...props} />
         <div>
-          <div class='flex align-items-center pb-6'>
+          <div class='flex align-items-center pb-6 pb-3-md'>
             <button class='button button--dropdown' onClick={() => document.body.classList.add('filter-panel--active')}>
               <span class='button__inner'>
                 <span class='button__text'>Filter members</span>

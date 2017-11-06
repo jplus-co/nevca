@@ -3,12 +3,24 @@
   flex-wrap: wrap;
   margin: 0 -6rem -3rem;
 
+  @media (max-width: $sm) {
+    display: block;
+  }
+
   &__item {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-basis: calc(100% / 3);
     padding: 3rem 6rem;
+
+    @media (max-width: $md) {
+      flex-basis: 50%;
+    }
+
+    @media (max-width: $sm) {
+      margin-bottom: 2rem;
+    }
   }
 
   &__image {

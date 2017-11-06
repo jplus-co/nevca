@@ -12,9 +12,7 @@
       "half_image": true
     } %}
 
-    {{featured_member.image|print_r}}
-
-    <div class="px-16p">
+    <div class="px-16p px-8p-lg px-0-md">
       <div class="featured-member">
         <h2 class="featured-member__heading">Featured Member</h2>
         <div class="featured-member__row">
@@ -41,11 +39,17 @@
       </div>
     </div>
 
-    <div class="py-12p px-16p">
+    <div class="py-12p px-16p px-8p-lg px-3-md">
       <!-- preact entry point -->
       <div class="members"></div>
     </div>
 
+    {% include "faq-tease-block.twig" with {
+      "props": {
+        "heading": options.default_faqs_heading.heading,
+        "featured_posts": options.default_faqs
+      }
+    } %}
     {% include 'site-footer.twig' %}
   </div>
 

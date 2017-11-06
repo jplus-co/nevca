@@ -4,6 +4,14 @@
   margin-bottom: 3.6rem;
   position: relative;
 
+  @media (max-width: $md) {
+    flex-basis: calc(100% / 3);
+  }
+
+  @media (max-width: $sm) {
+    flex-basis: 50%;
+  }
+
   &__link {
     @include reset-anchor();
     font-size: 1.4rem;
@@ -22,6 +30,14 @@
     align-items: center;
     padding: 3rem;
     margin-bottom: 1.8rem;
+
+    @media (max-width: $md) {
+      height: 20rem;
+    }
+
+    @media (max-width: $sm) {
+      height: 18rem;
+    }
 
     .member-card--cta & {
       background-color: $gold;
@@ -75,6 +91,7 @@
 
   &__text {
     font-size: 1.4rem;
+    line-height: 1.4;
     display: block;
     transition: color 1.2s $ease-out-quint, background-color 1.2s $ease-out-quint;
 

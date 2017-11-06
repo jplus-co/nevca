@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import classnames from 'classnames'
+import config from '@config'
 
 import Mouse from './Mouse'
 
@@ -41,7 +42,7 @@ const MemberCard = ({
               class='member-card__text'
               dangerouslySetInnerHTML={{__html: member.title.rendered}}></figcaption>
 
-            {!skeleton && (
+            {!skeleton && !config.isDevice && (
               <ul class={classnames('member-card__sector-list-hover', {
                 'member-card__sector-list-hover--active': mouse.hover,
                 'flex flex-wrap': member.sectors.length > 15

@@ -6,6 +6,16 @@
   position: absolute;
 }
 
+@each $suffix, $value in $breakpoints {
+  @each $pos in relative, absolute {
+    .#{$pos}-#{$suffix} {
+      @media (max-width: $value) {
+        position: #{$pos};
+      }
+    }
+  }
+}
+
 @each $s1 in top, right, bottom, left {
   .pos-#{str-slice($s1, 1, 1)} {
     #{$s1}: 0;
@@ -29,6 +39,12 @@
 
 .text-align-center {
   text-align: center !important;
+
+  &-lg {
+    @media (max-width: $lg) {
+      text-align: center !important;
+    }
+  }
 }
 
 .text-align-left {

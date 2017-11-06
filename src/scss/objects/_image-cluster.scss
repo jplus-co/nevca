@@ -1,6 +1,24 @@
 .image-cluster {
   flex-basis: 36%;
 
+  &--first-full {
+    @media (max-width: $md) {
+      position: relative;
+      height: 60rem;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 85%;
+        bottom: 0;
+        right: 0;
+        background-color: $black;
+      }
+    }
+  }
+
   &__item {
     position: absolute;
 
@@ -27,6 +45,20 @@
           width: calc(100% + 2.4rem);
           height: calc(50% + 2.4rem);
           background-color: $gold;
+
+          @media (max-width: $md) {
+            bottom: -1.8rem;
+            width: calc(100% + 1.8rem);
+            height: calc(50% + 1.8rem);
+          }
+        }
+
+        @media (max-width: $md) {
+          width: 80%;
+          height: 60rem;
+          top: 0;
+          left: 0;
+          bottom: 0;
         }
       }
 
@@ -35,6 +67,17 @@
         height: 20rem;
         left: 20%;
         bottom: -6.4rem;
+
+        @media (max-width: $md) {
+          height: 30rem;
+          width: 45%;
+          left: 45%;
+          bottom: -4rem;
+        }
+
+        @media (max-width: $sm) {
+          height: 20rem;
+        }
       }
     }
   }
