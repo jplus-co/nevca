@@ -16,40 +16,15 @@
     } %}
 
     <section class="section">
-      <div class="flex px-8p py-12p">
-        <!-- press -->
-        <div class="flex-1 pr-12p">
-          <h3 class="text-block__heading">
-            <div class="text-block__rule"></div>
-            {{ press_block.heading }}
-          </h3>
-          <div class="pl-3">
-            <ul class="press-archive-list">
-              {% for item in press_block.featured_posts %}
-                {% include "list-card.twig" with {
-                  "link": item.get_field('link'),
-                  "target": '_blank',
-                  "subheading": item.publish_date|date('M d, Y') ~ ' | ' ~ item.source,
-                  "rule": true,
-                  "heading": item.title,
-                  "body": item.body,
-                  "list_card_classes": 'mb-3'
-                } %}
-              {% endfor %}
-            </ul>
-            <a class="text-button text-button--underline" href="{{ site.link|relative ~ '/press' }}">
-              View more
-            </a>
-          </div>
-        </div>
+      <div class="flex block-md px-8p px-4p-lg px-3-md py-12p">
 
         <!-- positions -->
-        <div class="flex-basis-45 px-4p">
+        <div class="flex-basis-45 order-2 px-4p px-0-md mb-7-md">
           <h3 class="text-block__heading">
             <div class="text-block__rule"></div>
             {{ positions_block.heading }}
           </h3>
-          <div class="pl-3">
+          <div class="pl-3 pl-0-lg">
             <ul class="reset-list">
               {% for item in positions_block.links %}
                 <li>
@@ -72,11 +47,38 @@
             </a>
           </div>
         </div>
-      </div>
+
+        <!-- press -->
+        <div class="flex-1 pr-12p pr-0-md">
+          <h3 class="text-block__heading">
+            <div class="text-block__rule"></div>
+            {{ press_block.heading }}
+          </h3>
+          <div class="pl-3 pl-0-lg">
+            <ul class="press-archive-list">
+              {% for item in press_block.featured_posts %}
+                {% include "list-card.twig" with {
+                  "link": item.get_field('link'),
+                  "target": '_blank',
+                  "subheading": item.publish_date|date('M d, Y') ~ ' | ' ~ item.source,
+                  "rule": true,
+                  "heading": item.title,
+                  "body": item.body,
+                  "list_card_classes": 'mb-3'
+                } %}
+              {% endfor %}
+            </ul>
+            <a class="text-button text-button--underline" href="{{ site.link|relative ~ '/press' }}">
+              View more
+            </a>
+          </div>
+        </div>
+
+      </div><!-- flex container -->
 
       <div class="mb-12p">
-        <div class="pr-16p">
-          <div class="pt-8p px-8p is-gold color-white">
+        <div class="pr-16p pr-0-lg">
+          <div class="pt-8p px-8p px-3-lg is-gold color-white">
             <h3 class="text-block__heading text-block__heading--display m-0">
               {{ programs_block.heading }}
             </h3>
@@ -85,9 +87,9 @@
 
           {% for post in programs_block.featured_posts %}
             <div class="columns-block columns-block--gold relative">
-              <div class="pr-16p">
+              <div class="pr-16p pr-0-lg">
                 <div class="is-gold color-white">
-                  <div class="columns-block__row py-10p pl-8p">
+                  <div class="columns-block__row py-10p py-8p-lg pl-8p pl-3-md">
 
                     {% include 'text-block.twig' with {
                       props: {
@@ -96,8 +98,10 @@
                         button: post.get_field('button')
                       },
                       button_classes: 'button--white',
-                      classes: 'mb-8-lg mb-6-md mb-4-sm'
+                      classes: 'mb-8-lg mb-6-md mb-4-sm pr-6p-lg'
                     } %}
+
+                    <div class="hidden block-lg absolute pos-b pos-l pos-r h-30 is-white"></div>
 
                     <div class="columns-block__image-cluster">
                       {% for image in post.images %}
