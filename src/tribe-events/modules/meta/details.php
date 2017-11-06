@@ -63,12 +63,12 @@ $website = tribe_get_event_website_link();
 			?>
 
 			<dt> <?php esc_html_e( 'Start:', 'the-events-calendar' ) ?> </dt>
-			<dd class="py-12p">
+			<dd>
 				<abbr class="tribe-events-abbr tribe-events-start-datetime published dtstart" title="<?php esc_attr_e( $start_ts ) ?>"> <?php esc_html_e( $start_date ) ?> </abbr>
 			</dd>
 
 			<dt> <?php esc_html_e( 'End:', 'the-events-calendar' ) ?> </dt>
-			<dd class="py-12p">
+			<dd>
 				<abbr class="tribe-events-abbr dtend" title="<?php esc_attr_e( $end_ts ) ?>"> <?php esc_html_e( $end_date ) ?> </abbr>
 			</dd>
 

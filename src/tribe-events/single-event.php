@@ -39,7 +39,7 @@ $event_id = get_the_ID();
 				<?php the_title( '<h1 class="tribe-events-single-event-title">', '</h1>' ); ?>
 				<?php echo tribe_events_event_schedule_details( $event_id, '<h2 class="tribe_events_event_schedule_details">', '</h2>' ); ?>
 				<?php if ( tribe_get_cost() ) : ?>
-					<div class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></div>
+					<div class="tribe-events-cost pt-1"><?php echo tribe_get_cost( null, true ) ?></div>
 				<?php endif; ?>
 				<!-- Notices -->
 				<?php tribe_the_notices() ?>
