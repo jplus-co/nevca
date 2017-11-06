@@ -1,9 +1,16 @@
 <ul class="post-title-list">
   {% for item in props %}
+    {% if item.slug and item.title %}
+      {% set slug = item.slug %}
+      {% set title = item.title %}
+    {% else %}
+      {% set slug = item.post_name %}
+      {% set title = item.post_title %}
+    {% endif %}
     <li class="post-title-list__item">
-      <a href="{{ site.link|relative ~ '/faq/#' ~ item.slug }}" class="post-title-list__link">
+      <a href="{{ site.link|relative ~ '/faq/#' ~ slug }}" class="post-title-list__link">
         <span class="post-title-list__title-text">
-          {{ item.title }}
+          {{ title }}
         </span>
         <span class="post-title-list__arrow">
           {% include 'arrow-right.twig' with {
