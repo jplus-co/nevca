@@ -26,13 +26,13 @@ $has_venue_address = ( ! empty( $venue_details['address'] ) ) ? ' location' : ''
 $organizer = tribe_get_organizer();
 
 ?>
-<div class="flex align-items-center mb-3">
-	<div class="flex-basis-40 pr-2p">
+<div class="flex align-items-center mb-3 single-event-item">
+	<div class="flex-basis-40 pr-2p list-event-image">
 		<!-- Event Image -->
-		<?php echo tribe_event_featured_image( null, 'medium' ); ?>
+		<?php echo tribe_event_featured_image( null, 'large' ); ?>
 	</div>
 
-	<div class="flex-1">
+	<div class="flex-1 list-event-content">
 		<!-- Event Meta -->
 		<?php do_action( 'tribe_events_before_the_meta' ) ?>
 		<div class="tribe-events-event-meta">

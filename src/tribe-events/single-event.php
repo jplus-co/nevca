@@ -31,8 +31,6 @@ $event_id = get_the_ID();
 		</p>
 
 
-		<!-- <?php the_title( '<h1 class="tribe-events-single-event-title">', '</h1>' ); ?> -->
-
 		<div class="tribe-events-schedule tribe-clearfix"
 				style="background-image: url(<?php echo tribe_event_featured_image( $event_id, 'full', false, false); ?>)">
 			<div class="relative z-index-1">

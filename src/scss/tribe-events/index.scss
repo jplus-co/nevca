@@ -27,7 +27,8 @@
     margin-top: 5rem;
   }
 
-  #tribe-events-content a:not(.text-button):not(.text-button--underline) {
+  #tribe-events-content a:not(.text-button):not(.text-button--underline),
+  .tribe-events-organizer {
     @include reset-anchor();
     text-decoration: none;
   }
@@ -89,7 +90,7 @@
   // Event title on Day & List view
   h2.tribe-events-list-event-title,
   a.tribe-event-url {
-    transition: color 0.7s $ease-out-expo;
+    transition: color 0.2s ease;
     &:hover{
       color: $gold;
     }
@@ -129,7 +130,7 @@
     padding: 1.2rem 5.0rem;
 
     &:hover{
-      color: $gold;
+      color: $gold !important;
       background-color: transparent;
     }
   }
@@ -399,10 +400,24 @@
       }
     } // .tribe-events-event-meta
 
-
     .tribe-events-gmap {
       display: none;
     }
+
+    // single-event.php This is for any instance where an event is shown in a list,
+    // TO DO: File structure that accomidates both general and specific styling
+    .single-event-item {
+      flex-direction: column;
+    }
+
+    .list-event-image {
+      order: 1
+    }
+
+    .list-event-content {
+      order: 2
+    }
+
   } // Media query
 
 
@@ -510,17 +525,17 @@
           }
         }
       }
-    }
+    } // tribe-events-back
 
   // Makes the map full width
-  .tribe-events-event-meta .column, .tribe-events-event-meta .tribe-events-meta-group {
+  .tribe-events-meta-group-gmap {
   float: none!important;
   width: 100%!important;
-}
+  }
 
   .tribe-events-venue-map {
     width: 100%;
-}
+  }
   // Details for event
   .tribe-events-meta-group-details,
   .tribe-events-meta-group-organizer {
@@ -563,15 +578,68 @@
       margin: 2rem 0 0 0;
     }
 
-} // Media Query
+  } // Media Query
 
-  @media (max-width: 520px) {
-    .tribe-events-cal-links a:nth-child(2) {
-      margin: 2rem 0 0 0;
+    @media (max-width: 520px) {
+      .tribe-events-cal-links a:nth-child(2) {
+        margin: 2rem 0 0 0;
+      }
+  } // Media Query
+
+
+// -----------------------------------------------------------------------------
+//
+// 8. Single Organizer
+//
+// -----------------------------------------------------------------------------
+
+  .tribe-events-organizer {
+    h2.tribe-events-page-title {
+      text-align: left;
     }
-} // Media Query
+  }
+
+  // Details that appear below the organizer name
+  .organizer-details {
+    text-align: center;
+    // Link styles for the email and website
+    .email a,
+    .link a{
+      @include reset-anchor();
+      transition: color 0.7s $ease-out-expo;
+      &:hover {
+        color: $gold;
+      }
+    }
+  }
+
+  // "Events from" label
+  .organizer-label {
+    @include type-style-label();
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+
+  @media (max-width: 768px) {
+    // Organizer info background
+    address.organizer-address {
+      background-color: transparent;
+      border: none;
+      .tel,
+      .email {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
 
 } // Ends the #tribe-events selector
+
+// -----------------------------------------------------------------------------
+//
+// 7. Single Event
+//
+// -----------------------------------------------------------------------------
 
 
 // Datepicker modal menu
