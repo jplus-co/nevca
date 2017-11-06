@@ -9,6 +9,7 @@ const CTACard = ({
   })}>
     <a class='member-card__link' href={`${APP.BASE_URL_RELATIVE}/membership`}>
       <div class='member-card__inner'>
+// TO DO: Make this section editable
         <span class='member-card__cta-text'>Your company could be  here. Join the entreprenurial community in Boston</span>
       </div>
       <span class='member-card__text text-button text-button--underline'>Learn more</span>
