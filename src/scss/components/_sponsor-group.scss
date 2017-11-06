@@ -15,6 +15,11 @@
     flex-wrap: wrap;
     margin: 0 -4rem;
 
+    @media (max-width: $md) {
+      flex-wrap: nowrap;
+      min-width: $md;
+    }
+
     &--logo-only {
       align-items: center;
     }

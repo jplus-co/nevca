@@ -12,6 +12,12 @@
   }
 }
 
+.w-100-md {
+  @media (max-width: $md) {
+    width: 100%;
+  }
+}
+
 .min-w-0 {
   min-width: 0;
 }

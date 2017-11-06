@@ -6,6 +6,16 @@
   position: absolute;
 }
 
+@each $suffix, $value in $breakpoints {
+  @each $pos in relative, absolute {
+    .#{$pos}-#{$suffix} {
+      @media (max-width: $value) {
+        position: #{$pos};
+      }
+    }
+  }
+}
+
 @each $s1 in top, right, bottom, left {
   .pos-#{str-slice($s1, 1, 1)} {
     #{$s1}: 0;
