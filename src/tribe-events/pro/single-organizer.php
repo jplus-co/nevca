@@ -40,7 +40,7 @@ $organizer_id = get_the_ID();
 			<div class="tribe-events-schedule tribe-clearfix"
 					style="background-image: url(<?php echo tribe_event_featured_image( $event_id, 'full', false, false); ?>)">
 				<div class="relative z-index-1">
-					<div class="organizer-label">Events from</div>
+					<div class="hero-label">Events from</div>
 					<?php the_title( '<h1 class="tribe-events-single-event-title">', '</h1>' ); ?>
 					<div class="organizer-details"><?php echo tribe_get_organizer_details(); ?></div>
 				</div>

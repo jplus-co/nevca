@@ -117,7 +117,7 @@
       }
     }
   }
-
+// Export events button
   a.tribe-events-button {
     @include type-style-heading-xs();
     color: black;
@@ -142,6 +142,13 @@
   }
 
 
+  //Hero label used for both Venue & Organizer pages
+  .hero-label {
+    @include type-style-label();
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
 // -----------------------------------------------------------------------------
 //
 // 2. Filter Bar
@@ -149,8 +156,15 @@
 // -----------------------------------------------------------------------------
 
 #tribe-events-bar {
-  width: 20%;
+  width: 18%;
   position: fixed;
+}
+
+@media (max-width: $md) {
+  #tribe-events-bar {
+    position: relative;
+    width: 100%;
+  }
 }
 
 #tribe-bar-form {
@@ -185,6 +199,13 @@
       padding: 0.5rem 0;
     }
   }
+
+  #tribe-bar-views .tribe-bar-views-list {
+    background-color: $white;
+    z-index: 1!important;
+  }
+
+
 
   // Filter input
   input[type=text] {
@@ -230,6 +251,9 @@
     .tribe-bar-views-list .tribe-bar-views-option a {
       @include type-style-action();
       background-color: transparent;
+      &:hover {
+        color: $gold;
+      }
     }
 
     // Background of the views selector
@@ -374,7 +398,7 @@
   @media (max-width: 768px) {
 
       .tribe-events-event-meta {
-        background-color: white;
+        background-color: transparent;
         border: none;
         padding: 0 0 1.5rem;
         // Schedule details
@@ -613,13 +637,6 @@
     }
   }
 
-  // "Events from" label
-  .organizer-label {
-    @include type-style-label();
-    text-align: center;
-    font-size: 1.8rem;
-  }
-
 
   @media (max-width: 768px) {
     // Organizer info background
@@ -633,13 +650,49 @@
     }
   }
 
-} // Ends the #tribe-events selector
+
 
 // -----------------------------------------------------------------------------
 //
-// 7. Single Event
+// 8. Single Venue
 //
 // -----------------------------------------------------------------------------
+  .tribe-events-venue {
+    h2.tribe-events-page-title {
+      text-align: left;
+    }
+  }
+
+  .venue-address {
+    text-align: center;
+    .tribe-address {
+      font-size: 1.8rem;
+    }
+  }
+
+  address.tribe-events-address {
+    margin-right: 0;
+  }
+
+    .tribe-events-venue {
+      .tribe-events-event-meta a {
+      @include reset-anchor();
+      transition: color 0.7s $ease-out-expo;
+      &:hover {
+        color: $gold;
+      }
+    }
+    .tribe-events-event-meta .tribe-events-gmap {
+      text-align: center;
+      display: block;
+    }
+  } // Tribe-events-venue
+
+
+
+
+} // Ends the #tribe-events selector
+
 
 
 // Datepicker modal menu

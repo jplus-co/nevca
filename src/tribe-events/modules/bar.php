@@ -28,7 +28,7 @@ $current_url = tribe_events_get_current_filter_url();
 
 	<form id="tribe-bar-form" name="tribe-bar-form" method="post" action="<?php echo esc_attr( $current_url ); ?>">
 		<!-- Mobile Filters Toggle -->
-		<div id="tribe-bar-collapse-toggle" class="mb-4<?php if ( count( $views ) == 1 ) { ?> ' tribe-bar-collapse-toggle-full-width'<?php } ?>">
+		<div id="tribe-bar-collapse-toggle" class="mb-2<?php if ( count( $views ) == 1 ) { ?> ' tribe-bar-collapse-toggle-full-width'<?php } ?>">
 			<?php printf( esc_html__( 'Find %s', 'the-events-calendar' ), tribe_get_event_label_plural() ); ?><span class="ml-1">▾</span>
 		</div>
 
