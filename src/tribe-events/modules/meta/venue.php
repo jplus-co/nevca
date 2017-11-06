@@ -13,7 +13,7 @@ if ( ! tribe_get_venue_id() ) {
 }
 
 $phone   = tribe_get_phone();
-$website = tribe_get_venue_website_link();
+$website = $website = tribe_get_venue_website_link( null, 'Venue Website' );
 
 ?>
 
@@ -30,7 +30,7 @@ $website = tribe_get_venue_website_link();
 					<?php echo tribe_get_full_address(); ?>
 
 					<?php if ( tribe_show_google_map_link() ) : ?>
-						<?php echo tribe_get_map_link_html(); ?>
+						<div class="pt-2"><?php echo tribe_get_map_link_html(); ?></div>
 					<?php endif; ?>
 				</address>
 			</dd>
@@ -42,8 +42,7 @@ $website = tribe_get_venue_website_link();
 		<?php endif ?>
 
 		<?php if ( ! empty( $website ) ): ?>
-			<dt> <?php esc_html_e( 'Website:', 'the-events-calendar' ) ?> </dt>
-			<dd class="url"> <?php echo $website ?> </dd>
+			<dd class="url text-button text-button--underline pt-2"> <?php echo $website ?> </dd>
 		<?php endif ?>
 
 		<?php do_action( 'tribe_events_single_meta_venue_section_end' ) ?>

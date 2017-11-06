@@ -174,4 +174,23 @@ function customized_tribe_single_event_links()	{
 	echo '</div>';
 }
 
-// button classes: tribe-events-ical tribe-events-button
+
+// Filters the website link for Tribe Events
+add_filter('tribe_get_event_website_link','my_custom_website_link');
+function my_custom_website_link( $html ){
+    $post_id = is_object($event) && isset($event->tribe_is_event) && $event->tribe_is_event ? $event->ID : $event;
+    $post_id = !empty($post_id) ? $post_id : get_the_ID();
+    $url = tribe_get_event_meta( $post_id, '_EventURL', true );
+    if( !empty($url) ) {
+      $label = is_null($label) ? $url : $label;
+      if( !empty( $url )) {
+        $parseUrl = parse_url($url);
+        if (empty($parseUrl['scheme']))
+          $url = "http://$url";
+      }
+      $html = $url;
+    } else {
+      $html = '';
+    }
+    return $html;
+  }

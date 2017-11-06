@@ -14,7 +14,7 @@ $multiple = count( $organizer_ids ) > 1;
 
 $phone = tribe_get_organizer_phone();
 $email = tribe_get_organizer_email();
-$website = tribe_get_organizer_website_link();
+$website = tribe_get_organizer_website_link(null, 'Organizer\'s Website');
 ?>
 
 <div class="tribe-events-meta-group tribe-events-meta-group-organizer">
@@ -35,10 +35,10 @@ $website = tribe_get_organizer_website_link();
 			</dd>
 			<?php
 		}
-
 		if ( ! $multiple ) { // only show organizer details if there is one
 			if ( ! empty( $phone ) ) {
 				?>
+			<div class="pl-1">
 				<dt>
 					<?php esc_html_e( 'Phone:', 'the-events-calendar' ) ?>
 				</dt>
@@ -61,17 +61,17 @@ $website = tribe_get_organizer_website_link();
 
 			if ( ! empty( $website ) ) {
 				?>
-				<dt>
+				<!-- <dt>
 					<?php esc_html_e( 'Website:', 'the-events-calendar' ) ?>
-				</dt>
-				<dd class="tribe-organizer-url">
+				</dt> -->
+				<dd class="tribe-organizer-url text-button text-button--underline pt-2">
 					<?php echo $website; ?>
 				</dd>
 				<?php
 			}//end if
 		}//end if
-
 		do_action( 'tribe_events_single_meta_organizer_section_end' );
 		?>
+		</div>
 	</dl>
 </div>
