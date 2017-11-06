@@ -5,10 +5,11 @@
 {% block content %}
   <div class="view" data-namespace="newsletter">
 
-    <div class="pt-12p pb-8p px-18p">
-      <h1 class="color-gold mb-4">{{ post.form_heading }}</h1>
-      <div class="flex">
-        <div class="flex-1 pr-8p">
+    <div class="pt-8p pb-8p pb-0-sm px-18p px-0-sm">
+      <h1 class="color-gold px-3-sm mb-4">{{ post.form_heading }}</h1>
+
+      <div class="flex block-lg">
+        <div class="flex-1 pr-8p pr-0-lg px-3-sm mb-2-lg">
           <div class="contact-form">
             {% filter shortcodes %}
               {{ post.contact_form_shortcode }}
@@ -34,8 +35,15 @@
           </div>
         </div>
       </div>
+
     </div>
 
+    {% include "faq-tease-block.twig" with {
+      "props": {
+        "heading": options.default_faqs_heading.heading,
+        "featured_posts": options.default_faqs
+      }
+    } %}
     {% include "site-footer.twig" %}
 
   </div>
