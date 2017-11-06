@@ -144,9 +144,9 @@ $website = tribe_get_event_website_link();
 		<?php
 		// Event Website
 		if ( ! empty( $website ) ) : ?>
-
-			<dt> <?php esc_html_e( 'Website:', 'the-events-calendar' ) ?> </dt>
-			<dd class="tribe-events-event-url"> <?php echo $website; ?> </dd>
+			<dt>
+					<?php echo '<a class="text-button text-button--underline" href="' . $website . '">Event Website</a>'; ?>
+			</dt>
 		<?php endif ?>
 
 		<?php do_action( 'tribe_events_single_meta_details_section_end' ) ?>
