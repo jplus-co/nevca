@@ -28,14 +28,14 @@
     </div>
     {% for topic in resource_topics %}
       <div id="{{ topic.slug }}" class="js-section section">
-        <div class="py-6p">
+        <div class="py-6p py-8p-lg">
           <div class="relative">
             <div class="resource-topic-collection resource-topic-collection--{{ loop.index is odd ? 'odd' : 'even' }}">
               <h3 class="resource-topic-collection__heading">
                 <span>{{ topic.name }}</span>
               </h3>
-              <div class="resource-topic-collection__row">
-                <ul class="resource-topic-collection__list">
+              <div class="resource-topic-collection__row scroll-x-lg pb-4p-lg">
+                <ul class="resource-topic-collection__list min-w-md-md">
                   {% for post in Term(topic).posts|slice(0, 4) %}
                     {% set type = post.get_terms('resource_type')[0] %}
                     {% include "list-card.twig" with {
@@ -50,14 +50,26 @@
                     } %}
                   {% endfor %}
                 </ul>
-                <div class="px-4p">
+                <div class="px-4p hidden-lg">
                   {% include 'circle-button.twig' with {
                     direction: loop.index is odd ? 'right' : 'left',
                     url: Term(topic).link|relative,
-                    label: 'Show all',
+                    label: 'View all',
                     color: colors.gold
                   } %}
                 </div>
+              </div>
+              <div class="mt-2 mb-4 hidden block-lg">
+                {% include "scroll-cta.twig" %}
+              </div>
+              <div class="hidden block-lg text-align-center">
+                {% include "button.twig" with {
+                  "props": {
+                    "url": Term(topic).link|relative,
+                    "target": '_self',
+                    "title": 'View all'
+                  }
+                } %}
               </div>
             </div>
           </div>

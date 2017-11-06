@@ -2,11 +2,20 @@
   padding-left: $inner-padding-sm;
   padding-right: $inner-padding-sm;
 
+  @media (max-width: $lg) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   &__heading {
     font-size: 4rem;
     padding-bottom: 8rem;
     padding-left: calc(20% + 2rem);
     display: flex;
+
+    @media (max-width: $lg) {
+      padding-left: 2rem;
+    }
 
     > span {
       display: inline-block;
@@ -20,6 +29,11 @@
 
       .resource-topic-collection--even & {
         padding-left: 2rem;
+
+        @media (max-width: $lg) {
+          padding-left: 0;
+          padding-right: 2rem;
+        }
       }
     }
 
@@ -35,6 +49,10 @@
 
       .resource-topic-collection--even & {
         left: -75%;
+
+        @media (max-width: $lg) {
+          left: auto;
+        }
       }
     }
   }
@@ -45,11 +63,19 @@
 
     .resource-topic-collection--even & {
       flex-direction: row-reverse;
+
+      @media (max-width: $lg) {
+        flex-direction: row;
+      }
     }
   }
 
   &__list {
     display: flex;
     flex-basis: 80%;
+
+    @media (max-width: $lg) {
+      flex-basis: 100%;
+    }
   }
 }
