@@ -1,0 +1,15 @@
+<ul class="reset-list px-3 mb-10">
+  {% for post in posts %}
+    {% set type = post.get_terms('resource_type')[0] %}
+    {% include "list-card.twig" with {
+      "subheading": type.name,
+      "heading": post.title,
+      "body": post.description|length ? post.description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "rule": true,
+      "link": post.link_type == 'file' ? post.get_field('file') : post.get_field('link').url,
+      "target": '_blank',
+      "list_card_classes": 'mb-10',
+      "action": post.type.slug == 'video' ? 'Watch video' : 'View more'
+    } %}
+  {% endfor %}
+</ul>

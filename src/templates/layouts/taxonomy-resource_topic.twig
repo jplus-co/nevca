@@ -1,0 +1,35 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <div class="view" data-namespace="press">
+    {% include "hero.twig" with {
+      "hero_text": posts[0].get_terms('resource_topic')[0],
+      "aux": true
+    } %}
+
+    <section class="js-section section py-12p">
+      <div class="section__container section__container--65">
+        {% if posts %}
+          {% include "resource-topic-archive-list.twig" with {
+            "props": posts
+          } %}
+          {% include "pagination.twig" with {
+            "props": posts
+          } %}
+        {% else %}
+          Nothing to show.
+        {% endif %}
+      </div>
+    </section>
+
+    {% include "faq-tease-block.twig" with {
+      "props": {
+        "heading": options.default_faqs_heading.heading,
+        "featured_posts": options.default_faqs
+      }
+    } %}
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}
