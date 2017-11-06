@@ -8,9 +8,10 @@
       "aux": true
     } %}
 
-    <section class="js-section section p-12p relative">
-      <div class="flex">
-        <div class="section__container section__container--70 section__container--left flex-1">
+    <section class="js-section section p-12p px-0-md pb-0-md relative">
+      <div class="flex block-lg">
+        <div class="absolute hidden-lg pos-l pos-t pos-r pt-7 is-black"></div>
+        <div class="flex-1 mb-4-lg z-index-1 px-3-md">
           {% if posts %}
             {% include "press-archive-list.twig" with {
               "props": posts
@@ -23,8 +24,8 @@
           {% endif %}
         </div>
 
-        <div class="flex-1">
-          <div class="is-blue py-5 pl-5 pr-8p translate-y-n5 absolute pos-tr">
+        <div class="flex-1 z-index-1">
+          <div class="is-blue py-5 pl-5 pr-8p px-12p-lg absolute relative-lg pos-tr">
             <h4 class="text-block__heading">Media</h4>
             <div class="button-group">
               {% for download in options.downloads %}
