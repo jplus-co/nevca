@@ -7,15 +7,16 @@ const overlay = (
   done
 ) => {
   let imageLoader
-  let loadedCount = 0
-
-  let rafActive = true
   let lastRafId
+  let rafActive = true
+  let loadedCount = 0
   let progress = 0
   let ease = 100
 
   const ui = {
     loader: document.querySelector('.js-page-loader'),
+    bgMask: document.querySelector('.js-page-loader-background'),
+    bgInner: document.querySelector('.js-page-loader-background-inner'),
     mask: document.querySelector('.js-page-loader-progress'),
     inner: document.querySelector('.js-page-loader-progress-inner'),
     bottom: document.querySelector('.js-layer-bottom'),
@@ -64,6 +65,9 @@ const overlay = (
       ease = 0
       onDone()
     }
+
+    ui.bgMask.style.transform = `translateX(${100 - ease}%)`
+    ui.bgInner.style.transform = `translateX(${-(100 - ease)}%)`
 
     ui.mask.style.transform = `translateX(${-ease}%)`
     ui.inner.style.transform = `translateX(${ease}%)`

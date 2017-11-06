@@ -1,6 +1,8 @@
 <header class="js-site-header site-header">
   <a href="{{ site.link }}" class="site-header__logo js-menu-link">
-    {% include "header-logo.twig" %}
+    {% include "header-logo.twig" with {
+      "color": colors.black
+    } %}
   </a>
 
   {% include "primary-navigation.twig" with { "menu": menu } %}

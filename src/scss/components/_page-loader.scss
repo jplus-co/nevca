@@ -9,6 +9,7 @@
 
   &__inner {
     width: 20rem;
+    width: 30rem;
     position: relative;
   }
 
@@ -20,16 +21,15 @@
     height: 100%;
     overflow: hidden;
     will-change: transform;
-
-    > .header-logo * {
-      fill: $gold !important;
-    }
   }
 
   &__background {
-    > .header-logo * {
-      fill: $black !important;
-    }
+    overflow: hidden;
+    will-change: transform;
+  }
+
+  &__background-inner {
+    will-change: transform;
   }
 
   &__progress-inner {
