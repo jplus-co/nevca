@@ -56,21 +56,21 @@ const home = Barba.BaseView.extend({
 	},
 
 	initParallax () {
-		const parallaxItems = document.querySelectorAll('.js-parallax')
+		const parallaxItems = this.page.querySelectorAll('.js-parallax')
 
 		this.parallax = new Parallax({ parallaxItems })
 		this.parallax.init()
 	},
 
 	initFx () {
-		const fxTriggers = document.querySelectorAll('.js-fx-trigger')
+		const fxTriggers = this.page.querySelectorAll('.js-fx-trigger')
 
 		this.fx = new ScrollFx({ fxTriggers })
 		this.fx.init()
 	},
 
 	initBackgroundVideo () {
-		const container = document.querySelector('.js-video-container')
+		const container = this.page.querySelector('.js-video-container')
 
 		this.video = new BackgroundVideo({
 			container,
