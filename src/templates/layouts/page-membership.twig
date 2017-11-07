@@ -17,7 +17,7 @@
       "has_black": true
     } %}
 
-    <div class="relative px-4p px-0-lg">
+    <div class="relative px-4p px-0-lg js-fx-trigger">
       <div class="flex block-md justify-content-between py-12p is-black">
         {% include 'text-block.twig' with {
           props: {
@@ -35,16 +35,17 @@
         <div class="columns-block__image-cluster px-12p-md">
           {% for image in columns_block.image_cluster %}
             <img
-              class="columns-block__image columns-block__image--sm columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
+              class="columns-block__image columns-block__image--sm columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}{{ loop.index == 2 ? ' js-parallax'}}"
+              data-speed="0.1"
               src="{{ Image(image).src }}"
               alt="{{ post.title }}">
           {% endfor %}
         </div>
       </div>
     </div>
-    <div class="member-benefits py-12p px-20p px-8p-xl px-4p-lg px-3-md">
-      <h2 class="member-benefits__heading">{{ benefits_list.heading }}</h2>
-      <div class="member-benefits__row flex block-md">
+    <div class="member-benefits py-12p px-20p px-8p-xl px-4p-lg px-3-md js-fx-trigger">
+      <h2 class="member-benefits__heading js-fx">{{ benefits_list.heading }}</h2>
+      <div class="member-benefits__row flex block-md js-fx">
         <div class="member-benefits__column px-3">
           {{ benefits_list.column_1 }}
         </div>
@@ -54,16 +55,16 @@
       </div>
     </div>
 
-    <div class="relative mb-10p mb-7-lg">
+    <div class="relative mb-10p mb-7-lg js-fx-trigger">
       <div class="hidden block-lg is-white absolute pos-t pos-l pos-r h-20"></div>
       <div class="hidden block-lg is-white absolute pos-b pos-l pos-r h-20"></div>
       <div class="pt-8p pb-20p pb-0-lg">
         <div class="flex justify-content-end block-lg is-gold">
 
-            <div class="membership-form">
+            <div class="membership-form js-parallax" data-speed="0.1">
               <div class="membership-form__inner is-blue p-7 p-5-sm">
                 <div class="membership-form__heading text-block__heading">
-                  <span class="text-block__rule"></span>
+                  <span class="text-block__rule js-fx" data-tween="line"></span>
                   {{ form_text_block.heading }}
                 </div>
                 <div class="membership-form__body text-block__body">
