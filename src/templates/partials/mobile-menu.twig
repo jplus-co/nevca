@@ -7,7 +7,7 @@
       <ul class="{{ 'mobile-menu__list' }}">
         {% for item in mobile_menu.get_items %}
           <li class="{{ 'mobile-menu__item' }}">
-            <a class="mobile-menu__link js-menu-link{{ loop.index == loop.length ? ' color-gold' }}"
+            <a class="mobile-menu__link js-menu-link{{ loop.index == loop.length ? ' color-gold' }}{{ loop.index == 6 ? ' no-barba'}}"
               target="{{ item.is_external ? '_blank' : '_self' }}"
               href="{{ item.is_external ? item.link : item.link|relative }}"
             >

@@ -45,38 +45,36 @@ class Router {
     this.utils.lock()
   }
 
-  handleNewPageReady = (cur, prev, page) => {
+  handleNewPageReady = (cur, prev, page, raw) => {
     config.body.classList.add(`is-${Barba.Pjax.History.currentStatus().namespace}`)
 
     if (Barba.Pjax.History.prevStatus()) {
       config.body.classList.remove(`is-${Barba.Pjax.History.prevStatus().namespace}`)
     }
-
-    this.initModules(page)
   }
 
   handleTransitionCompleted = () => {
     this.utils.unlock()
   }
 
-  initModules(page) {
-    this.initParallax(page)
-    this.initFx(page)
-  }
-
-  initParallax (page) {
-    const parallaxItems = page.querySelectorAll('.js-parallax')
-
-    this.parallax = new Parallax({ parallaxItems })
-    this.parallax.init()
-  }
-
-  initFx (page) {
-    const fxTriggers = page.querySelectorAll('.js-fx-trigger')
-
-    this.fx = new ScrollFx({ fxTriggers })
-    this.fx.init()
-  }
+  // initModules(page) {
+  //   this.initParallax(page)
+  //   this.initFx(page)
+  // }
+  //
+  // initParallax (page) {
+  //   const parallaxItems = page.querySelectorAll('.js-parallax')
+  //
+  //   this.parallax = new Parallax({ parallaxItems })
+  //   this.parallax.init()
+  // }
+  //
+  // initFx (page) {
+  //   const fxTriggers = page.querySelectorAll('.js-fx-trigger')
+  //
+  //   this.fx = new ScrollFx({ fxTriggers })
+  //   this.fx.init()
+  // }
 }
 
 export default new Router()

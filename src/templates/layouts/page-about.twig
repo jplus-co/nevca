@@ -17,7 +17,7 @@
     } %}
 
     <!-- Mission -->
-    <section id="mission" class="js-section section" data-background="black">
+    <section id="mission" class="js-section section js-fx-trigger" data-background="black">
       <div class="columns-block columns-block--left">
         <div class="py-8p py-4p-md is-black">
           <div class="flex-md flex-row-reverse justify-content-between py-15p py-8p-lg pt-15p-sm relative">
@@ -54,7 +54,7 @@
     </section>
 
     <!-- Board -->
-    <section id="board" class="js-section section" data-background="white">
+    <section id="board" class="js-section section js-fx-trigger" data-background="white">
       <div class="py-12p">
         <div class="px-20p pl-8p-lg pb-6">
           {% include "text-block.twig" with {
@@ -90,7 +90,7 @@
     </section>
 
     <!-- Team -->
-    <section id="team" class="js-section section is-black" data-background="black">
+    <section id="team" class="js-section section is-black js-fx-trigger" data-background="black">
       <div class="pt-12p pb-6p pb-10p-lg pl-15p pl-0-lg pr-8p pr-0-lg">
         <div class="section__row justify-content-between">
           <!-- Team Text -->
@@ -119,13 +119,14 @@
       </div>
     </section>
 
-    <section id="testimonials" class="js-section section" data-background="gold">
+    <section id="testimonials" class="js-section section js-fx-trigger" data-background="gold">
       <div class="relative pr-12p pr-0-lg">
         <div class="pl-20p pl-8p-lg pt-10p-lg is-gold">
           <div class="columns-block__image-cluster">
             {% for image in testimonials_block.image_cluster %}
               <img
-                class="columns-block__image columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}"
+                class="columns-block__image columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}{{ loop.index == 2 ? 'js-parallax'}}"
+                data-speed="0.05"
                 src="{{ Image(image).src }}"
                 alt="{{ post.title }}">
             {% endfor %}
