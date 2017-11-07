@@ -55,7 +55,7 @@
             "label": "Share Card Title",
             "name": "share_title",
             "type": "text",
-            "instructions": "In addition to the images uploaded above, Facebook, Twitter, and other social media sites will also add some text to the share card. The text consists of a title and subtitle. You can customize the title text here.",
+            "instructions": "In addition to the images uploaded above, Facebook, Twitter, and other social media sites will also add some text to the share card. The text consists of a title and subtitle. You can customize the title text here. The default text for this field is \"Pono Ono\"",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -74,7 +74,7 @@
             "label": "Share Card Subtitle",
             "name": "share_subtitle",
             "type": "text",
-            "instructions": "You can customize the subtitle text for the share card here.",
+            "instructions": "You can customize the subtitle text for the share card here. The default subtitle text is \"Righteous Poke.\"",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
