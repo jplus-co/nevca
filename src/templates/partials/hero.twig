@@ -1,12 +1,16 @@
 <div class="hero{{ is_home ? ' hero--front-page' : half_image ? ' hero--half-image' }}{{ has_black ? ' hero--black'}}{{ aux ? ' hero--aux'}}{{ classes ? ' ' ~ classes}}">
   <div class="hero__inner">
-    <h1 class="hero__heading js-parallax" data-speed="0.075">
+    <h1 class="hero__heading js-parallax" data-speed="{{ half_image ? '-0.05' : '0.075' }}">
       {{ hero_text }}
     </h1>
   </div>
 
   {% if hero_image %}
-    <div class="hero__image" style="background-image: url({{ Image(hero_image).src }});"></div>
+    <div class="hero__image{{ half_image ? ' js-parallax'}}"
+    style="background-image: url({{ Image(hero_image).src }});"
+    {% if half_image %}
+      data-speed="0.05"
+    {% endif %}></div>
   {% endif %}
 
   {% if hero_video %}

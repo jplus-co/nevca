@@ -1,3 +1,7 @@
 export default function (el) {
-  return TweenLite.to(el, 1, { opacity: 1 })
+  TweenLite.set(el, { opacity: 0 })
+
+  return function () {
+    TweenLite.to(el, 1, { opacity: 1, ease: Cubic.easeOut })
+  }
 }

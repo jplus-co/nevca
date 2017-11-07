@@ -14,15 +14,15 @@
     } %}
 
     {% for group in post.get_field('sponsors') %}
-      <section class="js-section section sponsor-group{{ loop.index == 1 ? ' pt-16p mb-12 is-black'}}">
-        <div class="sponsor-group__inner px-6p px-0-md pb-8p">
+      <section class="js-section js-fx-trigger section sponsor-group{{ loop.index == 1 ? ' pt-16p mb-12 is-black'}}">
+        <div class="sponsor-group__inner px-6p px-0-md pb-8p js-parallax" data-speed="0.075">
           <div class="sponsor-group__row px-4p px-3-md pb-6p">
             <h2 class="text-block__heading">
-              <span class="text-block__rule"></span>
+              <span class="text-block__rule js-fx" data-tween="line"></span>
               {{ group.heading }}
             </h2>
           </div>
-          <div class="scroll-x-lg px-3-md">
+          <div class="scroll-x-lg px-3-md js-fx">
             <ul class="sponsor-group__list sponsor-group__list--{{ group.show_descriptions ? 'descriptions' : 'logo-only' }}">
               {% for post in group.posts %}
                 <li class="sponsor-list-item">
@@ -53,7 +53,7 @@
       </section>
     {% endfor %}
 
-    <section class="js-section section pb-6p">
+    <section class="js-section js-fx-trigger section pb-6p">
       <div class="px-6p pb-6p px-3-lg px-0-md relative">
         <div class="flex block-md justify-content-end py-8p pr-16p pr-3-sm pl-3-md is-blue">
 
@@ -69,7 +69,7 @@
             "no_rule": true
           } %}
           <div class="hidden block-md absolute pos-r pos-b pos-l h-25 is-white"></div>
-          <img class="w-30 w-100-md absolute relative-md pos-bl z-index-1 pr-8p-md" src="{{ Image(cta_block).src }}" alt="{{ cta_block.heading }}">
+          <img class="w-30 w-100-md absolute relative-md pos-bl z-index-1 pr-8p-md js-parallax" data-speed="0.15" src="{{ Image(cta_block).src }}" alt="{{ cta_block.heading }}">
         </div>
       </div>
     </section>

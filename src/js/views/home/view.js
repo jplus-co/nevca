@@ -19,10 +19,10 @@ const home = Barba.BaseView.extend({
 	},
 
 	onEnterCompleted () {
+		this.animateIn()
+
 		this.initParallax()
 		this.initFx()
-
-		this.animateIn()
 	},
 
 	onLeave () {},
@@ -55,22 +55,8 @@ const home = Barba.BaseView.extend({
 	    }, 0.075)
 	},
 
-	initParallax () {
-		const parallaxItems = document.querySelectorAll('.js-parallax')
-
-		this.parallax = new Parallax({ parallaxItems })
-		this.parallax.init()
-	},
-
-	initFx () {
-		const fxTriggers = document.querySelectorAll('.js-fx-trigger')
-
-		this.fx = new ScrollFx({ fxTriggers })
-		this.fx.init()
-	},
-
 	initBackgroundVideo () {
-		const container = document.querySelector('.js-video-container')
+		const container = this.page.querySelector('.js-video-container')
 
 		this.video = new BackgroundVideo({
 			container,
@@ -80,6 +66,20 @@ const home = Barba.BaseView.extend({
 		})
 
 		this.video.init()
+	},
+
+	initParallax () {
+		const parallaxItems = this.page.querySelectorAll('.js-parallax')
+
+		this.parallax = new Parallax({ parallaxItems })
+		this.parallax.init()
+	},
+
+	initFx () {
+		const fxTriggers = this.page.querySelectorAll('.js-fx-trigger')
+
+		this.fx = new ScrollFx({ fxTriggers })
+		this.fx.init()
 	}
 })
 

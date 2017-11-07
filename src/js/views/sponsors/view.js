@@ -1,32 +1,21 @@
 import Barba from 'barba.js'
-import TestimonialSlider from '../../core/modules/testimonial-slider'
-import PageNavigation from '../../core/modules/page-navigation'
 import Parallax from '../../core/modules/parallax'
 import ScrollFx from '../../core/modules/scroll-fx'
 
-const about = Barba.BaseView.extend({
-	namespace: 'about',
+const sponsors = Barba.BaseView.extend({
+	namespace: 'sponsors',
 
 	onEnter () {
 		this.page = document.querySelector(`[data-namespace="${this.namespace}"]`)
-
-		this.slider = new TestimonialSlider()
-		this.navigation = new PageNavigation()
-	},
+  },
 
 	onEnterCompleted () {
-		this.slider.init()
-		this.navigation.init()
-
-		this.initParallax()
+    this.initParallax()
 		this.initFx()
 	},
 
 	onLeave () {
-		this.slider.destroy()
-		this.navigation.destroy()
-
-		this.parallax.destroy()
+    this.parallax.destroy()
 		this.fx.destroy()
 	},
 
@@ -47,4 +36,4 @@ const about = Barba.BaseView.extend({
 	}
 })
 
-export default about
+export default sponsors
