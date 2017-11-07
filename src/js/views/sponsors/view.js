@@ -1,28 +1,21 @@
 import Barba from 'barba.js'
-import TestimonialSlider from '../../core/modules/testimonial-slider'
 import Parallax from '../../core/modules/parallax'
 import ScrollFx from '../../core/modules/scroll-fx'
 
-const membership = Barba.BaseView.extend({
-	namespace: 'membership',
+const sponsors = Barba.BaseView.extend({
+	namespace: 'sponsors',
 
 	onEnter () {
 		this.page = document.querySelector(`[data-namespace="${this.namespace}"]`)
-
-		this.slider = new TestimonialSlider()
-	},
+  },
 
 	onEnterCompleted () {
-		this.slider.init()
-
-		this.initParallax()
+    this.initParallax()
 		this.initFx()
 	},
 
 	onLeave () {
-		this.slider.destroy()
-
-		this.parallax.destroy()
+    this.parallax.destroy()
 		this.fx.destroy()
 	},
 
@@ -43,4 +36,4 @@ const membership = Barba.BaseView.extend({
 	}
 })
 
-export default membership
+export default sponsors
