@@ -8,7 +8,8 @@
       "aux": true
     } %}
 
-    <section class="js-section section py-12p">
+    <section class="js-section section pb-12p">
+      <a href="{{ site.link|relative ~ '/resources' }}" class="text-button text-button--underline block mt-4 mb-8 px-8p px-3-lg">Back to resources</a>
       <div class="section__container section__container--65">
         {% if posts %}
           {% include "resource-topic-archive-list.twig" with {
