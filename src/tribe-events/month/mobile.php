@@ -26,13 +26,13 @@
 			<div class="tribe-events-event-schedule-details">
 				<span class="tribe-event-date-start">[[=dateDisplay]] </span>
 			</div>
-			[[ if(imageSrc.length) { ]]
+			<!-- [[ if(imageSrc.length) { ]]
 			<div class="tribe-events-event-image">
 				<a href="[[=permalink]]" title="[[=title]]">
 					<img src="[[=imageSrc]]" alt="[[=title]]" title="[[=title]]">
 				</a>
 			</div>
-			[[ } ]]
+			[[ } ]] -->
 			[[ if(excerpt.length) { ]]
 			<div class="tribe-event-description"> [[=raw excerpt]] </div>
 			[[ } ]]
