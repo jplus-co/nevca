@@ -50,13 +50,13 @@
             } %}
           </a>
           <a class="site-footer__social-media-link"
-             href="">
+             href="{{ contact_column.social_media_links.twitter }}">
             {% include "social-icon-twitter.twig" with {
               primary_fill: colors.white
             } %}
           </a>
           <a class="site-footer__social-media-link"
-             href="">
+             href="{{ contact_column.social_media_links.medium }}">
             {% include "social-icon-medium.twig" with {
               bg_fill: 'none',
               primary_fill: colors.white
