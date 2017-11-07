@@ -64,7 +64,7 @@
             }
           } %}
         </div>
-        <div class="pl-12p pl-0-lg pr-6p pr-0-lg">
+        <div class="pl-12p pl-0-lg pr-6p pr-0-lg js-fx">
           <div class="scroll-x-lg pl-8p-lg pr-12p-lg">
             {% include "board-member-list.twig" with {
               "props": board_block.board_members
@@ -125,13 +125,13 @@
           <div class="columns-block__image-cluster">
             {% for image in testimonials_block.image_cluster %}
               <img
-                class="columns-block__image columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}{{ loop.index == 2 ? 'js-parallax'}}"
-                data-speed="0.05"
+                class="columns-block__image columns-block__image--{{ loop.index }} columns-block__image--{{ Image(image).aspect < 1 ? 'portrait' : 'landscape' }}{{ loop.index == 2 ? ' js-parallax'}}"
+                data-speed="0.1"
                 src="{{ Image(image).src }}"
                 alt="{{ post.title }}">
             {% endfor %}
           </div>
-          <div class="py-12p py-0-lg pr-8p">
+          <div class="py-12p py-0-lg pr-8p js-fx">
             {% include "testimonial-slider.twig" with {
               "props": testimonials_block.featured_posts,
               "is_white": true
