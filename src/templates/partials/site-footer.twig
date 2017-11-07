@@ -44,19 +44,22 @@
         </div>
         <div class="site-footer__social-media-links">
           <a class="site-footer__social-media-link"
-             href="{{ contact_column.social_media_links.facebook }}">
+             href="{{ contact_column.social_media_links.facebook }}"
+             target="_blank">
             {% include "social-icon-facebook.twig" with {
               primary_fill: colors.white
             } %}
           </a>
           <a class="site-footer__social-media-link"
-             href="{{ contact_column.social_media_links.twitter }}">
+             href="{{ contact_column.social_media_links.twitter }}"
+             target="_blank">
             {% include "social-icon-twitter.twig" with {
               primary_fill: colors.white
             } %}
           </a>
           <a class="site-footer__social-media-link"
-             href="{{ contact_column.social_media_links.medium }}">
+             href="{{ contact_column.social_media_links.medium }}"
+             target="_blank">
             {% include "social-icon-medium.twig" with {
               bg_fill: 'none',
               primary_fill: colors.white
