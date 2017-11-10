@@ -74,11 +74,13 @@
     background: none;
     border: none;
     cursor: pointer;
+    border-radius: 0;
   }
 
   &--dropdown {
     background: none;
     border: none;
+    border-radius: 0;
     cursor: pointer;
     box-shadow: 0 0 0 0.2rem $black inset;
     color: $black;
