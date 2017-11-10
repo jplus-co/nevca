@@ -3,7 +3,7 @@
     "title": "Page: Policy & Action",
     "fields": [
         {
-            "key": "field_59ff387ddd350",
+            "key": "field_59ff3b3ca2bdd",
             "label": "Hero",
             "name": "",
             "type": "tab",
@@ -41,7 +41,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_59ff389fdd351",
+            "key": "field_59ff3b49a2bde",
             "label": "Press",
             "name": "",
             "type": "tab",
@@ -121,7 +121,7 @@
             ]
         },
         {
-            "key": "field_59ff38b2dd352",
+            "key": "field_59ff3b58a2bdf",
             "label": "Positions",
             "name": "",
             "type": "tab",
@@ -215,7 +215,7 @@
             ]
         },
         {
-            "key": "field_59ff38c3dd353",
+            "key": "field_59ff3b65a2be0",
             "label": "Programs",
             "name": "",
             "type": "tab",
@@ -227,11 +227,11 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "placement": "left",
             "endpoint": 0
         },
         {
-            "key": "field_59ff3803dd34d",
+            "key": "field_59ff3b30a2bdc",
             "label": "Programs",
             "name": "programs_block",
             "type": "group",
@@ -247,7 +247,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_59ff3838dd34e",
+                    "key": "field_59ff3bcda2be1",
                     "label": "Heading",
                     "name": "heading",
                     "type": "clone",
@@ -269,7 +269,7 @@
                     "prefix_name": 0
                 },
                 {
-                    "key": "field_59ff385add34f",
+                    "key": "field_59ff3be3a2be2",
                     "label": "Featured Programs",
                     "name": "featured_posts",
                     "type": "relationship",
@@ -330,5 +330,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1509901757
+    "modified": 1510335457
 }
