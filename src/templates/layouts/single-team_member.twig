@@ -1,0 +1,49 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <div class="view" data-namespace="single">
+    <div class="flex py-12p px-14p">
+
+      <div class="flex-basis-40 pr-8">
+        <div class="single-team-member__img"><img class="w-100" src="{{ Image(post.image).src }}" /></div>
+
+        <div class="social-links my-10p">
+        <a class="team-member__social-media-link"
+           href="{{post.twitter}}"
+           target="_blank">
+          {% include "social-icon-linkedin.twig" with {
+            primary_fill: colors.black
+          } %}
+        </a>
+        <a class="team-member__social-media-link"
+           href=""
+           target="_blank">
+           {% include "social-icon-twitter.twig" with {
+             primary_fill: colors.black
+           } %}
+        </a>
+      </div>
+      </div>
+
+      <div class="flex-1">
+        <h1 class="text-block__heading text-block__heading--display">{{post.title}}</h1>
+        <div class="single-team-member__bio">{{post.bio}}</div>
+      </div>
+
+
+
+  </div>
+  <!-- <h5 class="">{{ post.role }}</h5> -->
+
+
+    {% include "faq-tease-block.twig" with {
+      "props": {
+        "heading": options.default_faqs_heading.heading,
+        "featured_posts": options.default_faqs
+      }
+    } %}
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}
