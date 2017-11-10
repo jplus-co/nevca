@@ -15,10 +15,11 @@
 }
 
 
+
 .single-team-member__bio {
-  line-height: 2.4rem;
-  padding-left: 4%;
   p {
+    line-height: 2.4rem;
+    font-size: 1.6rem;
     &:not(:last-child) {
       margin-bottom: 2rem;
     }
