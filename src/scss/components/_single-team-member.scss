@@ -14,6 +14,13 @@
   }
 }
 
+.team-member__social-media-link .primary-path {
+    transition: fill .3s;
+  }
+
+.team-member__social-media-link:hover .primary-path {
+      fill: $gold;
+    }
 
 
 .single-team-member__bio {
