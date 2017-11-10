@@ -1,6 +1,6 @@
 <ul class="faq-archive-list">
   {% for item in props %}
-    <li class="faq-archive-list__item">
+    <li id="{{ item.slug }}" class="faq-archive-list__item">
       <dl class="faq-archive-list__entry">
         <dt class="faq-archive-list__question">{{ item.title }}</dt>
         <dd class="faq-archive-list__answer">{{ item.content }}</dd>

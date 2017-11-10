@@ -5,6 +5,7 @@ import membership from './membership/view'
 import about from './about/view'
 import portfolio from './portfolio/view'
 import sponsors from './sponsors/view'
+import faq from './faq/view'
 
 const views = [
   home,
@@ -13,7 +14,8 @@ const views = [
   membership,
   about,
   portfolio,
-  sponsors
+  sponsors,
+  faq
 ]
 
 export default views
