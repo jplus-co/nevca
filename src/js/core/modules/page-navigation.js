@@ -16,6 +16,17 @@ class PageNavigation {
 
     this.addEvents()
     this.resize()
+    
+    this.checkURL(window.location.hash)
+  }
+  
+  checkURL (hash) {
+    if (hash.length && document.querySelector(hash)) {
+      TweenLite.to(window, 1, {
+        scrollTo: hash,
+        ease: Expo.easeInOut
+      })
+    }
   }
 
   addEvents () {
