@@ -14,12 +14,24 @@
           <ul class="job-archive-list">
             {% for item in posts %}
               <li class="mb-7">
-                <h3 class="list-card__subheading">{{ item.firm_name }}</h3>
+                <h3 class="list-card__subheading">
+                  {% if item.firm_website %}
+                  <a class="reset-anchor"
+                    href="{{ item.firm_website }}"
+                    target="_blank" rel="noopener noreferrer">
+                    {{ item.firm_name }}
+                  </a>
+                  {% else %}
+                    {{ item.firm_name }}
+                  {% endif %}
+                </h3>
                 <div class="rule"></div>
                 <h3 class="list-card__heading">{{ item.title }}</h3>
                 <div class="list-card__body mb-3">
                   {% if item.firm_logo %}
-                    <img class="w-20 mb-2" src="{{ Image(item.firm_logo).src }}" alt="{{ item.firm_name }}">
+                    <a class="block mb-2" href="{{ item.firm_website }}" target="_blank" rel="noopener noreferrer">
+                      <img class="w-20" src="{{ Image(item.firm_logo).src }}" alt="{{ item.firm_name }}">
+                    </a>
                   {% endif %}
                   {{ item.content }}
                 </div>
