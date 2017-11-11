@@ -59,6 +59,15 @@
     color: currentColor;
     font-size: 1.4rem;
     line-height: 1.6;
+    
+    a {
+      @include reset-anchor();
+      color: $gold;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 
     p, .p1 {
       margin-bottom: 2rem;
@@ -66,6 +75,7 @@
 
     ul, .ul1, ol, .ol1 {
       padding-left: 4rem;
+      margin-bottom: 2rem;
     }
 
     li, .li1 {
