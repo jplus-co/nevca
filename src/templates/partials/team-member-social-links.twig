@@ -1,0 +1,20 @@
+{% if post.twitter_url %}
+  <a class="team-member__social-media-link"
+     href="{{post.twitter_url}}"
+     target="_blank"
+     rel="noopener noreferrer">
+    {% include "social-icon-linkedin.twig" with {
+      primary_fill: colors.black
+    } %}
+  </a>
+{% endif %}
+{% if post.linkedin_url %}
+  <a class="team-member__social-media-link pl-2"
+     href="{{post.linkedin_url}}"
+     target="_blank"
+     rel="noopener noreferrer">
+     {% include "social-icon-twitter.twig" with {
+       primary_fill: colors.black
+     } %}
+  </a>
+{% endif %}

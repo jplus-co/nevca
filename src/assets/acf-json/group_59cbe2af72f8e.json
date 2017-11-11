@@ -7,6 +7,7 @@
             "label": "Company",
             "name": "company",
             "type": "text",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -26,6 +27,7 @@
             "label": "Image",
             "name": "image",
             "type": "image",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -44,6 +46,23 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "png, jpg"
+        },
+        {
+            "key": "field_5a062ac4db531",
+            "label": "Board Member Link",
+            "name": "board_member_link",
+            "type": "url",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -96,5 +115,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507164552
+    "modified": 1510353658
 }

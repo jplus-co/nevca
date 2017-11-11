@@ -1,0 +1,45 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <div class="view" data-namespace="single">
+    <div class="py-8p px-14p px-2p-md px-2-sm">
+      <a class="text-button text-button--underline block mb-4" href="{{ site.link|relative ~ "/about/#team" }}">{% include "arrow-left.twig" %} Back to the team</a>
+        <div class="flex block-sm">
+      <!-- show heading on mobile -->
+      <h1 class="hidden block-sm text-block__heading text-block__heading--display single-team-member__heading text-align-center">{{post.title}}</h1>
+
+      <div class="flex-basis-40 pr-8 px-8-sm ">
+        <div class="single-team-member__img mb-6-sm"><img class="w-100" src="{{ Image(post.image).src }}" /></div>
+
+          <div class="block hidden-sm single-team-member__social-links my-10p">
+            {% include 'team-member-social-links.twig' %}
+        </div>
+      </div>
+
+      <div class="flex-1">
+        <h1 class="block hidden-sm text-block__heading text-block__heading--display single-team-member__heading">{{post.title}}</h1>
+        <div class="single-team-member__bio">{{post.bio}}</div>
+      </div>
+
+      <!-- Show social links on mobile -->
+      <div class="hidden block-sm single-team-member__social-links my-10p">
+        {% include 'team-member-social-links.twig' %}
+      </div>
+
+        <!-- Show back button links on mobile -->
+        <a class="hidden block-sm text-button text-button--underline" href="{{ site.link|relative ~ "/about/#team" }}">{% include "arrow-left.twig" %} Back to the team</a>
+      </div>
+  </div>
+
+
+    {% include "faq-tease-block.twig" with {
+      "props": {
+        "heading": options.default_faqs_heading.heading,
+        "featured_posts": options.default_faqs
+      }
+    } %}
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}
