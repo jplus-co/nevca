@@ -27,15 +27,8 @@
       </div>
     {% endif %}
     <div class="flex block-sm flex-1">
+      
       <div class="flex-1 pr-5 mb-4-sm">
-        <h5 class="site-footer__heading">
-          {{ newsletter_column.heading }}
-        </h5>
-        <div class="site-footer__body">
-          {{ newsletter_column.body }}
-        </div>
-      </div>
-      <div class="flex-1 pr-5">
         <h5 class="site-footer__heading">
           {{ contact_column.heading }}
         </h5>
@@ -43,35 +36,52 @@
           <p><a href="{{ 'mailto:' ~ contact_column.contact_email }}">{{ contact_column.contact_email }}</a></p>
         </div>
         <div class="site-footer__social-media-links">
-          <a class="site-footer__social-media-link"
-             href="{{ contact_column.social_media_links.twitter }}"
-             target="_blank">
-            {% include "social-icon-twitter.twig" with {
-              primary_fill: colors.white
-            } %}
-          </a>
-          <a class="site-footer__social-media-link"
-             href="{{ contact_column.social_media_links.medium }}"
-             target="_blank">
-            {% include "social-icon-medium.twig" with {
-              bg_fill: 'none',
-              primary_fill: colors.white
-            } %}
-          </a>
-          <a class="pl-2p site-footer__social-media-link"
-             href="{{ contact_column.social_media_links.linkedin }}"
-             target="_blank">
-            {% include "social-icon-linkedin.twig" with {
-              primary_fill: colors.white
-            } %}
-          </a>
-          <a class="site-footer__social-media-link"
-             href="{{ contact_column.social_media_links.facebook }}"
-             target="_blank">
-            {% include "social-icon-facebook.twig" with {
-              primary_fill: colors.white
-            } %}
-          </a>
+          {% if contact_column.social_media_links.twitter %}
+            <a class="site-footer__social-media-link"
+               href="{{ contact_column.social_media_links.twitter }}"
+               target="_blank">
+              {% include "social-icon-twitter.twig" with {
+                primary_fill: colors.white
+              } %}
+            </a>
+          {% endif %}
+          {% if contact_column.social_media_links.medium %}
+            <a class="site-footer__social-media-link"
+               href="{{ contact_column.social_media_links.medium }}"
+               target="_blank">
+              {% include "social-icon-medium.twig" with {
+                bg_fill: 'none',
+                primary_fill: colors.white
+              } %}
+            </a>
+          {% endif %}
+          {% if contact_column.social_media_links.linkedin %}
+            <a class="pl-2p site-footer__social-media-link"
+               href="{{ contact_column.social_media_links.linkedin }}"
+               target="_blank">
+              {% include "social-icon-linkedin.twig" with {
+                primary_fill: colors.white
+              } %}
+            </a>
+          {% endif %}
+          {% if contact_column.social_media_links.facebook %}
+            <a class="site-footer__social-media-link"
+               href="{{ contact_column.social_media_links.facebook }}"
+               target="_blank">
+              {% include "social-icon-facebook.twig" with {
+                primary_fill: colors.white
+              } %}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="flex-1 pr-5-lg">
+        <h5 class="site-footer__heading">
+          {{ newsletter_column.heading }}
+        </h5>
+        <div class="site-footer__body">
+          {{ newsletter_column.body }}
         </div>
       </div>
     </div>
