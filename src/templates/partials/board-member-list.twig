@@ -1,7 +1,11 @@
 <ul class="board-member-list">
   {% for item in props %}
     <li class="board-member-list__item">
-      <a class="block reset-anchor" href="{{item.board_member_link}}">
+      <a class="block reset-anchor"
+        href="{{ item.board_member_link }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div class="board-member-list__image-mask">
           {% if item.image %}
             <img class="board-member-list__image" src="{{ Image(item.image).src }}" alt="{{ item.title }}">
