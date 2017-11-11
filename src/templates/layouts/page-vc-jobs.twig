@@ -1,0 +1,54 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <div class="view" data-namespace="vc-jobs">
+    {% include "hero.twig" with {
+      "hero_text": post.hero_text,
+      "aux": true
+    } %}
+
+    <section class="js-section section">
+      <div class="section__container section__container--70">
+        {% if posts %}
+          <ul class="job-archive-list">
+            {% for item in posts %}
+              <li class="mb-7">
+                <h3 class="list-card__subheading">{{ item.firm_name }}</h3>
+                <div class="rule"></div>
+                <h3 class="list-card__heading">{{ item.title }}</h3>
+                <div class="list-card__body mb-3">
+                  {% if item.firm_logo %}
+                    <img class="w-20 mb-2" src="{{ Image(item.firm_logo).src }}" alt="{{ item.firm_name }}">
+                  {% endif %}
+                  {{ item.content }}
+                </div>
+                {% if item.job_link %}
+                  {% include 'button.twig' with {
+                    "props": item.job_link
+                  } %}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>
+            No job postings at the moment. Please check back later.
+          </p>
+        {% endif %}
+        {% include "pagination.twig" with {
+          "props": posts
+        } %}
+      </div>
+    </section>
+
+    {% include "faq-tease-block.twig" with {
+      "props": {
+        "heading": options.default_faqs_heading.heading,
+        "featured_posts": options.default_faqs
+      }
+    } %}
+    {% include "site-footer.twig" %}
+  </div>
+
+{% endblock %}
