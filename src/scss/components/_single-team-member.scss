@@ -1,0 +1,34 @@
+
+.single-team-member__img{
+  position: relative;
+  z-index: 1;
+  &:after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: $gold;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: -1;
+  }
+}
+
+.team-member__social-media-link .primary-path {
+    transition: fill .3s;
+  }
+
+.team-member__social-media-link:hover .primary-path {
+      fill: $gold;
+    }
+
+
+.single-team-member__bio {
+  p {
+    line-height: 2.4rem;
+    font-size: 1.6rem;
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}

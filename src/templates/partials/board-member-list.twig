@@ -1,13 +1,25 @@
 <ul class="board-member-list">
   {% for item in props %}
     <li class="board-member-list__item">
-      <div class="board-member-list__image-mask">
-        {% if item.image %}
-          <img class="board-member-list__image" src="{{ Image(item.image).src }}" alt="{{ item.title }}">
+      {% if item.board_member_link %}
+        <a class="block reset-anchor"
+          href="{{ item.board_member_link }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+      {% endif %}
+
+          <div class="board-member-list__image-mask">
+            {% if item.image %}
+              <img class="board-member-list__image" src="{{ Image(item.image).src }}" alt="{{ item.title }}">
+            {% endif %}
+          </div>
+          <h4 class="board-member-list__name">{{ item.title }}</h4>
+          <h5 class="board-member-list__meta">{{ item.company }}</h5>
+
+        {% if item.board_member_link %}
+          </a>
         {% endif %}
-      </div>
-      <h4 class="board-member-list__name">{{ item.title }}</h4>
-      <h5 class="board-member-list__meta">{{ item.company }}</h5>
     </li>
   {% endfor %}
 </ul>

@@ -1,11 +1,11 @@
 {
-    "key": "group_59cbe2af72f8e",
-    "title": "Board Member",
+    "key": "group_5a074c7065426",
+    "title": "VC Job Details",
     "fields": [
         {
-            "key": "field_59cbe2c31fd3a",
-            "label": "Company",
-            "name": "company",
+            "key": "field_59ceab0892506",
+            "label": "Firm Name",
+            "name": "firm_name",
             "type": "text",
             "value": null,
             "instructions": "",
@@ -23,9 +23,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_59cbe2d41fd3b",
-            "label": "Image",
-            "name": "image",
+            "key": "field_5a07294f84ca7",
+            "label": "Firm Logo",
+            "name": "firm_logo",
             "type": "image",
             "value": null,
             "instructions": "",
@@ -36,7 +36,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
@@ -45,12 +45,12 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": "png, jpg"
+            "mime_types": "png"
         },
         {
-            "key": "field_5a074ac697c59",
-            "label": "Link",
-            "name": "board_member_link",
+            "key": "field_5a072b3d07f11",
+            "label": "Firm Website",
+            "name": "firm_website",
             "type": "url",
             "value": null,
             "instructions": "",
@@ -70,24 +70,12 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "team_member"
+                "value": "job"
             },
             {
                 "param": "post_taxonomy",
                 "operator": "==",
-                "value": "team:board-of-directors"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "team_member"
-            },
-            {
-                "param": "post_taxonomy",
-                "operator": "==",
-                "value": "team:board-of-overseers"
+                "value": "job_type:vc-jobs"
             }
         ]
     ],
@@ -96,24 +84,8 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [
-        "permalink",
-        "the_content",
-        "excerpt",
-        "custom_fields",
-        "discussion",
-        "comments",
-        "revisions",
-        "slug",
-        "author",
-        "format",
-        "page_attributes",
-        "featured_image",
-        "categories",
-        "tags",
-        "send-trackbacks"
-    ],
+    "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1510427359
+    "modified": 1510427956
 }

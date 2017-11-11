@@ -1,25 +1,10 @@
 .site-footer {
   border-top: 0.2rem solid $white;
 
-  &__column {
-    flex: 1;
-
-    &:not(:last-child) {
-      padding-right: 5rem;
-    }
-  }
-
   &__heading {
     font-size: 1.8rem;
     letter-spacing: 0.1rem;
     margin-bottom: 1.5rem;
-  }
-
-  &__list {
-  }
-
-  &__item {
-
   }
 
   &__link {
