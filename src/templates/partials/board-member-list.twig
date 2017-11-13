@@ -9,11 +9,16 @@
         >
       {% endif %}
 
-          <div class="board-member-list__image-mask">
+          {# <div class="board-member-list__image-mask">
             {% if item.image %}
               <img class="board-member-list__image" src="{{ Image(item.image).src }}" alt="{{ item.title }}">
             {% endif %}
-          </div>
+          </div> #}
+
+          {% if item.image %}
+            <div class="board-member-list__image" style="background-image: url({{ Image(item.image).src }})"></div>
+          {% endif %}
+
           <h4 class="board-member-list__name">{{ item.title }}</h4>
           <h5 class="board-member-list__meta">{{ item.company }}</h5>
 
