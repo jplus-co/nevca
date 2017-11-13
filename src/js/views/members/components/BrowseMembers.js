@@ -12,7 +12,7 @@ class BrowseMembers extends Component {
   }
 
   render (props, state) {
-    const { members, pagination, decrementPage, incrementPage, updatePage } = props
+    const { members, pagination, decrementPage, incrementPage, updatePage, filters } = props
     return (
       <div class={'members__inner'}>
         <FilterPanel {...props} />
@@ -24,7 +24,13 @@ class BrowseMembers extends Component {
                 <span class='button__icon'>▾</span>
               </span>
             </button>
-            <p class="ml-4">{members.count} results</p>
+            {
+              filters.length ? (
+                <p class="ml-4">{members.count} results</p>  
+              ) : (
+                null
+              )
+            }
           </div>
           <MemberGrid {...props} />
           <Pagination />
