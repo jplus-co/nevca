@@ -31,4 +31,13 @@
       margin-bottom: 2rem;
     }
   }
+  a{
+    @include reset-anchor();
+    transition: color 0.3s;
+    font-weight: 600;
+
+    @include hover-both {
+      color: $gold;
+    }
+  }
 }
