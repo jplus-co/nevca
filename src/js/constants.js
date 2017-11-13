@@ -25,3 +25,7 @@ export const INCREMENT_PAGE = 'INCREMENT_PAGE'
 export const DECREMENT_PAGE = 'DECREMENT_PAGE'
 export const UPDATE_TOTAL_RECORDS = 'UPDATE_TOTAL_RECORDS'
 export const UPDATE_PAGE_COUNT = 'UPDATE_PAGE_COUNT'
+
+// Google Analytics
+export const GA_TRACKING_ID = 'UA-29080500-1'
+

@@ -7,7 +7,8 @@ import transitionReducer from '../transitions/reducer'
 import {
   INIT_STATE_CHANGE,
   NEW_PAGE_READY,
-  TRANSITION_COMPLETED
+  TRANSITION_COMPLETED,
+  GA_TRACKING_ID
 } from '../constants'
 
 import Parallax from './modules/parallax'
@@ -49,6 +50,8 @@ class Router {
     config.body.classList.add(`is-${Barba.Pjax.History.currentStatus().namespace}`)
 
     if (Barba.Pjax.History.prevStatus()) {
+      this.trackPageView()
+      
       config.body.classList.remove(`is-${Barba.Pjax.History.prevStatus().namespace}`)
     }
   }
@@ -56,25 +59,15 @@ class Router {
   handleTransitionCompleted = () => {
     this.utils.unlock()
   }
-
-  // initModules(page) {
-  //   this.initParallax(page)
-  //   this.initFx(page)
-  // }
-  //
-  // initParallax (page) {
-  //   const parallaxItems = page.querySelectorAll('.js-parallax')
-  //
-  //   this.parallax = new Parallax({ parallaxItems })
-  //   this.parallax.init()
-  // }
-  //
-  // initFx (page) {
-  //   const fxTriggers = page.querySelectorAll('.js-fx-trigger')
-  //
-  //   this.fx = new ScrollFx({ fxTriggers })
-  //   this.fx.init()
-  // }
+  
+  trackPageView () {
+    if (window.gtag) {
+      console.log('%c' + window.location.pathname, 'color: mistyrose;')
+      gtag('config', GA_TRACKING_ID, {
+        'page_path': window.location.pathname
+      })
+    }
+  }
 }
 
 export default new Router()
