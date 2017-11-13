@@ -50,13 +50,12 @@
                href="{{ contact_column.social_media_links.medium }}"
                target="_blank">
               {% include "social-icon-medium.twig" with {
-                bg_fill: 'none',
                 primary_fill: colors.white
               } %}
             </a>
           {% endif %}
           {% if contact_column.social_media_links.linkedin %}
-            <a class="pl-2p site-footer__social-media-link"
+            <a class="site-footer__social-media-link"
                href="{{ contact_column.social_media_links.linkedin }}"
                target="_blank">
               {% include "social-icon-linkedin.twig" with {
