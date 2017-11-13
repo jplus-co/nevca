@@ -7,7 +7,8 @@ import transitionReducer from '../transitions/reducer'
 import {
   INIT_STATE_CHANGE,
   NEW_PAGE_READY,
-  TRANSITION_COMPLETED
+  TRANSITION_COMPLETED,
+  GA_TRACKING_ID
 } from '../constants'
 
 import Parallax from './modules/parallax'
@@ -60,9 +61,11 @@ class Router {
   }
   
   trackPageView () {
-    if (window.ga) {
-      window.ga('set', 'page', window.location.pathname)
-      window.ga('send', 'pageview')
+    if (window.gtag) {
+      console.log('%c' + window.location.pathname, 'color: mistyrose;')
+      gtag('config', GA_TRACKING_ID, {
+        'page_path': window.location.pathname
+      })
     }
   }
 }
