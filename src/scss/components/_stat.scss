@@ -15,6 +15,10 @@
     color: $gold;
     margin-bottom: 3rem;
     display: block;
+    
+    @media (max-width: $sm) {
+      font-size: 8rem;
+    }
   }
 
   &__caption {
