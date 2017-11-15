@@ -13,9 +13,33 @@ const home = Barba.BaseView.extend({
 	onEnter () {
 		this.page = document.querySelector(`[data-namespace="${this.namespace}"]`)
 		this.heading = this.page.querySelector('.hero__heading')
-		this.setup()
+		this.slider = this.page.querySelector('.js-slider')
+		this.slides = [...document.querySelectorAll('.js-slide')]
+		this.activeIndex = 0
+		this.sliderTimeout = window.sliderTimeout
 
+		this.setup()
 		this.initBackgroundVideo()
+
+		this.updateSlide()
+	},
+
+	updateSlide () {
+		setTimeout(() => {
+			this.activeIndex = (this.activeIndex + 1) % this.slides.length;
+
+			this.slides.forEach((slide, index) => {
+				if (index === this.activeIndex) {
+					slide.classList.remove('member-logo-grid__group--hidden')
+					slide.classList.add('member-logo-grid__group--visible')
+				} else {
+					slide.classList.remove('member-logo-grid__group--visible')
+					slide.classList.add('member-logo-grid__group--hidden')
+				}
+			})
+
+			this.updateSlide()
+		}, this.sliderTimeout)
 	},
 
 	onEnterCompleted () {

@@ -114,17 +114,24 @@
 
     <!-- Members Block -->
     <section id="members" class="section pt-12p pb-4p py-12p-lg px-8p px-0-lg is-black js-fx-trigger">
+      <script>
+        window.sliderTimeout = {{ members_block.slider_timeout }}
+      </script>
       <div class="js-parallax" data-speed="0.025">
         <h3 class="text-block__subheading color-gold pl-3-lg">{{ members_block.heading }}</h3>
         <div class="flex scroll-x-lg">
-          <div class="member-logo-grid min-w-md">
-            {% for member in featured_members %}
-              {% set logo = Image(member.image) %}
-              <a href="{{ member.website }}" target="_blank"
-                class="member-logo-grid__item member-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
-                <img class="member-logo-grid__image"
-                  src="{{ logo.src }}" alt="{{ member.title }}">
-              </a>
+          <div class="js-slider member-logo-grid min-w-md">
+            {% for group in member_groups %}
+              <div class="js-slide member-logo-grid__group member-logo-grid__group--{{ loop.index > 1 ? 'hidden' : 'visible' }}">
+                {% for member in group %}
+                  {% set logo = Image(member.image) %}
+                  <a href="{{ member.website }}" target="_blank" rel="nofollow noreferrer"
+                    class="member-logo-grid__item member-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
+                    <img class="member-logo-grid__image"
+                      src="{{ logo.src }}" alt="{{ member.title }}">
+                  </a>
+                {% endfor %}
+              </div>
             {% endfor %}
           </div>
           <!-- View more circle button -->
@@ -163,7 +170,7 @@
               <h4 class="sponsor-logo-grid__tier">Major</h4>
               {% for sponsor in sponsors_block.major_sponsors %}
                 {% set logo = Image(sponsor.logo) %}
-                <a href="{{ sponsor.website_link }}" target="_blank"
+                <a href="{{ sponsor.website_link }}" target="_blank" rel="nofollow noreferrer"
                   class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
                   <img class="sponsor-logo-grid__image"
                     src="{{ logo.src }}" alt="{{ sponsor.title }}">
@@ -175,7 +182,7 @@
               <h4 class="sponsor-logo-grid__tier">Supporting</h4>
               {% for sponsor in sponsors_block.supporting_sponsors %}
                 {% set logo = Image(sponsor.logo) %}
-                <a href="{{ sponsor.website_link }}" target="_blank"
+                <a href="{{ sponsor.website_link }}" target="_blank" rel="nofollow noreferrer"
                   class="sponsor-logo-grid__item sponsor-logo-grid__item--{{ logo.width / logo.height < 2 ? 'square' }}">
                   <img class="sponsor-logo-grid__image sponsor-logo-grid__image--invert"
                     src="{{ logo.src }}" alt="{{ sponsor.title }}">
