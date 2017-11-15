@@ -19,9 +19,6 @@
       bottom: 0;
       left: 0;
     }
-
-    &--visible {
-    }
   }
 
   &__item {
@@ -31,6 +28,7 @@
     align-items: center;
     padding: 4rem 6rem;
     height: 14rem;
+    transition: opacity 0.8s $ease-out-quint;
 
     @media (max-width: $lg) {
       padding: 3rem 4rem;
@@ -45,12 +43,11 @@
     }
 
     .member-logo-grid__group--visible & {
-      transition: opacity 0.6s  $ease-out-quint 0.6s;
+      transition-delay: 0.8s;
       opacity: 1;
     }
 
     .member-logo-grid__group--hidden & {
-      transition: opacity 0.6s $ease-out-quint;
       opacity: 0;
     }
   }
