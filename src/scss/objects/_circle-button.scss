@@ -20,9 +20,37 @@
     border-radius: 50%;
     overflow: hidden;
 
+    .circle-button--progress & {
+      border: none;
+    }
+
     .text-button & {
       width: 3rem;
       height: 3rem;
+    }
+  }
+
+  &__svg {
+
+  }
+
+  &__progress {
+    transform-origin: 50% 50%;
+    stroke: $black;
+    stroke-width: 0.85rem;
+    fill: none;
+    stroke-dasharray: 570;
+    stroke-dashoffset: 570;
+    transform: rotate(-90deg);
+
+    &-bg {
+      transform-origin: 50% 50%;
+      stroke: rgba($black, 0.2);
+      stroke-width: 0.85rem;
+      fill: none;
+      stroke-dasharray: 570;
+      stroke-dashoffset: 0;
+      transform: rotate(-90deg);
     }
   }
 

@@ -1,4 +1,7 @@
 <div class="testimonial-slider{{ is_white ? ' testimonial-slider--white' }}{{ classes ? ' ' ~ classes }}">
+  <script>
+    window.testimonialTimeout = {{ options.testimonial_settings.timeout }}
+  </script>
   <ul class="testimonial-slider__quote-list">
     {% for item in props %}
       <li class="js-slide testimonial-slider__quote-item">
@@ -12,16 +15,7 @@
     {% endfor %}
   </ul>
   <div class="testimonial-slider__pagination">
-    <ul class="testimonial-slider__pagination-list">
-      {% for item in props %}
-        <li class="testimonial-slider__pagination-item">
-          <button class="js-button testimonial-slider__pagination-button{{ loop.index == 1 ? ' testimonial-slider__pagination-button--active'}}">
-            0{{ loop.index }}
-          </button>
-        </li>
-      {% endfor %}
-    </ul>
-    {% include "circle-button.twig" with {
+    {% include "circle-button-progress.twig" with {
       "direction": "right",
       "class": "js-next"
     } %}

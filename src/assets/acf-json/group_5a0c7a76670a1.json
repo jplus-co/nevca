@@ -1,0 +1,63 @@
+{
+    "key": "group_5a0c7a76670a1",
+    "title": "Testimonial Settings",
+    "fields": [
+        {
+            "key": "field_5a0c7a81fa969",
+            "label": "Testimonial Settings",
+            "name": "testimonial_settings",
+            "type": "group",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5a0c7a8dfa96a",
+                    "label": "Timeout",
+                    "name": "timeout",
+                    "type": "range",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 10000,
+                    "min": 5000,
+                    "max": 20000,
+                    "step": 500,
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "testimonial_settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1510767286
+}

@@ -4,19 +4,23 @@ class TestimonialSlider {
   init () {
     this.slides = [...document.querySelectorAll('.js-slide')]
     this.text = [...document.querySelectorAll('.js-text')]
-    this.buttons = [...document.querySelectorAll('.js-button')]
     this.nextButton = document.querySelector('.js-next')
+    this.progress = document.querySelector('.js-circle-button-progress')
+    this.timeout = window.testimonialTimeout
 
     this.splits = []
 
     this.state = {
       current: 0,
-      animating: false
+      animating: false,
+      isDestroyed: false
     }
 
     this.split()
     this.addEvents()
     this.update()
+
+    this.start()
   }
 
   split () {
@@ -38,20 +42,30 @@ class TestimonialSlider {
   }
 
   addEvents() {
-    this.buttons.forEach(btn => btn.addEventListener('click', this.onClick))
     this.nextButton.addEventListener('click', this.nextSlide)
   }
 
   removeEvents() {
-    this.buttons.forEach(btn => btn.removeEventListener('click', this.onClick))
     this.nextButton.removeEventListener('click', this.nextSlide)
   }
 
-  onClick = ({ currentTarget }) => {
-    this.setSlide(this.buttons.indexOf(currentTarget))
+  start = () => {
+    if (!this.state.isDestroyed) {
+      TweenLite.to(this.progress, this.timeout / 1000, {
+        strokeDashoffset: 0,
+        ease: Linear.easeNone,
+        onComplete: !this.state.isDestroyed && this.nextSlide
+      })
+    }
   }
 
   nextSlide = () => {
+    TweenLite.to(this.progress, 0.8, {
+      strokeDashoffset: 570,
+      ease: Quint.easeInOut,
+      onComplete: this.start
+    })
+
     const { current } = this.state
     const next = current < this.slides.length - 1 ? current + 1 : 0
     this.setSlide(next)
@@ -70,16 +84,15 @@ class TestimonialSlider {
     this.slides.forEach((slide, index) => {
       if (this.state.current === index) {
         slide.classList.add('testimonial-slider__quote-item--active')
-        this.buttons[index].classList.add('testimonial-slider__pagination-button--active')
       } else {
         slide.classList.remove('testimonial-slider__quote-item--active')
-        this.buttons[index].classList.remove('testimonial-slider__pagination-button--active')
       }
     })
   }
 
   destroy () {
     this.removeEvents()
+    this.state.isDestroyed = true
   }
 }
 

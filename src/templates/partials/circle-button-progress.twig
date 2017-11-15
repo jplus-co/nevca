@@ -1,0 +1,28 @@
+{% if url %}
+  {% set tag = 'a' %}
+{% else %}
+  {% set tag = 'button' %}
+{% endif %}
+
+<{{ tag }} class="circle-button circle-button--progress circle-button--{{ direction }}{% if class %} {{ class }}{% endif %}"
+  {% if url %}href="{{ url }}"{% endif %}
+  style="color: {{ color }}"
+>
+  <span class="circle-button__circle">
+    <span class="circle-button__arrow">
+      {% include 'arrow-' ~ direction ~ '.twig' with { 'color': color } %}
+    </span>
+    <span class="circle-button__arrow">
+      {% include 'arrow-' ~ direction ~ '.twig' with { 'color': color } %}
+    </span>
+    <svg class="circle-button__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+      <path class="circle-button__progress-bg" d="M189,100 C189,149.15334273495898,149.15334273495898,189,100,189,50.846657265041,189,11,149.15334273495898,11,100,11,50.846657265041,50.846657265041,11,100,11,149.15334273495898,11,189,50.846657265041,189,100z"></path>
+      <path class="circle-button__progress js-circle-button-progress" d="M189,100 C189,149.15334273495898,149.15334273495898,189,100,189,50.846657265041,189,11,149.15334273495898,11,100,11,50.846657265041,50.846657265041,11,100,11,149.15334273495898,11,189,50.846657265041,189,100z"></path>
+    </svg>
+  </span>
+  {% if label %}
+    <span class="circle-button__label">
+      {{ label }}
+    </span>
+  {% endif %}
+</{{ tag }}>
