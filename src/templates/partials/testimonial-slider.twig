@@ -1,4 +1,7 @@
 <div class="testimonial-slider{{ is_white ? ' testimonial-slider--white' }}{{ classes ? ' ' ~ classes }}">
+  <script>
+    window.testimonialTimeout = {{ options.testimonial_settings.timeout }}
+  </script>
   <ul class="testimonial-slider__quote-list">
     {% for item in props %}
       <li class="js-slide testimonial-slider__quote-item">

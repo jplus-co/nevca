@@ -99,6 +99,15 @@ class NEVCASite extends TimberSite {
 				'icon_url'     => 'dashicons-arrow-down',
 				'redirect'     => false
 			));
+
+			acf_add_options_page(array(
+				'page_title'   => 'Testimonial Settings',
+				'menu_title'   => 'Testimonial Settings',
+				'menu_slug'    => 'testimonial_settings',
+				'capability'   => 'edit_posts',
+				'parent_slug'  => 'edit.php?post_type=testimonial',
+				'redirect'     => false
+			));
 		}
 	}
 

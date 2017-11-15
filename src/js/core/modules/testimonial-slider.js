@@ -6,7 +6,7 @@ class TestimonialSlider {
     this.text = [...document.querySelectorAll('.js-text')]
     this.nextButton = document.querySelector('.js-next')
     this.progress = document.querySelector('.js-circle-button-progress')
-    this.timeout = 3000
+    this.timeout = window.testimonialTimeout
 
     this.splits = []
 
