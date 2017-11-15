@@ -17,6 +17,7 @@ const home = Barba.BaseView.extend({
 		this.slides = [...document.querySelectorAll('.js-slide')]
 		this.activeIndex = 0
 		this.sliderTimeout = window.sliderTimeout
+		this.sliderDestroyed = false
 
 		this.setup()
 		this.initBackgroundVideo()
@@ -26,19 +27,20 @@ const home = Barba.BaseView.extend({
 
 	updateSlide () {
 		setTimeout(() => {
-			this.activeIndex = (this.activeIndex + 1) % this.slides.length;
+			if (!this.sliderDestroyed) {
+					this.activeIndex = (this.activeIndex + 1) % this.slides.length;
 
-			this.slides.forEach((slide, index) => {
-				if (index === this.activeIndex) {
-					slide.classList.remove('member-logo-grid__group--hidden')
-					slide.classList.add('member-logo-grid__group--visible')
-				} else {
-					slide.classList.remove('member-logo-grid__group--visible')
-					slide.classList.add('member-logo-grid__group--hidden')
-				}
-			})
-
-			this.updateSlide()
+					this.slides.forEach((slide, index) => {
+						if (index === this.activeIndex) {
+							slide.classList.remove('member-logo-grid__group--hidden')
+							slide.classList.add('member-logo-grid__group--visible')
+						} else {
+							slide.classList.remove('member-logo-grid__group--visible')
+							slide.classList.add('member-logo-grid__group--hidden')
+						}
+					})
+				this.updateSlide()
+			}
 		}, this.sliderTimeout)
 	},
 
@@ -49,7 +51,9 @@ const home = Barba.BaseView.extend({
 		this.initFx()
 	},
 
-	onLeave () {},
+	onLeave () {
+		this.sliderDestroyed = true
+	},
 
 	onLeaveCompleted () {
 		this.parallax.destroy()
