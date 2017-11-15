@@ -1,12 +1,27 @@
 .member-logo-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -3rem -6rem 2rem -6rem;
-  flex: 1;
+  position: relative;
 
-  @media (max-width: $lg) {
-    margin-right: 0;
-    margin-left: 0;
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -3rem -6rem 2rem -6rem;
+    flex: 1;
+
+    @media (max-width: $lg) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    &--hidden {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &--visible {
+    }
   }
 
   &__item {
@@ -15,6 +30,7 @@
     justify-content: center;
     align-items: center;
     padding: 4rem 6rem;
+    height: 14rem;
 
     @media (max-width: $lg) {
       padding: 3rem 4rem;
@@ -26,6 +42,16 @@
       @media (max-width: $lg) {
         padding: 3rem 6rem;
       }
+    }
+
+    .member-logo-grid__group--visible & {
+      transition: opacity 0.6s  $ease-out-quint 0.6s;
+      opacity: 1;
+    }
+
+    .member-logo-grid__group--hidden & {
+      transition: opacity 0.6s $ease-out-quint;
+      opacity: 0;
     }
   }
 
