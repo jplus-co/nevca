@@ -18,22 +18,43 @@
         <h2 class="featured-member__heading">Featured Member</h2>
         <div class="featured-member__row">
           <div class="featured-member__column">
-            <img class="featured-member__image"
-              src="{{ Image(featured_member.image
-                ? featured_member.image
-                : featured_member.post.image
-              ).src }}"
-              alt="{{ featured_member.post.title }}">
+            <a
+              class="reset-anchor"
+              href="{{ featured_member.post.website }}"
+              target="_blank"
+              rel="nofollow noreferrer"
+            >
+              <img class="featured-member__image"
+                src="{{ Image(featured_member.image
+                  ? featured_member.image
+                  : featured_member.post.image
+                ).src }}"
+                alt="{{ featured_member.post.title }}">
+            </a>
           </div>
           <div class="featured-member__column">
-            <h3 class="featured-member__title">
-              {{ featured_member.post.title }}
-            </h3>
+            <a
+              class="reset-anchor"
+              href="{{ featured_member.post.website }}"
+              target="_blank"
+              rel="nofollow noreferrer"
+            >
+              <h3 class="featured-member__title">
+                {{ featured_member.post.title }}
+              </h3>
+            </a>
             <div class="featured-member__description">
               {{ featured_member.description }}
             </div>
-            <a class="featured-member__membership-cta-link" href="{{ site.link | relative }}/membership">
-              {{ featured_member.cta_label }}
+            <a
+              class="featured-member__membership-cta-link"
+              href="{{ featured_member.cta_link.target == "_blank"
+                ? featured_member.cta_link.url
+                : featured_member.cta_link.url|relative
+              }}"
+              target="{{ featured_member.cta_link.target }}"
+            >
+              {{ featured_member.cta_link.title }}
             </a>
           </div>
         </div>
