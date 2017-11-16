@@ -8,13 +8,21 @@ const MemberGridList = ({
   sectors,
   filters
 }) => {
+  const text = window.CTA_CARD_TEXT.length > 0
+    ? window.CTA_CARD_TEXT
+    : 'Your firm could be here. Join the network today.'
+
+  const link = window.CTA_CARD_LINK.length > 0
+    ? window.CTA_CARD_LINK
+    : `${APP.BASE_URL_RELATIVE}/membership`
+
   return (
     <ul className="member-grid__list">
       {members.map((member, i) =>
         member === 'cta'
           ? <CTACard
-              text={defined(window.CTA_CARD_TEXT, 'Your firm could be here. Join the network today.')}
-              link={defined(window.CTA_CARD_LINK, `${APP.BASE_URL_RELATIVE}/membership`)}
+              text={text}
+              link={link}
             />
           : <MemberCard
               filters={filters}
