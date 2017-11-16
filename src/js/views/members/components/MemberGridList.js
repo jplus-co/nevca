@@ -8,11 +8,11 @@ const MemberGridList = ({
   sectors,
   filters
 }) => {
-  const text = window.CTA_CARD_TEXT.length > 0
+  const text = window.CTA_CARD_TEXT && window.CTA_CARD_TEXT.length > 0
     ? window.CTA_CARD_TEXT
     : 'Your firm could be here. Join the network today.'
 
-  const link = window.CTA_CARD_LINK.length > 0
+  const link = window.CTA_CARD_TEXT && window.CTA_CARD_LINK.length > 0
     ? window.CTA_CARD_LINK
     : `${APP.BASE_URL_RELATIVE}/membership`
 
