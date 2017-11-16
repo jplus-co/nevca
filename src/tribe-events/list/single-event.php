@@ -55,6 +55,10 @@ $organizer = tribe_get_organizer();
 				<?php the_title() ?>
 			</a>
 		</h2>
+		<?php if ( $organizer ): ?>
+		<div class="list-organizer pb-1">Organized by <?php echo tribe_get_organizer(); ?></div>
+		<?php endif; ?>
+
 		<?php do_action( 'tribe_events_after_the_event_title' ) ?>
 
 		<!-- Event Cost -->

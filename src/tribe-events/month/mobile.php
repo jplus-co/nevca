@@ -21,6 +21,7 @@
 		<h4 class="summary">
 			<a class="url" href="[[=permalink]]" title="[[=title]]" rel="bookmark">[[=raw title]]</a>
 		</h4>
+		<span>[[=organizer]]</span>
 
 		<div class="tribe-events-event-body">
 			<div class="tribe-events-event-schedule-details">
