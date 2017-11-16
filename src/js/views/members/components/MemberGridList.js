@@ -1,4 +1,5 @@
 import { h } from 'preact'
+import defined from 'defined'
 import MemberCard from './MemberCard'
 import CTACard from './CTACard'
 
@@ -7,11 +8,22 @@ const MemberGridList = ({
   sectors,
   filters
 }) => {
+  const text = window.CTA_CARD_TEXT.length > 0
+    ? window.CTA_CARD_TEXT
+    : 'Your firm could be here. Join the network today.'
+
+  const link = window.CTA_CARD_LINK.length > 0
+    ? window.CTA_CARD_LINK
+    : `${APP.BASE_URL_RELATIVE}/membership`
+
   return (
     <ul className="member-grid__list">
       {members.map((member, i) =>
         member === 'cta'
-          ? <CTACard />
+          ? <CTACard
+              text={text}
+              link={link}
+            />
           : <MemberCard
               filters={filters}
               sectors={sectors}

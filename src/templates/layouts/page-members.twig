@@ -1,6 +1,7 @@
 {% extends 'base.twig' %}
 
 {% set featured_member = post.get_field('featured_member') %}
+{% set cta_card = post.get_field('cta_card') %}
 
 {% block content %}
 
@@ -51,6 +52,11 @@
       }
     } %}
     {% include 'site-footer.twig' %}
+
+    <script>
+      window.CTA_CARD_TEXT = "{{ cta_card.text }}";
+      window.CTA_CARD_LINK = "{{ cta_card.link }}";
+    </script>
   </div>
 
 {% endblock %}
