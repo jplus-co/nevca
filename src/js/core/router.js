@@ -62,7 +62,8 @@ class Router {
   
   trackPageView () {
     if (window.gtag) {
-      console.log('%c' + window.location.pathname, 'color: mistyrose;')
+      // Remove for production
+      // console.log('%c' + window.location.pathname, 'color: mistyrose;')
       gtag('config', GA_TRACKING_ID, {
         'page_path': window.location.pathname
       })

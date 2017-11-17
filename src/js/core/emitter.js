@@ -2,7 +2,8 @@ import Barba from 'barba.js'
 
 class Emitter {
   emit (evt, payload) {
-    console.log(`%c ${evt}`, 'color: #ff6796', '\n', payload || '')
+    // Remove for production
+    // console.log(`%c ${evt}`, 'color: #ff6796', '\n', payload || '')
     return Barba.Dispatcher.trigger(evt, payload)
   }
 

@@ -24,6 +24,7 @@
     "lodash.assign": "^4.2.0",
     "lodash.compose": "^2.4.1",
     "lodash.debounce": "^4.0.8",
+    "no-op": "^1.0.3",
     "preact": "^8.2.5",
     "preact-redux": "^2.0.2",
     "raf-scroll": "^1.4.0",

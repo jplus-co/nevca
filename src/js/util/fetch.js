@@ -1,18 +1,16 @@
 import cache from './cache'
+import noop from 'no-op'
 
 const fetch = (opts = {}) => {
   let url = typeof opts === 'string' ? opts : opts.url
-  let callback = typeof opts === 'object' ? opts.callback : undefined
+  let callback = typeof opts === 'object' ? opts.callback : noop
 
   // Check cache for url. If it already exists, access it via the cache
   if (cache.has(url)) {
     // Remove for production
-    console.log(`%c${url}\n\nloaded from cache.\n\n`, 'color: palevioletred;')
-
+    // console.log(`%c${url}\n\nloaded from cache.\n\n`, 'color: palevioletred;')
     const data = cache.get(url)
-
-    callback && callback(data)
-
+    callback(data)
     return Promise.resolve(data)
   } else {
     // Or we'll fetch it
@@ -26,13 +24,10 @@ const fetch = (opts = {}) => {
         }
       })
       .then(data => {
-        callback && callback(data)
-
+        callback(data)
         cache.set(url, data)
-
         // Remove for production
-        console.log(`%c${url}\n\nloaded from API.\n\n`, 'color: papayawhip;')
-
+        // console.log(`%c${url}\n\nloaded from API.\n\n`, 'color: papayawhip;')
         return Promise.resolve(data)
       })
   }

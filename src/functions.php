@@ -194,3 +194,10 @@ function my_custom_website_link( $html ){
   }
   return $html;
 }
+
+
+add_action( 'wp_default_scripts', function( $scripts ) {
+	if ( ! empty( $scripts->registered['jquery'] ) ) {
+		$scripts->registered['jquery']->deps = array_diff( $scripts->registered['jquery']->deps, array( 'jquery-migrate' ) );
+	}
+} );
