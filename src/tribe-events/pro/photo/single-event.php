@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 
+$organizer = tribe_get_organizer();
+
 ?>
 
 <div class="tribe-events-photo-event-wrap">
@@ -54,5 +56,7 @@ global $post;
 		<?php do_action( 'tribe_events_after_the_content' ) ?>
 
 	</div><!-- /.tribe-events-event-details -->
-
+	<?php if ( $organizer ): ?>
+	<div class="photo-organizer">Organized by <?php echo tribe_get_organizer(); ?></div>
+	<?php endif; ?>
 </div><!-- /.tribe-events-photo-event-wrap -->

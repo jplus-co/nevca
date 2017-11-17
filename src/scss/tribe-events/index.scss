@@ -395,6 +395,10 @@
     width: 100%;
   }
 
+  .list-organizer {
+
+  }
+
   @media (max-width: 768px) {
 
       .tribe-events-event-meta {
@@ -472,6 +476,29 @@
 // -----------------------------------------------------------------------------
 
 
+  .tribe-grid-content-wrap {
+    padding-left: 70px;
+  }
+
+.tribe-grid-header {
+  @include type-style-heading-sm();
+  font-size: 1.6rem;
+  color: $white;
+  background-color: $blue;
+  }
+
+  .tribe-week-today {
+    color: $blue;
+  }
+
+  .tribe-grid-body div[id*=tribe-events-event-] {
+    background-color: $white;
+  }
+
+.tribe-events-grid{
+  margin-top: 2rem;
+}
+
 // -----------------------------------------------------------------------------
 //
 // 6. Photo View
@@ -479,6 +506,16 @@
 // -----------------------------------------------------------------------------
 
 
+  .tribe-events-list-photo-description.tribe-events-content p{
+    line-height: 2.2rem;
+    font-size: 1.6rem;
+  }
+
+  .photo-organizer {
+    padding: 1.5rem;
+    font-size: 1.4rem;
+    border-top: 1px solid $gray;
+  }
 
 // -----------------------------------------------------------------------------
 //
