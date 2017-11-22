@@ -11,8 +11,8 @@ class FilterPanel {
   }
 
   render() {
-    const { sectors, filters, removeFilter, clearFilters } = this.props
-    const sectorTree = fromSectors.createSectorTree(sectors)
+    const { sectors: allSectors, filters, removeFilter, clearFilters } = this.props
+    const sectorTree = fromSectors.createSectorTree(allSectors)
 
     return (
       <div class='filter-panel' onClick={this.collapsePanel}>
@@ -46,7 +46,7 @@ class FilterPanel {
                   ) : null}
                   {filters.length ? (
                     <ul class='filter-panel__list'>
-                      {filters.map((id, i) => sectors.find(sector => sector.id === id))
+                      {fromSectors.sectorObjectsFromIDs(filters, allSectors)
                         .map(sector => (
                           <SelectedFilter
                             key={sector.id}

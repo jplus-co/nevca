@@ -138,8 +138,16 @@
   &__sector-list-item {
     line-height: 1.5;
 
+    &::after {
+      content: '•';
+      margin-left: 0.4rem;
+      display: none;
+    }
+
     &--active {
-      font-weight: 700;
+      &::after {
+        display: inline-block;
+      }
     }
   }
 }
