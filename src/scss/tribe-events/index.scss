@@ -149,6 +149,15 @@
     font-size: 1.8rem;
   }
 
+// .tribe-events-single{
+//   margin-bottom: 0;
+// }
+//
+// #tribe-events-footer .tribe-events-sub-nav{
+//   margin-bottom: 5rem;
+// }
+
+
 // -----------------------------------------------------------------------------
 //
 // 2. Filter Bar
@@ -373,6 +382,12 @@
 
     } // .tribe-events-tooltip
 
+
+    .tribe-event-featured {
+      background-color: transparent;
+      border: 2px solid $gold;
+    }
+
   } // #tribe-events-content
 
 
@@ -393,6 +408,10 @@
   // Makes the images their full container size
   .tribe-events-list .tribe-events-loop .tribe-events-event-image {
     width: 100%;
+  }
+
+  .list-organizer {
+
   }
 
   @media (max-width: 768px) {
@@ -472,6 +491,29 @@
 // -----------------------------------------------------------------------------
 
 
+  .tribe-grid-content-wrap {
+    padding-left: 70px;
+  }
+
+.tribe-grid-header {
+  @include type-style-heading-sm();
+  font-size: 1.6rem;
+  color: $white;
+  background-color: $blue;
+  }
+
+  .tribe-week-today {
+    color: $blue;
+  }
+
+  .tribe-grid-body div[id*=tribe-events-event-] {
+    background-color: $white;
+  }
+
+.tribe-events-grid{
+  margin-top: 2rem;
+}
+
 // -----------------------------------------------------------------------------
 //
 // 6. Photo View
@@ -479,6 +521,16 @@
 // -----------------------------------------------------------------------------
 
 
+  .tribe-events-list-photo-description.tribe-events-content p{
+    line-height: 2.2rem;
+    font-size: 1.6rem;
+  }
+
+  .photo-organizer {
+    padding: 1.5rem;
+    font-size: 1.4rem;
+    border-top: 1px solid $gray;
+  }
 
 // -----------------------------------------------------------------------------
 //

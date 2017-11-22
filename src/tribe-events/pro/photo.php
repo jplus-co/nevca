@@ -15,11 +15,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action( 'tribe_events_before_template' ); ?>
 
-<!-- Tribe Bar -->
-<?php tribe_get_template_part( 'modules/bar' ); ?>
+<div class="flex block-md month-calendar">
 
-<!-- Main Events Content -->
-<?php tribe_get_template_part( 'pro/photo/content' ) ?>
+	<aside class="mt-5 mt-0-sm flex-basis-25 mb-2-md">
+		<!-- Tribe Bar -->
+		<?php tribe_get_template_part( 'modules/bar' ); ?>
+	</aside>
 
-<?php
-do_action( 'tribe_events_after_template' );
+	<div class="flex-1">
+		<!-- Main Events Content -->
+		<?php tribe_get_template_part( 'pro/photo/content' ) ?>
+	</div>
+
+	<?php do_action( 'tribe_events_after_template' ) ?>
+</div>
