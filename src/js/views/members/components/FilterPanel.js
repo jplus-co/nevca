@@ -46,7 +46,7 @@ class FilterPanel {
                   ) : null}
                   {filters.length ? (
                     <ul class='filter-panel__list'>
-                      {sectorObjectsFromIDs(filters, allSectors)
+                      {fromSectors.sectorObjectsFromIDs(filters, allSectors)
                         .map(sector => (
                           <SelectedFilter
                             key={sector.id}
