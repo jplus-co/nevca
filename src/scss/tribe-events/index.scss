@@ -149,6 +149,13 @@
     font-size: 1.8rem;
   }
 
+// .tribe-events-single{
+//   margin-bottom: 0;
+// }
+//
+// #tribe-events-footer .tribe-events-sub-nav{
+//   margin-bottom: 5rem;
+// }
 
 
 // -----------------------------------------------------------------------------
@@ -374,6 +381,12 @@
       }
 
     } // .tribe-events-tooltip
+
+
+    .tribe-event-featured {
+      background-color: transparent;
+      border: 2px solid $gold;
+    }
 
   } // #tribe-events-content
 
