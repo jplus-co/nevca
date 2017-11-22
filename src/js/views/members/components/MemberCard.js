@@ -37,8 +37,7 @@ const MemberCard = ({
         href={member.acf.website}
         target='_blank'
         tabindex={skeleton ? -1 : 0}
-      >
-        {mouse => (
+        render={mouse => (
           <figure class='member-card__figure'>
             <div class={classList.inner}>
               {member.acf.image && (
@@ -94,7 +93,7 @@ const MemberCard = ({
             }
           </figure>
         )}
-      </Mouse>
+      />
     </li>
   )
 }

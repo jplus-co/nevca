@@ -49,11 +49,6 @@ class Mouse extends Component {
     })
   }
 
-  childFn (children, state) {
-    Object.prototype.toString.call(children)
-    return children[0](state)
-  }
-
   render (props, state) {
     return (
       h(props.component,
@@ -64,7 +59,7 @@ class Mouse extends Component {
           onMouseLeave: this.onMouseLeave,
           onMouseMove: this.onMouseMove
         },
-        this.childFn(props.children, state)
+        this.props.render(state)
       )
     )
   }
