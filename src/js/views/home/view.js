@@ -13,17 +13,36 @@ const home = Barba.BaseView.extend({
 	onEnter () {
 		this.page = document.querySelector(`[data-namespace="${this.namespace}"]`)
 		this.heading = this.page.querySelector('.hero__heading')
+		
 		this.slider = this.page.querySelector('.js-slider')
 		this.slides = [...document.querySelectorAll('.js-slide')]
 		this.activeIndex = 0
-		this.sliderTimeout = window.sliderTimeout
+		this.sliderTimeout = window.sliderTimeout || 5000
 		this.sliderDestroyed = false
-
+		
 		this.setup()
+		this.initFx()
+		this.initParallax()
 		this.initBackgroundVideo()
 
 		this.updateSlide()
 	},
+
+	onEnterCompleted () {
+		this.animateIn()
+	},
+
+	onLeave () {
+		this.sliderDestroyed = true
+	},
+
+	onLeaveCompleted () {
+		this.parallax.destroy()
+		this.fx.destroy()
+		!config.isDevice && this.video.destroy()
+	},
+
+	// Methods:
 
 	updateSlide () {
 		setTimeout(() => {
@@ -44,34 +63,15 @@ const home = Barba.BaseView.extend({
 		}, this.sliderTimeout)
 	},
 
-	onEnterCompleted () {
-		this.animateIn()
-
-		this.initParallax()
-		this.initFx()
-	},
-
-	onLeave () {
-		this.sliderDestroyed = true
-	},
-
-	onLeaveCompleted () {
-		this.parallax.destroy()
-		this.fx.destroy()
-		!config.isDevice && this.video.destroy()
-	},
-
-	// Methods:
-
 	setup () {
 		const split = this.heading.innerHTML.split('<br>')
 	    .map(lineContent => `
 	      <div class="line">${lineContent}</div>
 	    `).join('')
 
-	  this.heading.innerHTML = split
-
-	  TweenLite.set('.line', { y: '75%', autoAlpha: 0 })
+		this.heading.innerHTML = split
+		
+		TweenMax.set(this.heading, { autoAlpha: 1 })
 	},
 
 	animateIn () {

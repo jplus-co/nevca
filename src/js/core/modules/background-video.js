@@ -37,7 +37,7 @@ class BackgroundVideo {
   }
 
   addEvents () {
-    this.video.addEventListener('loadeddata', this.onLoad, { once: true })
+    this.video.addEventListener('loadeddata', this.onLoad)
 
     emitter.on(WINDOW_RESIZE, this.resize)
     util.scroll.manager.add(this.onScroll)
@@ -49,10 +49,9 @@ class BackgroundVideo {
   }
 
   onLoad = () => {
-    window.requestAnimationFrame(() => {
-      this.video.play()
-      this.container.classList.remove(this.loadingClass)
-    })
+    this.video.removeEventListener('loadeddata', this.onLoad)
+    this.video.play()
+    this.container.classList.remove(this.loadingClass)
   }
 
   onScroll = ({ scrollY }) => {

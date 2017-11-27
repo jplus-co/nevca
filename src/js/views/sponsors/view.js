@@ -7,19 +7,15 @@ const sponsors = Barba.BaseView.extend({
 
 	onEnter () {
 		this.page = document.querySelector(`[data-namespace="${this.namespace}"]`)
+
+		this.initParallax()
+		this.initFx()
   },
 
-	onEnterCompleted () {
-    this.initParallax()
-		this.initFx()
-	},
-
-	onLeave () {
+	onLeaveCompleted () {
     this.parallax.destroy()
 		this.fx.destroy()
 	},
-
-	onLeaveCompleted () {},
 
 	initParallax () {
 		const parallaxItems = this.page.querySelectorAll('.js-parallax')

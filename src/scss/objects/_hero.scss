@@ -107,6 +107,15 @@
       line-height: 1.1;
       color: $white;
 
+      visibility: hidden;
+      opacity: 0;
+      
+      > .line {
+        transform: translateY(75%);
+        visibility: hidden;
+        opacity: 0;
+      }
+
       @media (max-width: $md) {
         font-size: 6.5rem;
       }

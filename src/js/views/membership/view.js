@@ -10,23 +10,20 @@ const membership = Barba.BaseView.extend({
 		this.page = document.querySelector(`[data-namespace="${this.namespace}"]`)
 
 		this.slider = new TestimonialSlider()
+
+		this.initFx()
+		this.initParallax()
 	},
 
 	onEnterCompleted () {
 		this.slider.init()
-
-		this.initParallax()
-		this.initFx()
 	},
 
-	onLeave () {
+	onLeaveCompleted () {
 		this.slider.destroy()
-
 		this.parallax.destroy()
 		this.fx.destroy()
 	},
-
-	onLeaveCompleted () {},
 
 	initParallax () {
 		const parallaxItems = this.page.querySelectorAll('.js-parallax')

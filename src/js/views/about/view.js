@@ -12,25 +12,22 @@ const about = Barba.BaseView.extend({
 
 		this.slider = new TestimonialSlider()
 		this.navigation = new PageNavigation()
-	},
-
-	onEnterCompleted () {
-		this.slider.init()
-		this.navigation.init()
 
 		this.initParallax()
 		this.initFx()
 	},
 
-	onLeave () {
+	onEnterCompleted () {
+		this.slider.init()
+		this.navigation.init()
+	},
+
+	onLeaveCompleted () {
 		this.slider.destroy()
 		this.navigation.destroy()
-
 		this.parallax.destroy()
 		this.fx.destroy()
 	},
-
-	onLeaveCompleted () {},
 
 	initParallax () {
 		const parallaxItems = this.page.querySelectorAll('.js-parallax')

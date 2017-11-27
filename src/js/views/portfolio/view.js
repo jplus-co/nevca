@@ -9,18 +9,17 @@ const portfolio = Barba.BaseView.extend({
 	// Barba Lifecycle:
 
 	onEnter () {
+		this.page = document.querySelector(`[data-namespace="${this.namespace}"]`)
+		
 		this.navigation = new PageNavigation()
+
+		this.initFx()
+		this.initParallax()
 	},
 
 	onEnterCompleted () {
-		this.page = document.querySelector(`[data-namespace="${this.namespace}"]`)
 		this.navigation.init()
-
-		this.initParallax()
-		this.initFx()
 	},
-
-	onLeave () {},
 
 	onLeaveCompleted () {
 		this.navigation.destroy()

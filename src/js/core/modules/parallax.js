@@ -29,7 +29,6 @@ class Parallax {
         target: el,
         top: scrollY + bounds.top,
         bottom: scrollY + bounds.bottom,
-        computed: getComputedStyle(el).transform,
         speed: el.dataset.speed || '-1'
       }
     })
@@ -47,13 +46,7 @@ class Parallax {
       const inView = bottom > 0 && top < config.height
 
       if (inView) {
-        el.style.transform = `${
-          entry.computed === 'none'
-            ? ''
-            : entry.computed + ' '
-        }translate3d(0, ${transform.toFixed(3)}px, 0)`
-      } else {
-        // el.style.transform = 'none'
+        el.style.transform = `translate3d(0, ${transform.toFixed()}px, 0)`
       }
     })
   }
