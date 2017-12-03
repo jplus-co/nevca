@@ -41,26 +41,6 @@
             "prefix_name": 0
         },
         {
-            "key": "field_59f8acd0d3eae",
-            "label": "Hero Video",
-            "name": "hero_video",
-            "type": "file",
-            "value": null,
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": "mp4"
-        },
-        {
             "key": "field_59d7f1c95f4b1",
             "label": "Mission",
             "name": "",
@@ -498,12 +478,12 @@
                     "prefix_name": 0
                 },
                 {
-                    "key": "field_5a0c64215b4ed",
-                    "label": "Slider Timeout",
-                    "name": "slider_timeout",
-                    "type": "range",
+                    "key": "field_59cac20defa8e",
+                    "label": "Customize Featured Members?",
+                    "name": "customize_featured_members",
+                    "type": "true_false",
                     "value": null,
-                    "instructions": "Please select a value in milliseconds to be used as a timeout for the auto-rotation of the member logos.",
+                    "instructions": "By default, members are automatically listed in reverse chronological order. Check this box to manually select and order members, but keep in mind that this option requires additional upkeep.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -511,12 +491,45 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": 4000,
-                    "min": 1000,
-                    "max": 10000,
-                    "step": 500,
-                    "prepend": "",
-                    "append": ""
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_59cac22fefa8f",
+                    "label": "Featured Members",
+                    "name": "featured_posts",
+                    "type": "relationship",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_59cac20defa8e",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "member"
+                    ],
+                    "taxonomy": [],
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": 15,
+                    "return_format": "object"
                 },
                 {
                     "key": "field_59cac24befa90",
@@ -867,5 +880,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1510761623
+    "modified": 1507599021
 }
