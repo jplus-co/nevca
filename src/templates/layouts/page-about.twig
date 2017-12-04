@@ -5,6 +5,8 @@
 {% set team_block = post.get_field("team_block") %}
 {% set testimonials_block = post.get_field("testimonials_block") %}
 {% set faq_block = post.get_field("faq_block") %}
+{% set impact_block = post.get_field("impact_block") %}
+
 
 {% block content %}
 
@@ -142,6 +144,42 @@
       </div>
     </section>
 
+  <!-- Impact Reports -->
+  <section id="impact" class="js-section section pl-20 py-10p py-20p-md js-fx-trigger" data-background="white">
+    <div class="js-parallax" data-speed="0.175">
+        <!-- Impact Report Text -->
+        <div class="flex block-md px-8p mb-4-md">
+          <div class="text-block__heading">
+            <span class="text-block__rule"></span>
+            {{ impact_block.heading }}
+          </div>
+        </div>
+        <!-- Impact Report List -->
+        <div class="section__row pt-4p px-8p pr-0-lg">
+          <div class="scroll-x-lg pb-6p">
+            <div class="flex min-w-md">
+              {% include 'impact-reports-list.twig' with {
+                "props": impact_block.featured_posts
+              } %}
+              <!-- View more circle button -->
+              <div class="align-self-end pl-2 pr-3-lg">
+                {% include 'circle-button.twig' with {
+                  direction: 'right',
+                  url: site.link ~ '/impact_reports' | relative,
+                  label: 'View all',
+                  color: colors.gold,
+                  class: 'no-barba'
+                } %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-2 mb-4 hidden block-lg">
+          {% include "scroll-cta.twig" %}
+        </div>
+    </div>
+  </section>
+
     {% include "faq-tease-block.twig" with {
       "props": faq_block
     } %}
@@ -161,6 +199,9 @@
         </li>
         <li class="page-navigation__item">
           <a class="js-anchor-link page-navigation__link" href="#testimonials">Testimonials</a>
+        </li>
+        <li class="page-navigation__item">
+          <a class="js-anchor-link page-navigation__link" href="#impact">Impact Reports</a>
         </li>
       </ul>
     </nav>

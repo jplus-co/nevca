@@ -44,7 +44,8 @@
             "key": "field_59e507a20285c",
             "label": "Mission",
             "name": "",
-            "type": "tab",
+            "type": "text",
+            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -54,7 +55,12 @@
                 "id": ""
             },
             "placement": "left",
-            "endpoint": 0
+            "endpoint": 0,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_59ca69ef64a7e",
@@ -468,6 +474,62 @@
                     "return_format": "object"
                 }
             ]
+        },
+        {
+            "key": "field_5a2483d81c741",
+            "label": "Impact",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5a2486cdb1ae1",
+            "label": "Impact Block",
+            "name": "impact_block",
+            "type": "group",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5a2486cdb1ae2",
+                    "label": "Heading",
+                    "name": "heading",
+                    "type": "clone",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "field_59c53564aff00"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                }
+            ]
         }
     ],
     "location": [
@@ -503,5 +565,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1508263403
+    "modified": 1512405744
 }
