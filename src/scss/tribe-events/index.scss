@@ -11,6 +11,10 @@
 //
 // -----------------------------------------------------------------------------
 
+#tribe-events-pg-template, .tribe-events-pg-template {
+  max-width: 1280px;
+}
+
 // Must be wrapped to prioritize custom styles
 #tribe-events {
 
@@ -383,36 +387,49 @@
     } // .tribe-events-tooltip
 
 
-    .tribe-event-featured {
-      background-color: transparent;
-      border: 2px solid $gold;
+    .tribe-events-calendar .tribe-event-featured {
+          background-color: transparent;
+          border: 2px solid $gold;
+        }
+
+      } // #tribe-events-content
+
+
+
+
+    // -----------------------------------------------------------------------------
+    //
+    // 4. List View
+    //
+    // -----------------------------------------------------------------------------
+
+      // Seperator for different months
+      .tribe-events-list-separator-month {
+        @include type-style-heading-sm();
+        background-color: $blue;
+        color: $white;
+      }
+      // Makes the images their full container size
+      .tribe-events-list .tribe-events-loop .tribe-events-event-image {
+        width: 100%;
+      }
+
+      .list-organizer {
+
+      }
+
+    .tribe-event-featured .tribe-events-content {
+      color: $black;
     }
 
-  } // #tribe-events-content
+    .tribe-events-list .tribe-events-loop .tribe-event-featured {
+      border: none;
+      background-color: transparent;
+    }
 
-
-
-
-// -----------------------------------------------------------------------------
-//
-// 4. List View
-//
-// -----------------------------------------------------------------------------
-
-  // Seperator for different months
-  .tribe-events-list-separator-month {
-    @include type-style-heading-sm();
-    background-color: $blue;
-    color: $white;
-  }
-  // Makes the images their full container size
-  .tribe-events-list .tribe-events-loop .tribe-events-event-image {
-    width: 100%;
-  }
-
-  .list-organizer {
-
-  }
+    .featured-indicator {
+      color: $gold;
+    }
 
   @media (max-width: 768px) {
 
@@ -530,6 +547,19 @@
     padding: 1.5rem;
     font-size: 1.4rem;
     border-top: 1px solid $gray;
+  }
+
+  .tribe-event-featured .tribe-events-photo-event-wrap {
+    background: #fafafa;
+    color: $black;
+  }
+
+  .tribe-event-featured .tribe-events-event-meta {
+    color: $black;
+  }
+
+  .tribe-event-featured .tribe-events-list-event-title {
+    color: $black;
   }
 
 // -----------------------------------------------------------------------------
