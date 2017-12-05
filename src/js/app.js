@@ -3,7 +3,6 @@ import debounce from 'lodash.debounce'
 import preloader from './core/preloader'
 import router from './core/router'
 import emitter from './core/emitter'
-import transition from './transitions'
 import {
   WINDOW_RESIZE,
   APP_READY

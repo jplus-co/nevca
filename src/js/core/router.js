@@ -11,9 +11,6 @@ import {
   GA_TRACKING_ID
 } from '../constants'
 
-import Parallax from './modules/parallax'
-import ScrollFx from './modules/scroll-fx'
-
 class Router {
   constructor () {
     Barba.Pjax.Dom.wrapperId = 'app'
