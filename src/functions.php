@@ -108,6 +108,15 @@ class NEVCASite extends TimberSite {
 				'parent_slug'  => 'edit.php?post_type=testimonial',
 				'redirect'     => false
 			));
+
+			acf_add_options_page(array(
+				'page_title'   => 'Archive Options',
+				'menu_title'   => 'Archive Options',
+				'menu_slug'    => 'impact_reports_page_options',
+				'capability'   => 'edit_posts',
+				'parent_slug'  => 'edit.php?post_type=impact_report',
+				'redirect'     => false
+			));
 		}
 	}
 

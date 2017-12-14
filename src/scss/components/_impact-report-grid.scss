@@ -1,0 +1,113 @@
+.impact-report-grid {
+  @include reset-list();
+  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin: 0 -1.5rem;
+}
+
+.impact-report-card {
+  flex-basis: calc(100% / 3);
+  padding: 1.5rem;
+  position: relative;
+
+  @media (max-width: $sm) {
+    flex-basis: 50%;
+  }
+
+  &__link {
+    @include reset-anchor();
+    font-size: 1.4rem;
+  }
+
+  &__figure {
+    margin: 0;
+  }
+
+  &__inner {
+    background-color: $black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .impact-report-card--cta & {
+      background-color: $gold;
+      color: $white;
+      text-align: center;
+      padding: 1.6rem;
+    }
+
+    .impact-report-card--skeleton & {
+      background-color: lighten($light-blue, 10%);
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    height: auto;
+    transition: transform 1s $ease-out-expo 0.3s, opacity 1s $ease-out-expo 0.3s;
+
+    .impact-report-card__link:hover & {
+      transition-delay: 0s;
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    .impact-report-card--skeleton & {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+
+  &__hover {
+    position: absolute;
+    overflow: hidden;
+
+    > span {
+      display: inline-block;
+      @include type-style-nav-md();
+      color: $white;
+      transform: translateY(100%);
+      transition: transform 0.6s $ease-out-quint;
+
+      .impact-report-card__link:hover & {
+        transform: none;
+        transition-delay: 0.2s;
+
+        .impact-report-card--skeleton & {
+          transform: translateY(100%);
+        }
+      }
+    }
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    display: block;
+    transition: color 1.2s $ease-out-quint, background-color 1.2s $ease-out-quint;
+
+    .impact-report-card__link:hover & {
+      color: $gold;
+
+      .impact-report-card--skeleton & {
+        color: lighten($light-blue, 10%);
+      }
+    }
+
+    .impact-report-card--skeleton & {
+      color: lighten($light-blue, 10%);
+      background-color: lighten($light-blue, 10%);
+    }
+  }
+
+  &__cta-text {
+    line-height: 1.35;
+
+    .impact-report-card--skeleton & {
+      color: lighten($light-blue, 10%);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.impact-tease-list {
+  @include reset-list();
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  flex: 1;
+  margin: 0 -1.5rem;
+
+  @media (max-width: $md) {
+    display: block;
+  }
+}
