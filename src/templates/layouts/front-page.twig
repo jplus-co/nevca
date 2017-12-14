@@ -92,18 +92,19 @@
           {% set ctw = community_block.company_to_watch %}
 
           <div class="blog-post-tease">
-            <div class="blog-post-tease__image-mask">
-              <img class="blog-post-tease__image" src="{{ Image(mtw.author_avatar).src }}" alt="{{ mtw.title }}">
-            </div>
+            {% if mtw.author_avatar %}
+              <div class="blog-post-tease__image" style="background-image: url({{ Image(mtw.author_avatar).src }})"></div>
+            {% endif %}
             <h4 class="blog-post-tease__subheading">Member to Watch</h4>
             <h3 class="blog-post-tease__heading">{{ mtw.title }}</h3>
             <a class="blog-post-tease__link text-button text-button--underline" href="{{ mtw.link.url }}" target="{{ mtw.link.target }}">{{ mtw.link.title }}</a>
           </div>
 
           <div class="blog-post-tease">
-            <div class="blog-post-tease__image-mask">
-              <img class="blog-post-tease__image" src="{{ Image(ctw.author_avatar).src }}" alt="{{ ctw.title }}">
-            </div>
+              <!-- <img class="blog-post-tease__image" src="{{ Image(ctw.author_avatar).src }}" alt="{{ ctw.title }}"> -->
+              {% if ctw.author_avatar %}
+                <div class="blog-post-tease__image" style="background-image: url({{ Image(ctw.author_avatar).src }})"></div>
+              {% endif %}
             <h4 class="blog-post-tease__subheading">Company to Watch</h4>
             <h3 class="blog-post-tease__heading">{{ ctw.title }}</h3>
             <a class="blog-post-tease__link text-button text-button--underline" href="{{ ctw.link.url }}" target="{{ ctw.link.target }}">{{ ctw.link.title }}</a>

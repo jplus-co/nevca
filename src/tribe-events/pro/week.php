@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="flex block-md month-calendar">
 
-	<aside class="mt-5 mt-0-sm flex-basis-25 mb-2-md">
+	<aside class="mt-5 mt-0-sm flex-basis-35 mb-2-md">
 		<!-- Tribe Bar -->
 		<?php tribe_get_template_part( 'modules/bar' ); ?>
 	</aside>
