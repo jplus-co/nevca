@@ -1,0 +1,20 @@
+<ul class="impact-tease-list">
+  {% for post in props %}
+  <li class="impact-report-card">
+    <a href="{{ post.get_field('file') }}" class="impact-report-card__link" target="_blank" rel="nofollow noreferrer">
+      <figure class="impact-report-card__figure">
+        <div class="impact-report-card__inner">
+          <img
+            class="impact-report-card__logo"
+            src="{{ Image(post.thumbnail).src }}"
+            alt="{{ post.title ~ 'Impact Report' }}"
+          />
+          <span class="impact-report-card__hover">
+            <span>View</span>
+          </span>
+        </div>
+      </figure>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
