@@ -8,7 +8,7 @@
       </h3>
     {% endif %} -->
     {% include "list-card.twig" with {
-      "link": post.get_field('link')|relative,
+      "link": post.get_field('link'),
       "target": "_blank",
       "date_circle": post.publish_date,
       "subheading": post.source,
