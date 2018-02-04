@@ -145,7 +145,7 @@ $website = tribe_get_event_website_link();
 		// Event Website
 		if ( ! empty( $website ) ) : ?>
 			<dt>
-					<?php echo '<a class="text-button text-button--underline" href="' . $website . '">Event Website</a>'; ?>
+				<?php echo '<a class="button my-2" href="' . $website . '"><span>Event Website</span></a>'; ?>
 			</dt>
 		<?php endif ?>
 
