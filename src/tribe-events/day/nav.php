@@ -16,11 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <h3 class="screen-reader-text" tabindex="0"><?php esc_html_e( 'Day Navigation', 'the-events-calendar' ) ?></h3>
 <ul class="tribe-events-sub-nav">
-		<!-- Previous Page Navigation -->
-		<li class="tribe-events-nav-previous" aria-label="previous day link"><?php tribe_the_day_link( 'previous day' ) ?></li>
+	<!-- Previous Page Navigation -->
+	<li class="tribe-events-nav-previous" aria-label="previous day link"><?php tribe_the_day_link( 'previous day' ) ?></li>
 
-		<!-- Next Page Navigation -->
-		<li class="tribe-events-nav-next" aria-label="next day link"><?php tribe_the_day_link( 'next day' ) ?></li>
+	<!-- Next Page Navigation -->
+	<li class="tribe-events-nav-next" aria-label="next day link"><?php tribe_the_day_link( 'next day' ) ?></li>
 </ul>
-
-<!-- href="<?php echo esc_url( tribe_get_listview_next_link() ); ?>" rel="next"><?php printf( esc_html__( 'Next %s', 'the-events-calendar' ), $events_label_plural . '<span class="pagination__control pagination__control--next"></span> '); ?></a> -->
