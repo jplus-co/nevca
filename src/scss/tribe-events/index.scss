@@ -260,6 +260,7 @@
       .tribe-bar-views-list .tribe-bar-views-option a {
         @include type-style-action();
         background-color: transparent;
+        transition: color 0.3s !important;
         &:hover {
           color: $gold;
         }
@@ -293,9 +294,24 @@
       // Calendar Lines
       td {
         border: 0.1rem solid $light-blue;
-        height: 14.5rem;
+        border-top: none !important;
+        border-bottom: none !important;
+        min-height: 14.5rem;
         &:after {
           background-color: $blue;
+        }
+
+        .tribe-events-viewmore {
+          margin: 0 !important;
+          padding: 3% !important;
+
+          a {
+            white-space: normal !important;
+            color: $black;
+            &:hover {
+              color: $gold !important;
+            }
+          }
         }
       }
       // Selected state of a calendar cell on mobile
@@ -333,6 +349,7 @@
         @include type-style-action();
         font-size: 1.2rem;
         color: black;
+        padding: 3%;
       }
       // Hover state for Event name
       div[id*='tribe-events-event-']:hover {
