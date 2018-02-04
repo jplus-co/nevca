@@ -1,13 +1,13 @@
 <ul class="press-archive-list">
-  {% set last_press_publish_date = 5000 %}
+  {% set last_press_publish_year = 5000 %}
   {% for post in props %}
-    {% set press_publish_date = post.publish_date|date('Y') %}
-    {% if loop.index == 1 or press_publish_date < last_press_publish_date %}
+    {% set press_publish_year = post.publish_date|date('Y') %}
+    {% if loop.index == 1 or press_publish_year < last_press_publish_year %}
       <h3 class="text-block__heading">
         <div class="text-block__rule"></div>
-        {{ press_publish_date }}
+        {{ press_publish_year }}
       </h3>
-      {% set last_press_publish_date = post.publish_date|date('Y') %}
+      {% set last_press_publish_year = post.publish_date|date('Y') %}
     {% endif %}
     {% include "list-card.twig" with {
       "link": post.get_field('link'),
