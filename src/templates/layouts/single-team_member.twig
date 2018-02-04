@@ -19,7 +19,7 @@
 
       <div class="flex-1">
         <h1 class="block hidden-sm text-block__heading text-block__heading--display single-team-member__heading">{{post.title}}</h1>
-        <div class="single-team-member__bio">{{post.bio}}</div>
+        <div class="single-team-member__bio">{{ post.get_field('bio') }}</div>
       </div>
 
       <!-- Show social links on mobile -->
