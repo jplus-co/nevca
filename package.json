@@ -1,7 +1,8 @@
 {
   "name": "NEVCA",
-  "version": "1.0.0",
-  "description": "A WordPress theme for the New England Venture Capital Association",
+  "version": "9.1.0",
+  "description":
+    "A WordPress theme for the New England Venture Capital Association",
   "main": "gulpfile.js",
   "scripts": {
     "build": "webpack -p --config webpack.prod.js",

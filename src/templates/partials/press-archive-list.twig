@@ -1,12 +1,25 @@
 <ul class="press-archive-list">
-  {% set last_post_year = '' %}
+  {#
+  // initialize last_press_publish_year variable to a year far in the future
+  // so it is always greater than the actual press publish year. #}
+  {% set last_press_publish_year = 5000 %}
   {% for post in props %}
-    <!-- {% if post.publish_date|date('Y') != last_post_year %}
+    {#
+    // save current press publish year from custom field #}
+    {% set press_publish_year = post.publish_date|date('Y') %}
+    {#
+    // we only want to render the year header at the top of each page
+    // or when the year is less than the previous #}
+    {% if loop.index == 1 or press_publish_year < last_press_publish_year %}
       <h3 class="text-block__heading">
         <div class="text-block__rule"></div>
-        {{ post.publish_date|date('Y') }}
+        {{ press_publish_year }}
       </h3>
-    {% endif %} -->
+      {#
+      // after rendering a header, we save the rendered value for use
+      // in future iterations. #}
+      {% set last_press_publish_year = press_publish_year %}
+    {% endif %}
     {% include "list-card.twig" with {
       "link": post.get_field('link'),
       "target": "_blank",
@@ -16,7 +29,5 @@
       "action": 'Read article',
       "list_card_classes": 'mb-7'
     } %}
-
-    {% set last_post_year = post.publish_date|date('Y') %}
   {% endfor %}
 </ul>

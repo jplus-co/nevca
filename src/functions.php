@@ -169,9 +169,7 @@ new NEVCASite();
 
 // Changes the text labels for Google Calendar and iCal buttons on a single event page
 remove_action( 'tribe_events_single_event_after_the_content', array( tribe( 'tec.iCal' ), 'single_event_links' ) );
-
 add_action( 'tribe_events_single_event_after_the_content', 'customized_tribe_single_event_links' );
-
 function customized_tribe_single_event_links()	{
 
 	if ( is_single() && post_password_required() ) {
@@ -182,7 +180,6 @@ function customized_tribe_single_event_links()	{
 	echo '<a class="button" href="' . tribe_get_single_ical_link() . '"><span>+ Export to iCal</span></a>';
 	echo '</div>';
 }
-
 
 // Filters the website link for Tribe Events
 add_filter('tribe_get_event_website_link','my_custom_website_link');

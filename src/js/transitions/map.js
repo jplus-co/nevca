@@ -1,11 +1,14 @@
 import transition from './'
 
 export default {
-  'press': {
-    'press': transition.fade
+  press: {
+    press: transition.fade,
   },
-  'faq': {
-    'faq': transition.fade
+  faq: {
+    faq: transition.fade,
   },
-  default: transition.overlay
+  'events-default': {
+    'events-default': transition.fade,
+  },
+  default: transition.overlay,
 }
