@@ -4,8 +4,6 @@ Author: mike wagz
 Version: 9.0.1
 */
 
-
-
 // Settings
 @import 'settings/breakpoints';
 @import 'settings/colors';
@@ -13,20 +11,14 @@ Version: 9.0.1
 @import 'settings/typography';
 @import 'settings/sizes';
 
-
-
 // Tools
 @import 'tools/functions';
 @import 'tools/mixins';
-
-
 
 // Generic
 @import 'generic/normalize';
 @import 'generic/fonts';
 @import 'generic/base';
-
-
 
 // Objects
 @import 'objects/keyframes';
@@ -50,8 +42,6 @@ Version: 9.0.1
 @import 'objects/arrow';
 @import 'objects/mouse-pointer-circle';
 @import 'objects/dropdown';
-
-
 
 // Components
 @import 'components/noscript';
@@ -101,8 +91,6 @@ Version: 9.0.1
 @import 'components/mobile-toggle';
 @import 'components/mobile-menu';
 
-
-
 // Tribe Events
 @import 'tribe-events/index.scss';
 
@@ -117,3 +105,4 @@ Version: 9.0.1
 @import 'helpers/overflow';
 @import 'helpers/spacing';
 @import 'helpers/display';
+@import 'helpers/text-align';
