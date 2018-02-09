@@ -2,8 +2,8 @@
 	<ul class="{{ block ~ '__list' }}">
 	{% for item in menu.get_items %}
 		<li class="{{ block ~ '__item' }}">
-			{# TODO: ECP x Barba.js integration #}
-			<a class="{{ loop.index == 5 ? 'no-barba '}}{{ loop.index == loop.length ? block ~ '__button' : block ~ '__link' }}"
+			{% set is_events_dropdown = loop.index == 5 %}
+			<a class="{{ is_events_dropdown ? 'no-barba '}}{{ loop.index == loop.length ? block ~ '__button' : block ~ '__link' }}"
 				target="{{ item.is_external ? '_blank' : '_self' }}"
         href="{{ item.is_external ? item.link : item.link|relative }}">
 					{% if loop.index == loop.length %}
@@ -16,7 +16,7 @@
 				<ul class="dropdown">
 					{% for child in item.get_children %}
 						<li class="dropdown__item">
-							<a class="dropdown__link"
+							<a class="dropdown__link{{ is_events_dropdown ? ' no-barba'}}"
 								target="{{ child.is_external ? '_blank' : '_self' }}"
 								href="{{ child.is_external ? child.link : child.link|relative }}">
 									<span>{{ child.title }}</span>

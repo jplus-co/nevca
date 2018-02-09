@@ -6,14 +6,16 @@
     {% if footer_menu %}
       <div class="flex flex-1 mb-4-lg">
         {% for item in footer_menu.get_items %}
+          {% set is_community_column = loop.index == 2 %}
           <div class="flex-1 pr-5">
             <h5 class="site-footer__heading">
               {{ item.title }}
             </h5>
             <div class="site-footer__list">
               {% for child in item.get_children %}
+                {% set is_form_link = is_community_column and loop.index == 4 %}
                 <div class="site-footer__item">
-                  <a class="site-footer__link"
+                  <a class="site-footer__link{{ is_form_link ? ' no-barba' }}"
                      href="{{ child.is_external ? child.link : child.link|relative }}"
                      target="{{ child.is_external ? '_blank' : '_self' }}"
                   >
