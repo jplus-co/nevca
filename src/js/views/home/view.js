@@ -58,7 +58,9 @@ const home = Barba.BaseView.extend({
 	onLeaveCompleted () {
 		this.parallax.destroy()
 		this.fx.destroy()
-		!config.isDevice && this.video.destroy()
+		if (!config.isDevice && this.video) {
+ 			this.video.destroy()
+		}
 	},
 
 	// Methods:
@@ -86,6 +88,7 @@ const home = Barba.BaseView.extend({
 	initBackgroundVideo () {
 		const container = this.page.querySelector('.js-video-container')
 
+if (!container) return
 		this.video = new BackgroundVideo({
 			container,
 			src: container.dataset.src,

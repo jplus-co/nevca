@@ -1,7 +1,10 @@
 {% extends 'base.twig' %}
 
 {% set featured_programs = post.get_field('featured_posts') %}
+{% set advisory_committee_block = post.get_field("advisory_committee_block") %}
 {% set text_block = post.get_field('text_block') %}
+
+
 
 
 {% block content %}

@@ -48,8 +48,8 @@
             "mime_types": "png, jpg"
         },
         {
-            "key": "field_5a074ac697c59",
-            "label": "Link",
+            "key": "field_5a062ac4db531",
+            "label": "Board Member Link",
             "name": "board_member_link",
             "type": "url",
             "value": null,
@@ -89,6 +89,30 @@
                 "operator": "==",
                 "value": "team:board-of-overseers"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "team_member"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "team:ac-hack-diversity"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "team_member"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "team:ac-syndicate-sessions"
+            }
         ]
     ],
     "menu_order": 0,
@@ -115,5 +139,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1510427359
+    "modified": 1525341983
 }
