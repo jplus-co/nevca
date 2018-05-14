@@ -1,6 +1,8 @@
+
+
 <ul class="board-member-list">
   {% for item in props %}
-    <li class="board-member-list__item {{ post.has_committee ? 'z-index-1' }} {{ post.has_background_image ? 'color-white'}} ">
+    <li class="board-member-list__item {{ post.has_committee ? 'z-index-1 is-advisory-committee' }} {{ post.has_background_image ? 'color-white'}} ">
       {% if item.board_member_link %}
         <a class="block reset-anchor"
           href="{{ item.board_member_link }}"

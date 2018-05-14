@@ -12,6 +12,10 @@
   }
 }
 
+.no-flex {
+  display: block;
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -36,6 +40,10 @@
 
 .justify-content-between {
   justify-content: space-between;
+}
+
+.justify-content-between-important {
+  justify-content: space-between!important;
 }
 
 .align-items-start {
