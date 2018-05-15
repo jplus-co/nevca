@@ -52,8 +52,8 @@
                 classes: post.has_background_image ? 'color-white'
                 } %}
               </div>
-              <div class="pr-6p pr-0-lg js-fx">
-                <div class="scroll-x-lg pl-8p-lg pl-0-sm pr-12p-lg">
+              <div class="pr-6p pr-0-lg">
+                <div class="scroll-x-lg pl-8p-lg pl-0-sm pr-12p-lg z-index-1">
                   {% include "board-member-list.twig" with {
                   "props": advisory_committee_block.ac_hack_diversity
                   }
@@ -112,7 +112,7 @@
 
 
     {% if post.has_background_image %}
-      <div class="columns-block__background-image js-parallax"
+      <div class="columns-block__background-image"
         data-speed="-0.175"
         style="background-image: url({{ Image(post.images[0]).src }})"></div>
     {% endif %}
