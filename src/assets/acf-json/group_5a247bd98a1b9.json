@@ -1,8 +1,6 @@
 {
     "key": "group_5a247bd98a1b9",
     "title": "Impact Reports",
-<<<<<<< HEAD
-=======
     "location": [
         [
             {
@@ -22,7 +20,6 @@
     ],
     "active": 1,
     "description": "",
->>>>>>> master
     "fields": [
         {
             "key": "field_5a247c78c9f8f",
@@ -45,28 +42,5 @@
             "mime_types": ""
         }
     ],
-<<<<<<< HEAD
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "impact_report"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": [
-        "permalink"
-    ],
-    "active": 1,
-    "description": "",
-    "modified": 1512407370
-=======
     "modified": 1512498737
->>>>>>> master
 }
